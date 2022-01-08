@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Application", "IntelligentInvestor.Application\IntelligentInvestor.Application.csproj", "{6D288392-5B1C-4DB8-8C3F-2C229720FDCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Infrastructure", "IntelligentInvestor.Infrastructure\IntelligentInvestor.Infrastructure.csproj", "{C827489B-C166-463A-B0EF-8CD102975414}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{6D288392-5B1C-4DB8-8C3F-2C229720FDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D288392-5B1C-4DB8-8C3F-2C229720FDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D288392-5B1C-4DB8-8C3F-2C229720FDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C827489B-C166-463A-B0EF-8CD102975414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C827489B-C166-463A-B0EF-8CD102975414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C827489B-C166-463A-B0EF-8CD102975414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C827489B-C166-463A-B0EF-8CD102975414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

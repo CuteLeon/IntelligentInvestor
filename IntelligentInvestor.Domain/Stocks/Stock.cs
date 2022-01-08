@@ -1,5 +1,6 @@
 ﻿using IntelligentInvestor.Domain.Companys;
 using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Domain.Stocks;
 
@@ -19,4 +20,6 @@ public class Stock : StockBase
     public virtual Company Company { get; set; }
 
     public virtual List<Quota> Quotas { get; set; }
+
+    public virtual List<TradeStrand> TradeStrands { get; set; }
 }
