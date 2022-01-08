@@ -1,5 +1,7 @@
 using System.ComponentModel;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 
 namespace IntelligentInvestor.Client
 {
@@ -37,6 +39,7 @@ namespace IntelligentInvestor.Client
             yield return "Initialize service provider ...";
             var services = host.Services;
             services.AddTransient<MainForm>();
+            services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
         }
     }
 }

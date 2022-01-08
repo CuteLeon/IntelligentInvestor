@@ -15,7 +15,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="NLog" Version="5.0.0-rc1" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.0.0-rc1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +37,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>IntelligentInvestorResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

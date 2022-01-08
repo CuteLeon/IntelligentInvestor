@@ -39,6 +39,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intelligent Investor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResumeLayout(false);
 
         }
