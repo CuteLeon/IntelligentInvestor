@@ -27,10 +27,6 @@ public class Quota : QuotaBase
 
     public decimal CurrentPrice { get; set; }
 
-    public decimal BiddingPrice { get; set; }
-
-    public decimal AuctionPrice { get; set; }
-
     public decimal FluctuatingRange { get; set; }
 
     public decimal FluctuatingRate { get; set; }

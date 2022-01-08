@@ -4,6 +4,10 @@ namespace IntelligentInvestor.Domain.Trades;
 
 public class TradeStrand : QuotaBase
 {
+    public decimal BiddingPrice { get; set; }
+
+    public decimal AuctionPrice { get; set; }
+
     public long BuyStrand1 { get; set; }
 
     public double BuyPrice1 { get; set; }
