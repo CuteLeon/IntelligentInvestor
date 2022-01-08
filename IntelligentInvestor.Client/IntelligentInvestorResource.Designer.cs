@@ -69,5 +69,25 @@ namespace IntelligentInvestor.Client {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IntelligentInvestorLogo {
+            get {
+                object obj = ResourceManager.GetObject("IntelligentInvestorLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LaunchBackgroud {
+            get {
+                object obj = ResourceManager.GetObject("LaunchBackgroud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
