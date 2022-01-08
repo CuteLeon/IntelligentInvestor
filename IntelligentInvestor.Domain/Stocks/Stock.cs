@@ -22,4 +22,20 @@ public class Stock : StockBase
     public virtual List<Quota> Quotas { get; set; }
 
     public virtual List<TradeStrand> TradeStrands { get; set; }
+
+    public static string GetFullCode(Stock stock)
+        => $"{stock.StockMarket}-{stock.StockCode}-{stock.StockName}";
+
+    public static (string StockCode, StockMarkets StockMarket, string StockName) GetMarketCode(string fullCode)
+    {
+        var values = fullCode.Split(new[] { '-' }, 3);
+        if (values.Length == 3)
+        {
+            return (values[0], Enum.TryParse(values[1], out StockMarkets stockMarket) ? stockMarket : StockMarkets.NotSpecified, values[2]);
+        }
+        else
+        {
+            return (string.Empty, StockMarkets.NotSpecified, string.Empty);
+        }
+    }
 }
