@@ -23,8 +23,8 @@ public class Stock : StockBase
 
     public virtual List<TradeStrand> TradeStrands { get; set; }
 
-    public static string GetFullCode(Stock stock)
-        => $"{stock.StockMarket}-{stock.StockCode}-{stock.StockName}";
+    public string GetFullCode()
+        => $"{this.StockMarket}-{this.StockCode}-{this.StockName}";
 
     public static (string StockCode, StockMarkets StockMarket, string StockName) GetMarketCode(string fullCode)
     {
