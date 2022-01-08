@@ -24,8 +24,7 @@ namespace IntelligentInvestor.Client
 
             using var launchForm = new LaunchForm(InitializeProgramHost);
             var result = launchForm.ShowDialog();
-            if (result != DialogResult.OK)
-                Application.Exit(new CancelEventArgs());
+            if (result != DialogResult.OK) return;
 
             var mainForm = Host.ServiceProvider.GetRequiredService<MainForm>();
             Application.Run(mainForm);
