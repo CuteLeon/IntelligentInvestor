@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace IntelligentInvestor.Application.Repository.Abstractions;
+namespace IntelligentInvestor.Application.Repositorys.Abstractions;
 
 public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : class

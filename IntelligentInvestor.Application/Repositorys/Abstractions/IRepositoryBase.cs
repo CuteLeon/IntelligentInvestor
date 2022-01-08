@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace IntelligentInvestor.Application.Repository.Abstractions;
+namespace IntelligentInvestor.Application.Repositorys.Abstractions;
 
 public interface IRepositoryBase<TEntity> where TEntity : class
 {
