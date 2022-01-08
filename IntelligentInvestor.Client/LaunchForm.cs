@@ -2,22 +2,47 @@ namespace IntelligentInvestor.Client
 {
     public partial class LaunchForm : Form
     {
-        private readonly TimeSpan waitTimeSpan;
+        public Func<IEnumerable<string>> LaunchMethod { get; init; }
 
-        public LaunchForm(TimeSpan waitTimeSpan)
+        public LaunchForm(Func<IEnumerable<string>> launchMethod)
         {
+            this.LaunchMethod = launchMethod;
             this.Icon = IntelligentInvestorResource.IntelligentInvestor;
             this.InitializeComponent();
-            this.waitTimeSpan = waitTimeSpan;
         }
 
         private void LaunchForm_Shown(object sender, EventArgs e)
         {
-            Task.Run(async () =>
-            {
-                await Task.Delay(waitTimeSpan);
-                this.DialogResult = DialogResult.OK;
-            });
+            var result = false;
+            this.Refresh();
+
+            Task.WhenAll(
+                Task.Delay(3000),
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        foreach (var message in this.LaunchMethod.Invoke())
+                        {
+                            this.ShowMessage(message);
+                        }
+                        result = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        this.ShowMessage(ex.Message);
+                        result = false;
+                    }
+                }))
+                .ContinueWith(
+                    task => this.DialogResult = result ? DialogResult.OK : DialogResult.Abort,
+                    TaskContinuationOptions.ExecuteSynchronously);
         }
+
+        private void ShowMessage(string message) => this.Invoke(() =>
+        {
+            this.MessageLabel.Text = message;
+            this.Refresh();
+        });
     }
 }

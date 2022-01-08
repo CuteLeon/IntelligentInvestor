@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MassageLabel = new System.Windows.Forms.Label();
+            this.MessageLabel = new System.Windows.Forms.Label();
             this.LogoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // MassageLabel
+            // MessageLabel
             // 
-            this.MassageLabel.AutoEllipsis = true;
-            this.MassageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MassageLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MassageLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MassageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MassageLabel.Location = new System.Drawing.Point(0, 430);
-            this.MassageLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.MassageLabel.Name = "MassageLabel";
-            this.MassageLabel.Padding = new System.Windows.Forms.Padding(10);
-            this.MassageLabel.Size = new System.Drawing.Size(718, 50);
-            this.MassageLabel.TabIndex = 0;
-            this.MassageLabel.Text = "Launching ...";
-            this.MassageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MessageLabel.AutoEllipsis = true;
+            this.MessageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.MessageLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MessageLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MessageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MessageLabel.Location = new System.Drawing.Point(0, 430);
+            this.MessageLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.MessageLabel.Size = new System.Drawing.Size(718, 50);
+            this.MessageLabel.TabIndex = 0;
+            this.MessageLabel.Text = "Launching ...";
+            this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LogoLabel
             // 
@@ -72,7 +72,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(718, 480);
             this.Controls.Add(this.LogoLabel);
-            this.Controls.Add(this.MassageLabel);
+            this.Controls.Add(this.MessageLabel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LaunchForm";
@@ -85,7 +85,7 @@
 
         #endregion
 
-        private Label MassageLabel;
+        private Label MessageLabel;
         private Label LogoLabel;
     }
 }
