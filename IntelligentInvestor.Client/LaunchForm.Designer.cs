@@ -78,6 +78,7 @@
             this.Name = "LaunchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IntelligentInvestor Launching ...";
+            this.Shown += new System.EventHandler(this.LaunchForm_Shown);
             this.ResumeLayout(false);
 
         }

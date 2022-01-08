@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Client", "IntelligentInvestor.Client\IntelligentInvestor.Client.csproj", "{56029F85-658D-4288-B27D-BDC669EB12E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Client", "IntelligentInvestor.Client\IntelligentInvestor.Client.csproj", "{56029F85-658D-4288-B27D-BDC669EB12E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{44AE84C7-E3B0-437A-8174-A81CDA3DC471}"
 EndProject

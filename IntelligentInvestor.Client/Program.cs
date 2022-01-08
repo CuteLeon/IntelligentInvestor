@@ -11,7 +11,11 @@ namespace IntelligentInvestor.Client
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LaunchForm());
+
+            using var launchForm = new LaunchForm(TimeSpan.FromSeconds(3));
+            var result = launchForm.ShowDialog();
+
+            Application.Run(new MainForm());
         }
     }
 }

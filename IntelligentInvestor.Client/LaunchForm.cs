@@ -2,10 +2,22 @@ namespace IntelligentInvestor.Client
 {
     public partial class LaunchForm : Form
     {
-        public LaunchForm()
+        private readonly TimeSpan waitTimeSpan;
+
+        public LaunchForm(TimeSpan waitTimeSpan)
         {
             this.Icon = IntelligentInvestorResource.IntelligentInvestor;
-            InitializeComponent();
+            this.InitializeComponent();
+            this.waitTimeSpan = waitTimeSpan;
+        }
+
+        private void LaunchForm_Shown(object sender, EventArgs e)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(waitTimeSpan);
+                this.DialogResult = DialogResult.OK;
+            });
         }
     }
 }
