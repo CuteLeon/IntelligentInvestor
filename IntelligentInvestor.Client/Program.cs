@@ -17,7 +17,9 @@ namespace IntelligentInvestor.Client
         static void Main()
         {
             Logger = NLog.LogManager.LoadConfiguration("NLog.config").GetCurrentClassLogger();
-            ApplicationConfiguration.Initialize();
+            WinApplication.EnableVisualStyles();
+            WinApplication.SetCompatibleTextRenderingDefault(false);
+            WinApplication.SetHighDpiMode(HighDpiMode.SystemAware);
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             WinApplication.ThreadException += Application_ThreadException;
