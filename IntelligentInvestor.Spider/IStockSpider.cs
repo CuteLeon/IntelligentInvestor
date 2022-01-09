@@ -7,15 +7,15 @@ namespace IntelligentInvestor.Spider;
 
 public interface IStockSpider
 {
-    Task<(Stock Stock, Quota Quota)> GetStockQuotaAsync(string code, StockMarkets market);
+    Task<(Stock Stock, Quota Quota)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode);
 
-    Task<Image> GetChartAsync(string code, StockMarkets market, QuotaFrequencys quotaFrequency);
+    Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency);
 
-    Task<Company> GetCompanyAsync(string code, StockMarkets market);
+    Task<Company> GetCompanyAsync(StockMarkets stockMarket, string stockCode);
 
-    Task<List<Quota>> GetQuotasAsync(string code, StockMarkets market, QuotaFrequencys quotaFrequency, DateTime fromDate, DateTime toDate);
+    Task<IEnumerable<Quota>> GetQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency, DateTime fromDate, DateTime toDate);
 
-    Task<List<Stock>> GetHotStocksAsync();
+    Task<IEnumerable<Stock>> GetHotStocksAsync();
 
-    Task<List<Stock>> SearchStocksAsync(string keyword);
+    Task<IEnumerable<Stock>> SearchStocksAsync(string keyword);
 }
