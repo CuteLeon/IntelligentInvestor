@@ -1,4 +1,4 @@
-﻿namespace IntelligentInvestor.Client.Themes;
+﻿namespace IntelligentInvestor.Domain.Themes;
 
 public enum UIThemes
 {
