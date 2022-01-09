@@ -158,7 +158,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        var stock = this.stockRepository.Find(this.currentStock.StockCode, this.currentStock.StockMarket);
+        var stock = this.stockRepository.Find(this.currentStock.StockMarket, this.currentStock.StockCode);
         if (stock != null)
         {
             await this.stockRepository.RemoveAsync(stock);

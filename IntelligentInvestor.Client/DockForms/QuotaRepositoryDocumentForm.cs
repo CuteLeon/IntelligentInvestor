@@ -22,7 +22,7 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(code, market);
+            this.Stock = this.stockRepository.Find(market, code);
         }
     }
 

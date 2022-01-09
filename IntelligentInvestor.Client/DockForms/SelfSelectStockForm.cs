@@ -121,7 +121,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
             return;
         }
 
-        Stock stock = this.StockService.Find(code, market);
+        Stock stock = this.StockService.Find(market, code);
         if (stock == null)
         {
             stock = new Stock(code, market, name);
