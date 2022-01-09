@@ -44,9 +44,10 @@ namespace IntelligentInvestor.Client
             Logger.Debug("Initialize program host ...");
             yield return "Initialize program host ...";
 
-            foreach (var message in Host.InitializeServiceProvider()
-                .Concat(Host.InitializeConfigurationManager())
-                .Concat(Host.InitializeStockSpider()))
+            foreach (var message in Host.InitializeConfigurationManager()
+                .Concat(Host.InitializeServiceProvider())
+                .Concat(Host.InitializeStockSpider())
+                .Concat(Host.InitializeIntermediary()))
                 yield return message;
 
             Host.BuilderServiceProvider();
@@ -59,6 +60,7 @@ namespace IntelligentInvestor.Client
             Logger.Debug("Initialize configuration manager ...");
             yield return "Initialize configuration manager ...";
             host.Configuration.AddJsonFile("AppSettings.json", true, true);
+            host.Services.AddSingleton(host.Configuration);
         }
 
         static IEnumerable<string> InitializeServiceProvider(this ProgramHost host)

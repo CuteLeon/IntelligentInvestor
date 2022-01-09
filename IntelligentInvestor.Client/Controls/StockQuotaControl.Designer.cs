@@ -49,7 +49,7 @@ namespace IntelligentInvestor.Client.Controls
             this.UpdateTimeValueLabel = new System.Windows.Forms.Label();
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.CodeValueLabel = new System.Windows.Forms.Label();
-            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl(this.themeHandler);
+            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl(themeHandler);
             this.MainTablePanel.SuspendLayout();
             this.SuspendLayout();
             // 

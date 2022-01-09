@@ -11,7 +11,7 @@ public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
     public StockQuotaControl(
         IUIThemeHandler themeHandler)
     {
-        this.InitializeComponent(this.themeHandler);
+        this.InitializeComponent(themeHandler);
 
         if (this.DesignMode)
         {
