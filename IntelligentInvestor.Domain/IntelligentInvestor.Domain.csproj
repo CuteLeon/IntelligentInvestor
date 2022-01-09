@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IntelligentInvestor.Intermediary.Abstractions\IntelligentInvestor.Intermediary.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>
