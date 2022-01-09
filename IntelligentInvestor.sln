@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Infrast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Spider", "IntelligentInvestor.Spider\IntelligentInvestor.Spider.csproj", "{72475E98-FCA1-40CA-933C-CEF07DC5A2CB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Intermediary", "IntelligentInvestor.Intermediary\IntelligentInvestor.Intermediary.csproj", "{6A636F3C-3056-4942-A546-0F9E0207F607}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Intermediary.Abstractions", "IntelligentInvestor.Intermediary.Abstractions\IntelligentInvestor.Intermediary.Abstractions.csproj", "{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{72475E98-FCA1-40CA-933C-CEF07DC5A2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72475E98-FCA1-40CA-933C-CEF07DC5A2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72475E98-FCA1-40CA-933C-CEF07DC5A2CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A636F3C-3056-4942-A546-0F9E0207F607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A636F3C-3056-4942-A546-0F9E0207F607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A636F3C-3056-4942-A546-0F9E0207F607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A636F3C-3056-4942-A546-0F9E0207F607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
