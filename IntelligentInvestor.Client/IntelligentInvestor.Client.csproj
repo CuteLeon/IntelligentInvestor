@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\IntelligentInvestor.Application\IntelligentInvestor.Application.csproj" />
     <ProjectReference Include="..\IntelligentInvestor.Domain\IntelligentInvestor.Domain.csproj" />
+    <ProjectReference Include="..\IntelligentInvestor.Intermediary\IntelligentInvestor.Intermediary.csproj" />
     <ProjectReference Include="..\IntelligentInvestor.Spider\IntelligentInvestor.Spider.csproj" />
   </ItemGroup>
 
