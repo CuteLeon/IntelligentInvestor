@@ -1,4 +1,5 @@
-﻿using WeifenLuo.WinFormsUI.Docking;
+﻿using IntelligentInvestor.Domain.Themes;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace IntelligentInvestor.Client.Themes;
 

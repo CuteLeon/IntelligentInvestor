@@ -1,6 +1,7 @@
 ﻿using IntelligentInvestor.Client.DockForms;
 using IntelligentInvestor.Client.DockForms.FloatWindows;
 using IntelligentInvestor.Client.Themes;
+using IntelligentInvestor.Domain.Themes;
 using IntelligentInvestor.Spider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
