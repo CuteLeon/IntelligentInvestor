@@ -83,8 +83,8 @@ public partial class ChartDocumentForm : DocumentDockForm
     private async Task RefreshChart()
     {
         Image chartImage = await this.stockSpider.GetChartAsync(
-            this.stock.StockCode,
             this.stock.StockMarket,
+            this.stock.StockCode,
             Enum.TryParse(this.ChartTypeToolComboBox.SelectedItem.ToString(), out QuotaFrequencys quotaFrequency) ? quotaFrequency : QuotaFrequencys.Trade);
 
         this.ChartPictureBox.BackgroundImage = chartImage;

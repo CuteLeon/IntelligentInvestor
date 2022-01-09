@@ -42,16 +42,12 @@ namespace IntelligentInvestor.Client
             Logger.Debug("Initialize program host ...");
             yield return "Initialize program host ...";
 
-            foreach (var message in Host.InitializeServiceProvider())
+            foreach (var message in Host.InitializeServiceProvider()
+                .Concat(Host.InitializeConfigurationManager())
+                .Concat(Host.InitializeStockSpider()))
                 yield return message;
+
             Host.BuilderServiceProvider();
-
-            foreach (var message in Host.InitializeConfigurationManager())
-                yield return message;
-
-            foreach (var message in Host.InitializeStockSpider())
-                yield return message;
-
             Logger.Debug("Initialize successfully.");
             yield return "Initialize successfully.";
         }
