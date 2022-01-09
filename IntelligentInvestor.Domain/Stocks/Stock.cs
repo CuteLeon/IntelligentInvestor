@@ -10,8 +10,8 @@ public class Stock : StockBase
     {
     }
 
-    public Stock(string stockCode, StockMarkets stockMarket)
-        : base(stockCode, stockMarket)
+    public Stock(StockMarkets stockMarket, string stockCode)
+        : base(stockMarket, stockCode)
     {
     }
 

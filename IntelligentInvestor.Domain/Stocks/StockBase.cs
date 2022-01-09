@@ -6,7 +6,7 @@ public abstract class StockBase
     {
     }
 
-    public StockBase(string stockCode, StockMarkets stockMarket)
+    public StockBase(StockMarkets stockMarket, string stockCode)
     {
         this.StockCode = stockCode;
         this.StockMarket = stockMarket;

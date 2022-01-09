@@ -1,9 +1,15 @@
 ﻿using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Domain.Trades;
 
 public class TradeStrand : QuotaBase
 {
+    public TradeStrand(StockMarkets stockMarket, string stockCode)
+        : base(stockMarket, stockCode)
+    {
+    }
+
     public decimal BiddingPrice { get; set; }
 
     public decimal AuctionPrice { get; set; }

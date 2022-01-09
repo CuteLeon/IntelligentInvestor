@@ -8,8 +8,8 @@ public class Company : StockBase
     {
     }
 
-    public Company(string code, StockMarkets market)
-        : base(code, market)
+    public Company(StockMarkets stockMarket, string stockCode)
+        : base(stockMarket, stockCode)
     {
     }
 

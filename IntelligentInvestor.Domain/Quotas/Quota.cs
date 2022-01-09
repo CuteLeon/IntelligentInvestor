@@ -8,8 +8,8 @@ public class Quota : QuotaBase
     {
     }
 
-    public Quota(string stockCode, StockMarkets stockMarket)
-        : base(stockCode, stockMarket)
+    public Quota(StockMarkets stockMarket, string stockCode)
+        : base(stockMarket, stockCode)
     {
     }
 

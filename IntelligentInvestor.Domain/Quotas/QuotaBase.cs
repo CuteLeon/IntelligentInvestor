@@ -8,8 +8,8 @@ public abstract class QuotaBase : StockBase
     {
     }
 
-    public QuotaBase(string stockCode, StockMarkets stockMarket)
-        : base(stockCode, stockMarket)
+    public QuotaBase(StockMarkets stockMarket, string stockCode)
+        : base(stockMarket, stockCode)
     {
     }
 
