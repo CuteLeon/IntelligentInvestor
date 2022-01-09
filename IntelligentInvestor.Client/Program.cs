@@ -1,6 +1,7 @@
 ﻿using IntelligentInvestor.Client.Extensions;
 using IntelligentInvestor.Infrastructure.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
+using IntelligentInvestor.Spider.Mock;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -48,6 +49,9 @@ namespace IntelligentInvestor.Client
             foreach (var message in Host.InitializeConfigurationManager())
                 yield return message;
 
+            foreach (var message in Host.InitializeStockSpider())
+                yield return message;
+
             Logger.Debug("Initialize successfully.");
             yield return "Initialize successfully.";
         }
@@ -70,6 +74,13 @@ namespace IntelligentInvestor.Client
                 .AddIntelligentInvestorInfrastructure();
 
             services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
+        }
+
+        static IEnumerable<string> InitializeStockSpider(this ProgramHost host)
+        {
+            Logger.Debug("Initialize stock spider ...");
+            yield return "Initialize stock spider ...";
+            var services = host.Services.AddMockSpider();
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
