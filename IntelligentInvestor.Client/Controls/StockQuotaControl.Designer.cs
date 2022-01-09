@@ -1,4 +1,6 @@
-﻿namespace IntelligentInvestor.Client.Controls
+﻿using IntelligentInvestor.Client.Themes;
+
+namespace IntelligentInvestor.Client.Controls
 {
     partial class StockQuotaControl
     {
@@ -26,7 +28,7 @@
         /// 设计器支持所需的方法 - 不要修改
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(IUIThemeHandler themeHandler)
         {
             this.components = new System.ComponentModel.Container();
             this.AmountLabel = new System.Windows.Forms.Label();
@@ -47,7 +49,7 @@
             this.UpdateTimeValueLabel = new System.Windows.Forms.Label();
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.CodeValueLabel = new System.Windows.Forms.Label();
-            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl();
+            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl(this.themeHandler);
             this.MainTablePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -327,7 +329,7 @@
             this.CurrentPriceValueLabel.Accuracy = ((byte)(4));
             this.CurrentPriceValueLabel.AutoEllipsis = true;
             this.CurrentPriceValueLabel.AutoSize = true;
-            this.CurrentPriceValueLabel.BasePrice = 0D;
+            this.CurrentPriceValueLabel.BasePrice = null;
             this.MainTablePanel.SetColumnSpan(this.CurrentPriceValueLabel, 2);
             this.CurrentPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CurrentPriceValueLabel.FallForeColor = System.Drawing.Color.LimeGreen;
@@ -337,7 +339,7 @@
             this.CurrentPriceValueLabel.Location = new System.Drawing.Point(0, 0);
             this.CurrentPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CurrentPriceValueLabel.Name = "CurrentPriceValueLabel";
-            this.CurrentPriceValueLabel.Price = double.NaN;
+            this.CurrentPriceValueLabel.Price = null;
             this.CurrentPriceValueLabel.RiseForeColor = System.Drawing.Color.Crimson;
             this.MainTablePanel.SetRowSpan(this.CurrentPriceValueLabel, 2);
             this.CurrentPriceValueLabel.Size = new System.Drawing.Size(203, 40);

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using IntelligentInvestor.Client.DockForms;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NLogger = NLog.Logger;
+using WinApplication = System.Windows.Forms.Application;
 
 namespace IntelligentInvestor.Client
 {
@@ -19,15 +20,15 @@ namespace IntelligentInvestor.Client
             ApplicationConfiguration.Initialize();
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            Application.ThreadException += Application_ThreadException;
-            Application.ApplicationExit += Application_ApplicationExit;
+            WinApplication.ThreadException += Application_ThreadException;
+            WinApplication.ApplicationExit += Application_ApplicationExit;
 
             using var launchForm = new LaunchForm(InitializeProgramHost);
             var result = launchForm.ShowDialog();
             if (result != DialogResult.OK) return;
 
             var mainForm = Host.ServiceProvider.GetRequiredService<MainForm>();
-            Application.Run(mainForm);
+            WinApplication.Run(mainForm);
         }
 
         static IEnumerable<string> InitializeProgramHost()
@@ -48,7 +49,18 @@ namespace IntelligentInvestor.Client
             Logger.Debug("Initialize service provider ...");
             yield return "Initialize service provider ...";
             var services = host.Services;
-            services.AddTransient<MainForm>();
+            services.AddSingleton<MainForm>();
+            services.AddTransient<DocumentDockForm>();
+            services.AddTransient<ChartDocumentForm>();
+            services.AddTransient<SearchStockDockForm>();
+            services.AddTransient<RecentQuotaDocumentForm>();
+            services.AddTransient<QuotaRepositoryDocumentForm>();
+            services.AddTransient<RecentTradeForm>();
+            services.AddTransient<CurrentQuotaForm>();
+            services.AddTransient<MarketQuotaForm>();
+            services.AddTransient<HotStockDockForm>();
+            services.AddTransient<SelfSelectStockForm>();
+
             services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
         }
 
@@ -66,6 +78,7 @@ namespace IntelligentInvestor.Client
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
         }
+
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Logger.Error(e.ExceptionObject as Exception, $"Domain error.");
@@ -75,6 +88,5 @@ namespace IntelligentInvestor.Client
                 MessageBoxButtons.OK,
                 e.IsTerminating ? MessageBoxIcon.Error : MessageBoxIcon.Warning);
         }
-
     }
 }
