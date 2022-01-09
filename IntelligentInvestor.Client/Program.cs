@@ -1,4 +1,6 @@
 ﻿using IntelligentInvestor.Client.Extensions;
+using IntelligentInvestor.Domain.Intermediary.Stocks;
+using IntelligentInvestor.Domain.Intermediary.Themes;
 using IntelligentInvestor.Infrastructure.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
 using IntelligentInvestor.Spider.Mock;
@@ -77,6 +79,15 @@ namespace IntelligentInvestor.Client
             Logger.Debug("Initialize stock spider ...");
             yield return "Initialize stock spider ...";
             var services = host.Services.AddMockSpider();
+        }
+
+        static IEnumerable<string> InitializeIntermediary(this ProgramHost host)
+        {
+            Logger.Debug("Initialize intermediary ...");
+            yield return "Initialize intermediary ...";
+            var services = host.Services
+                .AddIntermediaryEvent<StockEvent>()
+                .AddIntermediaryEvent<ThemeEvent>();
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
