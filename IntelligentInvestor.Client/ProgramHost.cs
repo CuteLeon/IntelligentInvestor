@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IntelligentInvestor.Client;
 
@@ -10,4 +11,6 @@ internal class ProgramHost
 
     internal void BuilderServiceProvider() =>
         this.ServiceProvider = this.Services.BuildServiceProvider();
+
+    public ConfigurationManager Configuration { get; init; } = new ConfigurationManager();
 }

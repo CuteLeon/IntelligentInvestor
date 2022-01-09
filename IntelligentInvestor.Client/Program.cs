@@ -1,4 +1,7 @@
-﻿using IntelligentInvestor.Client.DockForms;
+﻿using IntelligentInvestor.Client.Extensions;
+using IntelligentInvestor.Infrastructure.Extensions;
+using IntelligentInvestor.Intermediary.Extensions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
@@ -42,26 +45,29 @@ namespace IntelligentInvestor.Client
                 yield return message;
             Host.BuilderServiceProvider();
 
+            foreach (var message in Host.InitializeConfigurationManager())
+                yield return message;
+
             Logger.Debug("Initialize successfully.");
             yield return "Initialize successfully.";
+        }
+
+        static IEnumerable<string> InitializeConfigurationManager(this ProgramHost host)
+        {
+            Logger.Debug("Initialize configuration manager ...");
+            yield return "Initialize configuration manager ...";
+            host.Configuration.AddJsonFile("AppSettings.json", true, true);
         }
 
         static IEnumerable<string> InitializeServiceProvider(this ProgramHost host)
         {
             Logger.Debug("Initialize service provider ...");
             yield return "Initialize service provider ...";
-            var services = host.Services;
-            services.AddSingleton<MainForm>();
-            services.AddTransient<DocumentDockForm>();
-            services.AddTransient<ChartDocumentForm>();
-            services.AddTransient<SearchStockDockForm>();
-            services.AddTransient<RecentQuotaDocumentForm>();
-            services.AddTransient<QuotaRepositoryDocumentForm>();
-            services.AddTransient<RecentTradeForm>();
-            services.AddTransient<CurrentQuotaForm>();
-            services.AddTransient<MarketQuotaForm>();
-            services.AddTransient<HotStockDockForm>();
-            services.AddTransient<SelfSelectStockForm>();
+            var services = host.Services
+                .AddIntelligentInvestorClient()
+                .AddIntelligentInvestorIntermediary()
+                .AddIntelligentInvestorDBContext(host.Configuration.GetConnectionString("IIDB"))
+                .AddIntelligentInvestorInfrastructure();
 
             services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
         }
