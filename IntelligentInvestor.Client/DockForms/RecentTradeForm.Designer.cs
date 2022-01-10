@@ -24,8 +24,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "RecentTradeForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
-            this.TabText = "Recent Quota";
-            this.Text = "Recent Quota";
+            this.TabText = "Recent Tarde";
+            this.Text = "Recent Trade";
             this.ResumeLayout(false);
         }
     }
