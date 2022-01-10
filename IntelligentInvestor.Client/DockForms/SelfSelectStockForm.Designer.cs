@@ -59,7 +59,7 @@
             this.AddToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddToolButton.Name = "AddToolButton";
             this.AddToolButton.Size = new System.Drawing.Size(23, 22);
-            this.AddToolButton.Text = "添加";
+            this.AddToolButton.Text = "Add";
             this.AddToolButton.Click += new System.EventHandler(this.AddToolButton_Click);
             // 
             // RemoveToolButton
@@ -69,7 +69,7 @@
             this.RemoveToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RemoveToolButton.Name = "RemoveToolButton";
             this.RemoveToolButton.Size = new System.Drawing.Size(23, 22);
-            this.RemoveToolButton.Text = "删除";
+            this.RemoveToolButton.Text = "Remove";
             this.RemoveToolButton.Click += new System.EventHandler(this.RemoveToolButton_Click);
             // 
             // RefreshToolButton
@@ -79,7 +79,7 @@
             this.RefreshToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshToolButton.Name = "RefreshToolButton";
             this.RefreshToolButton.Size = new System.Drawing.Size(23, 22);
-            this.RefreshToolButton.Text = "刷新";
+            this.RefreshToolButton.Text = "Refresh";
             this.RefreshToolButton.Click += new System.EventHandler(this.RefreshToolButton_Click);
             // 
             // toolStripSeparator1
@@ -141,21 +141,21 @@
             // 
             this.StockCodeGridViewColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.StockCodeGridViewColumn.DataPropertyName = "Code";
-            this.StockCodeGridViewColumn.HeaderText = "代码";
+            this.StockCodeGridViewColumn.HeaderText = "Code";
             this.StockCodeGridViewColumn.Name = "StockCodeGridViewColumn";
             this.StockCodeGridViewColumn.ReadOnly = true;
             // 
             // StockMarketGridViewColumn
             // 
             this.StockMarketGridViewColumn.DataPropertyName = "Market";
-            this.StockMarketGridViewColumn.HeaderText = "市场";
+            this.StockMarketGridViewColumn.HeaderText = "Market";
             this.StockMarketGridViewColumn.Name = "StockMarketGridViewColumn";
             this.StockMarketGridViewColumn.ReadOnly = true;
             // 
             // StockNameGridViewColumn
             // 
             this.StockNameGridViewColumn.DataPropertyName = "Name";
-            this.StockNameGridViewColumn.HeaderText = "名称";
+            this.StockNameGridViewColumn.HeaderText = "Name";
             this.StockNameGridViewColumn.Name = "StockNameGridViewColumn";
             this.StockNameGridViewColumn.ReadOnly = true;
             // 
@@ -177,7 +177,7 @@
             this.AddMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Add;
             this.AddMenuItem.Name = "AddMenuItem";
             this.AddMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.AddMenuItem.Text = "添加";
+            this.AddMenuItem.Text = "Add";
             this.AddMenuItem.Click += new System.EventHandler(this.AddMenuItem_Click);
             // 
             // RemoveMenuItem
@@ -185,7 +185,7 @@
             this.RemoveMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Remove;
             this.RemoveMenuItem.Name = "RemoveMenuItem";
             this.RemoveMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.RemoveMenuItem.Text = "移除";
+            this.RemoveMenuItem.Text = "Remove";
             this.RemoveMenuItem.Click += new System.EventHandler(this.RemoveMenuItem_Click);
             // 
             // RefreshMenuItem
@@ -193,7 +193,7 @@
             this.RefreshMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Refresh;
             this.RefreshMenuItem.Name = "RefreshMenuItem";
             this.RefreshMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.RefreshMenuItem.Text = "刷新";
+            this.RefreshMenuItem.Text = "Refresh";
             this.RefreshMenuItem.Click += new System.EventHandler(this.RefreshMenuItem_Click);
             // 
             // SelfSelectStockForm
@@ -205,8 +205,8 @@
             this.Controls.Add(this.SelfSelectStockToolStrip);
             this.DoubleBuffered = true;
             this.Name = "SelfSelectStockForm";
-            this.TabText = "自选股票";
-            this.Text = "自选股票";
+            this.TabText = "Selected";
+            this.Text = "Selected";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SelfSelectStockForm_FormClosed);
             this.Load += new System.EventHandler(this.SelfSelectStockForm_Load);
             this.Shown += new System.EventHandler(this.SelfSelectStockForm_Shown);

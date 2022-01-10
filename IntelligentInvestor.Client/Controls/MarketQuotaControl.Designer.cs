@@ -2,15 +2,8 @@
 {
     partial class MarketQuotaControl
     {
-        /// <summary> 
-        /// 必需的设计器变量。
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// 清理所有正在使用的资源。
-        /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region 组件设计器生成的代码
-
-        /// <summary> 
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
-        /// </summary>
         private void InitializeComponent()
         {
             this.MarketValueLabel = new System.Windows.Forms.Label();
@@ -115,7 +102,7 @@
             this.UpdateTimeLabel.Name = "UpdateTimeLabel";
             this.UpdateTimeLabel.Size = new System.Drawing.Size(81, 18);
             this.UpdateTimeLabel.TabIndex = 26;
-            this.UpdateTimeLabel.Text = "更新时间";
+            this.UpdateTimeLabel.Text = "Quota Time";
             this.UpdateTimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // UpdateTimeValueLabel
@@ -141,7 +128,7 @@
             this.AmountLabel.Name = "AmountLabel";
             this.AmountLabel.Size = new System.Drawing.Size(94, 18);
             this.AmountLabel.TabIndex = 24;
-            this.AmountLabel.Text = "金额(万元)";
+            this.AmountLabel.Text = "Amount";
             this.AmountLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // AmountValueLabel
@@ -167,7 +154,7 @@
             this.CountLabel.Name = "CountLabel";
             this.CountLabel.Size = new System.Drawing.Size(94, 18);
             this.CountLabel.TabIndex = 22;
-            this.CountLabel.Text = "数量(手)";
+            this.CountLabel.Text = "Volumn";
             this.CountLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // CountValueLabel
@@ -263,8 +250,6 @@
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Label MarketValueLabel;
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;

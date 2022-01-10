@@ -86,7 +86,6 @@ public partial class MarketQuotaForm : SingleToolDockForm
                 this.logger.LogDebug($"Start to auto refresh quota ...");
                 this.AutoRefreshToolButton.Image = IntelligentInvestorResource.Service;
 
-                // Timer 重启后会自动重置等待时间，以重新等待
                 this.AutoRefreshTimer.Start();
             }
             else

@@ -45,7 +45,7 @@ public partial class MainForm : Form
             }
             catch (Exception ex)
             {
-                this.logger.LogError(ex, "从文件恢复布局失败：");
+                this.logger.LogError(ex, "Restore layout from file failed.");
 
                 this.PredeterminedLayout();
             }
@@ -141,17 +141,14 @@ public partial class MainForm : Form
 
     private void ExitMenuItem_Click(object sender, EventArgs e)
     {
-        if (MessageBox.Show(
-            "Are you sure to exit?",
-            "Exit",
-            MessageBoxButtons.OKCancel,
-            MessageBoxIcon.Question)
-            != DialogResult.OK)
-        {
-            return;
-        }
+        this.OnFormClosing(new FormClosingEventArgs(CloseReason.UserClosing, false));
+    }
 
-        WinApplication.Exit();
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        if (e.CloseReason != CloseReason.UserClosing) return;
+        if (MessageBox.Show("Are you sure to exit?", "Exit", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK) return;
+        e.Cancel = true;
     }
 
     public void RegisterDockFormToViewMenu<TDockForm>(string text, Image image)

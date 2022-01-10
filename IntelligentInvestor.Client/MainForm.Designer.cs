@@ -59,7 +59,7 @@
             this.ThemeMenuItem});
             this.MainTopMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainTopMenuStrip.Name = "MainTopMenuStrip";
-            this.MainTopMenuStrip.Size = new System.Drawing.Size(800, 25);
+            this.MainTopMenuStrip.Size = new System.Drawing.Size(800, 24);
             this.MainTopMenuStrip.TabIndex = 0;
             // 
             // StartMenuItem
@@ -68,14 +68,14 @@
             this.ExitMenuItem});
             this.StartMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Home;
             this.StartMenuItem.Name = "StartMenuItem";
-            this.StartMenuItem.Size = new System.Drawing.Size(59, 21);
+            this.StartMenuItem.Size = new System.Drawing.Size(59, 20);
             this.StartMenuItem.Text = "Start";
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Power;
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.ExitMenuItem.Size = new System.Drawing.Size(93, 22);
             this.ExitMenuItem.Text = "Exit";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
@@ -83,7 +83,7 @@
             // 
             this.ViewMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.View;
             this.ViewMenuItem.Name = "ViewMenuItem";
-            this.ViewMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.ViewMenuItem.Size = new System.Drawing.Size(60, 20);
             this.ViewMenuItem.Text = "View";
             // 
             // ThemeMenuItem
@@ -96,39 +96,39 @@
             this.SaveLayoutMenuItem});
             this.ThemeMenuItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Theme;
             this.ThemeMenuItem.Name = "ThemeMenuItem";
-            this.ThemeMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.ThemeMenuItem.Size = new System.Drawing.Size(71, 20);
             this.ThemeMenuItem.Text = "Theme";
             // 
             // LightThemeMenuItem
             // 
             this.LightThemeMenuItem.Name = "LightThemeMenuItem";
-            this.LightThemeMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.LightThemeMenuItem.Size = new System.Drawing.Size(137, 22);
             this.LightThemeMenuItem.Text = "Light";
             this.LightThemeMenuItem.Click += new System.EventHandler(this.ThemeMenuItem_Click);
             // 
             // BlueThemeMenuItem
             // 
             this.BlueThemeMenuItem.Name = "BlueThemeMenuItem";
-            this.BlueThemeMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.BlueThemeMenuItem.Size = new System.Drawing.Size(137, 22);
             this.BlueThemeMenuItem.Text = "Blue";
             this.BlueThemeMenuItem.Click += new System.EventHandler(this.ThemeMenuItem_Click);
             // 
             // DarkThemeMenuItem
             // 
             this.DarkThemeMenuItem.Name = "DarkThemeMenuItem";
-            this.DarkThemeMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.DarkThemeMenuItem.Size = new System.Drawing.Size(137, 22);
             this.DarkThemeMenuItem.Text = "Dark";
             this.DarkThemeMenuItem.Click += new System.EventHandler(this.ThemeMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // SaveLayoutMenuItem
             // 
             this.SaveLayoutMenuItem.Name = "SaveLayoutMenuItem";
-            this.SaveLayoutMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.SaveLayoutMenuItem.Size = new System.Drawing.Size(137, 22);
             this.SaveLayoutMenuItem.Text = "Save Layout";
             this.SaveLayoutMenuItem.Click += new System.EventHandler(this.SaveLayoutMenuItem_Click);
             // 
@@ -138,7 +138,7 @@
             this.SearchToolButton,
             this.toolStripSeparator2,
             this.TestToolItem});
-            this.MainToolStrip.Location = new System.Drawing.Point(0, 25);
+            this.MainToolStrip.Location = new System.Drawing.Point(0, 24);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(800, 25);
             this.MainToolStrip.TabIndex = 2;
@@ -148,7 +148,7 @@
             this.SearchToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Search;
             this.SearchToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SearchToolButton.Name = "SearchToolButton";
-            this.SearchToolButton.Size = new System.Drawing.Size(51, 22);
+            this.SearchToolButton.Size = new System.Drawing.Size(62, 22);
             this.SearchToolButton.Text = "Search";
             this.SearchToolButton.Click += new System.EventHandler(this.SearchToolButton_Click);
             // 
@@ -161,7 +161,7 @@
             // 
             this.TestToolItem.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Research;
             this.TestToolItem.Name = "TestToolItem";
-            this.TestToolItem.Size = new System.Drawing.Size(53, 22);
+            this.TestToolItem.Size = new System.Drawing.Size(47, 22);
             this.TestToolItem.Text = "Test";
             this.TestToolItem.Click += new System.EventHandler(this.TestToolItem_Click);
             // 
@@ -193,9 +193,9 @@
             // 
             this.MainDockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainDockPanel.DockLeftPortion = 0.2D;
-            this.MainDockPanel.Location = new System.Drawing.Point(0, 50);
+            this.MainDockPanel.Location = new System.Drawing.Point(0, 49);
             this.MainDockPanel.Name = "MainDockPanel";
-            this.MainDockPanel.Size = new System.Drawing.Size(800, 378);
+            this.MainDockPanel.Size = new System.Drawing.Size(800, 379);
             this.MainDockPanel.TabIndex = 4;
             // 
             // MainForm
@@ -213,6 +213,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intelligent Investor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.MainTopMenuStrip.ResumeLayout(false);

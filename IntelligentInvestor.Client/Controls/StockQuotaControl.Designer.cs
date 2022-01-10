@@ -4,15 +4,8 @@ namespace IntelligentInvestor.Client.Controls
 {
     partial class StockQuotaControl
     {
-        /// <summary> 
-        /// 必需的设计器变量。
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// 清理所有正在使用的资源。
-        /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,12 +15,6 @@ namespace IntelligentInvestor.Client.Controls
             base.Dispose(disposing);
         }
 
-        #region 组件设计器生成的代码
-
-        /// <summary> 
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
-        /// </summary>
         private void InitializeComponent(IUIThemeHandler themeHandler)
         {
             this.components = new System.ComponentModel.Container();
@@ -64,7 +51,7 @@ namespace IntelligentInvestor.Client.Controls
             this.AmountLabel.Name = "AmountLabel";
             this.AmountLabel.Size = new System.Drawing.Size(145, 18);
             this.AmountLabel.TabIndex = 24;
-            this.AmountLabel.Text = "成交金额(元)";
+            this.AmountLabel.Text = "Amount";
             this.AmountLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // AmountValueLabel
@@ -91,7 +78,7 @@ namespace IntelligentInvestor.Client.Controls
             this.CountLabel.Name = "CountLabel";
             this.CountLabel.Size = new System.Drawing.Size(145, 18);
             this.CountLabel.TabIndex = 22;
-            this.CountLabel.Text = "成交数量(股)";
+            this.CountLabel.Text = "Volumn";
             this.CountLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // CountValueLabel
@@ -158,7 +145,7 @@ namespace IntelligentInvestor.Client.Controls
             this.ClosingPriceYesterdayLabel.Name = "ClosingPriceYesterdayLabel";
             this.ClosingPriceYesterdayLabel.Size = new System.Drawing.Size(145, 18);
             this.ClosingPriceYesterdayLabel.TabIndex = 14;
-            this.ClosingPriceYesterdayLabel.Text = "昨日收盘价(元)";
+            this.ClosingPriceYesterdayLabel.Text = "Close Price Yst";
             this.ClosingPriceYesterdayLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ClosingPriceYesterdayValueLabel
@@ -185,7 +172,7 @@ namespace IntelligentInvestor.Client.Controls
             this.OpeningPriceTodayLabel.Name = "OpeningPriceTodayLabel";
             this.OpeningPriceTodayLabel.Size = new System.Drawing.Size(145, 18);
             this.OpeningPriceTodayLabel.TabIndex = 16;
-            this.OpeningPriceTodayLabel.Text = "今日开盘价(元)";
+            this.OpeningPriceTodayLabel.Text = "Open Price";
             this.OpeningPriceTodayLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // StockNameValueLabel
@@ -255,7 +242,7 @@ namespace IntelligentInvestor.Client.Controls
             this.DayLowPriceLabel.Name = "DayLowPriceLabel";
             this.DayLowPriceLabel.Size = new System.Drawing.Size(145, 18);
             this.DayLowPriceLabel.TabIndex = 37;
-            this.DayLowPriceLabel.Text = "今日最低价(元)";
+            this.DayLowPriceLabel.Text = "Lowest Price";
             this.DayLowPriceLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // DayHighPriceLabel
@@ -268,7 +255,7 @@ namespace IntelligentInvestor.Client.Controls
             this.DayHighPriceLabel.Name = "DayHighPriceLabel";
             this.DayHighPriceLabel.Size = new System.Drawing.Size(145, 18);
             this.DayHighPriceLabel.TabIndex = 36;
-            this.DayHighPriceLabel.Text = "今日最高价(元)";
+            this.DayHighPriceLabel.Text = "Highest Price";
             this.DayHighPriceLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // SeparatorLabel1
@@ -362,7 +349,6 @@ namespace IntelligentInvestor.Client.Controls
 
         }
 
-        #endregion
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label AmountValueLabel;
         private System.Windows.Forms.Label CountLabel;

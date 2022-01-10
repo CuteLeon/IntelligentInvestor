@@ -2,15 +2,8 @@
 {
     partial class StockQuotaFiveGearControl
     {
-        /// <summary> 
-        /// 必需的设计器变量。
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// 清理所有正在使用的资源。
-        /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +13,6 @@
             base.Dispose(disposing);
         }
 
-        #region 组件设计器生成的代码
-
-        /// <summary> 
-        /// 设计器支持所需的方法 - 不要修改
-        /// 使用代码编辑器修改此方法的内容。
-        /// </summary>
         private void InitializeComponent()
         {
             this.BiddingPriceValueLabel = new System.Windows.Forms.Label();
@@ -106,7 +93,7 @@
             this.BiddingPriceLabel.Name = "BiddingPriceLabel";
             this.BiddingPriceLabel.Size = new System.Drawing.Size(156, 18);
             this.BiddingPriceLabel.TabIndex = 36;
-            this.BiddingPriceLabel.Text = "竞买价(元)";
+            this.BiddingPriceLabel.Text = "Bidding Price";
             this.BiddingPriceLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // AuctionPriceLabel
@@ -120,7 +107,7 @@
             this.AuctionPriceLabel.Name = "AuctionPriceLabel";
             this.AuctionPriceLabel.Size = new System.Drawing.Size(158, 18);
             this.AuctionPriceLabel.TabIndex = 37;
-            this.AuctionPriceLabel.Text = "竞卖价(元)";
+            this.AuctionPriceLabel.Text = "Auction Price";
             this.AuctionPriceLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // SeparatorLabel1
@@ -466,7 +453,7 @@
             this.Sell5Label.Name = "Sell5Label";
             this.Sell5Label.Size = new System.Drawing.Size(37, 20);
             this.Sell5Label.TabIndex = 48;
-            this.Sell5Label.Text = "卖五";
+            this.Sell5Label.Text = "Sell 5";
             this.Sell5Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Sell4Label
@@ -479,7 +466,7 @@
             this.Sell4Label.Name = "Sell4Label";
             this.Sell4Label.Size = new System.Drawing.Size(37, 20);
             this.Sell4Label.TabIndex = 47;
-            this.Sell4Label.Text = "卖四";
+            this.Sell4Label.Text = "Sell 4";
             this.Sell4Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Sell3Label
@@ -492,7 +479,7 @@
             this.Sell3Label.Name = "Sell3Label";
             this.Sell3Label.Size = new System.Drawing.Size(37, 20);
             this.Sell3Label.TabIndex = 46;
-            this.Sell3Label.Text = "卖三";
+            this.Sell3Label.Text = "Sell 3";
             this.Sell3Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Sell2Label
@@ -505,7 +492,7 @@
             this.Sell2Label.Name = "Sell2Label";
             this.Sell2Label.Size = new System.Drawing.Size(37, 20);
             this.Sell2Label.TabIndex = 45;
-            this.Sell2Label.Text = "卖二";
+            this.Sell2Label.Text = "Sell 2";
             this.Sell2Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Sell1Label
@@ -518,7 +505,7 @@
             this.Sell1Label.Name = "Sell1Label";
             this.Sell1Label.Size = new System.Drawing.Size(37, 20);
             this.Sell1Label.TabIndex = 44;
-            this.Sell1Label.Text = "卖一";
+            this.Sell1Label.Text = "Sell 1";
             this.Sell1Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Buy5Label
@@ -531,7 +518,7 @@
             this.Buy5Label.Name = "Buy5Label";
             this.Buy5Label.Size = new System.Drawing.Size(37, 20);
             this.Buy5Label.TabIndex = 43;
-            this.Buy5Label.Text = "买五";
+            this.Buy5Label.Text = "Buy 5";
             this.Buy5Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Buy4Label
@@ -544,7 +531,7 @@
             this.Buy4Label.Name = "Buy4Label";
             this.Buy4Label.Size = new System.Drawing.Size(37, 20);
             this.Buy4Label.TabIndex = 42;
-            this.Buy4Label.Text = "买四";
+            this.Buy4Label.Text = "Buy 4";
             this.Buy4Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Buy3Label
@@ -557,7 +544,7 @@
             this.Buy3Label.Name = "Buy3Label";
             this.Buy3Label.Size = new System.Drawing.Size(37, 20);
             this.Buy3Label.TabIndex = 41;
-            this.Buy3Label.Text = "买三";
+            this.Buy3Label.Text = "Buy 3";
             this.Buy3Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Buy2Label
@@ -570,7 +557,7 @@
             this.Buy2Label.Name = "Buy2Label";
             this.Buy2Label.Size = new System.Drawing.Size(37, 20);
             this.Buy2Label.TabIndex = 40;
-            this.Buy2Label.Text = "买二";
+            this.Buy2Label.Text = "Buy 2";
             this.Buy2Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Buy1Label
@@ -583,7 +570,7 @@
             this.Buy1Label.Name = "Buy1Label";
             this.Buy1Label.Size = new System.Drawing.Size(37, 20);
             this.Buy1Label.TabIndex = 39;
-            this.Buy1Label.Text = "买一";
+            this.Buy1Label.Text = "Buy 1";
             this.Buy1Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // StockQuotaFiveGearControl
@@ -599,8 +586,6 @@
             this.ResumeLayout(false);
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Label BiddingPriceValueLabel;
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
