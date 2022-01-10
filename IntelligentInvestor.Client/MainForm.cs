@@ -38,7 +38,27 @@ public partial class MainForm : Form
         WinApplication.DoEvents();
 
         this.InitializeLayout();
+        this.InitializeViewMenu();
         WinApplication.DoEvents();
+    }
+
+    private void InitializeViewMenu()
+    {
+        this.RegisterDockFormToViewMenu<RecentTradeForm>();
+        this.RegisterDockFormToViewMenu<MarketQuotaForm>();
+        this.RegisterDockFormToViewMenu<CurrentQuotaForm>();
+        this.RegisterDockFormToViewMenu<HotStockDockForm>();
+        this.RegisterDockFormToViewMenu<SearchStockDockForm>();
+        this.RegisterDockFormToViewMenu<SelfSelectStockForm>();
+    }
+
+    public void RegisterDockFormToViewMenu<TDockForm>()
+        where TDockForm : DockFormBase
+    {
+        var instance = this.serviceProvider.GetRequiredService<TDockForm>();
+        var menuItem = this.ViewMenuItem.DropDownItems.Add(instance.Text, Bitmap.FromHicon(instance.Icon.Handle));
+        menuItem.Tag = typeof(TDockForm);
+        menuItem.Click += this.ViewsMenuItem_Click;
     }
 
     private void InitializeLayout()
@@ -148,14 +168,6 @@ public partial class MainForm : Form
         e.Cancel = true;
     }
 
-    public void RegisterDockFormToViewMenu<TDockForm>(string text, Image image)
-        where TDockForm : DockFormBase
-    {
-        var menuItem = this.ViewMenuItem.DropDownItems.Add(text, image);
-        menuItem.Tag = typeof(TDockForm);
-        menuItem.Click += this.ViewsMenuItem_Click;
-    }
-
     private void ViewsMenuItem_Click(object sender, EventArgs e)
     {
         Type viewType = (sender as ToolStripItem)?.Tag as Type;
@@ -164,8 +176,7 @@ public partial class MainForm : Form
             throw new NullReferenceException();
         }
 
-        if (dockForm.IsHidden ||
-            !dockForm.Visible)
+        if (dockForm.IsHidden || !dockForm.Visible)
         {
             dockForm.Show(this.MainDockPanel);
         }
