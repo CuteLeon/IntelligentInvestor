@@ -157,12 +157,19 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
         if (string.IsNullOrWhiteSpace(keyWord))
         {
-            this.RefreshDataSource();
+            await this.RefreshDataSource();
         }
         else
         {
-            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(
-                x => x.IsSelected && (EF.Functions.Like(x.StockCode, $"%{keyWord}%") || EF.Functions.Like(x.StockName, $"%{keyWord}%"))).ToArrayAsync();
+            try
+            {
+                this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(
+                    x => x.IsSelected && (EF.Functions.Like(x.StockCode, $"%{keyWord}%") || EF.Functions.Like(x.StockName, $"%{keyWord}%"))).ToArrayAsync();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "Failed to seach stock.");
+            }
         }
     }
 
@@ -178,24 +185,38 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
     private async Task RefreshDataSource()
     {
-        this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToArrayAsync();
+        try
+        {
+            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToArrayAsync();
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "Failed to refresh selected stocks.");
+        }
     }
 
     private async void RemoveSelfSelectStock(Stock stock)
     {
         if (stock == null) return;
+        stock.IsSelected = false;
 
-        var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
-        if (existedStock is null)
+        try
         {
-            stock.IsSelected = false;
-            await this.stockRepository.AddAsync(stock);
+            var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+            if (existedStock is null)
+            {
+                await this.stockRepository.AddAsync(stock);
+            }
+            else
+            {
+                stock = existedStock;
+                stock.IsSelected = false;
+                await this.stockRepository.UpdateAsync(stock);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            stock = existedStock;
-            stock.IsSelected = false;
-            await this.stockRepository.UpdateAsync(stock);
+            this.logger.LogError(ex, "Failed to refresh selected stocks.");
         }
 
         var index = this.GetIndexInDataSource(stock);
@@ -207,22 +228,26 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
     private async void AddSelfSelectStock(Stock stock)
     {
-        if (stock == null)
-        {
-            return;
-        }
+        if (stock == null) return;
+        stock.IsSelected = true;
 
-        var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
-        if (existedStock is null)
+        try
         {
-            stock.IsSelected = true;
-            await this.stockRepository.AddAsync(stock);
+            var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+            if (existedStock is null)
+            {
+                await this.stockRepository.AddAsync(stock);
+            }
+            else
+            {
+                stock = existedStock;
+                stock.IsSelected = true;
+                await this.stockRepository.UpdateAsync(stock);
+            }
         }
-        else
+        catch (Exception ex)
         {
-            stock = existedStock;
-            stock.IsSelected = true;
-            await this.stockRepository.UpdateAsync(stock);
+            this.logger.LogError(ex, "Failed to refresh selected stocks.");
         }
 
         if (!this.CheckDataSourceContains(stock))

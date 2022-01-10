@@ -23,7 +23,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code);
+            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
         }
     }
 
@@ -216,17 +216,12 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
             return;
         }
 
-        /*
-        var recentQuotas = await this.quotaRepository.GetRecentQuotasAsync(
-            this.stock.StockCode,
+        var recentQuotas = await this.stockSpider.GetQuotasAsync(
             this.stock.StockMarket,
-            Enum.TryParse(this.TimeScaleToolComboBox.SelectedItem.ToString(), out TimeScales scale) ? scale : TimeScales.Minutes_5,
-            Convert.ToInt32(this.QuotaLengthNumeric.Value));
-        recentQuotas.ForEach(quota => quota.Name = this.stock.Name);
-
+            this.stock.StockCode,
+            Enum.TryParse(this.TimeScaleToolComboBox.SelectedItem.ToString(), out QuotaFrequencys frequency) ? frequency : QuotaFrequencys.Trade,
+            DateTime.Now.AddMinutes(-1 * Convert.ToInt32(this.QuotaLengthNumeric.Value)),
+            DateTime.Now);
         this.RecentQuotaBindingSource.DataSource = recentQuotas;
-
-        this.RecentQuotaService.AddOrUpdate(recentQuotas.ToArray());
-         */
     }
 }

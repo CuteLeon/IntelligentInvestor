@@ -83,7 +83,7 @@
             // 
             // codeDataGridViewTextBoxColumn
             // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockCode);
             this.codeDataGridViewTextBoxColumn.Frozen = true;
             this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
@@ -92,7 +92,7 @@
             // 
             // marketDataGridViewTextBoxColumn
             // 
-            this.marketDataGridViewTextBoxColumn.DataPropertyName = "Market";
+            this.marketDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockMarket);
             this.marketDataGridViewTextBoxColumn.Frozen = true;
             this.marketDataGridViewTextBoxColumn.HeaderText = "Market";
             this.marketDataGridViewTextBoxColumn.Name = "marketDataGridViewTextBoxColumn";
@@ -101,7 +101,7 @@
             // 
             // nameDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockName);
             this.nameDataGridViewTextBoxColumn.Frozen = true;
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
@@ -110,7 +110,7 @@
             // 
             // openningPriceDataGridViewTextBoxColumn
             // 
-            this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = "OpenningPrice";
+            this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.OpenningPrice);
             this.openningPriceDataGridViewTextBoxColumn.HeaderText = "Open Price";
             this.openningPriceDataGridViewTextBoxColumn.Name = "openningPriceDataGridViewTextBoxColumn";
             this.openningPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -118,7 +118,7 @@
             // 
             // closingPriceDataGridViewTextBoxColumn
             // 
-            this.closingPriceDataGridViewTextBoxColumn.DataPropertyName = "ClosingPrice";
+            this.closingPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.ClosingPrice);
             this.closingPriceDataGridViewTextBoxColumn.HeaderText = "Close Price";
             this.closingPriceDataGridViewTextBoxColumn.Name = "closingPriceDataGridViewTextBoxColumn";
             this.closingPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -126,7 +126,7 @@
             // 
             // highestPriceDataGridViewTextBoxColumn
             // 
-            this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = "HighestPrice";
+            this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.HighestPrice);
             this.highestPriceDataGridViewTextBoxColumn.HeaderText = "Highest Price";
             this.highestPriceDataGridViewTextBoxColumn.Name = "highestPriceDataGridViewTextBoxColumn";
             this.highestPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -134,7 +134,7 @@
             // 
             // lowestPriceDataGridViewTextBoxColumn
             // 
-            this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = "LowestPrice";
+            this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.LowestPrice);
             this.lowestPriceDataGridViewTextBoxColumn.HeaderText = "Lowest Price";
             this.lowestPriceDataGridViewTextBoxColumn.Name = "lowestPriceDataGridViewTextBoxColumn";
             this.lowestPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -142,7 +142,7 @@
             // 
             // volumeDataGridViewTextBoxColumn
             // 
-            this.volumeDataGridViewTextBoxColumn.DataPropertyName = "Volume";
+            this.volumeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Volume);
             this.volumeDataGridViewTextBoxColumn.HeaderText = "Volumn";
             this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
             this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -150,7 +150,7 @@
             // 
             // updateTimeDataGridViewTextBoxColumn
             // 
-            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = "UpdateTime";
+            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.QuotaBase.QuotaTime);
             dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
             this.updateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.updateTimeDataGridViewTextBoxColumn.HeaderText = "Quota Time";

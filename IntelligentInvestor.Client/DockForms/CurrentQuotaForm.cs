@@ -145,8 +145,9 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 
     private void StockEventHandler_EventRaised(object? sender, StockEvent e)
     {
-        if (e.EventType != StockEventTypes.ChangeCurrent || e.Stock is null) return;
-        this.CurrentQuota = e.Stock?.Quotas?.Last() ?? default;
+        if (e.EventType != StockEventTypes.ChangeCurrent) return;
+        this.CurrentStock = e.Stock;
+        this.CurrentQuota = e.Stock?.Quotas?.LastOrDefault();
     }
 
     private void CurrentQuotaForm_Load(object sender, System.EventArgs e)
@@ -157,6 +158,8 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 
     public async Task RefreshQuota()
     {
+        if (this.currentStock is null) return;
+
         try
         {
             this.logger.LogDebug($"Refresh quota of {this.currentStock?.GetFullCode()} ...");

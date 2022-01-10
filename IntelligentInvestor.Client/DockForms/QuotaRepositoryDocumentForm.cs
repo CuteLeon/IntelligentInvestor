@@ -22,7 +22,7 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code);
+            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
         }
     }
 
@@ -126,11 +126,18 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
 
     private async void QueryQuotas()
     {
-        var query = this.quotaRepository.AsQueryable().Where(x => x.StockMarket == this.stock.StockMarket && x.StockCode == this.stock.StockCode);
-        if (this.QuotaStartDatePicker.Checked)
-            query = query.Where(x => x.QuotaTime >= this.QuotaStartDatePicker.Value.Date);
-        if (this.QuotaEndDatePicker.Checked)
-            query = query.Where(x => x.QuotaTime <= this.QuotaEndDatePicker.Value.Date);
-        this.QuotaRepositoryBindingSource.DataSource = query.ToArray();
+        try
+        {
+            var query = this.quotaRepository.AsQueryable().Where(x => x.StockMarket == this.stock.StockMarket && x.StockCode == this.stock.StockCode);
+            if (this.QuotaStartDatePicker.Checked)
+                query = query.Where(x => x.QuotaTime >= this.QuotaStartDatePicker.Value.Date);
+            if (this.QuotaEndDatePicker.Checked)
+                query = query.Where(x => x.QuotaTime <= this.QuotaEndDatePicker.Value.Date);
+            this.QuotaRepositoryBindingSource.DataSource = query.ToArray();
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, $"Failed to query quotas.");
+        }
     }
 }

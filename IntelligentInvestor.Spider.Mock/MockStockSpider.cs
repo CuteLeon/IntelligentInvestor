@@ -65,12 +65,12 @@ public class MockStockSpider : IStockSpider
 
     public async Task<IEnumerable<Stock>> GetHotStocksAsync()
     {
-        return this.stockFaker.GenerateForever().Take(10);
+        return this.stockFaker.GenerateForever().Take(10).ToArray();
     }
 
     public async Task<IEnumerable<Quota>> GetQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency, DateTime fromDate, DateTime toDate)
     {
-        return this.quotaFaker.GenerateForever().Take(100);
+        return this.quotaFaker.GenerateForever().Take(100).ToArray();
     }
 
     public async Task<(Stock Stock, Quota Quota)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode)
@@ -80,6 +80,6 @@ public class MockStockSpider : IStockSpider
 
     public async Task<IEnumerable<Stock>> SearchStocksAsync(string keyword)
     {
-        return this.stockFaker.GenerateForever().Take(5);
+        return this.stockFaker.GenerateForever().Take(5).ToArray();
     }
 }

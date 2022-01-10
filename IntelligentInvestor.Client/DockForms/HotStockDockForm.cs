@@ -26,14 +26,8 @@ public partial class HotStockDockForm : SingleToolDockForm
             if (this.currentStock == value) return;
 
             this.currentStock = value;
-            if (value == null)
-            {
-                this.RemoveToolButton.Enabled = false;
-            }
-            else
-            {
-                this.RemoveToolButton.Enabled = true;
-            }
+            this.RemoveToolButton.Enabled = value != null;
+            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
     }
 

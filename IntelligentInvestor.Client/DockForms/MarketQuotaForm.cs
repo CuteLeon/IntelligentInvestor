@@ -109,7 +109,7 @@ public partial class MarketQuotaForm : SingleToolDockForm
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
-        this.InitializeComponent(this.themeHandler);
+        this.InitializeComponent(themeHandler);
         this.Icon = IntelligentInvestorResource.MarketQuotaIcon;
         this.logger = logger;
         this.themeHandler = themeHandler;
@@ -123,8 +123,9 @@ public partial class MarketQuotaForm : SingleToolDockForm
 
     private void StockEventHandler_EventRaised(object? sender, StockEvent e)
     {
-        if (e.EventType != StockEventTypes.ChangeCurrent || e.Stock is null) return;
-        this.CurrentQuota = e.Stock?.Quotas?.Last() ?? default;
+        if (e.EventType != StockEventTypes.ChangeCurrent) return;
+        this.CurrentStock = e.Stock;
+        this.CurrentQuota = e.Stock?.Quotas?.LastOrDefault();
     }
 
     private void MarketQuotaForm_Load(object sender, EventArgs e)

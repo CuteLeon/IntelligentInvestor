@@ -27,7 +27,7 @@ public partial class ChartDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code);
+            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
         }
     }
 

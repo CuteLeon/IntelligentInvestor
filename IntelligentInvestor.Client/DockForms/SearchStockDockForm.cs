@@ -139,7 +139,14 @@ public partial class SearchStockDockForm : SingleToolDockForm
     {
         if (this.currentStock != null)
         {
-            await this.stockRepository.AddAsync(this.currentStock);
+            try
+            {
+                await this.stockRepository.AddAsync(this.currentStock);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, "Failed to save stock.");
+            }
         }
     }
 
@@ -147,12 +154,19 @@ public partial class SearchStockDockForm : SingleToolDockForm
     {
         if (this.currentStock == null) return;
 
-        var stock = this.stockRepository.Find(this.currentStock.StockMarket, this.currentStock.StockCode);
-        if (stock != null)
+        try
         {
-            await this.stockRepository.RemoveAsync(stock);
-            if (stock.IsSelected)
-                await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
+            var stock = this.stockRepository.Find(this.currentStock.StockMarket, this.currentStock.StockCode);
+            if (stock != null)
+            {
+                await this.stockRepository.RemoveAsync(stock);
+                if (stock.IsSelected)
+                    await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
+            }
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, "Failed to remove stock.");
         }
     }
 
