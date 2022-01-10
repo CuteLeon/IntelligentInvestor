@@ -16,7 +16,7 @@ public partial class LaunchForm : Form
     private void LaunchForm_Shown(object sender, EventArgs e)
     {
         var result = false;
-        WinApplication.DoEvents();
+        this.Refresh();
 
         Task.WhenAll(
             Task.Delay(3000),
@@ -43,7 +43,10 @@ public partial class LaunchForm : Form
 
     private void ShowMessage(string message) => this.Invoke(() =>
     {
-        this.MessageLabel.Text = message;
-        WinApplication.DoEvents();
+        this.Invoke(() =>
+        {
+            this.MessageLabel.Text = message;
+            this.Refresh();
+        });
     });
 }

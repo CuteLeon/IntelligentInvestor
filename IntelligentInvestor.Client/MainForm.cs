@@ -16,6 +16,7 @@ public partial class MainForm : Form
     private readonly IUIThemeHandler themeHandler;
     private readonly IServiceProvider serviceProvider;
     private readonly IStockSpider stockSpider;
+    private const string DockLayoutFileName = "IntelligentInvestor.Layout.xml";
 
     public MainForm(
         ILogger<MainForm> logger,
@@ -34,29 +35,28 @@ public partial class MainForm : Form
     private void MainForm_Shown(object sender, EventArgs e)
     {
         this.logger.LogDebug("Main form shown ...");
-        WinApplication.DoEvents();
+        this.Refresh();
 
-        /*
-        if (File.Exists(ConfigHelper.GetLayoutFileName()))
+        this.InitializeLayout();
+        this.Refresh();
+    }
+
+    private void InitializeLayout()
+    {
+        if (File.Exists(DockLayoutFileName))
         {
             try
             {
                 this.LoadLayout();
+                return;
             }
             catch (Exception ex)
             {
                 this.logger.LogError(ex, "Restore layout from file failed.");
-
-                this.PredeterminedLayout();
             }
         }
-        else
-        {
-         */
+
         this.PredeterminedLayout();
-        /*
-        }
-         */
     }
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -131,10 +131,7 @@ public partial class MainForm : Form
     private void SearchToolButton_Click(object sender, EventArgs e)
     {
         SearchStockDockForm dockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
-        if (dockForm == null)
-        {
-            return;
-        }
+        if (dockForm == null) return;
 
         dockForm.Show(this.MainDockPanel);
     }
@@ -187,12 +184,12 @@ public partial class MainForm : Form
 
     private void LoadLayout()
     {
-        // this.MainDockPanel.LoadFromXml(ConfigHelper.GetLayoutFileName(), this.GetDockContent);
+        this.MainDockPanel.LoadFromXml(DockLayoutFileName, this.GetDockContent);
     }
 
     private void SaveLayoute()
     {
-        // this.MainDockPanel.SaveAsXml(ConfigHelper.GetLayoutFileName());
+        this.MainDockPanel.SaveAsXml(DockLayoutFileName);
     }
 
     private DockFormBase GetDockContent(string persist)
@@ -201,7 +198,7 @@ public partial class MainForm : Form
         {
             string[] persists = persist.Split(new[] { '@' }, 2);
             Type type = this.GetType().Assembly.GetType(persists[0]);
-            if (!(this.serviceProvider.GetRequiredService(type) is DockFormBase dockForm))
+            if (this.serviceProvider.GetRequiredService(type) is not DockFormBase dockForm)
             {
                 return default;
             }

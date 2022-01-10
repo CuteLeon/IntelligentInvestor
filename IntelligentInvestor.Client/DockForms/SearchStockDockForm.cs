@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Client.Themes;
+using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Intermediary.Application;
 using IntelligentInvestor.Spider;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -29,6 +31,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
     private Quota currentQuota;
     private readonly IServiceProvider serviceProvider;
+    private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IRepositoryBase<Stock> stockRepository;
     private readonly IRepositoryBase<Quota> quotaRepository;
     private readonly IStockSpider stockSpider;
@@ -48,6 +51,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     public SearchStockDockForm(
         ILogger<SearchStockDockForm> logger,
         IUIThemeHandler themeHandler,
+        IIntermediaryPublisher intermediaryPublisher,
         IServiceScopeFactory serviceScopeFactory,
         IRepositoryBase<Stock> stockRepository,
         IRepositoryBase<Quota> quotaRepository,
@@ -57,6 +61,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.InitializeComponent(themeHandler);
         this.Icon = IntelligentInvestorResource.SearchIcon;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+        this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.quotaRepository = quotaRepository;
         this.stockSpider = stockSpider;
@@ -76,22 +81,14 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
     private void AddSelfSelectToolButton_Click(object sender, EventArgs e)
     {
-        if (this.currentStock == null)
-        {
-            return;
-        }
-
-        // MQHelper.Publish(this.SourceName, MQTopics.TopicStockSelfSelectAdd, this.currentStock.GetFullCode());
+        if (this.currentStock == null) return;
+        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
     }
 
     private void RemoveSelfSelectToolButton_Click(object sender, EventArgs e)
     {
-        if (this.currentStock == null)
-        {
-            return;
-        }
-
-        // MQHelper.Publish(this.SourceName, MQTopics.TopicStockSelfSelectRemove, this.currentStock.GetFullCode());
+        if (this.currentStock == null) return;
+        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
     }
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
@@ -144,25 +141,18 @@ public partial class SearchStockDockForm : SingleToolDockForm
         {
             await this.stockRepository.AddAsync(this.currentStock);
         }
-
-        if (this.currentQuota != null)
-        {
-            await this.quotaRepository.AddAsync(this.currentQuota);
-        }
     }
 
     private async void DeleteToolButton_Click(object sender, EventArgs e)
     {
-        if (this.currentStock == null)
-        {
-            return;
-        }
+        if (this.currentStock == null) return;
 
         var stock = this.stockRepository.Find(this.currentStock.StockMarket, this.currentStock.StockCode);
         if (stock != null)
         {
             await this.stockRepository.RemoveAsync(stock);
-            // MQHelper.Publish(this.SourceName, MQTopics.TopicStockRemove, stock.GetFullCode());
+            if (stock.IsSelected)
+                await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
         }
     }
 

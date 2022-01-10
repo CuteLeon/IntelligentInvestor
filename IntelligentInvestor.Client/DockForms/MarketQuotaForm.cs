@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Client.Themes;
+using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Intermediary.Application;
 using IntelligentInvestor.Spider;
 using Microsoft.Extensions.Logging;
 
@@ -64,6 +66,7 @@ public partial class MarketQuotaForm : SingleToolDockForm
     private bool isPropertySetting = false;
     private readonly ILogger<MarketQuotaForm> logger;
     private readonly IUIThemeHandler themeHandler;
+    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
     private readonly IRepositoryBase<Stock> stockRepository;
     private readonly IRepositoryBase<Quota> quotaRepository;
     private readonly IStockSpider stockSpider;
@@ -100,6 +103,7 @@ public partial class MarketQuotaForm : SingleToolDockForm
     public MarketQuotaForm(
         ILogger<MarketQuotaForm> logger,
         IUIThemeHandler themeHandler,
+        IIntermediaryEventHandler<StockEvent> stockEventHandler,
         IRepositoryBase<Stock> stockRepository,
         IRepositoryBase<Quota> quotaRepository,
         IStockSpider stockSpider)
@@ -109,9 +113,18 @@ public partial class MarketQuotaForm : SingleToolDockForm
         this.Icon = IntelligentInvestorResource.MarketQuotaIcon;
         this.logger = logger;
         this.themeHandler = themeHandler;
+        this.stockEventHandler = stockEventHandler;
         this.stockRepository = stockRepository;
         this.quotaRepository = quotaRepository;
         this.stockSpider = stockSpider;
+
+        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+    }
+
+    private void StockEventHandler_EventRaised(object? sender, StockEvent e)
+    {
+        if (e.EventType != StockEventTypes.ChangeCurrent || e.Stock is null) return;
+        this.CurrentQuota = e.Stock?.Quotas?.Last() ?? default;
     }
 
     private void MarketQuotaForm_Load(object sender, EventArgs e)
@@ -124,13 +137,6 @@ public partial class MarketQuotaForm : SingleToolDockForm
         this.AutoRefresh = false;
     }
 
-    public void MQSubscriberReceive(string source, string topic, string message)
-    {
-        /*
-        this.CurrentStock = stock;
-        this.CurrentQuota = stock == null ? null : this.MarketQuotaService?.GetLastMarketQuota(stock.Code, stock.Market);
-         */
-    }
 
     public async Task RefreshMarketQuota()
     {
@@ -179,6 +185,6 @@ public partial class MarketQuotaForm : SingleToolDockForm
     private void MarketQuotaForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
     {
         this.AutoRefreshTimer.Stop();
-        //this.Subscriber?.Dispose();
+        this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
     }
 }

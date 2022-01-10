@@ -1,7 +1,10 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
+using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Intermediary.Application;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +14,8 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 {
     private readonly StockBaseComparer<Stock> stockComparer = new StockBaseComparer<Stock>();
     private readonly IServiceProvider serviceProvider;
+    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
+    private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IRepositoryBase<Stock> stockRepository;
     private Stock currentStock;
 
@@ -30,27 +35,21 @@ public partial class SelfSelectStockForm : SingleToolDockForm
             {
                 this.RemoveMenuItem.Enabled = false;
                 this.RemoveToolButton.Enabled = false;
-
-                // MQHelper.Publish(this.SourceName, MQTopics.TopicStockCurrentChange, string.Empty);
             }
             else
             {
                 this.RemoveMenuItem.Enabled = true;
                 this.RemoveToolButton.Enabled = true;
-
-                /*
-                MQHelper.Publish(
-                    this.SourceName,
-                    MQTopics.TopicStockCurrentChange,
-                    SerializerHelper.Serialize(ExpressionCloneHelper<Stock, Stock>.Clone(value)));
-                 */
             }
+            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
     }
 
     public SelfSelectStockForm(
         ILogger<SelfSelectStockForm> logger,
         IUIThemeHandler themeHandler,
+        IIntermediaryEventHandler<StockEvent> stockEventHandler,
+        IIntermediaryPublisher intermediaryPublisher,
         IServiceScopeFactory serviceScopeFactory,
         IRepositoryBase<Stock> stockRepository)
         : base(logger, themeHandler)
@@ -62,7 +61,11 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         this.TabPageContextMenuStrip = this.SelfSelectGridViewMenuStrip;
         this.SelfSelectStockGridView.ContextMenuStrip = this.SelfSelectGridViewMenuStrip;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+        this.stockEventHandler = stockEventHandler;
+        this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
+
+        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 
     private void SelfSelectStockForm_Load(object sender, EventArgs e)
@@ -71,19 +74,19 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         {
             return;
         }
-
-        /*
-        this.Subscriber = MQHelper.Subscribe(
-            this.SourceName,
-            new[] { MQTopics.TopicStockSelfSelect, MQTopics.TopicStockRemove },
-            this.MQSubscriberReceive);
-        */
     }
 
-    private void SelfSelectStockForm_Shown(object sender, EventArgs e)
+    private async void SelfSelectStockForm_Shown(object sender, EventArgs e)
     {
-        this.Refresh();
-        this.RefreshDataSource();
+        try
+        {
+            this.Refresh();
+            await this.RefreshDataSource();
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, $"Initialize {nameof(SelfSelectStockForm)} failed.");
+        }
     }
 
     public override void ApplyTheme()
@@ -110,48 +113,17 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         this.SearchToolTextBox.ForeColor = this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.ForeColor;
     }
 
-    public void MQSubscriberReceive(string source, string topic, string message)
+    private void StockEventHandler_EventRaised(object? sender, StockEvent e)
     {
-        /*
-        var (code, market, name) = message.GetMarketCode();
-        if (string.IsNullOrWhiteSpace(code) ||
-            market == Markets.Unknown)
+        if (e.Stock is null) return;
+        if (e.EventType == StockEventTypes.Select)
         {
-            LogHelper<SelfSelectStockForm>.Warn($"无法处理 [代码={code},市场={market.ToString()},名称={name}] 的股票。");
-            return;
+            this.AddSelfSelectStock(e.Stock);
         }
-
-        Stock stock = this.StockService.Find(market, code);
-        if (stock == null)
+        else if (e.EventType == StockEventTypes.Unselect)
         {
-            stock = new Stock(code, market, name);
+            this.RemoveSelfSelectStock(e.Stock);
         }
-
-        switch (topic)
-        {
-            case MQTopics.TopicStockSelfSelectAdd:
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        this.AddSelfSelectStock(stock);
-                    }));
-                    break;
-                }
-
-            case MQTopics.TopicStockRemove:
-            case MQTopics.TopicStockSelfSelectRemove:
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        this.RemoveSelfSelectStock(stock);
-                    }));
-                    break;
-                }
-
-            default:
-                break;
-        }
-         */
     }
 
     private void SelfSelectStockGridView_SelectionChanged(object sender, EventArgs e)
@@ -179,7 +151,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         this.RemoveSelfSelectStock(this.currentStock);
     }
 
-    private void SearchToolTextBox_TextChanged(object sender, EventArgs e)
+    private async void SearchToolTextBox_TextChanged(object sender, EventArgs e)
     {
         string keyWord = this.SearchToolTextBox.Text;
 
@@ -189,7 +161,8 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
         else
         {
-            // this.SelfSelectStockBindingSource.DataSource = this.stockRepository.QueryStock(true, keyWord);
+            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(
+                x => x.IsSelected && (EF.Functions.Like(x.StockCode, $"%{keyWord}%") || EF.Functions.Like(x.StockName, $"%{keyWord}%"))).ToArrayAsync();
         }
     }
 
@@ -203,19 +176,27 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         this.ShowSearchStockDockForm();
     }
 
-    private void RefreshDataSource()
+    private async Task RefreshDataSource()
     {
-        // this.SelfSelectStockBindingSource.DataSource = this.StockService.QueryStock(true);
+        this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToArrayAsync();
     }
 
-    private void RemoveSelfSelectStock(Stock stock)
+    private async void RemoveSelfSelectStock(Stock stock)
     {
-        if (stock == null)
-        {
-            return;
-        }
+        if (stock == null) return;
 
-        // this.stockRepository.RemoveSelfSelectStock(stock.Code, stock.Market);
+        var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+        if (existedStock is null)
+        {
+            stock.IsSelected = false;
+            await this.stockRepository.AddAsync(stock);
+        }
+        else
+        {
+            stock = existedStock;
+            stock.IsSelected = false;
+            await this.stockRepository.UpdateAsync(stock);
+        }
 
         var index = this.GetIndexInDataSource(stock);
         if (index != null)
@@ -224,14 +205,25 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
     }
 
-    private void AddSelfSelectStock(Stock stock)
+    private async void AddSelfSelectStock(Stock stock)
     {
         if (stock == null)
         {
             return;
         }
 
-        // this.stockRepository.AddSelfSelectStock(stock);
+        var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+        if (existedStock is null)
+        {
+            stock.IsSelected = true;
+            await this.stockRepository.AddAsync(stock);
+        }
+        else
+        {
+            stock = existedStock;
+            stock.IsSelected = true;
+            await this.stockRepository.UpdateAsync(stock);
+        }
 
         if (!this.CheckDataSourceContains(stock))
         {
@@ -277,6 +269,6 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
     private void SelfSelectStockForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-        // this.Subscriber?.Dispose();
+        this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
     }
 }

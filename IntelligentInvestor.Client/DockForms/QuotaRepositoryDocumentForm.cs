@@ -74,15 +74,15 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
         this.quotaRepository = quotaRepository;
     }
 
-    private void QuotaRepositoryDockForm_Load(object sender, System.EventArgs e)
+    private void QuotaRepositoryDockForm_Load(object sender, EventArgs e)
     {
         if (this.DesignMode)
         {
             return;
         }
 
-        ToolStripControlHost startDatePickerHost = new ToolStripControlHost(this.QuotaStartDatePicker);
-        ToolStripControlHost endDatePickerHost = new ToolStripControlHost(this.QuotaEndDatePicker);
+        ToolStripControlHost startDatePickerHost = new(this.QuotaStartDatePicker);
+        ToolStripControlHost endDatePickerHost = new(this.QuotaEndDatePicker);
         int insertIndex = this.QuotaRepositoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
         this.QuotaRepositoryToolStrip.Items.Insert(insertIndex, startDatePickerHost);
         insertIndex = this.QuotaRepositoryToolStrip.Items.IndexOf(this.EndTimeToolLabel) + 1;
@@ -124,14 +124,13 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
         this.QueryQuotas();
     }
 
-    private void QueryQuotas()
+    private async void QueryQuotas()
     {
-        /*
-        this.QuotaRepositoryBindingSource.DataSource = this.quotaRepository.QueryQuotas(
-            this.stock.Code,
-            this.stock.Market,
-            this.QuotaStartDatePicker.Checked ? (DateTime?)this.QuotaStartDatePicker.Value.Date : null,
-            this.QuotaEndDatePicker.Checked ? (DateTime?)this.QuotaEndDatePicker.Value.Date.AddHours(24).AddSeconds(-1) : null);
-         */
+        var query = this.quotaRepository.AsQueryable().Where(x => x.StockMarket == this.stock.StockMarket && x.StockCode == this.stock.StockCode);
+        if (this.QuotaStartDatePicker.Checked)
+            query = query.Where(x => x.QuotaTime >= this.QuotaStartDatePicker.Value.Date);
+        if (this.QuotaEndDatePicker.Checked)
+            query = query.Where(x => x.QuotaTime <= this.QuotaEndDatePicker.Value.Date);
+        this.QuotaRepositoryBindingSource.DataSource = query.ToArray();
     }
 }

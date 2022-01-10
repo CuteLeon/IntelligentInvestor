@@ -1,7 +1,9 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
+using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Intermediary.Application;
 using IntelligentInvestor.Spider;
 using Microsoft.Extensions.Logging;
 
@@ -10,6 +12,7 @@ namespace IntelligentInvestor.Client.DockForms;
 public partial class HotStockDockForm : SingleToolDockForm
 {
     private readonly StockBaseComparer<Stock> stockComparer = new();
+    private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IRepositoryBase<Stock> stockRepository;
     private readonly IStockSpider stockSpider;
 
@@ -37,17 +40,19 @@ public partial class HotStockDockForm : SingleToolDockForm
     public HotStockDockForm(
         ILogger<HotStockDockForm> logger,
         IUIThemeHandler themeHandler,
+        IIntermediaryPublisher intermediaryPublisher,
         IRepositoryBase<Stock> stockRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
         this.Icon = IntelligentInvestorResource.HotIcon;
+        this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.stockSpider = stockSpider;
     }
 
-    private void HotStockDockForm_Shown(object sender, System.EventArgs e)
+    private void HotStockDockForm_Shown(object sender, EventArgs e)
     {
         _ = this.RefreshDataSource();
     }
@@ -72,24 +77,24 @@ public partial class HotStockDockForm : SingleToolDockForm
         this.HotStocksGridView.ColumnHeadersDefaultCellStyle.Font = new Font(this.HotStocksGridView.RowTemplate.DefaultCellStyle.Font, FontStyle.Regular);
     }
 
-    private void HotStocksGridView_SelectionChanged(object sender, System.EventArgs e)
+    private void HotStocksGridView_SelectionChanged(object sender, EventArgs e)
     {
         this.CurrentStock = this.HotStocksGridView.CurrentRow?.DataBoundItem as Stock;
     }
 
-    private void AddToolButton_Click(object sender, System.EventArgs e)
+    private void AddToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        // MQHelper.Publish(this.SourceName, MQTopics.TopicStockSelfSelectAdd, this.currentStock.GetFullCode());
+        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
     }
 
-    private void RemoveToolButton_Click(object sender, System.EventArgs e)
+    private void RemoveToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        // MQHelper.Publish(this.SourceName, MQTopics.TopicStockSelfSelectRemove, this.currentStock.GetFullCode());
+        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
     }
 
-    private void RefreshToolButton_Click(object sender, System.EventArgs e)
+    private void RefreshToolButton_Click(object sender, EventArgs e)
     {
         _ = this.RefreshDataSource();
     }
