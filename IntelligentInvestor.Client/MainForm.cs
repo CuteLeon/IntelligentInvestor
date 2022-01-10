@@ -35,10 +35,10 @@ public partial class MainForm : Form
     private void MainForm_Shown(object sender, EventArgs e)
     {
         this.logger.LogDebug("Main form shown ...");
-        this.Refresh();
+        WinApplication.DoEvents();
 
         this.InitializeLayout();
-        this.Refresh();
+        WinApplication.DoEvents();
     }
 
     private void InitializeLayout()

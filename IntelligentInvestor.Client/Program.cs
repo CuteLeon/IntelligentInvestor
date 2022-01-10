@@ -31,9 +31,11 @@ namespace IntelligentInvestor.Client
             WinApplication.ThreadException += Application_ThreadException;
             WinApplication.ApplicationExit += Application_ApplicationExit;
 
-            using var launchForm = new LaunchForm(InitializeProgramHost);
-            var result = launchForm.ShowDialog();
-            if (result != DialogResult.OK) return;
+            using (var launchForm = new LaunchForm(InitializeProgramHost))
+            {
+                var result = launchForm.ShowDialog();
+                if (result != DialogResult.OK) return;
+            }
 
             var mainForm = Host.ServiceProvider.GetRequiredService<MainForm>();
             WinApplication.Run(mainForm);
@@ -87,7 +89,7 @@ namespace IntelligentInvestor.Client
         {
             Logger.Debug("Initialize intermediary ...");
             yield return "Initialize intermediary ...";
-            var services = host.Services
+            host.Services
                 .AddIntermediaryEvent<StockEvent>()
                 .AddIntermediaryEvent<ThemeEvent>();
         }

@@ -13,12 +13,12 @@ public partial class LaunchForm : Form
         this.InitializeComponent();
     }
 
-    private void LaunchForm_Shown(object sender, EventArgs e)
+    private async void LaunchForm_Shown(object sender, EventArgs e)
     {
         var result = false;
-        this.Refresh();
+        WinApplication.DoEvents();
 
-        Task.WhenAll(
+        await Task.WhenAll(
             Task.Delay(3000),
             Task.Run(() =>
             {
@@ -46,7 +46,7 @@ public partial class LaunchForm : Form
         this.Invoke(() =>
         {
             this.MessageLabel.Text = message;
-            this.Refresh();
+            WinApplication.DoEvents();
         });
     });
 }
