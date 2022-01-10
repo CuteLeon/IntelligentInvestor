@@ -52,7 +52,9 @@ public partial class MainForm : Form
         }
         else
         {
-            this.PredeterminedLayout();
+         */
+        this.PredeterminedLayout();
+        /*
         }
          */
     }
