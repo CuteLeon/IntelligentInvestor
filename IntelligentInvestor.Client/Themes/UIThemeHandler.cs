@@ -5,19 +5,23 @@ namespace IntelligentInvestor.Client.Themes;
 
 public class UIThemeHandler : IUIThemeHandler
 {
-    public UIThemes CurrentTheme { get; set; }
+    public UIThemes CurrentTheme { get; set; } = UIThemes.Dark;
 
-    public ThemeBase CurrentThemeComponent { get; }
-
-    public ThemeBase GetTheme(UIThemes theme)
+    public ThemeBase CurrentThemeComponent
     {
-        return theme switch
+        get => this.CurrentTheme switch
         {
             UIThemes.Dark => new VS2015DarkTheme(),
             UIThemes.Blue => new VS2015BlueTheme(),
             UIThemes.Light => new VS2015LightTheme(),
             _ => new VS2015DarkTheme(),
         };
+    }
+
+    public ThemeBase SetTheme(UIThemes theme)
+    {
+        this.CurrentTheme = theme;
+        return this.CurrentThemeComponent;
     }
 
     public Color GetContainerBackcolor()

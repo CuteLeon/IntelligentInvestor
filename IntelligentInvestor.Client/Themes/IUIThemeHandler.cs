@@ -9,7 +9,7 @@ public interface IUIThemeHandler
 
     public ThemeBase CurrentThemeComponent { get; }
 
-    public ThemeBase GetTheme(UIThemes theme);
+    public ThemeBase SetTheme(UIThemes theme);
 
     public Color GetContainerBackcolor();
 

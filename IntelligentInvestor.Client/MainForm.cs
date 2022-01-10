@@ -94,31 +94,15 @@ public partial class MainForm : Form
         this.BlueThemeMenuItem.Tag = UIThemes.Blue;
         this.DarkThemeMenuItem.Tag = UIThemes.Dark;
 
-        switch (this.themeHandler.CurrentTheme)
-        {
-            case UIThemes.Light:
-                {
-                    this.LightThemeMenuItem.Checked = true;
-                    break;
-                }
-
-            case UIThemes.Blue:
-                {
-                    this.BlueThemeMenuItem.Checked = true;
-                    break;
-                }
-
-            case UIThemes.Dark:
-                {
-                    this.DarkThemeMenuItem.Checked = true;
-                    break;
-                }
-        }
+        if (this.themeHandler.CurrentTheme == UIThemes.Light)
+            this.LightThemeMenuItem.Checked = true;
+        else if (this.themeHandler.CurrentTheme == UIThemes.Dark)
+            this.DarkThemeMenuItem.Checked = true;
+        else if (this.themeHandler.CurrentTheme == UIThemes.Blue)
+            this.BlueThemeMenuItem.Checked = true;
 
         this.MainDockPanel.Theme = this.themeHandler.CurrentThemeComponent;
-
         this.MainDockPanel.Theme.Extender.FloatWindowFactory = FloatedWindowFactory.SingleInstance;
-
         this.MainDockPanel.Theme.ApplyTo(this.MainTopMenuStrip);
         this.MainDockPanel.Theme.ApplyTo(this.MainToolStrip);
         this.MainDockPanel.Theme.ApplyTo(this.MainStatusStrip);
