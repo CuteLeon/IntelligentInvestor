@@ -93,7 +93,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
         this.SelfSelectStockGridView.BackgroundColor = this.BackColor;
         this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.Font = new Font("微软雅黑", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
+        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
         this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
         this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
         this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();

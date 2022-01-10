@@ -102,7 +102,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
         this.RecentQuotaGridView.RowHeadersDefaultCellStyle.BackColor = this.BackColor;
         this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
         this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.Font = new Font("微软雅黑", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
+        this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
         this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
         this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
         this.RecentQuotaGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();

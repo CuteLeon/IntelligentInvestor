@@ -242,7 +242,7 @@
             // QuotaLengthNumeric
             // 
             this.QuotaLengthNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.QuotaLengthNumeric.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaLengthNumeric.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.QuotaLengthNumeric.Increment = new decimal(new int[] {
             5,
             0,

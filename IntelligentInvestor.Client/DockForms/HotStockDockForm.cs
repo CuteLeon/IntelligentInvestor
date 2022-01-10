@@ -58,7 +58,7 @@ public partial class HotStockDockForm : SingleToolDockForm
 
         this.HotStocksGridView.BackgroundColor = this.BackColor;
         this.HotStocksGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
-        this.HotStocksGridView.RowTemplate.DefaultCellStyle.Font = new Font("微软雅黑", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
+        this.HotStocksGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
         this.HotStocksGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
         this.HotStocksGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
         this.HotStocksGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();

@@ -59,7 +59,7 @@
             this.BiddingPriceValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.BiddingPriceValueLabel, 3);
             this.BiddingPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BiddingPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BiddingPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.BiddingPriceValueLabel.Location = new System.Drawing.Point(0, 18);
             this.BiddingPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.BiddingPriceValueLabel.Name = "BiddingPriceValueLabel";
@@ -73,7 +73,7 @@
             this.AuctionPriceValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.AuctionPriceValueLabel, 3);
             this.AuctionPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AuctionPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AuctionPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AuctionPriceValueLabel.Location = new System.Drawing.Point(156, 18);
             this.AuctionPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AuctionPriceValueLabel.Name = "AuctionPriceValueLabel";
@@ -87,7 +87,7 @@
             this.BiddingPriceLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.BiddingPriceLabel, 3);
             this.BiddingPriceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BiddingPriceLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.BiddingPriceLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.BiddingPriceLabel.Location = new System.Drawing.Point(0, 0);
             this.BiddingPriceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.BiddingPriceLabel.Name = "BiddingPriceLabel";
@@ -101,7 +101,7 @@
             this.AuctionPriceLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.AuctionPriceLabel, 3);
             this.AuctionPriceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AuctionPriceLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.AuctionPriceLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.AuctionPriceLabel.Location = new System.Drawing.Point(156, 0);
             this.AuctionPriceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AuctionPriceLabel.Name = "AuctionPriceLabel";
@@ -187,7 +187,7 @@
             // 
             this.Sell2PriceValueLabel.AutoEllipsis = true;
             this.Sell2PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell2PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell2PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell2PriceValueLabel.Location = new System.Drawing.Point(265, 63);
             this.Sell2PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell2PriceValueLabel.Name = "Sell2PriceValueLabel";
@@ -200,7 +200,7 @@
             // 
             this.Sell1PriceValueLabel.AutoEllipsis = true;
             this.Sell1PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell1PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell1PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell1PriceValueLabel.Location = new System.Drawing.Point(265, 43);
             this.Sell1PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell1PriceValueLabel.Name = "Sell1PriceValueLabel";
@@ -213,7 +213,7 @@
             // 
             this.Sell3PriceValueLabel.AutoEllipsis = true;
             this.Sell3PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell3PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell3PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell3PriceValueLabel.Location = new System.Drawing.Point(265, 83);
             this.Sell3PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell3PriceValueLabel.Name = "Sell3PriceValueLabel";
@@ -226,7 +226,7 @@
             // 
             this.Sell5PriceValueLabel.AutoEllipsis = true;
             this.Sell5PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell5PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell5PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell5PriceValueLabel.Location = new System.Drawing.Point(265, 123);
             this.Sell5PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell5PriceValueLabel.Name = "Sell5PriceValueLabel";
@@ -239,7 +239,7 @@
             // 
             this.Sell4PriceValueLabel.AutoEllipsis = true;
             this.Sell4PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell4PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell4PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell4PriceValueLabel.Location = new System.Drawing.Point(265, 103);
             this.Sell4PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell4PriceValueLabel.Name = "Sell4PriceValueLabel";
@@ -252,7 +252,7 @@
             // 
             this.Sell2StrandValueLabel.AutoEllipsis = true;
             this.Sell2StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell2StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell2StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell2StrandValueLabel.Location = new System.Drawing.Point(193, 63);
             this.Sell2StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell2StrandValueLabel.Name = "Sell2StrandValueLabel";
@@ -265,7 +265,7 @@
             // 
             this.Sell1StrandValueLabel.AutoEllipsis = true;
             this.Sell1StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell1StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell1StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell1StrandValueLabel.Location = new System.Drawing.Point(193, 43);
             this.Sell1StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell1StrandValueLabel.Name = "Sell1StrandValueLabel";
@@ -278,7 +278,7 @@
             // 
             this.Sell5StrandValueLabel.AutoEllipsis = true;
             this.Sell5StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell5StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell5StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell5StrandValueLabel.Location = new System.Drawing.Point(193, 123);
             this.Sell5StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell5StrandValueLabel.Name = "Sell5StrandValueLabel";
@@ -291,7 +291,7 @@
             // 
             this.Sell4StrandValueLabel.AutoEllipsis = true;
             this.Sell4StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell4StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell4StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell4StrandValueLabel.Location = new System.Drawing.Point(193, 103);
             this.Sell4StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell4StrandValueLabel.Name = "Sell4StrandValueLabel";
@@ -304,7 +304,7 @@
             // 
             this.Sell3StrandValueLabel.AutoEllipsis = true;
             this.Sell3StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell3StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Sell3StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Sell3StrandValueLabel.Location = new System.Drawing.Point(193, 83);
             this.Sell3StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Sell3StrandValueLabel.Name = "Sell3StrandValueLabel";
@@ -317,7 +317,7 @@
             // 
             this.Buy3PriceValueLabel.AutoEllipsis = true;
             this.Buy3PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy3PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy3PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy3PriceValueLabel.Location = new System.Drawing.Point(109, 83);
             this.Buy3PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy3PriceValueLabel.Name = "Buy3PriceValueLabel";
@@ -330,7 +330,7 @@
             // 
             this.Buy1PriceValueLabel.AutoEllipsis = true;
             this.Buy1PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy1PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy1PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy1PriceValueLabel.Location = new System.Drawing.Point(109, 43);
             this.Buy1PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy1PriceValueLabel.Name = "Buy1PriceValueLabel";
@@ -343,7 +343,7 @@
             // 
             this.Buy2PriceValueLabel.AutoEllipsis = true;
             this.Buy2PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy2PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy2PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy2PriceValueLabel.Location = new System.Drawing.Point(109, 63);
             this.Buy2PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy2PriceValueLabel.Name = "Buy2PriceValueLabel";
@@ -356,7 +356,7 @@
             // 
             this.Buy5PriceValueLabel.AutoEllipsis = true;
             this.Buy5PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy5PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy5PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy5PriceValueLabel.Location = new System.Drawing.Point(109, 123);
             this.Buy5PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy5PriceValueLabel.Name = "Buy5PriceValueLabel";
@@ -369,7 +369,7 @@
             // 
             this.Buy4PriceValueLabel.AutoEllipsis = true;
             this.Buy4PriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy4PriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy4PriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy4PriceValueLabel.Location = new System.Drawing.Point(109, 103);
             this.Buy4PriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy4PriceValueLabel.Name = "Buy4PriceValueLabel";
@@ -382,7 +382,7 @@
             // 
             this.Buy5StrandValueLabel.AutoEllipsis = true;
             this.Buy5StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy5StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy5StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy5StrandValueLabel.Location = new System.Drawing.Point(37, 123);
             this.Buy5StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy5StrandValueLabel.Name = "Buy5StrandValueLabel";
@@ -395,7 +395,7 @@
             // 
             this.Buy4StrandValueLabel.AutoEllipsis = true;
             this.Buy4StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy4StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy4StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy4StrandValueLabel.Location = new System.Drawing.Point(37, 103);
             this.Buy4StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy4StrandValueLabel.Name = "Buy4StrandValueLabel";
@@ -408,7 +408,7 @@
             // 
             this.Buy3StrandValueLabel.AutoEllipsis = true;
             this.Buy3StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy3StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy3StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy3StrandValueLabel.Location = new System.Drawing.Point(37, 83);
             this.Buy3StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy3StrandValueLabel.Name = "Buy3StrandValueLabel";
@@ -421,7 +421,7 @@
             // 
             this.Buy2StrandValueLabel.AutoEllipsis = true;
             this.Buy2StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy2StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy2StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy2StrandValueLabel.Location = new System.Drawing.Point(37, 63);
             this.Buy2StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy2StrandValueLabel.Name = "Buy2StrandValueLabel";
@@ -434,7 +434,7 @@
             // 
             this.Buy1StrandValueLabel.AutoEllipsis = true;
             this.Buy1StrandValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy1StrandValueLabel.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Bold);
+            this.Buy1StrandValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.Buy1StrandValueLabel.Location = new System.Drawing.Point(37, 43);
             this.Buy1StrandValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.Buy1StrandValueLabel.Name = "Buy1StrandValueLabel";
@@ -447,7 +447,7 @@
             // 
             this.Sell5Label.AutoEllipsis = true;
             this.Sell5Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell5Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Sell5Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Sell5Label.Location = new System.Drawing.Point(156, 123);
             this.Sell5Label.Margin = new System.Windows.Forms.Padding(0);
             this.Sell5Label.Name = "Sell5Label";
@@ -460,7 +460,7 @@
             // 
             this.Sell4Label.AutoEllipsis = true;
             this.Sell4Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell4Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Sell4Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Sell4Label.Location = new System.Drawing.Point(156, 103);
             this.Sell4Label.Margin = new System.Windows.Forms.Padding(0);
             this.Sell4Label.Name = "Sell4Label";
@@ -473,7 +473,7 @@
             // 
             this.Sell3Label.AutoEllipsis = true;
             this.Sell3Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell3Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Sell3Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Sell3Label.Location = new System.Drawing.Point(156, 83);
             this.Sell3Label.Margin = new System.Windows.Forms.Padding(0);
             this.Sell3Label.Name = "Sell3Label";
@@ -486,7 +486,7 @@
             // 
             this.Sell2Label.AutoEllipsis = true;
             this.Sell2Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell2Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Sell2Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Sell2Label.Location = new System.Drawing.Point(156, 63);
             this.Sell2Label.Margin = new System.Windows.Forms.Padding(0);
             this.Sell2Label.Name = "Sell2Label";
@@ -499,7 +499,7 @@
             // 
             this.Sell1Label.AutoEllipsis = true;
             this.Sell1Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Sell1Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Sell1Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Sell1Label.Location = new System.Drawing.Point(156, 43);
             this.Sell1Label.Margin = new System.Windows.Forms.Padding(0);
             this.Sell1Label.Name = "Sell1Label";
@@ -512,7 +512,7 @@
             // 
             this.Buy5Label.AutoEllipsis = true;
             this.Buy5Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy5Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Buy5Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Buy5Label.Location = new System.Drawing.Point(0, 123);
             this.Buy5Label.Margin = new System.Windows.Forms.Padding(0);
             this.Buy5Label.Name = "Buy5Label";
@@ -525,7 +525,7 @@
             // 
             this.Buy4Label.AutoEllipsis = true;
             this.Buy4Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy4Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Buy4Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Buy4Label.Location = new System.Drawing.Point(0, 103);
             this.Buy4Label.Margin = new System.Windows.Forms.Padding(0);
             this.Buy4Label.Name = "Buy4Label";
@@ -538,7 +538,7 @@
             // 
             this.Buy3Label.AutoEllipsis = true;
             this.Buy3Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy3Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Buy3Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Buy3Label.Location = new System.Drawing.Point(0, 83);
             this.Buy3Label.Margin = new System.Windows.Forms.Padding(0);
             this.Buy3Label.Name = "Buy3Label";
@@ -551,7 +551,7 @@
             // 
             this.Buy2Label.AutoEllipsis = true;
             this.Buy2Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy2Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Buy2Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Buy2Label.Location = new System.Drawing.Point(0, 63);
             this.Buy2Label.Margin = new System.Windows.Forms.Padding(0);
             this.Buy2Label.Name = "Buy2Label";
@@ -564,7 +564,7 @@
             // 
             this.Buy1Label.AutoEllipsis = true;
             this.Buy1Label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Buy1Label.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.Buy1Label.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.Buy1Label.Location = new System.Drawing.Point(0, 43);
             this.Buy1Label.Margin = new System.Windows.Forms.Padding(0);
             this.Buy1Label.Name = "Buy1Label";

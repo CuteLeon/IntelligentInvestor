@@ -36,7 +36,7 @@
             // 
             this.MarketValueLabel.AutoEllipsis = true;
             this.MarketValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MarketValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MarketValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MarketValueLabel.Location = new System.Drawing.Point(188, 20);
             this.MarketValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MarketValueLabel.Name = "MarketValueLabel";
@@ -83,7 +83,7 @@
             // 
             this.CodeValueLabel.AutoEllipsis = true;
             this.CodeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CodeValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CodeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CodeValueLabel.Location = new System.Drawing.Point(188, 0);
             this.CodeValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CodeValueLabel.Name = "CodeValueLabel";
@@ -96,7 +96,7 @@
             // 
             this.UpdateTimeLabel.AutoEllipsis = true;
             this.UpdateTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.UpdateTimeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.UpdateTimeLabel.Location = new System.Drawing.Point(188, 65);
             this.UpdateTimeLabel.Margin = new System.Windows.Forms.Padding(0);
             this.UpdateTimeLabel.Name = "UpdateTimeLabel";
@@ -109,7 +109,7 @@
             // 
             this.UpdateTimeValueLabel.AutoEllipsis = true;
             this.UpdateTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UpdateTimeValueLabel.Location = new System.Drawing.Point(188, 83);
             this.UpdateTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.UpdateTimeValueLabel.Name = "UpdateTimeValueLabel";
@@ -122,7 +122,7 @@
             // 
             this.AmountLabel.AutoEllipsis = true;
             this.AmountLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AmountLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.AmountLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.AmountLabel.Location = new System.Drawing.Point(94, 65);
             this.AmountLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AmountLabel.Name = "AmountLabel";
@@ -135,7 +135,7 @@
             // 
             this.AmountValueLabel.AutoEllipsis = true;
             this.AmountValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AmountValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AmountValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AmountValueLabel.Location = new System.Drawing.Point(94, 83);
             this.AmountValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AmountValueLabel.Name = "AmountValueLabel";
@@ -148,7 +148,7 @@
             // 
             this.CountLabel.AutoEllipsis = true;
             this.CountLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CountLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.CountLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.CountLabel.Location = new System.Drawing.Point(0, 65);
             this.CountLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CountLabel.Name = "CountLabel";
@@ -161,7 +161,7 @@
             // 
             this.CountValueLabel.AutoEllipsis = true;
             this.CountValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CountValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CountValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CountValueLabel.Location = new System.Drawing.Point(0, 83);
             this.CountValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CountValueLabel.Name = "CountValueLabel";
@@ -174,7 +174,7 @@
             // 
             this.FluctuatingRateValueLabel.AutoEllipsis = true;
             this.FluctuatingRateValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FluctuatingRateValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FluctuatingRateValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FluctuatingRateValueLabel.Location = new System.Drawing.Point(94, 40);
             this.FluctuatingRateValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.FluctuatingRateValueLabel.Name = "FluctuatingRateValueLabel";
@@ -187,7 +187,7 @@
             // 
             this.FluctuatingRangeValueLabel.AutoEllipsis = true;
             this.FluctuatingRangeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FluctuatingRangeValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FluctuatingRangeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FluctuatingRangeValueLabel.Location = new System.Drawing.Point(0, 40);
             this.FluctuatingRangeValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.FluctuatingRangeValueLabel.Name = "FluctuatingRangeValueLabel";
@@ -201,7 +201,7 @@
             this.CurrentPriceValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.CurrentPriceValueLabel, 2);
             this.CurrentPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CurrentPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Bold);
+            this.CurrentPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold);
             this.CurrentPriceValueLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CurrentPriceValueLabel.Location = new System.Drawing.Point(0, 0);
             this.CurrentPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
@@ -216,7 +216,7 @@
             // 
             this.StockNameValueLabel.AutoEllipsis = true;
             this.StockNameValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StockNameValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StockNameValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.StockNameValueLabel.Location = new System.Drawing.Point(188, 40);
             this.StockNameValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.StockNameValueLabel.Name = "StockNameValueLabel";

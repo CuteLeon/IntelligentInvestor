@@ -67,7 +67,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel.SetColumnSpan(this.StockComboBox, 2);
             this.StockComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StockComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StockComboBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StockComboBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.StockComboBox.Location = new System.Drawing.Point(0, 0);
             this.StockComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.StockComboBox.MaxDropDownItems = 10;

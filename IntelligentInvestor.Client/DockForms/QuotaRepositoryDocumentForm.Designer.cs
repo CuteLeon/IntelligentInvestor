@@ -452,8 +452,8 @@
             // 
             // QuotaStartDatePicker
             // 
-            this.QuotaStartDatePicker.CalendarFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaStartDatePicker.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaStartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaStartDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.QuotaStartDatePicker.Location = new System.Drawing.Point(94, 166);
             this.QuotaStartDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.QuotaStartDatePicker.Name = "QuotaStartDatePicker";
@@ -463,8 +463,8 @@
             // 
             // QuotaEndDatePicker
             // 
-            this.QuotaEndDatePicker.CalendarFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaEndDatePicker.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaEndDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaEndDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.QuotaEndDatePicker.Location = new System.Drawing.Point(281, 166);
             this.QuotaEndDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.QuotaEndDatePicker.Name = "QuotaEndDatePicker";

@@ -19,7 +19,7 @@ namespace IntelligentInvestor.Client.Controls
         {
             this.AutoEllipsis = true;
             this.Dock = DockStyle.Fill;
-            this.Font = new Font("微软雅黑", 20F, FontStyle.Bold);
+            this.Font = new Font("Microsoft YaHei UI", 20F, FontStyle.Bold);
             this.ImageAlign = ContentAlignment.MiddleLeft;
             this.Margin = new Padding(0);
             this.Text = "-";

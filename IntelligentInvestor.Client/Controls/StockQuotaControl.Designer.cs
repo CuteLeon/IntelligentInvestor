@@ -45,7 +45,7 @@ namespace IntelligentInvestor.Client.Controls
             this.AmountLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.AmountLabel, 2);
             this.AmountLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AmountLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.AmountLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.AmountLabel.Location = new System.Drawing.Point(145, 141);
             this.AmountLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AmountLabel.Name = "AmountLabel";
@@ -59,7 +59,7 @@ namespace IntelligentInvestor.Client.Controls
             this.AmountValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.AmountValueLabel, 2);
             this.AmountValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AmountValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AmountValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AmountValueLabel.Location = new System.Drawing.Point(145, 159);
             this.AmountValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.AmountValueLabel.Name = "AmountValueLabel";
@@ -72,7 +72,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.CountLabel.AutoEllipsis = true;
             this.CountLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CountLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.CountLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.CountLabel.Location = new System.Drawing.Point(0, 141);
             this.CountLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CountLabel.Name = "CountLabel";
@@ -85,7 +85,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.CountValueLabel.AutoEllipsis = true;
             this.CountValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CountValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CountValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CountValueLabel.Location = new System.Drawing.Point(0, 159);
             this.CountValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CountValueLabel.Name = "CountValueLabel";
@@ -99,7 +99,7 @@ namespace IntelligentInvestor.Client.Controls
             this.DayLowPriceValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.DayLowPriceValueLabel, 2);
             this.DayLowPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DayLowPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DayLowPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DayLowPriceValueLabel.Location = new System.Drawing.Point(145, 83);
             this.DayLowPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DayLowPriceValueLabel.Name = "DayLowPriceValueLabel";
@@ -112,7 +112,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.DayHighPriceValueLabel.AutoEllipsis = true;
             this.DayHighPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DayHighPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DayHighPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DayHighPriceValueLabel.Location = new System.Drawing.Point(0, 83);
             this.DayHighPriceValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DayHighPriceValueLabel.Name = "DayHighPriceValueLabel";
@@ -126,7 +126,7 @@ namespace IntelligentInvestor.Client.Controls
             this.OpeningPriceTodayValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.OpeningPriceTodayValueLabel, 2);
             this.OpeningPriceTodayValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OpeningPriceTodayValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.OpeningPriceTodayValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.OpeningPriceTodayValueLabel.Location = new System.Drawing.Point(145, 121);
             this.OpeningPriceTodayValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.OpeningPriceTodayValueLabel.Name = "OpeningPriceTodayValueLabel";
@@ -139,7 +139,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.ClosingPriceYesterdayLabel.AutoEllipsis = true;
             this.ClosingPriceYesterdayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClosingPriceYesterdayLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.ClosingPriceYesterdayLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.ClosingPriceYesterdayLabel.Location = new System.Drawing.Point(0, 103);
             this.ClosingPriceYesterdayLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ClosingPriceYesterdayLabel.Name = "ClosingPriceYesterdayLabel";
@@ -152,7 +152,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.ClosingPriceYesterdayValueLabel.AutoEllipsis = true;
             this.ClosingPriceYesterdayValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClosingPriceYesterdayValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ClosingPriceYesterdayValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ClosingPriceYesterdayValueLabel.Location = new System.Drawing.Point(0, 121);
             this.ClosingPriceYesterdayValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ClosingPriceYesterdayValueLabel.Name = "ClosingPriceYesterdayValueLabel";
@@ -166,7 +166,7 @@ namespace IntelligentInvestor.Client.Controls
             this.OpeningPriceTodayLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.OpeningPriceTodayLabel, 2);
             this.OpeningPriceTodayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OpeningPriceTodayLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.OpeningPriceTodayLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.OpeningPriceTodayLabel.Location = new System.Drawing.Point(145, 103);
             this.OpeningPriceTodayLabel.Margin = new System.Windows.Forms.Padding(0);
             this.OpeningPriceTodayLabel.Name = "OpeningPriceTodayLabel";
@@ -179,7 +179,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.StockNameValueLabel.AutoEllipsis = true;
             this.StockNameValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StockNameValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StockNameValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.StockNameValueLabel.Location = new System.Drawing.Point(203, 40);
             this.StockNameValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.StockNameValueLabel.Name = "StockNameValueLabel";
@@ -236,7 +236,7 @@ namespace IntelligentInvestor.Client.Controls
             this.DayLowPriceLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.DayLowPriceLabel, 2);
             this.DayLowPriceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DayLowPriceLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.DayLowPriceLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.DayLowPriceLabel.Location = new System.Drawing.Point(145, 65);
             this.DayLowPriceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DayLowPriceLabel.Name = "DayLowPriceLabel";
@@ -249,7 +249,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.DayHighPriceLabel.AutoEllipsis = true;
             this.DayHighPriceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DayHighPriceLabel.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.DayHighPriceLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
             this.DayHighPriceLabel.Location = new System.Drawing.Point(0, 65);
             this.DayHighPriceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DayHighPriceLabel.Name = "DayHighPriceLabel";
@@ -275,7 +275,7 @@ namespace IntelligentInvestor.Client.Controls
             this.UpdateTimeValueLabel.AutoEllipsis = true;
             this.MainTablePanel.SetColumnSpan(this.UpdateTimeValueLabel, 2);
             this.UpdateTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UpdateTimeValueLabel.Location = new System.Drawing.Point(0, 40);
             this.UpdateTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.UpdateTimeValueLabel.Name = "UpdateTimeValueLabel";
@@ -289,7 +289,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.MarketValueLabel.AutoEllipsis = true;
             this.MarketValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MarketValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MarketValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MarketValueLabel.Location = new System.Drawing.Point(203, 20);
             this.MarketValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MarketValueLabel.Name = "MarketValueLabel";
@@ -302,7 +302,7 @@ namespace IntelligentInvestor.Client.Controls
             // 
             this.CodeValueLabel.AutoEllipsis = true;
             this.CodeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CodeValueLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.CodeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.CodeValueLabel.Location = new System.Drawing.Point(203, 0);
             this.CodeValueLabel.Margin = new System.Windows.Forms.Padding(0);
             this.CodeValueLabel.Name = "CodeValueLabel";
@@ -320,7 +320,7 @@ namespace IntelligentInvestor.Client.Controls
             this.MainTablePanel.SetColumnSpan(this.CurrentPriceValueLabel, 2);
             this.CurrentPriceValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CurrentPriceValueLabel.FallForeColor = System.Drawing.Color.LimeGreen;
-            this.CurrentPriceValueLabel.Font = new System.Drawing.Font("微软雅黑", 20F, System.Drawing.FontStyle.Bold);
+            this.CurrentPriceValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold);
             this.CurrentPriceValueLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CurrentPriceValueLabel.ImageIndex = 0;
             this.CurrentPriceValueLabel.Location = new System.Drawing.Point(0, 0);
