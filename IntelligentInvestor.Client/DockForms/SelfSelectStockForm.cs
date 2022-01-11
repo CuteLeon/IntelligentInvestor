@@ -1,5 +1,4 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
-using System.Linq;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
@@ -8,7 +7,6 @@ using IntelligentInvestor.Intermediary.Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Collections;
 
 namespace IntelligentInvestor.Client.DockForms;
 
