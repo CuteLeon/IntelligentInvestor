@@ -1,4 +1,5 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
+using System.Linq;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
@@ -7,6 +8,7 @@ using IntelligentInvestor.Intermediary.Application;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Collections;
 
 namespace IntelligentInvestor.Client.DockForms;
 
@@ -203,7 +205,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         try
         {
             var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
-            if (existedStock is null)
+            if (existedStock is not null)
             {
                 await this.stockRepository.AddAsync(stock);
             }
@@ -257,27 +259,16 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     }
 
     private bool CheckDataSourceContains(Stock stock)
-        => (this.SelfSelectStockBindingSource.DataSource as IEnumerable<Stock>)?
-            .Contains(stock, this.stockComparer) ?? false;
+        => this.SelfSelectStockBindingSource.Cast<Stock>()?.Contains(stock, this.stockComparer) ?? false;
 
     private int? GetIndexInDataSource(Stock stock)
     {
-        if (!(this.SelfSelectStockBindingSource.DataSource is IEnumerable<Stock> sources))
-        {
-            return default;
-        }
-
         int index = 0;
-        foreach (var current in sources)
+        foreach (var current in this.SelfSelectStockBindingSource.Cast<Stock>())
         {
-            if (this.stockComparer.Equals(stock, current))
-            {
-                return index;
-            }
-
+            if (this.stockComparer.Equals(stock, current)) return index;
             index++;
         }
-
         return default;
     }
 

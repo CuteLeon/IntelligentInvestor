@@ -155,7 +155,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
                     string line = "Code\tMarket\tName\tOpenPrice\tClosePrice\tHighestPrice\tLowestPrice\tVolumn\tQuotaTime\tNextOpenPrice";
                     streamWriter.WriteLine(line);
 
-                    var quotas = (this.RecentQuotaBindingSource.DataSource as List<Quota>)
+                    var quotas = this.RecentQuotaBindingSource.Cast<Quota>()
                         .OrderByDescending(quota => quota.QuotaTime)
                         .ToList();
 
@@ -188,7 +188,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
         var prediction = DIContainerHelper.Resolve<INOPStockPrediction>();
 
         var modelPath = @"D:\ML\Model.zip";
-        var quotas = this.RecentQuotaBindingSource.DataSource as List<RecentQuota>;
+        var quotas = this.RecentQuotaBindingSource.Cast<RecentQuota>()
 
         // if (!File.Exists(modelPath))
         {
