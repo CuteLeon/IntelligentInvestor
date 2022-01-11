@@ -17,17 +17,17 @@ public class Company : StockBase
 
     public string Name { get; set; }
 
-    public string Rank { get; set; }
+    public string? Rank { get; set; }
 
     public int Vote { get; set; }
 
-    public string Location { get; set; }
+    public string? Location { get; set; }
 
-    public string Summary { get; set; }
+    public string? Summary { get; set; }
 
-    public string Industry { get; set; }
+    public string? Industry { get; set; }
 
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
     public CompanyStatuses Status { get; set; }
 }
