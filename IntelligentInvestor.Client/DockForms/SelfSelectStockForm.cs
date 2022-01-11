@@ -218,7 +218,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, "Failed to refresh selected stocks.");
+            this.logger.LogError(ex, "Failed to remove self selected stock.");
         }
 
         var index = this.GetIndexInDataSource(stock);
@@ -249,7 +249,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, "Failed to refresh selected stocks.");
+            this.logger.LogError(ex, "Failed to add self selected stock.");
         }
 
         if (!this.CheckDataSourceContains(stock))
