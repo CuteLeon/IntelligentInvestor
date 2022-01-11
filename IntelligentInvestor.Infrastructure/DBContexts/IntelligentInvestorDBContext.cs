@@ -8,7 +8,7 @@ namespace IntelligentInvestor.Infrastructure.DBContexts;
 
 public class IntelligentInvestorDBContext : DbContext
 {
-    public IntelligentInvestorDBContext()
+    public IntelligentInvestorDBContext() : base()
     {
     }
 
@@ -38,5 +38,10 @@ public class IntelligentInvestorDBContext : DbContext
         builder.Entity<Stock>().HasOne(x => x.Company).WithOne(x => x.Stock).HasForeignKey<Company>(x => new { x.StockMarket, x.StockCode }).OnDelete(DeleteBehavior.Cascade);
         builder.Entity<Stock>().HasMany(x => x.Quotas).WithOne(x => x.Stock).HasForeignKey(x => new { x.StockMarket, x.StockCode }).OnDelete(DeleteBehavior.Cascade);
         builder.Entity<Stock>().HasMany(x => x.TradeStrands).WithOne(x => x.Stock).HasForeignKey(x => new { x.StockMarket, x.StockCode }).OnDelete(DeleteBehavior.Cascade);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder.UseSqlite("DATA SOURCE=MigrationGenerated.db"));
     }
 }
