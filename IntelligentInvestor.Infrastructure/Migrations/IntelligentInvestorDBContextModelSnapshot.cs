@@ -26,15 +26,12 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Industry")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -42,7 +39,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rank")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Status")
@@ -53,7 +49,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Summary")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Vote")
@@ -227,9 +222,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithOne("Company")
-                        .HasForeignKey("IntelligentInvestor.Domain.Companys.Company", "StockMarket", "StockCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IntelligentInvestor.Domain.Companys.Company", "StockMarket", "StockCode");
 
                     b.Navigation("Stock");
                 });
@@ -238,9 +231,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithMany("Quotas")
-                        .HasForeignKey("StockMarket", "StockCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StockMarket", "StockCode");
 
                     b.Navigation("Stock");
                 });
@@ -249,9 +240,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithMany("TradeStrands")
-                        .HasForeignKey("StockMarket", "StockCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StockMarket", "StockCode");
 
                     b.Navigation("Stock");
                 });

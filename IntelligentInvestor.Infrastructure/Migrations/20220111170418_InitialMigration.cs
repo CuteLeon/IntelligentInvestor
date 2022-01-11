@@ -30,12 +30,12 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     StockCode = table.Column<string>(type: "TEXT", nullable: false),
                     StockMarket = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Rank = table.Column<string>(type: "TEXT", nullable: false),
+                    Rank = table.Column<string>(type: "TEXT", nullable: true),
                     Vote = table.Column<int>(type: "INTEGER", nullable: false),
-                    Location = table.Column<string>(type: "TEXT", nullable: false),
-                    Summary = table.Column<string>(type: "TEXT", nullable: false),
-                    Industry = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Location = table.Column<string>(type: "TEXT", nullable: true),
+                    Summary = table.Column<string>(type: "TEXT", nullable: true),
+                    Industry = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
                     Status = table.Column<int>(type: "INTEGER", nullable: false),
                     StockName = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -46,8 +46,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_Companies_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" },
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumns: new[] { "StockMarket", "StockCode" });
                 });
 
             migrationBuilder.CreateTable(
@@ -77,8 +76,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_Quotas_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" },
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumns: new[] { "StockMarket", "StockCode" });
                 });
 
             migrationBuilder.CreateTable(
@@ -119,8 +117,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_TradeStrands_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" },
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumns: new[] { "StockMarket", "StockCode" });
                 });
         }
 
