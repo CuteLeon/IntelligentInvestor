@@ -71,7 +71,7 @@ public partial class HotStockDockForm : SingleToolDockForm
         this.HotStocksGridView.ColumnHeadersDefaultCellStyle.Font = new Font(this.HotStocksGridView.RowTemplate.DefaultCellStyle.Font, FontStyle.Regular);
     }
 
-    private void HotStocksGridView_SelectionChanged(object sender, EventArgs e)
+    private void HotStockBindingSource_CurrentChanged(object sender, EventArgs e)
     {
         this.CurrentStock = this.HotStockBindingSource.Current as Stock;
     }

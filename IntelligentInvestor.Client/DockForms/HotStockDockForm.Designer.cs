@@ -62,7 +62,6 @@
             this.HotStocksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.HotStocksGridView.Size = new System.Drawing.Size(269, 272);
             this.HotStocksGridView.TabIndex = 3;
-            this.HotStocksGridView.SelectionChanged += new System.EventHandler(this.HotStocksGridView_SelectionChanged);
             // 
             // HotStocksToolStrip
             // 
@@ -108,6 +107,7 @@
             // HotStockBindingSource
             // 
             this.HotStockBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Stocks.Stock);
+            this.HotStockBindingSource.CurrentChanged += new EventHandler(this.HotStockBindingSource_CurrentChanged);
             // 
             // codeDataGridViewTextBoxColumn
             // 

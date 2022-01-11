@@ -135,7 +135,6 @@
             this.SelfSelectStockGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelfSelectStockGridView.Size = new System.Drawing.Size(254, 256);
             this.SelfSelectStockGridView.TabIndex = 1;
-            this.SelfSelectStockGridView.SelectionChanged += new System.EventHandler(this.SelfSelectStockGridView_SelectionChanged);
             // 
             // StockCodeGridViewColumn
             // 
@@ -162,6 +161,7 @@
             // SelfSelectStockBindingSource
             // 
             this.SelfSelectStockBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Stocks.Stock);
+            this.SelfSelectStockBindingSource.CurrentChanged += new EventHandler(this.SelfSelectStockBindingSource_CurrentChanged);
             // 
             // SelfSelectGridViewMenuStrip
             // 

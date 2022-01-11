@@ -126,9 +126,9 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
     }
 
-    private void SelfSelectStockGridView_SelectionChanged(object sender, EventArgs e)
+    private void SelfSelectStockBindingSource_CurrentChanged(object sender, EventArgs e)
     {
-        this.CurrentStock = this.SelfSelectStockGridView.CurrentRow?.DataBoundItem as Stock;
+        this.CurrentStock = this.SelfSelectStockBindingSource.Current as Stock;
     }
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
