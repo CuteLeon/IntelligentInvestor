@@ -9,8 +9,11 @@ internal class ProgramHost
 
     public IServiceProvider ServiceProvider { get; private set; }
 
-    internal void BuilderServiceProvider() =>
+    internal IEnumerable<string> BuilderServiceProvider()
+    {
+        yield return "Build service provider form collection ...";
         this.ServiceProvider = this.Services.BuildServiceProvider();
+    }
 
     public ConfigurationManager Configuration { get; init; } = new ConfigurationManager();
 }

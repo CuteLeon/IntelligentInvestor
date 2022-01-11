@@ -4,6 +4,7 @@ using IntelligentInvestor.Domain.Intermediary.Themes;
 using IntelligentInvestor.Infrastructure.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
 using IntelligentInvestor.Spider.Mock;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -41,7 +42,7 @@ namespace IntelligentInvestor.Client
             WinApplication.Run(mainForm);
         }
 
-        static IEnumerable<string> InitializeProgramHost()
+        static async IAsyncEnumerable<string> InitializeProgramHost()
         {
             Logger.Debug("Initialize program host ...");
             yield return "Initialize program host ...";
@@ -49,10 +50,13 @@ namespace IntelligentInvestor.Client
             foreach (var message in Host.InitializeConfigurationManager()
                 .Concat(Host.InitializeServiceProvider())
                 .Concat(Host.InitializeStockSpider())
-                .Concat(Host.InitializeIntermediary()))
+                .Concat(Host.InitializeIntermediary())
+                .Concat(Host.BuilderServiceProvider()))
                 yield return message;
 
-            Host.BuilderServiceProvider();
+            await foreach (var message in Host.InitializeDatabase())
+                yield return message;
+
             Logger.Debug("Initialize successfully.");
             yield return "Initialize successfully.";
         }
@@ -76,6 +80,34 @@ namespace IntelligentInvestor.Client
                 .AddIntelligentInvestorInfrastructure();
 
             services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
+        }
+
+        static async IAsyncEnumerable<string> InitializeDatabase(this ProgramHost host)
+        {
+            Logger.Debug("Initialize database ...");
+            yield return "Initialize database ...";
+
+            using var scope = host.ServiceProvider.CreateScope();
+            var services = scope.ServiceProvider;
+            var dbContext = services.GetRequiredService<DbContext>();
+
+            try
+            {
+                Logger.Debug($"Ensure database created...");
+                await dbContext.Database.EnsureCreatedAsync();
+                Logger.Debug($"Check database pending migrations...");
+                var pendingMigrations = await dbContext.Database.GetPendingMigrationsAsync();
+                if (pendingMigrations.Any())
+                {
+                    Logger.Info($"Pending database migration should be combined: \n\t{string.Join(",", pendingMigrations)}");
+                    await dbContext.Database.MigrateAsync();
+                }
+                Logger.Debug($"Database check finished.");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex, $"Database check failed.");
+            }
         }
 
         static IEnumerable<string> InitializeStockSpider(this ProgramHost host)

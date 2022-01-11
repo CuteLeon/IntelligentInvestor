@@ -4,9 +4,9 @@ namespace IntelligentInvestor.Client;
 
 public partial class LaunchForm : Form
 {
-    public Func<IEnumerable<string>> LaunchMethod { get; init; }
+    public Func<IAsyncEnumerable<string>> LaunchMethod { get; init; }
 
-    public LaunchForm(Func<IEnumerable<string>> launchMethod)
+    public LaunchForm(Func<IAsyncEnumerable<string>> launchMethod)
     {
         this.LaunchMethod = launchMethod;
         this.Icon = IntelligentInvestorResource.IntelligentInvestor;
@@ -20,11 +20,11 @@ public partial class LaunchForm : Form
 
         await Task.WhenAll(
             Task.Delay(3000),
-            Task.Run(() =>
+            Task.Run(async () =>
             {
                 try
                 {
-                    foreach (var message in this.LaunchMethod.Invoke())
+                    await foreach (var message in this.LaunchMethod.Invoke())
                     {
                         this.ShowMessage(message);
                     }
