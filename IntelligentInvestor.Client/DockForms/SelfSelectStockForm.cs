@@ -189,7 +189,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     {
         try
         {
-            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToArrayAsync();
+            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToListAsync();
         }
         catch (Exception ex)
         {

@@ -35,11 +35,13 @@ namespace IntelligentInvestor.Client
             using (var launchForm = new LaunchForm(InitializeProgramHost))
             {
                 var result = launchForm.ShowDialog();
+                Logger.Debug($"Launch dialog result is {result}.");
                 if (result != DialogResult.OK) return;
             }
 
             var mainForm = Host.ServiceProvider.GetRequiredService<MainForm>();
             WinApplication.Run(mainForm);
+            Logger.Debug("Application exit.");
         }
 
         static async IAsyncEnumerable<string> InitializeProgramHost()
