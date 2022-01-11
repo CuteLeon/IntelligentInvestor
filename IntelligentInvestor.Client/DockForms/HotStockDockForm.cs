@@ -73,7 +73,7 @@ public partial class HotStockDockForm : SingleToolDockForm
 
     private void HotStocksGridView_SelectionChanged(object sender, EventArgs e)
     {
-        this.CurrentStock = this.HotStocksGridView.CurrentRow?.DataBoundItem as Stock;
+        this.CurrentStock = this.HotStockBindingSource.Current as Stock;
     }
 
     private void AddToolButton_Click(object sender, EventArgs e)
