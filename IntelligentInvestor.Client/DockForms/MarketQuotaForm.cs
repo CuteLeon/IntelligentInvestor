@@ -155,9 +155,10 @@ public partial class MarketQuotaForm : SingleToolDockForm
         {
             this.logger.LogDebug($"Refresh quota of {this.currentStock.GetFullCode()} ...");
             var (_, quota) = await this.stockSpider.GetStockQuotaAsync(this.currentStock.StockMarket, this.currentStock.StockCode);
-
             this.CurrentQuota = quota;
 
+            quota.StockMarket = this.currentStock.StockMarket;
+            quota.StockCode = this.currentStock.StockCode;
             if (quota != null)
             {
                 await this.quotaRepository.AddAsync(quota);
