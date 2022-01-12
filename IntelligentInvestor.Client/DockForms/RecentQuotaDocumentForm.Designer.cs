@@ -20,7 +20,6 @@
             this.RecentQuotaGridView = new System.Windows.Forms.DataGridView();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openningPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,13 +60,12 @@
             this.RecentQuotaGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
+            this.updateTimeDataGridViewTextBoxColumn,
             this.openningPriceDataGridViewTextBoxColumn,
             this.closingPriceDataGridViewTextBoxColumn,
             this.highestPriceDataGridViewTextBoxColumn,
             this.lowestPriceDataGridViewTextBoxColumn,
-            this.volumeDataGridViewTextBoxColumn,
-            this.updateTimeDataGridViewTextBoxColumn});
+            this.volumeDataGridViewTextBoxColumn});
             this.RecentQuotaGridView.DataSource = this.RecentQuotaBindingSource;
             this.RecentQuotaGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RecentQuotaGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -99,14 +97,16 @@
             this.marketDataGridViewTextBoxColumn.ReadOnly = true;
             this.marketDataGridViewTextBoxColumn.Width = 54;
             // 
-            // nameDataGridViewTextBoxColumn
+            // updateTimeDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.Stock.StockName);
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 54;
+            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.QuotaBase.QuotaTime);
+            this.updateTimeDataGridViewTextBoxColumn.Frozen = true;
+            dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
+            this.updateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "Quota Time";
+            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
+            this.updateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.updateTimeDataGridViewTextBoxColumn.Width = 78;
             // 
             // openningPriceDataGridViewTextBoxColumn
             // 
@@ -147,16 +147,6 @@
             this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
             this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
             this.volumeDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // updateTimeDataGridViewTextBoxColumn
-            // 
-            this.updateTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.QuotaBase.QuotaTime);
-            dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
-            this.updateTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.updateTimeDataGridViewTextBoxColumn.HeaderText = "Quota Time";
-            this.updateTimeDataGridViewTextBoxColumn.Name = "updateTimeDataGridViewTextBoxColumn";
-            this.updateTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.updateTimeDataGridViewTextBoxColumn.Width = 78;
             // 
             // RecentQuotaBindingSource
             // 
@@ -314,7 +304,6 @@
         private System.Windows.Forms.ToolStripButton ExportToolButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn marketDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openningPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closingPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn highestPriceDataGridViewTextBoxColumn;

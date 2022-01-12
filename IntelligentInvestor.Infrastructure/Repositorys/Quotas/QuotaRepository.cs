@@ -28,6 +28,7 @@ public class QuotaRepository : RepositoryBase<Quota>, IQuotaRepository
         if (fromTime.HasValue) query = query.Where(x => x.QuotaTime >= fromTime.Value);
         if (toTime.HasValue) query = query.Where(x => x.QuotaTime <= toTime.Value);
 
+        query = query.OrderBy(x => x.QuotaTime);
         return await query.ToListAsync();
     }
 }

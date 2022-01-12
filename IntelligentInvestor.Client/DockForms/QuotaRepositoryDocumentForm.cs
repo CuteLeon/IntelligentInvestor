@@ -137,10 +137,11 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
     {
         try
         {
+            // TODO: Allow to select Quota Frequency
             this.QuotaRepositoryBindingSource.DataSource = await this.quotaRepository.GetStockQuotasAsync(
                 this.stock.StockMarket,
                 this.stock.StockCode,
-                 Domain.Quotas.QuotaFrequencys.Trade,
+                null,
                 this.QuotaStartDatePicker.Checked ? this.QuotaStartDatePicker.Value : null,
                 this.QuotaEndDatePicker.Checked ? this.QuotaEndDatePicker.Value : null);
         }
