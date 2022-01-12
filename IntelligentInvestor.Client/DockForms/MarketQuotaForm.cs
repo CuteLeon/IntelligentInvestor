@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotas;
@@ -12,6 +13,13 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class MarketQuotaForm : SingleToolDockForm
 {
+    private readonly ILogger<MarketQuotaForm> logger;
+    private readonly IUIThemeHandler themeHandler;
+    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
+    private readonly IStockRepository stockRepository;
+    private readonly IQuotaRepository quotaRepository;
+    private readonly IStockSpider stockSpider;
+    
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public string SourceName { get; set; } = typeof(MarketQuotaForm).Name;
@@ -45,6 +53,14 @@ public partial class MarketQuotaForm : SingleToolDockForm
                     this.AutoRefresh = true;
                     this.MarketQuotaToolStrip.Enabled = true;
                 }));
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
@@ -64,12 +80,6 @@ public partial class MarketQuotaForm : SingleToolDockForm
     }
 
     private bool isPropertySetting = false;
-    private readonly ILogger<MarketQuotaForm> logger;
-    private readonly IUIThemeHandler themeHandler;
-    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
-    private readonly IRepositoryBase<Stock> stockRepository;
-    private readonly IRepositoryBase<Quota> quotaRepository;
-    private readonly IStockSpider stockSpider;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -104,8 +114,8 @@ public partial class MarketQuotaForm : SingleToolDockForm
         ILogger<MarketQuotaForm> logger,
         IUIThemeHandler themeHandler,
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
-        IRepositoryBase<Stock> stockRepository,
-        IRepositoryBase<Quota> quotaRepository,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {

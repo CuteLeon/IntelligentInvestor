@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
@@ -11,7 +11,7 @@ namespace IntelligentInvestor.Client.DockForms;
 public partial class ChartDocumentForm : DocumentDockForm
 {
     private Stock stock;
-    private readonly IRepositoryBase<Stock> stockRepository;
+    private readonly IStockRepository stockRepository;
     private readonly IStockSpider stockSpider;
 
     [Browsable(false)]
@@ -27,7 +27,7 @@ public partial class ChartDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
+            this.Stock = this.stockRepository.GetStock(market, code) ?? new Stock(market, code);
         }
     }
 
@@ -51,6 +51,15 @@ public partial class ChartDocumentForm : DocumentDockForm
                 this.Text = $"Chart-{value.StockName}";
                 this.StockInfoToolLabel.Text = value.StockName;
                 this.ChartRepositoryToolStrip.Enabled = true;
+
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
@@ -58,7 +67,7 @@ public partial class ChartDocumentForm : DocumentDockForm
     public ChartDocumentForm(
         ILogger<DockFormBase> logger,
         IUIThemeHandler themeHandler,
-        IRepositoryBase<Stock> stockRepository,
+        IStockRepository stockRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {

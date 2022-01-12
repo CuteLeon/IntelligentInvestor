@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotas;
@@ -16,8 +17,8 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 {
     private readonly IServiceProvider serviceProvider;
     private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
-    private readonly IRepositoryBase<Stock> stockRepository;
-    private readonly IRepositoryBase<Quota> quotaRepository;
+    private readonly IStockRepository stockRepository;
+    private readonly IQuotaRepository quotaRepository;
     private readonly IStockSpider stockSpider;
 
     [Browsable(false)]
@@ -55,6 +56,14 @@ public partial class CurrentQuotaForm : SingleToolDockForm
                     this.AutoRefresh = true;
                     this.CurrentQuotaToolStrip.Enabled = true;
                 }));
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
@@ -122,8 +131,8 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         IServiceScopeFactory serviceScopeFactory,
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
         IUIThemeHandler themeHandler,
-        IRepositoryBase<Stock> stockRepository,
-        IRepositoryBase<Quota> quotaRepository,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {

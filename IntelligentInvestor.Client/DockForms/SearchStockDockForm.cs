@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotas;
@@ -13,6 +14,12 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class SearchStockDockForm : SingleToolDockForm
 {
+    private readonly IServiceProvider serviceProvider;
+    private readonly IIntermediaryPublisher intermediaryPublisher;
+    private readonly IStockRepository stockRepository;
+    private readonly IQuotaRepository quotaRepository;
+    private readonly IStockSpider stockSpider;
+
     private Stock currentStock;
 
     [Browsable(false)]
@@ -26,15 +33,19 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
             this.SearchToolStrip.Enabled = value != null;
             this.MainStockQuotaControl.Stock = value;
+
+            try
+            {
+                this.stockRepository.AddOrUpdateStock(value);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+            }
         }
     }
 
     private Quota currentQuota;
-    private readonly IServiceProvider serviceProvider;
-    private readonly IIntermediaryPublisher intermediaryPublisher;
-    private readonly IRepositoryBase<Stock> stockRepository;
-    private readonly IRepositoryBase<Quota> quotaRepository;
-    private readonly IStockSpider stockSpider;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -53,8 +64,8 @@ public partial class SearchStockDockForm : SingleToolDockForm
         IUIThemeHandler themeHandler,
         IIntermediaryPublisher intermediaryPublisher,
         IServiceScopeFactory serviceScopeFactory,
-        IRepositoryBase<Stock> stockRepository,
-        IRepositoryBase<Quota> quotaRepository,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
@@ -156,13 +167,14 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
         try
         {
-            var stock = this.stockRepository.Find(this.currentStock.StockMarket, this.currentStock.StockCode);
+            var stock = this.stockRepository.GetStock(this.currentStock.StockMarket, this.currentStock.StockCode);
             if (stock != null)
             {
                 await this.stockRepository.RemoveAsync(stock);
-                if (stock.IsSelected)
-                    await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
             }
+
+            if (currentStock.IsSelected)
+                await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
         }
         catch (Exception ex)
         {
@@ -219,7 +231,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
     private void StockComboBox_SelectedValueChanged(object sender, EventArgs e)
     {
-        if (!(this.StockComboBox.SelectedItem is Stock stock))
+        if (this.StockComboBox.SelectedItem is not Stock stock)
         {
             this.CurrentStock = null;
             this.CurrentQuota = null;

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
@@ -10,6 +11,10 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class RecentQuotaDocumentForm : DocumentDockForm
 {
+    private readonly IStockRepository stockRepository;
+    private readonly IQuotaRepository quotaRepository;
+    private readonly IStockSpider stockSpider;
+
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public override string PersistValue
@@ -23,14 +28,11 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
+            this.Stock = this.stockRepository.GetStock(market, code) ?? new Stock(market, code);
         }
     }
 
     private Stock stock;
-    private readonly IRepositoryBase<Stock> stockRepository;
-    private readonly IRepositoryBase<Quota> quotaRepository;
-    private readonly IStockSpider stockSpider;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -54,6 +56,15 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
                 this.StockInfoToolLabel.Text = value.StockName;
 
                 this.RecentQuotaToolStrip.Enabled = true;
+
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
@@ -61,8 +72,8 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
     public RecentQuotaDocumentForm(
         ILogger<RecentQuotaDocumentForm> logger,
         IUIThemeHandler themeHandler,
-        IRepositoryBase<Stock> stockRepository,
-        IRepositoryBase<Quota> quotaRepository,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
@@ -73,7 +84,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
             return;
         }
 
-        this.TimeScaleToolComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
+        this.QuotaFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
         this.stockRepository = stockRepository;
         this.quotaRepository = quotaRepository;
         this.stockSpider = stockSpider;
@@ -90,7 +101,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
         int insertIndex = this.RecentQuotaToolStrip.Items.IndexOf(this.QuotaLengthToolLabel) + 1;
         this.RecentQuotaToolStrip.Items.Insert(insertIndex, quotaLengthNumericHost);
 
-        this.TimeScaleToolComboBox.SelectedIndex = 0;
+        this.QuotaFrequencyComboBox.SelectedIndex = 0;
         this.QuotaLengthNumeric.Value = 20;
     }
 
@@ -219,7 +230,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
         var recentQuotas = await this.stockSpider.GetQuotasAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
-            Enum.TryParse(this.TimeScaleToolComboBox.SelectedItem.ToString(), out QuotaFrequencys frequency) ? frequency : QuotaFrequencys.Trade,
+            Enum.TryParse(this.QuotaFrequencyComboBox.SelectedItem.ToString(), out QuotaFrequencys frequency) ? frequency : QuotaFrequencys.Trade,
             DateTime.Now.AddMinutes(-1 * Convert.ToInt32(this.QuotaLengthNumeric.Value)),
             DateTime.Now);
         this.RecentQuotaBindingSource.DataSource = recentQuotas;

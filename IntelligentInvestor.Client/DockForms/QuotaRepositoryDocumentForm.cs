@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
-using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
 using Microsoft.Extensions.Logging;
 
@@ -9,6 +9,9 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class QuotaRepositoryDocumentForm : DocumentDockForm
 {
+    private readonly IStockRepository stockRepository;
+    private readonly IQuotaRepository quotaRepository;
+
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public override string PersistValue
@@ -22,13 +25,11 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
             }
 
             var (code, market, _) = Stock.GetMarketCode(value);
-            this.Stock = this.stockRepository.Find(market, code) ?? new Stock(market, code);
+            this.Stock = this.stockRepository.GetStock(market, code) ?? new Stock(market, code);
         }
     }
 
     private Stock stock;
-    private readonly IRepositoryBase<Stock> stockRepository;
-    private readonly IRepositoryBase<Quota> quotaRepository;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -50,8 +51,16 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
             {
                 this.Text = $"Quota Repository - {value.StockName}";
                 this.StockInfoToolLabel.Text = value.StockName;
-
                 this.QuotaRepositoryToolStrip.Enabled = true;
+
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
@@ -59,8 +68,8 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
     public QuotaRepositoryDocumentForm(
         ILogger<QuotaRepositoryDocumentForm> logger,
         IUIThemeHandler themeHandler,
-        IRepositoryBase<Stock> stockRepository,
-        IRepositoryBase<Quota> quotaRepository)
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
@@ -128,12 +137,12 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
     {
         try
         {
-            var query = this.quotaRepository.AsQueryable().Where(x => x.StockMarket == this.stock.StockMarket && x.StockCode == this.stock.StockCode);
-            if (this.QuotaStartDatePicker.Checked)
-                query = query.Where(x => x.QuotaTime >= this.QuotaStartDatePicker.Value.Date);
-            if (this.QuotaEndDatePicker.Checked)
-                query = query.Where(x => x.QuotaTime <= this.QuotaEndDatePicker.Value.Date);
-            this.QuotaRepositoryBindingSource.DataSource = query.ToArray();
+            this.QuotaRepositoryBindingSource.DataSource = await this.quotaRepository.GetStockQuotasAsync(
+                this.stock.StockMarket,
+                this.stock.StockCode,
+                 Domain.Quotas.QuotaFrequencys.Trade,
+                this.QuotaStartDatePicker.Checked ? this.QuotaStartDatePicker.Value : null,
+                this.QuotaEndDatePicker.Checked ? this.QuotaEndDatePicker.Value : null);
         }
         catch (Exception ex)
         {

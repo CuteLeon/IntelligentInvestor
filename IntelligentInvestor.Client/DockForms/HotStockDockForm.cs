@@ -1,4 +1,4 @@
-﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
+﻿using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
@@ -13,7 +13,7 @@ public partial class HotStockDockForm : SingleToolDockForm
 {
     private readonly StockBaseComparer<Stock> stockComparer = new();
     private readonly IIntermediaryPublisher intermediaryPublisher;
-    private readonly IRepositoryBase<Stock> stockRepository;
+    private readonly IStockRepository stockRepository;
     private readonly IStockSpider stockSpider;
 
     private Stock currentStock;
@@ -35,7 +35,7 @@ public partial class HotStockDockForm : SingleToolDockForm
         ILogger<HotStockDockForm> logger,
         IUIThemeHandler themeHandler,
         IIntermediaryPublisher intermediaryPublisher,
-        IRepositoryBase<Stock> stockRepository,
+        IStockRepository stockRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {

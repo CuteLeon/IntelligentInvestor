@@ -31,8 +31,8 @@
             this.RecentQuotaToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.TimeScaleToolLabel = new System.Windows.Forms.ToolStripLabel();
-            this.TimeScaleToolComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.QuotaFrequencyLabel = new System.Windows.Forms.ToolStripLabel();
+            this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.QuotaLengthToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.QueryToolButton = new System.Windows.Forms.ToolStripButton();
@@ -167,8 +167,8 @@
             this.RecentQuotaToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
-            this.TimeScaleToolLabel,
-            this.TimeScaleToolComboBox,
+            this.QuotaFrequencyLabel,
+            this.QuotaFrequencyComboBox,
             this.QuotaLengthToolLabel,
             this.toolStripSeparator2,
             this.ExportToolButton,
@@ -191,18 +191,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // TimeScaleToolLabel
+            // QuotaFrequencyLabel
             // 
-            this.TimeScaleToolLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TimeScaleToolLabel.Name = "TimeScaleToolLabel";
-            this.TimeScaleToolLabel.Size = new System.Drawing.Size(56, 22);
-            this.TimeScaleToolLabel.Text = "Frequency";
+            this.QuotaFrequencyLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.QuotaFrequencyLabel.Name = "QuotaFrequencyLabel";
+            this.QuotaFrequencyLabel.Size = new System.Drawing.Size(56, 22);
+            this.QuotaFrequencyLabel.Text = "Frequency";
             // 
-            // TimeScaleToolComboBox
+            // QuotaFrequencyComboBox
             // 
-            this.TimeScaleToolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TimeScaleToolComboBox.Name = "TimeScaleToolComboBox";
-            this.TimeScaleToolComboBox.Size = new System.Drawing.Size(121, 25);
+            this.QuotaFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuotaFrequencyComboBox.Name = "QuotaFrequencyComboBox";
+            this.QuotaFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
             // QuotaLengthToolLabel
             // 
@@ -305,8 +305,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton QueryToolButton;
-        private System.Windows.Forms.ToolStripLabel TimeScaleToolLabel;
-        private System.Windows.Forms.ToolStripComboBox TimeScaleToolComboBox;
+        private System.Windows.Forms.ToolStripLabel QuotaFrequencyLabel;
+        private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
         private System.Windows.Forms.ToolStripLabel QuotaLengthToolLabel;
         private System.Windows.Forms.NumericUpDown QuotaLengthNumeric;
         private System.Windows.Forms.BindingSource RecentQuotaBindingSource;

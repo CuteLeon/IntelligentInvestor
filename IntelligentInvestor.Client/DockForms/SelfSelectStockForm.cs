@@ -1,10 +1,10 @@
-﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
+﻿using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Intermediary.Application;
-using Microsoft.EntityFrameworkCore;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +16,8 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     private readonly IServiceProvider serviceProvider;
     private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
     private readonly IIntermediaryPublisher intermediaryPublisher;
-    private readonly IRepositoryBase<Stock> stockRepository;
+    private readonly IStockRepository stockRepository;
+
     private Stock currentStock;
 
     public Stock CurrentStock
@@ -40,6 +41,15 @@ public partial class SelfSelectStockForm : SingleToolDockForm
             {
                 this.RemoveMenuItem.Enabled = true;
                 this.RemoveToolButton.Enabled = true;
+
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
             this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
@@ -51,7 +61,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
         IIntermediaryPublisher intermediaryPublisher,
         IServiceScopeFactory serviceScopeFactory,
-        IRepositoryBase<Stock> stockRepository)
+        IStockRepository stockRepository)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
@@ -163,8 +173,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         {
             try
             {
-                this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(
-                    x => x.IsSelected && (EF.Functions.Like(x.StockCode, $"%{keyWord}%") || EF.Functions.Like(x.StockName, $"%{keyWord}%"))).ToArrayAsync();
+                this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(keyWord, true);
             }
             catch (Exception ex)
             {
@@ -187,7 +196,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     {
         try
         {
-            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.AsQueryable().Where(x => x.IsSelected).ToListAsync();
+            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(null, true);
         }
         catch (Exception ex)
         {
@@ -202,7 +211,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
         try
         {
-            var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+            var existedStock = await this.stockRepository.GetStockAsync(stock.StockMarket, stock.StockCode);
             if (existedStock is not null)
             {
                 await this.stockRepository.AddAsync(stock);
@@ -233,7 +242,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
         try
         {
-            var existedStock = this.stockRepository.Find(stock.StockMarket, stock.StockCode);
+            var existedStock = await this.stockRepository.GetStockAsync(stock.StockMarket, stock.StockCode);
             if (existedStock is null)
             {
                 await this.stockRepository.AddAsync(stock);
