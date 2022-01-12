@@ -13,6 +13,8 @@ public class MockStockSpider : IStockSpider
     private readonly Faker<Stock> stockFaker;
     private readonly Faker<Quota> quotaFaker;
     private readonly Faker<Company> companyFaker;
+    private readonly Faker chartsFaker;
+    private readonly Bitmap[] bitmaps;
 
     public MockStockSpider(
         ILogger<MockStockSpider> logger)
@@ -49,11 +51,18 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.OpenningPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.QuotaTime, faker => DateTime.Now)
             .RuleFor(x => x.Volume, faker => faker.Finance.Random.Int(100, 100000));
+        this.bitmaps = new[]
+        {
+            SpiderMockResource.Chart_1,
+            SpiderMockResource.Chart_2,
+            SpiderMockResource.Chart_3,
+        };
+        this.chartsFaker = new Faker();
     }
 
     public async Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency)
     {
-        return default;
+        return this.chartsFaker.PickRandom(bitmaps);
     }
 
     public async Task<Company> GetCompanyAsync(StockMarkets stockMarket, string stockCode)
@@ -63,12 +72,12 @@ public class MockStockSpider : IStockSpider
 
     public async Task<IEnumerable<Stock>> GetHotStocksAsync()
     {
-        return this.stockFaker.GenerateForever().Take(10).ToArray();
+        return this.stockFaker.GenerateBetween(10, 20).ToArray();
     }
 
     public async Task<IEnumerable<Quota>> GetQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency, DateTime fromDate, DateTime toDate)
     {
-        return this.quotaFaker.GenerateForever().Take(100).ToArray();
+        return this.quotaFaker.GenerateBetween(100, 300).ToArray();
     }
 
     public async Task<(Stock Stock, Quota Quota)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode)
@@ -78,6 +87,6 @@ public class MockStockSpider : IStockSpider
 
     public async Task<IEnumerable<Stock>> SearchStocksAsync(string keyword)
     {
-        return this.stockFaker.GenerateForever().Take(5).ToArray();
+        return this.stockFaker.GenerateBetween(5, 10).ToArray();
     }
 }
