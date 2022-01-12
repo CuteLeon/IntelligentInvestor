@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
+// TODO: Combine Trade STrand info into grid view;
 public partial class QuotaRepositoryDocumentForm : DocumentDockForm
 {
     private readonly IStockRepository stockRepository;

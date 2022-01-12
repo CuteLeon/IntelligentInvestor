@@ -11,6 +11,7 @@ namespace IntelligentInvestor.Infrastructure.Extensions;
 
 public static class IntelligentInvestorInfrastructureExtension
 {
+    // TODO: Add generic option repository and save Theme configuration;
     public static IServiceCollection AddIntelligentInvestorInfrastructure(this IServiceCollection services)
         => services
             .AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>))

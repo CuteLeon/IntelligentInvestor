@@ -84,6 +84,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 
     private TradeStrand? currentTradeStrand;
 
+    // TODO: Get and display Trade Strand info;
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public TradeStrand? CurrentTradeStrand
