@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntelligentInvestor.Infrastructure.Migrations
 {
     [DbContext(typeof(IntelligentInvestorDBContext))]
-    [Migration("20220111170418_InitialMigration")]
+    [Migration("20220112033543_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -224,7 +224,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithOne("Company")
-                        .HasForeignKey("IntelligentInvestor.Domain.Companys.Company", "StockMarket", "StockCode");
+                        .HasForeignKey("IntelligentInvestor.Domain.Companys.Company", "StockMarket", "StockCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Stock");
                 });
@@ -233,7 +235,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithMany("Quotas")
-                        .HasForeignKey("StockMarket", "StockCode");
+                        .HasForeignKey("StockMarket", "StockCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Stock");
                 });
@@ -242,7 +246,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithMany("TradeStrands")
-                        .HasForeignKey("StockMarket", "StockCode");
+                        .HasForeignKey("StockMarket", "StockCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Stock");
                 });

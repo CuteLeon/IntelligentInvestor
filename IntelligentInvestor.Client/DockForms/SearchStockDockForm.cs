@@ -187,7 +187,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         form.Show(this.DockPanel);
     }
 
-    private void StockComboBox_KeyDown(object sender, KeyEventArgs e)
+    private async void StockComboBox_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode != Keys.Enter ||
             this.StockComboBox.DroppedDown)
@@ -205,8 +205,10 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
         else
         {
-            _ = this.GetSearchStocks(keyword);
+            await this.GetSearchStocks(keyword);
         }
+
+        this.StockComboBox.DroppedDown = true;
     }
 
     public async Task GetSearchStocks(string keyword)

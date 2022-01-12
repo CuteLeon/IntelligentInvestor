@@ -46,7 +46,8 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_Companies_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" });
+                        principalColumns: new[] { "StockMarket", "StockCode" },
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,7 +77,8 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_Quotas_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" });
+                        principalColumns: new[] { "StockMarket", "StockCode" },
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -117,7 +119,8 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         name: "FK_TradeStrands_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
-                        principalColumns: new[] { "StockMarket", "StockCode" });
+                        principalColumns: new[] { "StockMarket", "StockCode" },
+                        onDelete: ReferentialAction.Cascade);
                 });
         }
 
