@@ -212,7 +212,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         try
         {
             var existedStock = await this.stockRepository.GetStockAsync(stock.StockMarket, stock.StockCode);
-            if (existedStock is not null)
+            if (existedStock is null)
             {
                 await this.stockRepository.AddAsync(stock);
             }

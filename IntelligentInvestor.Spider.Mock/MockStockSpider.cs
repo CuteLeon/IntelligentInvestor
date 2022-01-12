@@ -47,7 +47,7 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.HighestPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.LowestPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.OpenningPrice, faker => faker.Finance.Amount(10, 100))
-            .RuleFor(x => x.QuotaTime, DateTime.Now)
+            .RuleFor(x => x.QuotaTime, faker => DateTime.Now)
             .RuleFor(x => x.Volume, faker => faker.Finance.Random.Int(100, 100000));
     }
 
