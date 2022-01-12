@@ -9,9 +9,6 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : class
 {
     protected readonly ILogger<RepositoryBase<TEntity>> logger;
-    public DbContext DbContext { get; init; }
-
-    public DatabaseFacade Database { get => this.DbContext.Database; }
 
     public RepositoryBase(
         ILogger<RepositoryBase<TEntity>> logger,
@@ -22,6 +19,12 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
         this.logger.LogDebug($"Create data service: {this.GetType().FullName} ({this.GetHashCode():X})");
     }
 
+    #region Database Context
+
+    public DbContext DbContext { get; init; }
+
+    public DatabaseFacade Database { get => this.DbContext.Database; }
+    #endregion
 
     #region Entity Set
 

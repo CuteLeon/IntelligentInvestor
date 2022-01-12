@@ -1,10 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace IntelligentInvestor.Application.Repositorys.Abstractions;
 
 public interface IRepositoryBase<TEntity> where TEntity : class
 {
+    #region Database Context
+
+    public DbContext DbContext { get; init; }
+
+    public DatabaseFacade Database { get; }
+    #endregion
+
     #region Entity Set
 
     EntityEntry<TEntity> Entity(TEntity entity);
