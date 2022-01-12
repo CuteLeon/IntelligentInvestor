@@ -13,5 +13,9 @@ public static class IntelligentInvestorInfrastructureExtension
     public static IServiceCollection AddIntelligentInvestorDBContext(
         this IServiceCollection services, string connectionString)
         => services.AddDbContext<DbContext, IntelligentInvestorDBContext>(
-            options => options.UseSqlite(connectionString).UseLazyLoadingProxies());
+            options => options
+                .UseSqlite(connectionString)
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+                .UseLazyLoadingProxies(),
+            ServiceLifetime.Scoped);
 }
