@@ -56,11 +56,17 @@
 
 # Screen
 
-![](https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_1.jpg)
+<p align="center">
+   <img src="https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_1.jpg" align="center"/>
+</p>
 
-![](https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_2.jpg)
+<p align="center">
+   <img src="https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_2.jpg" align="center"/>
+</p>
 
-![](https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_3.jpg)
+<p align="center">
+   <img src="https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/Screen_3.jpg" align="center"/>
+</p>
 
 # Database Migration
 
