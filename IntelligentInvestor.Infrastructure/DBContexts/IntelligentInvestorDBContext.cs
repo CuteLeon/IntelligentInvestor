@@ -42,6 +42,6 @@ public class IntelligentInvestorDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder.UseSqlite("DATA SOURCE=IIDB.db"));
+        base.OnConfiguring(optionsBuilder.UseSqlite("DATA SOURCE=IntelligentInvestor.db"));
     }
 }

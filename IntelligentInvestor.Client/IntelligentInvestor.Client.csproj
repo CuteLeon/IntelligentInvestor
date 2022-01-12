@@ -60,7 +60,7 @@
     <None Update="AppSettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="IIDB.db">
+    <None Update="IntelligentInvestor.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="NLog.config">
@@ -69,6 +69,6 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<Using Include="System.Linq.Expressions"/>
+		<Using Include="System.Linq.Expressions" />
 	</ItemGroup>
 </Project>
