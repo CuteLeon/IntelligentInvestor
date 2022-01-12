@@ -44,10 +44,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("StockName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Summary")
                         .HasColumnType("TEXT");
 
@@ -98,10 +94,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("OpenningPrice")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("StockName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Volume")
@@ -208,10 +200,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
 
                     b.Property<long>("SellStrand5")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("StockName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.HasKey("StockMarket", "StockCode", "QuotaTime");
 

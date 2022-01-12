@@ -15,8 +15,4 @@ public abstract class StockBase
     public string StockCode { get; set; }
 
     public StockMarkets StockMarket { get; set; }
-
-    public string StockName { get; set; }
-
-    public override string ToString() => $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
 }

@@ -16,4 +16,6 @@ public abstract class QuotaBase : StockBase
     public DateTime QuotaTime { get; set; }
 
     public virtual Stock Stock { get; set; }
+
+    public override string ToString() => $"{this.StockMarket}-{this.StockCode} ({this.Stock?.StockName}), AT {this.QuotaTime}";
 }

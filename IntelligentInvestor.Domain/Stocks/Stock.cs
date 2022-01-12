@@ -15,6 +15,8 @@ public class Stock : StockBase
     {
     }
 
+    public string StockName { get; set; }
+
     public bool IsSelected { get; set; }
 
     public virtual Company Company { get; set; }
@@ -22,6 +24,8 @@ public class Stock : StockBase
     public virtual List<Quota> Quotas { get; set; }
 
     public virtual List<TradeStrand> TradeStrands { get; set; }
+
+    public override string ToString() => $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
 
     public string GetFullCode()
         => $"{this.StockMarket}-{this.StockCode}-{this.StockName}";

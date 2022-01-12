@@ -15,8 +15,8 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     StockCode = table.Column<string>(type: "TEXT", nullable: false),
                     StockMarket = table.Column<int>(type: "INTEGER", nullable: false),
-                    IsSelected = table.Column<bool>(type: "INTEGER", nullable: false),
-                    StockName = table.Column<string>(type: "TEXT", nullable: false)
+                    StockName = table.Column<string>(type: "TEXT", nullable: false),
+                    IsSelected = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,8 +36,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     Summary = table.Column<string>(type: "TEXT", nullable: true),
                     Industry = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    StockName = table.Column<string>(type: "TEXT", nullable: false)
+                    Status = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,8 +66,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     FluctuatingRange = table.Column<decimal>(type: "TEXT", nullable: false),
                     FluctuatingRate = table.Column<decimal>(type: "TEXT", nullable: false),
                     Volume = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Amount = table.Column<decimal>(type: "TEXT", nullable: false),
-                    StockName = table.Column<string>(type: "TEXT", nullable: false)
+                    Amount = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,8 +107,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     SellStrand4 = table.Column<long>(type: "INTEGER", nullable: false),
                     SellPrice4 = table.Column<double>(type: "REAL", nullable: false),
                     SellStrand5 = table.Column<long>(type: "INTEGER", nullable: false),
-                    SellPrice5 = table.Column<double>(type: "REAL", nullable: false),
-                    StockName = table.Column<string>(type: "TEXT", nullable: false)
+                    SellPrice5 = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

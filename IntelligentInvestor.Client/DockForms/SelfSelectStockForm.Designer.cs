@@ -153,7 +153,7 @@
             // 
             // StockNameGridViewColumn
             // 
-            this.StockNameGridViewColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockName);
+            this.StockNameGridViewColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.Stock.StockName);
             this.StockNameGridViewColumn.HeaderText = "Name";
             this.StockNameGridViewColumn.Name = "StockNameGridViewColumn";
             this.StockNameGridViewColumn.ReadOnly = true;

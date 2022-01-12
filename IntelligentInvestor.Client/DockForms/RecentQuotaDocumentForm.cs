@@ -171,13 +171,13 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
                         .ToList();
 
                     var firstQuota = quotas.First();
-                    line = $"{firstQuota.StockCode}\t{firstQuota.StockMarket}\t{firstQuota.StockName}\t{firstQuota.OpenningPrice}\t{firstQuota.ClosingPrice}\t{firstQuota.HighestPrice}\t{firstQuota.LowestPrice}\t{firstQuota.Volume}\t{firstQuota.QuotaTime}\t{string.Empty}";
+                    line = $"{firstQuota.StockCode}\t{firstQuota.StockMarket}\t{stock.StockName}\t{firstQuota.OpenningPrice}\t{firstQuota.ClosingPrice}\t{firstQuota.HighestPrice}\t{firstQuota.LowestPrice}\t{firstQuota.Volume}\t{firstQuota.QuotaTime}\t{string.Empty}";
                     streamWriter.WriteLine(line);
 
                     quotas.Skip(1)
                         .Select((quota, index) =>
                         {
-                            line = $"{quota.StockCode}\t{quota.StockMarket}\t{quota.StockName}\t{quota.OpenningPrice}\t{quota.ClosingPrice}\t{quota.HighestPrice}\t{quota.LowestPrice}\t{quota.Volume}\t{quota.QuotaTime}\t{quotas[index].OpenningPrice}";
+                            line = $"{quota.StockCode}\t{quota.StockMarket}\t{stock.StockName}\t{quota.OpenningPrice}\t{quota.ClosingPrice}\t{quota.HighestPrice}\t{quota.LowestPrice}\t{quota.Volume}\t{quota.QuotaTime}\t{quotas[index].OpenningPrice}";
                             streamWriter.WriteLine(line);
                             return line;
                         })
