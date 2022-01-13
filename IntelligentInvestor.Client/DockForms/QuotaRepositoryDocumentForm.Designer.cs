@@ -33,30 +33,8 @@
             this.currentPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayHighPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayLowPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.biddingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.auctionPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyStrand1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyPrice1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyStrand2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyPrice2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyStrand3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyPrice3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyStrand4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyPrice4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyStrand5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyPrice5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellStrand1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellPrice1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellStrand2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellPrice2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellStrand3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellPrice3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellStrand4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellPrice4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellStrand5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellPrice5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuotaRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QuotaStartDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -146,30 +124,8 @@
             this.closingPriceYesterdayDataGridViewTextBoxColumn,
             this.dayHighPriceDataGridViewTextBoxColumn,
             this.dayLowPriceDataGridViewTextBoxColumn,
-            this.biddingPriceDataGridViewTextBoxColumn,
-            this.auctionPriceDataGridViewTextBoxColumn,
             this.countDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.buyStrand1DataGridViewTextBoxColumn,
-            this.buyPrice1DataGridViewTextBoxColumn,
-            this.buyStrand2DataGridViewTextBoxColumn,
-            this.buyPrice2DataGridViewTextBoxColumn,
-            this.buyStrand3DataGridViewTextBoxColumn,
-            this.buyPrice3DataGridViewTextBoxColumn,
-            this.buyStrand4DataGridViewTextBoxColumn,
-            this.buyPrice4DataGridViewTextBoxColumn,
-            this.buyStrand5DataGridViewTextBoxColumn,
-            this.buyPrice5DataGridViewTextBoxColumn,
-            this.sellStrand1DataGridViewTextBoxColumn,
-            this.sellPrice1DataGridViewTextBoxColumn,
-            this.sellStrand2DataGridViewTextBoxColumn,
-            this.sellPrice2DataGridViewTextBoxColumn,
-            this.sellStrand3DataGridViewTextBoxColumn,
-            this.sellPrice3DataGridViewTextBoxColumn,
-            this.sellStrand4DataGridViewTextBoxColumn,
-            this.sellPrice4DataGridViewTextBoxColumn,
-            this.sellStrand5DataGridViewTextBoxColumn,
-            this.sellPrice5DataGridViewTextBoxColumn});
+            this.amountDataGridViewTextBoxColumn});
             this.QuotaRepositoryGridView.DataSource = this.QuotaRepositoryBindingSource;
             this.QuotaRepositoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.QuotaRepositoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -253,22 +209,6 @@
             this.dayLowPriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.dayLowPriceDataGridViewTextBoxColumn.Width = 88;
             // 
-            // biddingPriceDataGridViewTextBoxColumn
-            // 
-            this.biddingPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Trades.TradeStrand.BiddingPrice);
-            this.biddingPriceDataGridViewTextBoxColumn.HeaderText = "Bidding Price";
-            this.biddingPriceDataGridViewTextBoxColumn.Name = "biddingPriceDataGridViewTextBoxColumn";
-            this.biddingPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.biddingPriceDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // auctionPriceDataGridViewTextBoxColumn
-            // 
-            this.auctionPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Trades.TradeStrand.AuctionPrice);
-            this.auctionPriceDataGridViewTextBoxColumn.HeaderText = "Auction Price";
-            this.auctionPriceDataGridViewTextBoxColumn.Name = "auctionPriceDataGridViewTextBoxColumn";
-            this.auctionPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.auctionPriceDataGridViewTextBoxColumn.Width = 67;
-            // 
             // countDataGridViewTextBoxColumn
             // 
             this.countDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Volume);
@@ -284,166 +224,6 @@
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
             this.amountDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // buyStrand1DataGridViewTextBoxColumn
-            // 
-            this.buyStrand1DataGridViewTextBoxColumn.DataPropertyName = "BuyStrand1";
-            this.buyStrand1DataGridViewTextBoxColumn.HeaderText = "Buy Strand 1";
-            this.buyStrand1DataGridViewTextBoxColumn.Name = "buyStrand1DataGridViewTextBoxColumn";
-            this.buyStrand1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyStrand1DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyPrice1DataGridViewTextBoxColumn
-            // 
-            this.buyPrice1DataGridViewTextBoxColumn.DataPropertyName = "BuyPrice1";
-            this.buyPrice1DataGridViewTextBoxColumn.HeaderText = "Buy Price 1";
-            this.buyPrice1DataGridViewTextBoxColumn.Name = "buyPrice1DataGridViewTextBoxColumn";
-            this.buyPrice1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyPrice1DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyStrand2DataGridViewTextBoxColumn
-            // 
-            this.buyStrand2DataGridViewTextBoxColumn.DataPropertyName = "BuyStrand2";
-            this.buyStrand2DataGridViewTextBoxColumn.HeaderText = "Buy Strand 2";
-            this.buyStrand2DataGridViewTextBoxColumn.Name = "buyStrand2DataGridViewTextBoxColumn";
-            this.buyStrand2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyStrand2DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyPrice2DataGridViewTextBoxColumn
-            // 
-            this.buyPrice2DataGridViewTextBoxColumn.DataPropertyName = "BuyPrice2";
-            this.buyPrice2DataGridViewTextBoxColumn.HeaderText = "Buy Price 2";
-            this.buyPrice2DataGridViewTextBoxColumn.Name = "buyPrice2DataGridViewTextBoxColumn";
-            this.buyPrice2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyPrice2DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyStrand3DataGridViewTextBoxColumn
-            // 
-            this.buyStrand3DataGridViewTextBoxColumn.DataPropertyName = "BuyStrand3";
-            this.buyStrand3DataGridViewTextBoxColumn.HeaderText = "Buy Strand 3";
-            this.buyStrand3DataGridViewTextBoxColumn.Name = "buyStrand3DataGridViewTextBoxColumn";
-            this.buyStrand3DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyStrand3DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyPrice3DataGridViewTextBoxColumn
-            // 
-            this.buyPrice3DataGridViewTextBoxColumn.DataPropertyName = "BuyPrice3";
-            this.buyPrice3DataGridViewTextBoxColumn.HeaderText = "Buy Price 3";
-            this.buyPrice3DataGridViewTextBoxColumn.Name = "buyPrice3DataGridViewTextBoxColumn";
-            this.buyPrice3DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyPrice3DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyStrand4DataGridViewTextBoxColumn
-            // 
-            this.buyStrand4DataGridViewTextBoxColumn.DataPropertyName = "BuyStrand4";
-            this.buyStrand4DataGridViewTextBoxColumn.HeaderText = "Buy Strand 4";
-            this.buyStrand4DataGridViewTextBoxColumn.Name = "buyStrand4DataGridViewTextBoxColumn";
-            this.buyStrand4DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyStrand4DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyPrice4DataGridViewTextBoxColumn
-            // 
-            this.buyPrice4DataGridViewTextBoxColumn.DataPropertyName = "BuyPrice4";
-            this.buyPrice4DataGridViewTextBoxColumn.HeaderText = "Buy Price 4";
-            this.buyPrice4DataGridViewTextBoxColumn.Name = "buyPrice4DataGridViewTextBoxColumn";
-            this.buyPrice4DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyPrice4DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyStrand5DataGridViewTextBoxColumn
-            // 
-            this.buyStrand5DataGridViewTextBoxColumn.DataPropertyName = "BuyStrand5";
-            this.buyStrand5DataGridViewTextBoxColumn.HeaderText = "Buy Strand 5";
-            this.buyStrand5DataGridViewTextBoxColumn.Name = "buyStrand5DataGridViewTextBoxColumn";
-            this.buyStrand5DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyStrand5DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // buyPrice5DataGridViewTextBoxColumn
-            // 
-            this.buyPrice5DataGridViewTextBoxColumn.DataPropertyName = "BuyPrice5";
-            this.buyPrice5DataGridViewTextBoxColumn.HeaderText = "Buy Price 5";
-            this.buyPrice5DataGridViewTextBoxColumn.Name = "buyPrice5DataGridViewTextBoxColumn";
-            this.buyPrice5DataGridViewTextBoxColumn.ReadOnly = true;
-            this.buyPrice5DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellStrand1DataGridViewTextBoxColumn
-            // 
-            this.sellStrand1DataGridViewTextBoxColumn.DataPropertyName = "SellStrand1";
-            this.sellStrand1DataGridViewTextBoxColumn.HeaderText = "Sell Strand 1";
-            this.sellStrand1DataGridViewTextBoxColumn.Name = "sellStrand1DataGridViewTextBoxColumn";
-            this.sellStrand1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellStrand1DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellPrice1DataGridViewTextBoxColumn
-            // 
-            this.sellPrice1DataGridViewTextBoxColumn.DataPropertyName = "SellPrice1";
-            this.sellPrice1DataGridViewTextBoxColumn.HeaderText = "Sell Price 1";
-            this.sellPrice1DataGridViewTextBoxColumn.Name = "sellPrice1DataGridViewTextBoxColumn";
-            this.sellPrice1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellPrice1DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellStrand2DataGridViewTextBoxColumn
-            // 
-            this.sellStrand2DataGridViewTextBoxColumn.DataPropertyName = "SellStrand2";
-            this.sellStrand2DataGridViewTextBoxColumn.HeaderText = "Sell Strand 2";
-            this.sellStrand2DataGridViewTextBoxColumn.Name = "sellStrand2DataGridViewTextBoxColumn";
-            this.sellStrand2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellStrand2DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellPrice2DataGridViewTextBoxColumn
-            // 
-            this.sellPrice2DataGridViewTextBoxColumn.DataPropertyName = "SellPrice2";
-            this.sellPrice2DataGridViewTextBoxColumn.HeaderText = "Sell Price 2";
-            this.sellPrice2DataGridViewTextBoxColumn.Name = "sellPrice2DataGridViewTextBoxColumn";
-            this.sellPrice2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellPrice2DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellStrand3DataGridViewTextBoxColumn
-            // 
-            this.sellStrand3DataGridViewTextBoxColumn.DataPropertyName = "SellStrand3";
-            this.sellStrand3DataGridViewTextBoxColumn.HeaderText = "Sell Strand 3";
-            this.sellStrand3DataGridViewTextBoxColumn.Name = "sellStrand3DataGridViewTextBoxColumn";
-            this.sellStrand3DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellStrand3DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellPrice3DataGridViewTextBoxColumn
-            // 
-            this.sellPrice3DataGridViewTextBoxColumn.DataPropertyName = "SellPrice3";
-            this.sellPrice3DataGridViewTextBoxColumn.HeaderText = "Sell Price 3";
-            this.sellPrice3DataGridViewTextBoxColumn.Name = "sellPrice3DataGridViewTextBoxColumn";
-            this.sellPrice3DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellPrice3DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellStrand4DataGridViewTextBoxColumn
-            // 
-            this.sellStrand4DataGridViewTextBoxColumn.DataPropertyName = "SellStrand4";
-            this.sellStrand4DataGridViewTextBoxColumn.HeaderText = "Sell Strand 4";
-            this.sellStrand4DataGridViewTextBoxColumn.Name = "sellStrand4DataGridViewTextBoxColumn";
-            this.sellStrand4DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellStrand4DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellPrice4DataGridViewTextBoxColumn
-            // 
-            this.sellPrice4DataGridViewTextBoxColumn.DataPropertyName = "SellPrice4";
-            this.sellPrice4DataGridViewTextBoxColumn.HeaderText = "Sell Price 4";
-            this.sellPrice4DataGridViewTextBoxColumn.Name = "sellPrice4DataGridViewTextBoxColumn";
-            this.sellPrice4DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellPrice4DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellStrand5DataGridViewTextBoxColumn
-            // 
-            this.sellStrand5DataGridViewTextBoxColumn.DataPropertyName = "SellStrand5";
-            this.sellStrand5DataGridViewTextBoxColumn.HeaderText = "Sell Strand 5";
-            this.sellStrand5DataGridViewTextBoxColumn.Name = "sellStrand5DataGridViewTextBoxColumn";
-            this.sellStrand5DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellStrand5DataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sellPrice5DataGridViewTextBoxColumn
-            // 
-            this.sellPrice5DataGridViewTextBoxColumn.DataPropertyName = "SellPrice5";
-            this.sellPrice5DataGridViewTextBoxColumn.HeaderText = "Sell Price 5";
-            this.sellPrice5DataGridViewTextBoxColumn.Name = "sellPrice5DataGridViewTextBoxColumn";
-            this.sellPrice5DataGridViewTextBoxColumn.ReadOnly = true;
-            this.sellPrice5DataGridViewTextBoxColumn.Width = 67;
             // 
             // QuotaRepositoryBindingSource
             // 
@@ -512,30 +292,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn currentPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayHighPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayLowPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn biddingPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn auctionPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyStrand1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyPrice1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyStrand2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyPrice2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyStrand3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyPrice3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyStrand4DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyPrice4DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyStrand5DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyPrice5DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellStrand1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellPrice1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellStrand2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellPrice2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellStrand3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellPrice3DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellStrand4DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellPrice4DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellStrand5DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sellPrice5DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateTimeDataGridViewTextBoxColumn;
     }
 }

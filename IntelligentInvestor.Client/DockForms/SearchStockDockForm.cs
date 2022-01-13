@@ -247,9 +247,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     public async Task QueryQuota(string code, StockMarkets market)
     {
         this.logger.LogDebug($"Query quota of stock {this.currentStock.GetFullCode()} ...");
-        var (stock, quota) = await this.stockSpider.GetStockQuotaAsync(market, code);
-
-        this.CurrentStock = stock;
+        var (quota, _) = await this.stockSpider.GetStockQuotaAsync(market, code);
         this.CurrentQuota = quota;
     }
 }

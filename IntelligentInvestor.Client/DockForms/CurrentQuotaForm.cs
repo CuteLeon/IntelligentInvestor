@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Application.Repositorys.Quotas;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
@@ -19,6 +20,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
     private readonly IServiceProvider serviceProvider;
     private readonly IStockRepository stockRepository;
     private readonly IQuotaRepository quotaRepository;
+    private readonly IRepositoryBase<TradeStrand> tradeStrandRepository;
     private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
 
     public CurrentQuotaForm(
@@ -28,6 +30,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
         IQuotaRepository quotaRepository,
+        IRepositoryBase<TradeStrand> tradeStrandRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
@@ -42,6 +45,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         this.stockEventHandler = stockEventHandler;
         this.stockRepository = stockRepository;
         this.quotaRepository = quotaRepository;
+        this.tradeStrandRepository = tradeStrandRepository;
         this.stockSpider = stockSpider;
 
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
@@ -168,15 +172,10 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         try
         {
             this.logger.LogDebug($"Refresh quota of {this.currentStock?.GetFullCode()} ...");
-            var (_, quota) = await this.stockSpider.GetStockQuotaAsync(this.currentStock.StockMarket, this.currentStock.StockCode);
-            this.CurrentQuota = quota;
+            var (quota, tradeStrand) = await this.stockSpider.GetStockQuotaAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
 
-            quota.StockMarket = this.currentStock.StockMarket;
-            quota.StockCode = this.currentStock.StockCode;
-            if (quota != null)
-            {
-                await this.quotaRepository.AddAsync(quota);
-            }
+            if (quota != null) await this.quotaRepository.AddAsync(quota);
+            if (tradeStrand != null) await this.tradeStrandRepository.AddAsync(tradeStrand);
         }
         catch (Exception ex)
         {

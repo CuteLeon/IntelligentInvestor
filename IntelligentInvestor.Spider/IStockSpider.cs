@@ -2,12 +2,13 @@
 using IntelligentInvestor.Domain.Companys;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Spider;
 
 public interface IStockSpider
 {
-    Task<(Stock Stock, Quota Quota)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode);
+    Task<(Quota Quota, TradeStrand TradeStrand)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode);
 
     Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency);
 

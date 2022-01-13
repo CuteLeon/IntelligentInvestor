@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntelligentInvestor.Infrastructure.Migrations
 {
     [DbContext(typeof(IntelligentInvestorDBContext))]
-    [Migration("20220113071055_InitialMigration")]
+    [Migration("20220113081218_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -162,20 +162,20 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<decimal>("BiddingPrice")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("BuyPrice1")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BuyPrice1")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("BuyPrice2")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BuyPrice2")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("BuyPrice3")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BuyPrice3")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("BuyPrice4")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BuyPrice4")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("BuyPrice5")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("BuyPrice5")
+                        .HasColumnType("TEXT");
 
                     b.Property<long>("BuyStrand1")
                         .HasColumnType("INTEGER");
@@ -192,20 +192,20 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<long>("BuyStrand5")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("SellPrice1")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SellPrice1")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("SellPrice2")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SellPrice2")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("SellPrice3")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SellPrice3")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("SellPrice4")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SellPrice4")
+                        .HasColumnType("TEXT");
 
-                    b.Property<double>("SellPrice5")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("SellPrice5")
+                        .HasColumnType("TEXT");
 
                     b.Property<long>("SellStrand1")
                         .HasColumnType("INTEGER");
