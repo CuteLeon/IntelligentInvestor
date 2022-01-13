@@ -55,6 +55,25 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.ToTable("Companies");
                 });
 
+            modelBuilder.Entity("IntelligentInvestor.Domain.Options.GenericOption", b =>
+                {
+                    b.Property<string>("OptionName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerLevel")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OptionValue")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("OptionName", "OwnerLevel", "Category");
+
+                    b.ToTable("GenericOptions");
+                });
+
             modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>
                 {
                     b.Property<int>("StockMarket")

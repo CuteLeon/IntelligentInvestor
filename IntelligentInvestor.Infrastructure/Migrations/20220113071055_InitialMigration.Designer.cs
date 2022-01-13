@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntelligentInvestor.Infrastructure.Migrations
 {
     [DbContext(typeof(IntelligentInvestorDBContext))]
-    [Migration("20220112105845_InitialMigration")]
+    [Migration("20220113071055_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,25 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.HasKey("StockMarket", "StockCode");
 
                     b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("IntelligentInvestor.Domain.Options.GenericOption", b =>
+                {
+                    b.Property<string>("OptionName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerLevel")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OptionValue")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("OptionName", "OwnerLevel", "Category");
+
+                    b.ToTable("GenericOptions");
                 });
 
             modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>

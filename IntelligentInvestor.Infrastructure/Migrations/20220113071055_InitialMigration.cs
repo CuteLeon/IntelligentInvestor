@@ -10,6 +10,20 @@ namespace IntelligentInvestor.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "GenericOptions",
+                columns: table => new
+                {
+                    OptionName = table.Column<string>(type: "TEXT", nullable: false),
+                    Category = table.Column<string>(type: "TEXT", nullable: false),
+                    OwnerLevel = table.Column<string>(type: "TEXT", nullable: false),
+                    OptionValue = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GenericOptions", x => new { x.OptionName, x.OwnerLevel, x.Category });
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stocks",
                 columns: table => new
                 {
@@ -125,6 +139,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Companies");
+
+            migrationBuilder.DropTable(
+                name: "GenericOptions");
 
             migrationBuilder.DropTable(
                 name: "Quotas");
