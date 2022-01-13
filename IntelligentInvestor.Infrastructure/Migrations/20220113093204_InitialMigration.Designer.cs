@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntelligentInvestor.Infrastructure.Migrations
 {
     [DbContext(typeof(IntelligentInvestorDBContext))]
-    [Migration("20220113081218_InitialMigration")]
+    [Migration("20220113093204_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
             modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
-                        .WithMany("Quotas")
+                        .WithMany()
                         .HasForeignKey("StockMarket", "StockCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -252,7 +252,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
             modelBuilder.Entity("IntelligentInvestor.Domain.Trades.TradeStrand", b =>
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
-                        .WithMany("TradeStrands")
+                        .WithMany()
                         .HasForeignKey("StockMarket", "StockCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -264,10 +264,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.Navigation("Company")
                         .IsRequired();
-
-                    b.Navigation("Quotas");
-
-                    b.Navigation("TradeStrands");
                 });
 #pragma warning restore 612, 618
         }

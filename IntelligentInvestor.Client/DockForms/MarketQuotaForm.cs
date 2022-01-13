@@ -130,7 +130,7 @@ public partial class MarketQuotaForm : SingleToolDockForm
     {
         if (e.EventType != StockEventTypes.ChangeCurrent) return;
         this.CurrentStock = e.Stock;
-        this.CurrentQuota = e.Stock?.Quotas?.LastOrDefault();
+        this.CurrentQuota = default;
     }
 
     private void MarketQuotaForm_Load(object sender, EventArgs e)

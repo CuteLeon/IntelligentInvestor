@@ -40,8 +40,8 @@ public class IntelligentInvestorDBContext : DbContext
         builder.Entity<GenericOption>().HasKey(x => new { x.OptionName, x.OwnerLevel, x.Category });
 
         builder.Entity<Stock>().HasOne(x => x.Company).WithOne(x => x.Stock).HasForeignKey<Company>(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey<Stock>(x => new { x.StockMarket, x.StockCode }).IsRequired();
-        builder.Entity<Stock>().HasMany(x => x.Quotas).WithOne(x => x.Stock).HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
-        builder.Entity<Stock>().HasMany(x => x.TradeStrands).WithOne(x => x.Stock).HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
+        builder.Entity<Quota>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
+        builder.Entity<TradeStrand>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

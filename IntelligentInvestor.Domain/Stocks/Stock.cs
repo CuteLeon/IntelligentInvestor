@@ -21,10 +21,6 @@ public class Stock : StockBase
 
     public virtual Company Company { get; set; }
 
-    public virtual List<Quota> Quotas { get; set; }
-
-    public virtual List<TradeStrand> TradeStrands { get; set; }
-
     public override string ToString() => $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
 
     public string GetFullCode()

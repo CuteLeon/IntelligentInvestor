@@ -109,6 +109,7 @@ public class MockStockSpider : IStockSpider
         var result = this.quotaFaker.GenerateBetween(100, 300).ToList();
         result.ForEach(x =>
         {
+            x.Frequency = quotaFrequency;
             x.StockMarket = stockMarket;
             x.StockCode = stockCode;
         });
@@ -119,6 +120,7 @@ public class MockStockSpider : IStockSpider
     {
         var quota = this.quotaFaker.Generate();
         var tradeStrand = this.tradeStrandFaker.Generate();
+        quota.Frequency = QuotaFrequencys.Trade;
         quota.StockMarket = stockMarket;
         quota.StockCode = stockCode;
         tradeStrand.StockMarket = stockMarket;

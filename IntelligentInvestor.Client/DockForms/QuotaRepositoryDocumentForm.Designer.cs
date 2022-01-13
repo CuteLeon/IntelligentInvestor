@@ -36,6 +36,7 @@
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quotaTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quotaFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuotaRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QuotaStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.QuotaEndDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -118,8 +119,9 @@
             this.QuotaRepositoryGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
-            this.currentPriceDataGridViewTextBoxColumn,
             this.quotaTimeDataGridViewTextBoxColumn,
+            this.quotaFrequencyDataGridViewTextBoxColumn,
+            this.currentPriceDataGridViewTextBoxColumn,
             this.openingPriceTodayDataGridViewTextBoxColumn,
             this.closingPriceYesterdayDataGridViewTextBoxColumn,
             this.dayHighPriceDataGridViewTextBoxColumn,
@@ -165,6 +167,15 @@
             this.currentPriceDataGridViewTextBoxColumn.Name = "currentPriceDataGridViewTextBoxColumn";
             this.currentPriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.currentPriceDataGridViewTextBoxColumn.Width = 72;
+            // 
+            // quotaFrequencyDataGridViewTextBoxColumn
+            // 
+            this.quotaFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Frequency);
+            this.quotaFrequencyDataGridViewTextBoxColumn.Frozen = true;
+            this.quotaFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
+            this.quotaFrequencyDataGridViewTextBoxColumn.Name = "quotaFrequencyDataGridViewTextBoxColumn";
+            this.quotaFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quotaFrequencyDataGridViewTextBoxColumn.Width = 54;
             // 
             // quotaTimeDataGridViewTextBoxColumn
             // 
@@ -295,5 +306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quotaTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quotaFrequencyDataGridViewTextBoxColumn;
     }
 }

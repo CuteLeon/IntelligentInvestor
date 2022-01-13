@@ -239,7 +239,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
             modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
-                        .WithMany("Quotas")
+                        .WithMany()
                         .HasForeignKey("StockMarket", "StockCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -250,7 +250,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
             modelBuilder.Entity("IntelligentInvestor.Domain.Trades.TradeStrand", b =>
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
-                        .WithMany("TradeStrands")
+                        .WithMany()
                         .HasForeignKey("StockMarket", "StockCode")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -262,10 +262,6 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     b.Navigation("Company")
                         .IsRequired();
-
-                    b.Navigation("Quotas");
-
-                    b.Navigation("TradeStrands");
                 });
 #pragma warning restore 612, 618
         }

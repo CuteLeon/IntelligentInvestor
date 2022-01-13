@@ -26,6 +26,7 @@
             this.lowestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quotaTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quotaFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecentQuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.RecentQuotaToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
@@ -60,6 +61,7 @@
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
             this.quotaTimeDataGridViewTextBoxColumn,
+            this.quotaFrequencyDataGridViewTextBoxColumn,
             this.openningPriceDataGridViewTextBoxColumn,
             this.closingPriceDataGridViewTextBoxColumn,
             this.highestPriceDataGridViewTextBoxColumn,
@@ -95,6 +97,15 @@
             this.marketDataGridViewTextBoxColumn.Name = "marketDataGridViewTextBoxColumn";
             this.marketDataGridViewTextBoxColumn.ReadOnly = true;
             this.marketDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // quotaFrequencyDataGridViewTextBoxColumn
+            // 
+            this.quotaFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Frequency);
+            this.quotaFrequencyDataGridViewTextBoxColumn.Frozen = true;
+            this.quotaFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
+            this.quotaFrequencyDataGridViewTextBoxColumn.Name = "quotaFrequencyDataGridViewTextBoxColumn";
+            this.quotaFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quotaFrequencyDataGridViewTextBoxColumn.Width = 54;
             // 
             // quotaTimeDataGridViewTextBoxColumn
             // 
@@ -300,6 +311,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lowestPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quotaTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quotaFrequencyDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton MLTransformButton;
     }
 }
