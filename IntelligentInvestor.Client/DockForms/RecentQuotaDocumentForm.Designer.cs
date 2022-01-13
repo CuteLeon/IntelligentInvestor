@@ -30,7 +30,6 @@
             this.RecentQuotaToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.QuotaFrequencyLabel = new System.Windows.Forms.ToolStripLabel();
             this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.QuotaLengthToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -157,7 +156,6 @@
             this.RecentQuotaToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
-            this.QuotaFrequencyLabel,
             this.QuotaFrequencyComboBox,
             this.QuotaLengthToolLabel,
             this.toolStripSeparator2,
@@ -180,13 +178,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // QuotaFrequencyLabel
-            // 
-            this.QuotaFrequencyLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.QuotaFrequencyLabel.Name = "QuotaFrequencyLabel";
-            this.QuotaFrequencyLabel.Size = new System.Drawing.Size(56, 22);
-            this.QuotaFrequencyLabel.Text = "Frequency";
             // 
             // QuotaFrequencyComboBox
             // 
@@ -295,7 +286,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton QueryToolButton;
-        private System.Windows.Forms.ToolStripLabel QuotaFrequencyLabel;
         private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
         private System.Windows.Forms.ToolStripLabel QuotaLengthToolLabel;
         private System.Windows.Forms.NumericUpDown QuotaLengthNumeric;

@@ -6,5 +6,5 @@ namespace IntelligentInvestor.Application.Repositorys.Quotas;
 
 public interface IQuotaRepository : IRepositoryBase<Quota>
 {
-    Task<IEnumerable<Quota>> GetStockQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys? quotaFrequency = null, DateTime? fromTime = null, DateTime? toTime = null);
+    Task<IEnumerable<Quota>> GetStockQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency = QuotaFrequencys.NotSpecified, DateTime? fromTime = null, DateTime? toTime = null);
 }

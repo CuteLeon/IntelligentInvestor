@@ -6,7 +6,7 @@ namespace IntelligentInvestor.Client.DockForms;
 public partial class DocumentDockForm : DockFormBase
 {
     public DocumentDockForm(
-        ILogger<DockFormBase> logger,
+        ILogger<DocumentDockForm> logger,
         IUIThemeHandler themeHandler)
         : base(logger, themeHandler)
     {

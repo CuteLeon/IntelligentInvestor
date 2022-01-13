@@ -15,6 +15,27 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
     private readonly IQuotaRepository quotaRepository;
     private readonly IStockSpider stockSpider;
 
+    public RecentQuotaDocumentForm(
+        ILogger<RecentQuotaDocumentForm> logger,
+        IUIThemeHandler themeHandler,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
+        IStockSpider stockSpider)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent();
+
+        if (this.DesignMode)
+        {
+            return;
+        }
+
+        this.QuotaFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
+        this.stockRepository = stockRepository;
+        this.quotaRepository = quotaRepository;
+        this.stockSpider = stockSpider;
+    }
+
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
     public override string PersistValue
@@ -42,6 +63,7 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
         set
         {
             this.stock = value;
+            this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
 
             if (value == null)
             {
@@ -67,27 +89,6 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
                 }
             }
         }
-    }
-
-    public RecentQuotaDocumentForm(
-        ILogger<RecentQuotaDocumentForm> logger,
-        IUIThemeHandler themeHandler,
-        IStockRepository stockRepository,
-        IQuotaRepository quotaRepository,
-        IStockSpider stockSpider)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent();
-
-        if (this.DesignMode)
-        {
-            return;
-        }
-
-        this.QuotaFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
-        this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
-        this.stockSpider = stockSpider;
     }
 
     private void RecentQuotaDocumentForm_Load(object sender, EventArgs e)
@@ -222,15 +223,13 @@ public partial class RecentQuotaDocumentForm : DocumentDockForm
 
     public async Task QueryRecentQuotas()
     {
-        if (this.stock == null)
-        {
-            return;
-        }
-
+        if (this.stock == null) return;
+        var frequency = Enum.TryParse(this.QuotaFrequencyComboBox.SelectedItem.ToString(), out QuotaFrequencys quotaFrequency) ? quotaFrequency : QuotaFrequencys.NotSpecified;
+        this.logger.LogDebug($"Query quotas for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
         var recentQuotas = await this.stockSpider.GetQuotasAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
-            Enum.TryParse(this.QuotaFrequencyComboBox.SelectedItem.ToString(), out QuotaFrequencys frequency) ? frequency : QuotaFrequencys.Trade,
+            frequency,
             DateTime.Now.AddMinutes(-1 * Convert.ToInt32(this.QuotaLengthNumeric.Value)),
             DateTime.Now);
         this.RecentQuotaBindingSource.DataSource = recentQuotas;

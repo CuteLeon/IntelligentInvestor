@@ -29,6 +29,7 @@
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingPriceTodayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingPriceYesterdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.currentPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayHighPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayLowPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +71,7 @@
             this.QuotaRepositoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
+            this.QuotaFrequencyComboBox,
             this.StartTimeToolLabel,
             this.EndTimeToolLabel,
             this.toolStripSeparator2,
@@ -102,6 +104,12 @@
             this.EndTimeToolLabel.Name = "EndTimeToolLabel";
             this.EndTimeToolLabel.Size = new System.Drawing.Size(32, 22);
             this.EndTimeToolLabel.Text = "End";
+            // 
+            // QuotaFrequencyComboBox
+            // 
+            this.QuotaFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuotaFrequencyComboBox.Name = "QuotaFrequencyComboBox";
+            this.QuotaFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripSeparator2
             // 
@@ -500,6 +508,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn marketDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingPriceTodayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closingPriceYesterdayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayHighPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayLowPriceDataGridViewTextBoxColumn;

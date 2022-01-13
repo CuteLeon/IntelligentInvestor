@@ -41,7 +41,7 @@ namespace IntelligentInvestor.Client
 
             var mainForm = Host.ServiceProvider.GetRequiredService<MainForm>();
             WinApplication.Run(mainForm);
-            Logger.Debug("Application exit.");
+            Logger.Debug("Application message loop collected.");
         }
 
         static async IAsyncEnumerable<string> InitializeProgramHost()

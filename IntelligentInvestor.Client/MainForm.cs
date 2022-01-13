@@ -56,6 +56,7 @@ public partial class MainForm : Form
         where TDockForm : DockFormBase
     {
         var instance = this.serviceProvider.GetRequiredService<TDockForm>();
+        this.logger.LogDebug($"Register dock form into view menu: {instance.Text} ...");
         var menuItem = this.ViewMenuItem.DropDownItems.Add(instance.Text, Bitmap.FromHicon(instance.Icon.Handle));
         menuItem.Tag = typeof(TDockForm);
         menuItem.Click += this.ViewsMenuItem_Click;
@@ -132,6 +133,7 @@ public partial class MainForm : Form
 
     private void PredeterminedLayout()
     {
+        this.logger.LogDebug("Load predetermined layout ...");
         var recentTradeForm = this.serviceProvider.GetRequiredService<RecentTradeForm>();
         recentTradeForm.Show(this.MainDockPanel);
         var currentQuotaForm = this.serviceProvider.GetRequiredService<CurrentQuotaForm>();
@@ -171,6 +173,7 @@ public partial class MainForm : Form
     private void ViewsMenuItem_Click(object sender, EventArgs e)
     {
         Type viewType = (sender as ToolStripItem)?.Tag as Type;
+        this.logger.LogDebug($"Launch {viewType.FullName} view ...");
         if (!(this.serviceProvider.GetRequiredService(viewType!) is DockFormBase dockForm))
         {
             throw new NullReferenceException();
@@ -195,11 +198,13 @@ public partial class MainForm : Form
 
     private void LoadLayout()
     {
+        this.logger.LogDebug($"Load layout from {DockLayoutFileName} ...");
         this.MainDockPanel.LoadFromXml(DockLayoutFileName, this.GetDockContent);
     }
 
     private void SaveLayoute()
     {
+        this.logger.LogDebug($"Save layout to {DockLayoutFileName} ...");
         this.MainDockPanel.SaveAsXml(DockLayoutFileName);
     }
 
@@ -209,6 +214,8 @@ public partial class MainForm : Form
         {
             string[] persists = persist.Split(new[] { '@' }, 2);
             Type type = this.GetType().Assembly.GetType(persists[0]);
+            this.logger.LogDebug($"Restore dock form {type.FullName} ...");
+
             if (this.serviceProvider.GetRequiredService(type) is not DockFormBase dockForm)
             {
                 return default;
@@ -216,6 +223,7 @@ public partial class MainForm : Form
 
             if (persists.Length > 1)
             {
+                this.logger.LogDebug($"Dock form persist value => {persists[1]}");
                 dockForm.PersistValue = persists[1];
             }
 

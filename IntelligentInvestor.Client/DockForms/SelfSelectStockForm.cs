@@ -18,6 +18,29 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IStockRepository stockRepository;
 
+    public SelfSelectStockForm(
+        ILogger<SelfSelectStockForm> logger,
+        IUIThemeHandler themeHandler,
+        IIntermediaryEventHandler<StockEvent> stockEventHandler,
+        IIntermediaryPublisher intermediaryPublisher,
+        IServiceScopeFactory serviceScopeFactory,
+        IStockRepository stockRepository)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent();
+
+        this.Icon = IntelligentInvestorResource.SelfSelectIcon;
+
+        this.TabPageContextMenuStrip = this.SelfSelectGridViewMenuStrip;
+        this.SelfSelectStockGridView.ContextMenuStrip = this.SelfSelectGridViewMenuStrip;
+        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+        this.stockEventHandler = stockEventHandler;
+        this.intermediaryPublisher = intermediaryPublisher;
+        this.stockRepository = stockRepository;
+
+        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+    }
+
     private Stock currentStock;
 
     public Stock CurrentStock
@@ -31,6 +54,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
             }
 
             this.currentStock = value;
+            this.logger.LogDebug($"Set current stock => {value.GetFullCode()}");
 
             if (value == null)
             {
@@ -53,29 +77,6 @@ public partial class SelfSelectStockForm : SingleToolDockForm
             }
             this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
-    }
-
-    public SelfSelectStockForm(
-        ILogger<SelfSelectStockForm> logger,
-        IUIThemeHandler themeHandler,
-        IIntermediaryEventHandler<StockEvent> stockEventHandler,
-        IIntermediaryPublisher intermediaryPublisher,
-        IServiceScopeFactory serviceScopeFactory,
-        IStockRepository stockRepository)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent();
-
-        this.Icon = IntelligentInvestorResource.SelfSelectIcon;
-
-        this.TabPageContextMenuStrip = this.SelfSelectGridViewMenuStrip;
-        this.SelfSelectStockGridView.ContextMenuStrip = this.SelfSelectGridViewMenuStrip;
-        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
-        this.stockEventHandler = stockEventHandler;
-        this.intermediaryPublisher = intermediaryPublisher;
-        this.stockRepository = stockRepository;
-
-        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 
     private void SelfSelectStockForm_Load(object sender, EventArgs e)
@@ -194,6 +195,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
     private async Task RefreshDataSource()
     {
+        this.logger.LogDebug("Load self selected stocks ...");
         try
         {
             this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(null, true);
@@ -209,23 +211,14 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         if (stock == null) return;
         stock.IsSelected = false;
 
+        this.logger.LogDebug($"Unselect stock {stock.GetFullCode()} ...");
         try
         {
-            var existedStock = await this.stockRepository.GetStockAsync(stock.StockMarket, stock.StockCode);
-            if (existedStock is null)
-            {
-                await this.stockRepository.AddAsync(stock);
-            }
-            else
-            {
-                stock = existedStock;
-                stock.IsSelected = false;
-                await this.stockRepository.UpdateAsync(stock);
-            }
+            await stockRepository.AddOrUpdateStockAsync(stock);
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, "Failed to remove self selected stock.");
+            this.logger.LogError(ex, "Failed to unselect stock.");
         }
 
         var index = this.GetIndexInDataSource(stock);
@@ -240,19 +233,10 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         if (stock == null) return;
         stock.IsSelected = true;
 
+        this.logger.LogDebug($"Select stock {stock.GetFullCode()} ...");
         try
         {
-            var existedStock = await this.stockRepository.GetStockAsync(stock.StockMarket, stock.StockCode);
-            if (existedStock is null)
-            {
-                await this.stockRepository.AddAsync(stock);
-            }
-            else
-            {
-                stock = existedStock;
-                stock.IsSelected = true;
-                await this.stockRepository.UpdateAsync(stock);
-            }
+            await this.stockRepository.AddOrUpdateStockAsync(stock);
         }
         catch (Exception ex)
         {

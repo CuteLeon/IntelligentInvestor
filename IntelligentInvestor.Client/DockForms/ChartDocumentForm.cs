@@ -10,9 +10,30 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class ChartDocumentForm : DocumentDockForm
 {
-    private Stock stock;
     private readonly IStockRepository stockRepository;
     private readonly IStockSpider stockSpider;
+
+    public ChartDocumentForm(
+        ILogger<ChartDocumentForm> logger,
+        IUIThemeHandler themeHandler,
+        IStockRepository stockRepository,
+        IStockSpider stockSpider)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent();
+
+        if (this.DesignMode)
+        {
+            return;
+        }
+
+        this.QuotaFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
+        this.QuotaFrequencyComboBox.SelectedIndex = 1;
+        this.stockRepository = stockRepository;
+        this.stockSpider = stockSpider;
+    }
+
+    private Stock stock;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -39,6 +60,7 @@ public partial class ChartDocumentForm : DocumentDockForm
         set
         {
             this.stock = value;
+            this.logger.LogDebug($"Set current stock => {value.GetFullCode()}");
 
             if (value == null)
             {
@@ -64,26 +86,6 @@ public partial class ChartDocumentForm : DocumentDockForm
         }
     }
 
-    public ChartDocumentForm(
-        ILogger<DockFormBase> logger,
-        IUIThemeHandler themeHandler,
-        IStockRepository stockRepository,
-        IStockSpider stockSpider)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent();
-
-        if (this.DesignMode)
-        {
-            return;
-        }
-
-        this.ChartTypeToolComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
-        this.ChartTypeToolComboBox.SelectedIndex = 0;
-        this.stockRepository = stockRepository;
-        this.stockSpider = stockSpider;
-    }
-
     private void ChartDocumentForm_Shown(object sender, EventArgs e)
     {
         _ = this.RefreshChart();
@@ -91,10 +93,12 @@ public partial class ChartDocumentForm : DocumentDockForm
 
     private async Task RefreshChart()
     {
+        var frequency = Enum.TryParse(this.QuotaFrequencyComboBox.SelectedItem.ToString(), out QuotaFrequencys quotaFrequency) ? quotaFrequency : QuotaFrequencys.Trade;
+        this.logger.LogDebug($"Refresh chart for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
         Image chartImage = await this.stockSpider.GetChartAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
-            Enum.TryParse(this.ChartTypeToolComboBox.SelectedItem.ToString(), out QuotaFrequencys quotaFrequency) ? quotaFrequency : QuotaFrequencys.Trade);
+            frequency);
 
         this.ChartPictureBox.BackgroundImage = chartImage;
     }

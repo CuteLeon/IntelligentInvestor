@@ -2,6 +2,7 @@
 using IntelligentInvestor.Application.Repositorys.Quotas;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
+using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
 using Microsoft.Extensions.Logging;
 
@@ -12,6 +13,26 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
 {
     private readonly IStockRepository stockRepository;
     private readonly IQuotaRepository quotaRepository;
+
+    public QuotaRepositoryDocumentForm(
+        ILogger<QuotaRepositoryDocumentForm> logger,
+        IUIThemeHandler themeHandler,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent();
+
+        if (this.DesignMode)
+        {
+            return;
+        }
+
+        this.QuotaFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuotaFrequencys)));
+        this.QuotaFrequencyComboBox.SelectedIndex = 0;
+        this.stockRepository = stockRepository;
+        this.quotaRepository = quotaRepository;
+    }
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -40,6 +61,7 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
         set
         {
             this.stock = value;
+            this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
 
             if (value == null)
             {
@@ -66,24 +88,6 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
         }
     }
 
-    public QuotaRepositoryDocumentForm(
-        ILogger<QuotaRepositoryDocumentForm> logger,
-        IUIThemeHandler themeHandler,
-        IStockRepository stockRepository,
-        IQuotaRepository quotaRepository)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent();
-
-        if (this.DesignMode)
-        {
-            return;
-        }
-
-        this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
-    }
-
     private void QuotaRepositoryDockForm_Load(object sender, EventArgs e)
     {
         if (this.DesignMode)
@@ -98,13 +102,12 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
         insertIndex = this.QuotaRepositoryToolStrip.Items.IndexOf(this.EndTimeToolLabel) + 1;
         this.QuotaRepositoryToolStrip.Items.Insert(insertIndex, endDatePickerHost);
 
-        this.QuotaStartDatePicker.Value = DateTime.Now.AddDays(-7);
-        this.QuotaEndDatePicker.Value = DateTime.Now;
+        this.QuotaStartDatePicker.Value = DateTime.Today.AddDays(-7);
+        this.QuotaEndDatePicker.Value = DateTime.Today.AddDays(1);
     }
 
     private void QuotaRepositoryDockForm_Shown(object sender, EventArgs e)
     {
-        this.QueryQuotas();
     }
 
     public override void ApplyTheme()
@@ -131,20 +134,21 @@ public partial class QuotaRepositoryDocumentForm : DocumentDockForm
 
     private void QueryToolButton_Click(object sender, EventArgs e)
     {
-        this.QueryQuotas();
+        this.LoadQuotas();
     }
 
-    private async void QueryQuotas()
+    private async void LoadQuotas()
     {
+        var frequency = Enum.TryParse(this.QuotaFrequencyComboBox.SelectedItem.ToString(), out QuotaFrequencys quotaFrequency) ? quotaFrequency : QuotaFrequencys.NotSpecified;
+        this.logger.LogDebug($"Load quotas for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
         try
         {
-            // TODO: Allow to select Quota Frequency
             this.QuotaRepositoryBindingSource.DataSource = await this.quotaRepository.GetStockQuotasAsync(
                 this.stock.StockMarket,
                 this.stock.StockCode,
-                null,
-                this.QuotaStartDatePicker.Checked ? this.QuotaStartDatePicker.Value : null,
-                this.QuotaEndDatePicker.Checked ? this.QuotaEndDatePicker.Value : null);
+                frequency,
+                this.QuotaStartDatePicker.Checked ? this.QuotaStartDatePicker.Value.Date : null,
+                this.QuotaEndDatePicker.Checked ? this.QuotaEndDatePicker.Value.Date : null);
         }
         catch (Exception ex)
         {

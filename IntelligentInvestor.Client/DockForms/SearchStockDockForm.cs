@@ -20,6 +20,25 @@ public partial class SearchStockDockForm : SingleToolDockForm
     private readonly IQuotaRepository quotaRepository;
     private readonly IStockSpider stockSpider;
 
+    public SearchStockDockForm(
+        ILogger<SearchStockDockForm> logger,
+        IUIThemeHandler themeHandler,
+        IIntermediaryPublisher intermediaryPublisher,
+        IServiceScopeFactory serviceScopeFactory,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
+        IStockSpider stockSpider)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent(themeHandler);
+        this.Icon = IntelligentInvestorResource.SearchIcon;
+        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+        this.intermediaryPublisher = intermediaryPublisher;
+        this.stockRepository = stockRepository;
+        this.quotaRepository = quotaRepository;
+        this.stockSpider = stockSpider;
+    }
+
     private Stock currentStock;
 
     [Browsable(false)]
@@ -33,6 +52,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
             this.SearchToolStrip.Enabled = value != null;
             this.MainStockQuotaControl.Stock = value;
+            this.logger.LogDebug($"Set current stock => {value.GetFullCode()}");
 
             try
             {
@@ -57,25 +77,6 @@ public partial class SearchStockDockForm : SingleToolDockForm
             this.currentQuota = value;
             this.MainStockQuotaControl.AttachEntity = value;
         }
-    }
-
-    public SearchStockDockForm(
-        ILogger<SearchStockDockForm> logger,
-        IUIThemeHandler themeHandler,
-        IIntermediaryPublisher intermediaryPublisher,
-        IServiceScopeFactory serviceScopeFactory,
-        IStockRepository stockRepository,
-        IQuotaRepository quotaRepository,
-        IStockSpider stockSpider)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent(themeHandler);
-        this.Icon = IntelligentInvestorResource.SearchIcon;
-        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
-        this.intermediaryPublisher = intermediaryPublisher;
-        this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
-        this.stockSpider = stockSpider;
     }
 
     public override void ApplyTheme()
@@ -109,7 +110,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        _ = this.SearchStock(this.currentStock.StockCode, this.currentStock.StockMarket);
+        _ = this.QueryQuota(this.currentStock.StockCode, this.currentStock.StockMarket);
     }
 
     private void ChartToolButton_Click(object sender, EventArgs e)
@@ -217,14 +218,15 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
         else
         {
-            await this.GetSearchStocks(keyword);
+            await this.SearchStocks(keyword);
         }
 
         this.StockComboBox.DroppedDown = true;
     }
 
-    public async Task GetSearchStocks(string keyword)
+    public async Task SearchStocks(string keyword)
     {
+        this.logger.LogDebug($"Search stocks with keyword {keyword} ...");
         this.StockComboBox.Items.AddRange((await this.stockSpider.SearchStocksAsync(keyword)).ToArray());
         this.StockComboBox.DroppedDown = true;
     }
@@ -238,12 +240,13 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
         else
         {
-            _ = this.SearchStock(stock.StockCode, stock.StockMarket);
+            _ = this.QueryQuota(stock.StockCode, stock.StockMarket);
         }
     }
 
-    public async Task SearchStock(string code, StockMarkets market)
+    public async Task QueryQuota(string code, StockMarkets market)
     {
+        this.logger.LogDebug($"Query quota of stock {this.currentStock.GetFullCode()} ...");
         var (stock, quota) = await this.stockSpider.GetStockQuotaAsync(market, code);
 
         this.CurrentStock = stock;

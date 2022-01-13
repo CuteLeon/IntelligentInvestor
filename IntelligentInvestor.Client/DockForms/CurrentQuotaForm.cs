@@ -15,15 +15,37 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class CurrentQuotaForm : SingleToolDockForm
 {
+    private readonly IStockSpider stockSpider;
     private readonly IServiceProvider serviceProvider;
-    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
     private readonly IStockRepository stockRepository;
     private readonly IQuotaRepository quotaRepository;
-    private readonly IStockSpider stockSpider;
+    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
 
-    [Browsable(false)]
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public string SourceName { get; set; } = typeof(CurrentQuotaForm).Name;
+    public CurrentQuotaForm(
+        ILogger<CurrentQuotaForm> logger,
+        IServiceScopeFactory serviceScopeFactory,
+        IIntermediaryEventHandler<StockEvent> stockEventHandler,
+        IUIThemeHandler themeHandler,
+        IStockRepository stockRepository,
+        IQuotaRepository quotaRepository,
+        IStockSpider stockSpider)
+        : base(logger, themeHandler)
+    {
+        this.InitializeComponent(themeHandler);
+
+        this.Icon = IntelligentInvestorResource.CurrentQuotaIcon;
+        this.HideOnClose = true;
+        this.CloseButton = false;
+        this.CloseButtonVisible = false;
+
+        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+        this.stockEventHandler = stockEventHandler;
+        this.stockRepository = stockRepository;
+        this.quotaRepository = quotaRepository;
+        this.stockSpider = stockSpider;
+
+        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+    }
 
     private Stock? currentStock;
 
@@ -35,13 +57,13 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         protected set
         {
             this.currentStock = value;
+            this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
 
             this.MainStockQuotaControl.Stock = value;
             this.MainFiveGearControl.Stock = value;
 
             if (value == null)
             {
-                this.logger.LogDebug($"{nameof(CurrentQuotaForm)} selected empty stock, stop to refresh quota.");
                 this.Invoke(new Action(() =>
                 {
                     this.CurrentQuotaToolStrip.Enabled = false;
@@ -50,7 +72,6 @@ public partial class CurrentQuotaForm : SingleToolDockForm
             }
             else
             {
-                this.logger.LogDebug($"{nameof(CurrentQuotaForm)} selected stock {value.GetFullCode()}, start to refresh quota.");
                 this.Invoke(new Action(() =>
                 {
                     this.AutoRefresh = true;
@@ -125,32 +146,6 @@ public partial class CurrentQuotaForm : SingleToolDockForm
                 this.AutoRefreshTimer.Stop();
             }
         }
-    }
-
-    public CurrentQuotaForm(
-        ILogger<CurrentQuotaForm> logger,
-        IServiceScopeFactory serviceScopeFactory,
-        IIntermediaryEventHandler<StockEvent> stockEventHandler,
-        IUIThemeHandler themeHandler,
-        IStockRepository stockRepository,
-        IQuotaRepository quotaRepository,
-        IStockSpider stockSpider)
-        : base(logger, themeHandler)
-    {
-        this.InitializeComponent(themeHandler);
-
-        this.Icon = IntelligentInvestorResource.CurrentQuotaIcon;
-        this.HideOnClose = true;
-        this.CloseButton = false;
-        this.CloseButtonVisible = false;
-
-        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
-        this.stockEventHandler = stockEventHandler;
-        this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
-        this.stockSpider = stockSpider;
-
-        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 
     private void StockEventHandler_EventRaised(object? sender, StockEvent e)

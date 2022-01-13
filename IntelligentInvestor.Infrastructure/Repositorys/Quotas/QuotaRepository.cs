@@ -10,7 +10,7 @@ namespace IntelligentInvestor.Infrastructure.Repositorys.Quotas;
 public class QuotaRepository : RepositoryBase<Quota>, IQuotaRepository
 {
     public QuotaRepository(
-        ILogger<RepositoryBase<Quota>> logger,
+        ILogger<QuotaRepository> logger,
         DbContext DbContext)
         : base(logger, DbContext)
     {
@@ -19,12 +19,12 @@ public class QuotaRepository : RepositoryBase<Quota>, IQuotaRepository
     public async Task<IEnumerable<Quota>> GetStockQuotasAsync(
         StockMarkets stockMarket,
         string stockCode,
-        QuotaFrequencys? quotaFrequency = null,
+        QuotaFrequencys quotaFrequency = QuotaFrequencys.NotSpecified,
         DateTime? fromTime = null,
         DateTime? toTime = null)
     {
         var query = this.Set().Where(x => x.StockMarket == stockMarket && x.StockCode == stockCode);
-        if (quotaFrequency.HasValue) query = query.Where(x => x.Frequency == quotaFrequency);
+        if (quotaFrequency != QuotaFrequencys.NotSpecified) query = query.Where(x => x.Frequency == quotaFrequency);
         if (fromTime.HasValue) query = query.Where(x => x.QuotaTime >= fromTime.Value);
         if (toTime.HasValue) query = query.Where(x => x.QuotaTime <= toTime.Value);
 

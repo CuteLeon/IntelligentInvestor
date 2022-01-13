@@ -9,7 +9,7 @@ namespace IntelligentInvestor.Infrastructure.Repositorys.Stocks;
 public class StockRepository : RepositoryBase<Stock>, IStockRepository
 {
     public StockRepository(
-        ILogger<RepositoryBase<Stock>> logger,
+        ILogger<StockRepository> logger,
         DbContext DbContext)
         : base(logger, DbContext)
     {

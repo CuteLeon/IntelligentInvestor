@@ -6,7 +6,7 @@ namespace IntelligentInvestor.Client.DockForms;
 public partial class CompanyInfoForm : SingleToolDockForm
 {
     public CompanyInfoForm(
-        ILogger<DockFormBase> logger,
+        ILogger<CompanyInfoForm> logger,
         IUIThemeHandler themeHandler)
         : base(logger, themeHandler)
     {

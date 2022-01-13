@@ -16,21 +16,6 @@ public partial class HotStockDockForm : SingleToolDockForm
     private readonly IStockRepository stockRepository;
     private readonly IStockSpider stockSpider;
 
-    private Stock currentStock;
-
-    public Stock CurrentStock
-    {
-        get => this.currentStock;
-        protected set
-        {
-            if (this.currentStock == value) return;
-
-            this.currentStock = value;
-            this.RemoveToolButton.Enabled = value != null;
-            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
-        }
-    }
-
     public HotStockDockForm(
         ILogger<HotStockDockForm> logger,
         IUIThemeHandler themeHandler,
@@ -44,6 +29,22 @@ public partial class HotStockDockForm : SingleToolDockForm
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.stockSpider = stockSpider;
+    }
+
+    private Stock currentStock;
+
+    public Stock CurrentStock
+    {
+        get => this.currentStock;
+        protected set
+        {
+            if (this.currentStock == value) return;
+            this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
+
+            this.currentStock = value;
+            this.RemoveToolButton.Enabled = value != null;
+            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
+        }
     }
 
     private void HotStockDockForm_Shown(object sender, EventArgs e)
@@ -95,6 +96,7 @@ public partial class HotStockDockForm : SingleToolDockForm
 
     private async Task RefreshDataSource()
     {
+        this.logger.LogDebug($"Get hot stocks ...");
         this.HotStockBindingSource.DataSource = await this.stockSpider.GetHotStocksAsync();
     }
 }
