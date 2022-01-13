@@ -13,7 +13,7 @@ public class GenericOptionRepository : RepositoryBase<GenericOption>, IGenericOp
     {
     }
 
-    public async Task<GenericOption?> QueryGenericOption(string optionName, string owner = null, string category = null)
+    public async Task<GenericOption?> GetGenericOptionAsync(string optionName, string owner = null, string category = null)
         => await this.Set()
             .Where(
                 o => (o.OptionName == optionName) &&
@@ -22,4 +22,15 @@ public class GenericOptionRepository : RepositoryBase<GenericOption>, IGenericOp
             .OrderByDescending(o => o.OwnerLevel)
             .ThenByDescending(o => o.Category)
             .FirstOrDefaultAsync();
+
+    public async Task<GenericOption> AddOrUpdateGenericOptionAsync(GenericOption option)
+    {
+        if (await this.Set().AnyAsync(x =>
+            x.OptionName == option.OptionName &&
+            x.OwnerLevel == option.OwnerLevel &&
+            x.Category == option.Category))
+            return await this.UpdateAsync(option);
+        else
+            return await this.AddAsync(option);
+    }
 }

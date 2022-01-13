@@ -84,7 +84,7 @@ public partial class MainForm : Form
         this.PredeterminedLayout();
     }
 
-    private void MainForm_Load(object sender, EventArgs e)
+    private async void MainForm_Load(object sender, EventArgs e)
     {
         this.IsMdiContainer = true;
         this.MainDockPanel.DocumentStyle = DocumentStyle.DockingMdi;
@@ -92,7 +92,7 @@ public partial class MainForm : Form
         this.MainDockPanel.Theme.Extender.FloatWindowFactory = FloatedWindowFactory.SingleInstance;
         this.MainDockPanel.ShowDocumentIcon = true;
 
-        this.ApplyTheme();
+        await this.ApplyTheme();
     }
 
     private void TestToolItem_Click(object sender, EventArgs e)
@@ -106,26 +106,36 @@ public partial class MainForm : Form
         }
     }
 
-    private void ThemeMenuItem_Click(object sender, EventArgs e)
+    private async void ThemeMenuItem_Click(object sender, EventArgs e)
     {
         if (sender is not ToolStripMenuItem menuItem || menuItem.Checked) return;
         UIThemes theme = (UIThemes)menuItem.Tag;
-        // ThemeHelper.SaveNextTheme(theme);
+        this.logger.LogDebug($"Set theme to {theme} ...");
+        await this.genericOptionRepository.AddOrUpdateGenericOptionAsync(new GenericOption()
+        {
+            Category = "UI",
+            OptionName = "Theme",
+            OwnerLevel = "Client",
+            OptionValue = theme.ToString(),
+        });
 
         MessageBox.Show($"UI Theme will be changed to {theme} after next launch.", "UI Theme", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
-    public void ApplyTheme()
+    public async Task ApplyTheme()
     {
         this.LightThemeMenuItem.Tag = UIThemes.Light;
         this.BlueThemeMenuItem.Tag = UIThemes.Blue;
         this.DarkThemeMenuItem.Tag = UIThemes.Dark;
 
-        if (this.themeHandler.CurrentTheme == UIThemes.Light)
+        var themeName = await this.genericOptionRepository.GetGenericOptionAsync("Theme", "Client", "UI");
+        if (!Enum.TryParse(themeName?.OptionValue, out UIThemes theme)) theme = UIThemes.Dark;
+        this.themeHandler.SetTheme(theme);
+        if (theme == UIThemes.Light)
             this.LightThemeMenuItem.Checked = true;
-        else if (this.themeHandler.CurrentTheme == UIThemes.Dark)
+        else if (theme == UIThemes.Dark)
             this.DarkThemeMenuItem.Checked = true;
-        else if (this.themeHandler.CurrentTheme == UIThemes.Blue)
+        else if (theme == UIThemes.Blue)
             this.BlueThemeMenuItem.Checked = true;
 
         this.MainDockPanel.Theme = this.themeHandler.CurrentThemeComponent;
