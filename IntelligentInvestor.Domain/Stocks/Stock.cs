@@ -1,5 +1,5 @@
 ﻿using IntelligentInvestor.Domain.Companys;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Domain.Stocks;

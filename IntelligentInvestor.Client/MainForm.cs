@@ -49,8 +49,8 @@ public partial class MainForm : Form
     private void InitializeViewMenu()
     {
         this.RegisterDockFormToViewMenu<RecentTradeForm>();
-        this.RegisterDockFormToViewMenu<MarketQuotaForm>();
-        this.RegisterDockFormToViewMenu<CurrentQuotaForm>();
+        this.RegisterDockFormToViewMenu<MarketQuoteForm>();
+        this.RegisterDockFormToViewMenu<CurrentQuoteForm>();
         this.RegisterDockFormToViewMenu<HotStockDockForm>();
         this.RegisterDockFormToViewMenu<SearchStockDockForm>();
         this.RegisterDockFormToViewMenu<SelfSelectStockForm>();
@@ -150,11 +150,11 @@ public partial class MainForm : Form
         this.logger.LogDebug("Load predetermined layout ...");
         var recentTradeForm = this.serviceProvider.GetRequiredService<RecentTradeForm>();
         recentTradeForm.Show(this.MainDockPanel);
-        var currentQuotaForm = this.serviceProvider.GetRequiredService<CurrentQuotaForm>();
-        currentQuotaForm.Show(recentTradeForm.Pane, recentTradeForm);
+        var currentQuoteForm = this.serviceProvider.GetRequiredService<CurrentQuoteForm>();
+        currentQuoteForm.Show(recentTradeForm.Pane, recentTradeForm);
 
-        var marketQuotaForm = this.serviceProvider.GetRequiredService<MarketQuotaForm>();
-        marketQuotaForm.Show(recentTradeForm.Pane, DockAlignment.Bottom, 0.3);
+        var marketQuoteForm = this.serviceProvider.GetRequiredService<MarketQuoteForm>();
+        marketQuoteForm.Show(recentTradeForm.Pane, DockAlignment.Bottom, 0.3);
 
         var searchStockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
         searchStockForm.Show(this.MainDockPanel);

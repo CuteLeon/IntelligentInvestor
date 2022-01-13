@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntelligentInvestor.Infrastructure.Migrations
 {
     [DbContext(typeof(IntelligentInvestorDBContext))]
-    [Migration("20220113093204_InitialMigration")]
+    [Migration("20220113123711_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.ToTable("GenericOptions");
                 });
 
-            modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>
+            modelBuilder.Entity("IntelligentInvestor.Domain.Quotes.Quote", b =>
                 {
                     b.Property<int>("StockMarket")
                         .HasColumnType("INTEGER");
@@ -87,7 +87,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<int>("Frequency")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("QuotaTime")
+                    b.Property<DateTime>("QuoteTime")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Amount")
@@ -120,9 +120,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<decimal>("Volume")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("StockMarket", "StockCode", "Frequency", "QuotaTime");
+                    b.HasKey("StockMarket", "StockCode", "Frequency", "QuoteTime");
 
-                    b.ToTable("Quotas");
+                    b.ToTable("Quotes");
                 });
 
             modelBuilder.Entity("IntelligentInvestor.Domain.Stocks.Stock", b =>
@@ -153,7 +153,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<string>("StockCode")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("QuotaTime")
+                    b.Property<DateTime>("QuoteTime")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("AuctionPrice")
@@ -222,7 +222,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Property<long>("SellStrand5")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("StockMarket", "StockCode", "QuotaTime");
+                    b.HasKey("StockMarket", "StockCode", "QuoteTime");
 
                     b.ToTable("TradeStrands");
                 });
@@ -238,7 +238,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                     b.Navigation("Stock");
                 });
 
-            modelBuilder.Entity("IntelligentInvestor.Domain.Quotas.Quota", b =>
+            modelBuilder.Entity("IntelligentInvestor.Domain.Quotes.Quote", b =>
                 {
                     b.HasOne("IntelligentInvestor.Domain.Stocks.Stock", "Stock")
                         .WithMany()

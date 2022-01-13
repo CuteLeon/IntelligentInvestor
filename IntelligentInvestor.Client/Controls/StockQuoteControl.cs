@@ -1,14 +1,14 @@
 ﻿using IntelligentInvestor.Client.Themes;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
+public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
 {
     private readonly IUIThemeHandler themeHandler;
 
-    public StockQuotaControl(
+    public StockQuoteControl(
         IUIThemeHandler themeHandler)
     {
         this.InitializeComponent(themeHandler);
@@ -33,7 +33,7 @@ public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
         this.CodeValueLabel.ForeColor = color;
         this.MarketValueLabel.ForeColor = color;
         this.StockNameValueLabel.ForeColor = color;
-        this.QuotaTimeValueLabel.ForeColor = color;
+        this.QuoteTimeValueLabel.ForeColor = color;
     }
 
     public override void SetValueForecolor(Color color)
@@ -41,8 +41,8 @@ public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
         this.CurrentPriceValueLabel.StaticForecolor = color;
         this.ClosingPriceYesterdayValueLabel.ForeColor = color;
         this.OpeningPriceTodayValueLabel.ForeColor = color;
-        this.DayHighPriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.DayLowPriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
+        this.DayHighPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.DayLowPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
         this.CountValueLabel.ForeColor = color;
         this.AmountValueLabel.ForeColor = color;
     }
@@ -65,9 +65,9 @@ public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
         }
     }
 
-    public override void AttachEntityToFace(Quota quota)
+    public override void AttachEntityToFace(Quote quote)
     {
-        if (quota == null)
+        if (quote == null)
         {
             this.CurrentPriceValueLabel.Price = null;
             this.OpeningPriceTodayValueLabel.ForeColor = this.ValueForecolor;
@@ -79,30 +79,30 @@ public partial class StockQuotaControl : StockAttachControlBaseGeneric<Quota>
             this.DayLowPriceValueLabel.Text = "-";
             this.CountValueLabel.Text = "-";
             this.AmountValueLabel.Text = "-";
-            this.QuotaTimeValueLabel.Text = "-";
+            this.QuoteTimeValueLabel.Text = "-";
         }
         else
         {
-            if (quota.OpenningPrice > quota.ClosingPriceYesterday)
+            if (quote.OpenningPrice > quote.ClosingPriceYesterday)
             {
-                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
+                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
             }
             else
             {
-                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
-                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
+                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
             }
 
-            this.CurrentPriceValueLabel.BasePrice = quota.OpenningPrice;
-            this.CurrentPriceValueLabel.Price = quota.CurrentPrice;
-            this.ClosingPriceYesterdayValueLabel.Text = quota.ClosingPriceYesterday.ToString("N4");
-            this.OpeningPriceTodayValueLabel.Text = quota.OpenningPrice.ToString("N4");
-            this.DayHighPriceValueLabel.Text = quota.HighestPrice.ToString("N4");
-            this.DayLowPriceValueLabel.Text = quota.LowestPrice.ToString("N4");
-            this.CountValueLabel.Text = quota.Volume.ToString("N0");
-            this.AmountValueLabel.Text = quota.Amount.ToString("N0");
-            this.QuotaTimeValueLabel.Text = quota.QuotaTime.ToString();
+            this.CurrentPriceValueLabel.BasePrice = quote.OpenningPrice;
+            this.CurrentPriceValueLabel.Price = quote.CurrentPrice;
+            this.ClosingPriceYesterdayValueLabel.Text = quote.ClosingPriceYesterday.ToString("N4");
+            this.OpeningPriceTodayValueLabel.Text = quote.OpenningPrice.ToString("N4");
+            this.DayHighPriceValueLabel.Text = quote.HighestPrice.ToString("N4");
+            this.DayLowPriceValueLabel.Text = quote.LowestPrice.ToString("N4");
+            this.CountValueLabel.Text = quote.Volume.ToString("N0");
+            this.AmountValueLabel.Text = quote.Amount.ToString("N0");
+            this.QuoteTimeValueLabel.Text = quote.QuoteTime.ToString();
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using IntelligentInvestor.Domain.Quotas;
+﻿using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Domain.Trades;
 
-public class TradeStrand : QuotaBase
+public class TradeStrand : QuoteBase
 {
     public TradeStrand() : base()
     {

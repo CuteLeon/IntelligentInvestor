@@ -23,5 +23,5 @@ public interface IUIThemeHandler
 
     public Color GetTitleForecolor();
 
-    public Color GetQuotaForecolor(decimal quota);
+    public Color GetQuoteForecolor(decimal quote);
 }

@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.Controls
 {
-    partial class StockQuotaFiveGearControl
+    partial class StockQuoteFiveGearControl
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -573,12 +573,12 @@
             this.Buy1Label.Text = "Buy 1";
             this.Buy1Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // StockQuotaFiveGearControl
+            // StockQuoteFiveGearControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainTablePanel);
-            this.Name = "StockQuotaFiveGearControl";
+            this.Name = "StockQuoteFiveGearControl";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Size = new System.Drawing.Size(320, 172);
             this.MainTablePanel.ResumeLayout(false);

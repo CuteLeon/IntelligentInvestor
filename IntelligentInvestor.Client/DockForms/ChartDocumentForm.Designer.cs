@@ -24,7 +24,7 @@
             this.ChartRepositoryToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.QuoteFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.ChartPictureBox = new System.Windows.Forms.PictureBox();
@@ -37,7 +37,7 @@
             this.ChartRepositoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
-            this.QuotaFrequencyComboBox,
+            this.QuoteFrequencyComboBox,
             this.toolStripSeparator2,
             this.RefreshToolButton});
             this.ChartRepositoryToolStrip.Location = new System.Drawing.Point(0, 0);
@@ -57,11 +57,11 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // QuotaFrequencyComboBox
+            // QuoteFrequencyComboBox
             // 
-            this.QuotaFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.QuotaFrequencyComboBox.Name = "QuotaFrequencyComboBox";
-            this.QuotaFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
+            this.QuoteFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuoteFrequencyComboBox.Name = "QuoteFrequencyComboBox";
+            this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripSeparator2
             // 
@@ -114,7 +114,7 @@
         private System.Windows.Forms.ToolStripLabel StockInfoToolLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton RefreshToolButton;
-        private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
+        private System.Windows.Forms.ToolStripComboBox QuoteFrequencyComboBox;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.PictureBox ChartPictureBox;
     }

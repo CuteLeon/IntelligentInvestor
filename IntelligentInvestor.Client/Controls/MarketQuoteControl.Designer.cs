@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.Controls
 {
-    partial class MarketQuotaControl
+    partial class MarketQuoteControl
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -18,8 +18,8 @@
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.CodeValueLabel = new System.Windows.Forms.Label();
-            this.QuotaTimeLabel = new System.Windows.Forms.Label();
-            this.QuotaTimeValueLabel = new System.Windows.Forms.Label();
+            this.QuoteTimeLabel = new System.Windows.Forms.Label();
+            this.QuoteTimeValueLabel = new System.Windows.Forms.Label();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AmountValueLabel = new System.Windows.Forms.Label();
             this.CountLabel = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@
             this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.MainTablePanel.Controls.Add(this.MarketValueLabel, 2, 1);
             this.MainTablePanel.Controls.Add(this.CodeValueLabel, 2, 0);
-            this.MainTablePanel.Controls.Add(this.QuotaTimeLabel, 2, 4);
-            this.MainTablePanel.Controls.Add(this.QuotaTimeValueLabel, 2, 5);
+            this.MainTablePanel.Controls.Add(this.QuoteTimeLabel, 2, 4);
+            this.MainTablePanel.Controls.Add(this.QuoteTimeValueLabel, 2, 5);
             this.MainTablePanel.Controls.Add(this.AmountLabel, 1, 4);
             this.MainTablePanel.Controls.Add(this.AmountValueLabel, 1, 5);
             this.MainTablePanel.Controls.Add(this.CountLabel, 0, 4);
@@ -92,31 +92,31 @@
             this.CodeValueLabel.Text = "-";
             this.CodeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // QuotaTimeLabel
+            // QuoteTimeLabel
             // 
-            this.QuotaTimeLabel.AutoEllipsis = true;
-            this.QuotaTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.QuotaTimeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
-            this.QuotaTimeLabel.Location = new System.Drawing.Point(188, 65);
-            this.QuotaTimeLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.QuotaTimeLabel.Name = "QuotaTimeLabel";
-            this.QuotaTimeLabel.Size = new System.Drawing.Size(81, 18);
-            this.QuotaTimeLabel.TabIndex = 26;
-            this.QuotaTimeLabel.Text = "Quota Time";
-            this.QuotaTimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.QuoteTimeLabel.AutoEllipsis = true;
+            this.QuoteTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuoteTimeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
+            this.QuoteTimeLabel.Location = new System.Drawing.Point(188, 65);
+            this.QuoteTimeLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteTimeLabel.Name = "QuoteTimeLabel";
+            this.QuoteTimeLabel.Size = new System.Drawing.Size(81, 18);
+            this.QuoteTimeLabel.TabIndex = 26;
+            this.QuoteTimeLabel.Text = "Quote Time";
+            this.QuoteTimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // QuotaTimeValueLabel
+            // QuoteTimeValueLabel
             // 
-            this.QuotaTimeValueLabel.AutoEllipsis = true;
-            this.QuotaTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.QuotaTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaTimeValueLabel.Location = new System.Drawing.Point(188, 83);
-            this.QuotaTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.QuotaTimeValueLabel.Name = "QuotaTimeValueLabel";
-            this.QuotaTimeValueLabel.Size = new System.Drawing.Size(81, 20);
-            this.QuotaTimeValueLabel.TabIndex = 25;
-            this.QuotaTimeValueLabel.Text = "-";
-            this.QuotaTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.QuoteTimeValueLabel.AutoEllipsis = true;
+            this.QuoteTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuoteTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteTimeValueLabel.Location = new System.Drawing.Point(188, 83);
+            this.QuoteTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteTimeValueLabel.Name = "QuoteTimeValueLabel";
+            this.QuoteTimeValueLabel.Size = new System.Drawing.Size(81, 20);
+            this.QuoteTimeValueLabel.TabIndex = 25;
+            this.QuoteTimeValueLabel.Text = "-";
+            this.QuoteTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AmountLabel
             // 
@@ -237,12 +237,12 @@
             this.SeparatorLabel1.Size = new System.Drawing.Size(249, 1);
             this.SeparatorLabel1.TabIndex = 31;
             // 
-            // MarketQuotaControl
+            // MarketQuoteControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainTablePanel);
-            this.Name = "MarketQuotaControl";
+            this.Name = "MarketQuoteControl";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Size = new System.Drawing.Size(275, 122);
             this.MainTablePanel.ResumeLayout(false);
@@ -254,8 +254,8 @@
         private System.Windows.Forms.Label MarketValueLabel;
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
         private System.Windows.Forms.Label CodeValueLabel;
-        private System.Windows.Forms.Label QuotaTimeLabel;
-        private System.Windows.Forms.Label QuotaTimeValueLabel;
+        private System.Windows.Forms.Label QuoteTimeLabel;
+        private System.Windows.Forms.Label QuoteTimeValueLabel;
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label AmountValueLabel;
         private System.Windows.Forms.Label CountLabel;

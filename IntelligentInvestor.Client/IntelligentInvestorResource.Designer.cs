@@ -173,9 +173,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon CurrentQuotaIcon {
+        internal static System.Drawing.Icon CurrentQuoteIcon {
             get {
-                object obj = ResourceManager.GetObject("CurrentQuotaIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("CurrentQuoteIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -393,9 +393,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon MarketQuotaIcon {
+        internal static System.Drawing.Icon MarketQuoteIcon {
             get {
-                object obj = ResourceManager.GetObject("MarketQuotaIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("MarketQuoteIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -423,9 +423,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Quota {
+        internal static System.Drawing.Bitmap Quote {
             get {
-                object obj = ResourceManager.GetObject("Quota", resourceCulture);
+                object obj = ResourceManager.GetObject("Quote", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon RecentQuotaIcon {
+        internal static System.Drawing.Icon RecentQuoteIcon {
             get {
-                object obj = ResourceManager.GetObject("RecentQuotaIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("RecentQuoteIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

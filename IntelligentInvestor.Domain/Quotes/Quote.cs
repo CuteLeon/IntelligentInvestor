@@ -1,19 +1,19 @@
 ﻿using IntelligentInvestor.Domain.Stocks;
 
-namespace IntelligentInvestor.Domain.Quotas;
+namespace IntelligentInvestor.Domain.Quotes;
 
-public class Quota : QuotaBase
+public class Quote : QuoteBase
 {
-    public Quota() : base()
+    public Quote() : base()
     {
     }
 
-    public Quota(StockMarkets stockMarket, string stockCode)
+    public Quote(StockMarkets stockMarket, string stockCode)
         : base(stockMarket, stockCode)
     {
     }
 
-    public QuotaFrequencys Frequency { get; set; } = QuotaFrequencys.Trade;
+    public QuoteFrequencys Frequency { get; set; } = QuoteFrequencys.Trade;
 
     public decimal ClosingPriceYesterday { get; set; }
 

@@ -64,12 +64,12 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Quotas",
+                name: "Quotes",
                 columns: table => new
                 {
                     StockCode = table.Column<string>(type: "TEXT", nullable: false),
                     StockMarket = table.Column<int>(type: "INTEGER", nullable: false),
-                    QuotaTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    QuoteTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Frequency = table.Column<int>(type: "INTEGER", nullable: false),
                     ClosingPriceYesterday = table.Column<decimal>(type: "TEXT", nullable: false),
                     OpenningPrice = table.Column<decimal>(type: "TEXT", nullable: false),
@@ -84,9 +84,9 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Quotas", x => new { x.StockMarket, x.StockCode, x.Frequency, x.QuotaTime });
+                    table.PrimaryKey("PK_Quotes", x => new { x.StockMarket, x.StockCode, x.Frequency, x.QuoteTime });
                     table.ForeignKey(
-                        name: "FK_Quotas_Stocks_StockMarket_StockCode",
+                        name: "FK_Quotes_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
                         principalTable: "Stocks",
                         principalColumns: new[] { "StockMarket", "StockCode" },
@@ -99,7 +99,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 {
                     StockCode = table.Column<string>(type: "TEXT", nullable: false),
                     StockMarket = table.Column<int>(type: "INTEGER", nullable: false),
-                    QuotaTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    QuoteTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     BiddingPrice = table.Column<decimal>(type: "TEXT", nullable: false),
                     AuctionPrice = table.Column<decimal>(type: "TEXT", nullable: false),
                     BuyStrand1 = table.Column<long>(type: "INTEGER", nullable: false),
@@ -125,7 +125,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TradeStrands", x => new { x.StockMarket, x.StockCode, x.QuotaTime });
+                    table.PrimaryKey("PK_TradeStrands", x => new { x.StockMarket, x.StockCode, x.QuoteTime });
                     table.ForeignKey(
                         name: "FK_TradeStrands_Stocks_StockMarket_StockCode",
                         columns: x => new { x.StockMarket, x.StockCode },
@@ -144,7 +144,7 @@ namespace IntelligentInvestor.Infrastructure.Migrations
                 name: "GenericOptions");
 
             migrationBuilder.DropTable(
-                name: "Quotas");
+                name: "Quotes");
 
             migrationBuilder.DropTable(
                 name: "TradeStrands");

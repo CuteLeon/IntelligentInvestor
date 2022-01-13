@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    partial class QuotaRepositoryDocumentForm
+    partial class QuoteRepositoryDocumentForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,49 +17,49 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.QuotaRepositoryToolStrip = new System.Windows.Forms.ToolStrip();
+            this.QuoteRepositoryToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.StartTimeToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.EndTimeToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.QueryToolButton = new System.Windows.Forms.ToolStripButton();
-            this.QuotaRepositoryGridView = new System.Windows.Forms.DataGridView();
+            this.QuoteRepositoryGridView = new System.Windows.Forms.DataGridView();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openingPriceTodayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingPriceYesterdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.QuoteFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.currentPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayHighPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayLowPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quotaTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quotaFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuotaRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.QuotaStartDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.QuotaEndDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.QuotaRepositoryToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaRepositoryGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaRepositoryBindingSource)).BeginInit();
+            this.quoteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quoteFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuoteRepositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.QuoteStartDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.QuoteEndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.QuoteRepositoryToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteRepositoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteRepositoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // QuotaRepositoryToolStrip
+            // QuoteRepositoryToolStrip
             // 
-            this.QuotaRepositoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.QuoteRepositoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
-            this.QuotaFrequencyComboBox,
+            this.QuoteFrequencyComboBox,
             this.StartTimeToolLabel,
             this.EndTimeToolLabel,
             this.toolStripSeparator2,
             this.QueryToolButton});
-            this.QuotaRepositoryToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.QuotaRepositoryToolStrip.Name = "QuotaRepositoryToolStrip";
-            this.QuotaRepositoryToolStrip.Size = new System.Drawing.Size(562, 25);
-            this.QuotaRepositoryToolStrip.TabIndex = 0;
-            this.QuotaRepositoryToolStrip.Text = "toolStrip1";
+            this.QuoteRepositoryToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.QuoteRepositoryToolStrip.Name = "QuoteRepositoryToolStrip";
+            this.QuoteRepositoryToolStrip.Size = new System.Drawing.Size(562, 25);
+            this.QuoteRepositoryToolStrip.TabIndex = 0;
+            this.QuoteRepositoryToolStrip.Text = "toolStrip1";
             // 
             // StockInfoToolLabel
             // 
@@ -84,11 +84,11 @@
             this.EndTimeToolLabel.Size = new System.Drawing.Size(32, 22);
             this.EndTimeToolLabel.Text = "End";
             // 
-            // QuotaFrequencyComboBox
+            // QuoteFrequencyComboBox
             // 
-            this.QuotaFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.QuotaFrequencyComboBox.Name = "QuotaFrequencyComboBox";
-            this.QuotaFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
+            this.QuoteFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuoteFrequencyComboBox.Name = "QuoteFrequencyComboBox";
+            this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripSeparator2
             // 
@@ -104,23 +104,23 @@
             this.QueryToolButton.Text = "Query";
             this.QueryToolButton.Click += new System.EventHandler(this.QueryToolButton_Click);
             // 
-            // QuotaRepositoryGridView
+            // QuoteRepositoryGridView
             // 
-            this.QuotaRepositoryGridView.AllowUserToAddRows = false;
-            this.QuotaRepositoryGridView.AllowUserToDeleteRows = false;
-            this.QuotaRepositoryGridView.AllowUserToOrderColumns = true;
-            this.QuotaRepositoryGridView.AllowUserToResizeRows = false;
-            this.QuotaRepositoryGridView.AutoGenerateColumns = false;
-            this.QuotaRepositoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.QuotaRepositoryGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.QuotaRepositoryGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.QuotaRepositoryGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.QuotaRepositoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.QuotaRepositoryGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.QuoteRepositoryGridView.AllowUserToAddRows = false;
+            this.QuoteRepositoryGridView.AllowUserToDeleteRows = false;
+            this.QuoteRepositoryGridView.AllowUserToOrderColumns = true;
+            this.QuoteRepositoryGridView.AllowUserToResizeRows = false;
+            this.QuoteRepositoryGridView.AutoGenerateColumns = false;
+            this.QuoteRepositoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.QuoteRepositoryGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.QuoteRepositoryGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.QuoteRepositoryGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.QuoteRepositoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.QuoteRepositoryGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
-            this.quotaTimeDataGridViewTextBoxColumn,
-            this.quotaFrequencyDataGridViewTextBoxColumn,
+            this.quoteTimeDataGridViewTextBoxColumn,
+            this.quoteFrequencyDataGridViewTextBoxColumn,
             this.currentPriceDataGridViewTextBoxColumn,
             this.openingPriceTodayDataGridViewTextBoxColumn,
             this.closingPriceYesterdayDataGridViewTextBoxColumn,
@@ -128,18 +128,18 @@
             this.dayLowPriceDataGridViewTextBoxColumn,
             this.countDataGridViewTextBoxColumn,
             this.amountDataGridViewTextBoxColumn});
-            this.QuotaRepositoryGridView.DataSource = this.QuotaRepositoryBindingSource;
-            this.QuotaRepositoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.QuotaRepositoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.QuotaRepositoryGridView.Location = new System.Drawing.Point(0, 25);
-            this.QuotaRepositoryGridView.Name = "QuotaRepositoryGridView";
-            this.QuotaRepositoryGridView.ReadOnly = true;
-            this.QuotaRepositoryGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.QuotaRepositoryGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.QuotaRepositoryGridView.RowTemplate.Height = 23;
-            this.QuotaRepositoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.QuotaRepositoryGridView.Size = new System.Drawing.Size(562, 377);
-            this.QuotaRepositoryGridView.TabIndex = 1;
+            this.QuoteRepositoryGridView.DataSource = this.QuoteRepositoryBindingSource;
+            this.QuoteRepositoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuoteRepositoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.QuoteRepositoryGridView.Location = new System.Drawing.Point(0, 25);
+            this.QuoteRepositoryGridView.Name = "QuoteRepositoryGridView";
+            this.QuoteRepositoryGridView.ReadOnly = true;
+            this.QuoteRepositoryGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.QuoteRepositoryGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.QuoteRepositoryGridView.RowTemplate.Height = 23;
+            this.QuoteRepositoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.QuoteRepositoryGridView.Size = new System.Drawing.Size(562, 377);
+            this.QuoteRepositoryGridView.TabIndex = 1;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -161,36 +161,36 @@
             // 
             // currentPriceDataGridViewTextBoxColumn
             // 
-            this.currentPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.CurrentPrice);
+            this.currentPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.CurrentPrice);
             this.currentPriceDataGridViewTextBoxColumn.Frozen = true;
             this.currentPriceDataGridViewTextBoxColumn.HeaderText = "Current Price";
             this.currentPriceDataGridViewTextBoxColumn.Name = "currentPriceDataGridViewTextBoxColumn";
             this.currentPriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.currentPriceDataGridViewTextBoxColumn.Width = 72;
             // 
-            // quotaFrequencyDataGridViewTextBoxColumn
+            // quoteFrequencyDataGridViewTextBoxColumn
             // 
-            this.quotaFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Frequency);
-            this.quotaFrequencyDataGridViewTextBoxColumn.Frozen = true;
-            this.quotaFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
-            this.quotaFrequencyDataGridViewTextBoxColumn.Name = "quotaFrequencyDataGridViewTextBoxColumn";
-            this.quotaFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quotaFrequencyDataGridViewTextBoxColumn.Width = 54;
+            this.quoteFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Frequency);
+            this.quoteFrequencyDataGridViewTextBoxColumn.Frozen = true;
+            this.quoteFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
+            this.quoteFrequencyDataGridViewTextBoxColumn.Name = "quoteFrequencyDataGridViewTextBoxColumn";
+            this.quoteFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quoteFrequencyDataGridViewTextBoxColumn.Width = 54;
             // 
-            // quotaTimeDataGridViewTextBoxColumn
+            // quoteTimeDataGridViewTextBoxColumn
             // 
-            this.quotaTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.QuotaBase.QuotaTime);
+            this.quoteTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.QuoteBase.QuoteTime);
             dataGridViewCellStyle1.Format = "yyyy-MM-dd HH:mm:ss";
-            this.quotaTimeDataGridViewTextBoxColumn.Frozen = true;
-            this.quotaTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.quotaTimeDataGridViewTextBoxColumn.HeaderText = "Quota Time";
-            this.quotaTimeDataGridViewTextBoxColumn.Name = "quotaTimeDataGridViewTextBoxColumn";
-            this.quotaTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quotaTimeDataGridViewTextBoxColumn.Width = 61;
+            this.quoteTimeDataGridViewTextBoxColumn.Frozen = true;
+            this.quoteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.quoteTimeDataGridViewTextBoxColumn.HeaderText = "Quote Time";
+            this.quoteTimeDataGridViewTextBoxColumn.Name = "quoteTimeDataGridViewTextBoxColumn";
+            this.quoteTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quoteTimeDataGridViewTextBoxColumn.Width = 61;
             // 
             // openingPriceTodayDataGridViewTextBoxColumn
             // 
-            this.openingPriceTodayDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.OpenningPrice);
+            this.openingPriceTodayDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.OpenningPrice);
             this.openingPriceTodayDataGridViewTextBoxColumn.HeaderText = "Open Price";
             this.openingPriceTodayDataGridViewTextBoxColumn.Name = "openingPriceTodayDataGridViewTextBoxColumn";
             this.openingPriceTodayDataGridViewTextBoxColumn.ReadOnly = true;
@@ -198,7 +198,7 @@
             // 
             // closingPriceYesterdayDataGridViewTextBoxColumn
             // 
-            this.closingPriceYesterdayDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.ClosingPriceYesterday);
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.ClosingPriceYesterday);
             this.closingPriceYesterdayDataGridViewTextBoxColumn.HeaderText = "Close Price Yst";
             this.closingPriceYesterdayDataGridViewTextBoxColumn.Name = "closingPriceYesterdayDataGridViewTextBoxColumn";
             this.closingPriceYesterdayDataGridViewTextBoxColumn.ReadOnly = true;
@@ -206,7 +206,7 @@
             // 
             // dayHighPriceDataGridViewTextBoxColumn
             // 
-            this.dayHighPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.HighestPrice);
+            this.dayHighPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.HighestPrice);
             this.dayHighPriceDataGridViewTextBoxColumn.HeaderText = "Highest Price";
             this.dayHighPriceDataGridViewTextBoxColumn.Name = "dayHighPriceDataGridViewTextBoxColumn";
             this.dayHighPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -214,7 +214,7 @@
             // 
             // dayLowPriceDataGridViewTextBoxColumn
             // 
-            this.dayLowPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.LowestPrice);
+            this.dayLowPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.LowestPrice);
             this.dayLowPriceDataGridViewTextBoxColumn.HeaderText = "Lowest Price";
             this.dayLowPriceDataGridViewTextBoxColumn.Name = "dayLowPriceDataGridViewTextBoxColumn";
             this.dayLowPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -222,7 +222,7 @@
             // 
             // countDataGridViewTextBoxColumn
             // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Volume);
+            this.countDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Volume);
             this.countDataGridViewTextBoxColumn.HeaderText = "Volume";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
@@ -230,65 +230,65 @@
             // 
             // amountDataGridViewTextBoxColumn
             // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Amount);
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Amount);
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
             this.amountDataGridViewTextBoxColumn.Width = 72;
             // 
-            // QuotaRepositoryBindingSource
+            // QuoteRepositoryBindingSource
             // 
-            this.QuotaRepositoryBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotas.Quota);
+            this.QuoteRepositoryBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotes.Quote);
             // 
-            // QuotaStartDatePicker
+            // QuoteStartDatePicker
             // 
-            this.QuotaStartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaStartDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaStartDatePicker.Location = new System.Drawing.Point(94, 166);
-            this.QuotaStartDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.QuotaStartDatePicker.Name = "QuotaStartDatePicker";
-            this.QuotaStartDatePicker.ShowCheckBox = true;
-            this.QuotaStartDatePicker.Size = new System.Drawing.Size(173, 26);
-            this.QuotaStartDatePicker.TabIndex = 2;
+            this.QuoteStartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteStartDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteStartDatePicker.Location = new System.Drawing.Point(94, 166);
+            this.QuoteStartDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteStartDatePicker.Name = "QuoteStartDatePicker";
+            this.QuoteStartDatePicker.ShowCheckBox = true;
+            this.QuoteStartDatePicker.Size = new System.Drawing.Size(173, 26);
+            this.QuoteStartDatePicker.TabIndex = 2;
             // 
-            // QuotaEndDatePicker
+            // QuoteEndDatePicker
             // 
-            this.QuotaEndDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaEndDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaEndDatePicker.Location = new System.Drawing.Point(281, 166);
-            this.QuotaEndDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.QuotaEndDatePicker.Name = "QuotaEndDatePicker";
-            this.QuotaEndDatePicker.ShowCheckBox = true;
-            this.QuotaEndDatePicker.Size = new System.Drawing.Size(173, 26);
-            this.QuotaEndDatePicker.TabIndex = 3;
+            this.QuoteEndDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteEndDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteEndDatePicker.Location = new System.Drawing.Point(281, 166);
+            this.QuoteEndDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteEndDatePicker.Name = "QuoteEndDatePicker";
+            this.QuoteEndDatePicker.ShowCheckBox = true;
+            this.QuoteEndDatePicker.Size = new System.Drawing.Size(173, 26);
+            this.QuoteEndDatePicker.TabIndex = 3;
             // 
-            // QuotaRepositoryDockForm
+            // QuoteRepositoryDockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 402);
-            this.Controls.Add(this.QuotaEndDatePicker);
-            this.Controls.Add(this.QuotaStartDatePicker);
-            this.Controls.Add(this.QuotaRepositoryGridView);
-            this.Controls.Add(this.QuotaRepositoryToolStrip);
-            this.Name = "QuotaRepositoryDockForm";
-            this.TabText = "Quota Repository";
-            this.Text = "Quota Repository";
-            this.Load += new System.EventHandler(this.QuotaRepositoryDockForm_Load);
-            this.Shown += new System.EventHandler(this.QuotaRepositoryDockForm_Shown);
-            this.QuotaRepositoryToolStrip.ResumeLayout(false);
-            this.QuotaRepositoryToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaRepositoryGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaRepositoryBindingSource)).EndInit();
+            this.Controls.Add(this.QuoteEndDatePicker);
+            this.Controls.Add(this.QuoteStartDatePicker);
+            this.Controls.Add(this.QuoteRepositoryGridView);
+            this.Controls.Add(this.QuoteRepositoryToolStrip);
+            this.Name = "QuoteRepositoryDockForm";
+            this.TabText = "Quote Repository";
+            this.Text = "Quote Repository";
+            this.Load += new System.EventHandler(this.QuoteRepositoryDockForm_Load);
+            this.Shown += new System.EventHandler(this.QuoteRepositoryDockForm_Shown);
+            this.QuoteRepositoryToolStrip.ResumeLayout(false);
+            this.QuoteRepositoryToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteRepositoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteRepositoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStrip QuotaRepositoryToolStrip;
-        private System.Windows.Forms.DataGridView QuotaRepositoryGridView;
-        private System.Windows.Forms.BindingSource QuotaRepositoryBindingSource;
-        private System.Windows.Forms.DateTimePicker QuotaStartDatePicker;
-        private System.Windows.Forms.DateTimePicker QuotaEndDatePicker;
+        private System.Windows.Forms.ToolStrip QuoteRepositoryToolStrip;
+        private System.Windows.Forms.DataGridView QuoteRepositoryGridView;
+        private System.Windows.Forms.BindingSource QuoteRepositoryBindingSource;
+        private System.Windows.Forms.DateTimePicker QuoteStartDatePicker;
+        private System.Windows.Forms.DateTimePicker QuoteEndDatePicker;
         private System.Windows.Forms.ToolStripLabel StockInfoToolLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel StartTimeToolLabel;
@@ -299,13 +299,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn marketDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openingPriceTodayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closingPriceYesterdayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
+        private System.Windows.Forms.ToolStripComboBox QuoteFrequencyComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayHighPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayLowPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quotaTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quotaFrequencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quoteTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quoteFrequencyDataGridViewTextBoxColumn;
     }
 }

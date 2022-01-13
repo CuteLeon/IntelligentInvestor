@@ -32,8 +32,8 @@ namespace IntelligentInvestor.Client.Controls
             this.ImageIndex = 0;
             this.themeHandler = themeHandler;
 
-            this.riseForeColor = this.themeHandler.GetQuotaForecolor(1);
-            this.fallForeColor = this.themeHandler.GetQuotaForecolor(-1);
+            this.riseForeColor = this.themeHandler.GetQuoteForecolor(1);
+            this.fallForeColor = this.themeHandler.GetQuoteForecolor(-1);
         }
 
         public Color StaticForecolor

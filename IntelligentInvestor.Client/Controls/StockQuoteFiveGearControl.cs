@@ -3,11 +3,11 @@ using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class StockQuotaFiveGearControl : StockAttachControlBaseGeneric<TradeStrand>
+public partial class StockQuoteFiveGearControl : StockAttachControlBaseGeneric<TradeStrand>
 {
     private readonly IUIThemeHandler themeHandler;
 
-    public StockQuotaFiveGearControl(
+    public StockQuoteFiveGearControl(
         IUIThemeHandler themeHandler)
     {
         this.InitializeComponent();
@@ -34,8 +34,8 @@ public partial class StockQuotaFiveGearControl : StockAttachControlBaseGeneric<T
 
     public override void SetValueForecolor(Color color)
     {
-        this.BiddingPriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.AuctionPriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
+        this.BiddingPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.AuctionPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
 
         this.Buy1StrandValueLabel.ForeColor = color;
         this.Buy2StrandValueLabel.ForeColor = color;
@@ -43,11 +43,11 @@ public partial class StockQuotaFiveGearControl : StockAttachControlBaseGeneric<T
         this.Buy4StrandValueLabel.ForeColor = color;
         this.Buy5StrandValueLabel.ForeColor = color;
 
-        this.Buy1PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.Buy2PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.Buy3PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.Buy4PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
-        this.Buy5PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(1);
+        this.Buy1PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.Buy2PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.Buy3PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.Buy4PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+        this.Buy5PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
 
         this.Sell1StrandValueLabel.ForeColor = color;
         this.Sell2StrandValueLabel.ForeColor = color;
@@ -55,11 +55,11 @@ public partial class StockQuotaFiveGearControl : StockAttachControlBaseGeneric<T
         this.Sell4StrandValueLabel.ForeColor = color;
         this.Sell5StrandValueLabel.ForeColor = color;
 
-        this.Sell1PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
-        this.Sell2PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
-        this.Sell3PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
-        this.Sell4PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
-        this.Sell5PriceValueLabel.ForeColor = this.themeHandler.GetQuotaForecolor(-1);
+        this.Sell1PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+        this.Sell2PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+        this.Sell3PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+        this.Sell4PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+        this.Sell5PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
     }
 
     public override void AttachEntityToFace(TradeStrand tradeStrand)

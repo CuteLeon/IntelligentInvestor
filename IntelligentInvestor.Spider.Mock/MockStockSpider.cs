@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using Bogus;
 using IntelligentInvestor.Domain.Companys;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
 using Microsoft.Extensions.Logging;
@@ -12,7 +12,7 @@ public class MockStockSpider : IStockSpider
 {
     private readonly ILogger<MockStockSpider> logger;
     private readonly Faker<Stock> stockFaker;
-    private readonly Faker<Quota> quotaFaker;
+    private readonly Faker<Quote> quoteFaker;
     private readonly Faker<Company> companyFaker;
     private readonly Faker<TradeStrand> tradeStrandFaker;
     private readonly Faker chartsFaker;
@@ -38,7 +38,7 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.Status, faker => faker.PickRandom<CompanyStatuses>())
             .RuleFor(x => x.Summary, faker => faker.Lorem.Text())
             .RuleFor(x => x.Vote, faker => faker.Random.Int(0, 5));
-        this.quotaFaker = new Faker<Quota>()
+        this.quoteFaker = new Faker<Quote>()
             .RuleFor(x => x.StockMarket, faker => faker.PickRandom<StockMarkets>())
             .RuleFor(x => x.StockCode, faker => faker.Random.UInt(1, 999999).ToString())
             .RuleFor(x => x.Amount, faker => faker.Finance.Amount())
@@ -47,11 +47,11 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.ClosingPriceYesterday, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.CurrentPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.FluctuatingRate, faker => faker.Finance.Amount(-1, 1))
-            .RuleFor(x => x.Frequency, faker => faker.PickRandom<QuotaFrequencys>())
+            .RuleFor(x => x.Frequency, faker => faker.PickRandom<QuoteFrequencys>())
             .RuleFor(x => x.HighestPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.LowestPrice, faker => faker.Finance.Amount(10, 100))
             .RuleFor(x => x.OpenningPrice, faker => faker.Finance.Amount(10, 100))
-            .RuleFor(x => x.QuotaTime, faker => DateTime.Now)
+            .RuleFor(x => x.QuoteTime, faker => DateTime.Now)
             .RuleFor(x => x.Volume, faker => faker.Finance.Random.Int(100, 100000));
         this.tradeStrandFaker = new Faker<TradeStrand>()
             .RuleFor(x => x.AuctionPrice, faker => faker.Finance.Amount(10, 100))
@@ -76,7 +76,7 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.SellStrand3, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.SellStrand4, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.SellStrand5, faker => faker.Finance.Random.Int(100, 100000))
-            .RuleFor(x => x.QuotaTime, faker => DateTime.Now);
+            .RuleFor(x => x.QuoteTime, faker => DateTime.Now);
         this.bitmaps = new[]
         {
             SpiderMockResource.Chart_1,
@@ -86,7 +86,7 @@ public class MockStockSpider : IStockSpider
         this.chartsFaker = new Faker();
     }
 
-    public async Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency)
+    public async Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency)
     {
         return this.chartsFaker.PickRandom(bitmaps);
     }
@@ -104,28 +104,28 @@ public class MockStockSpider : IStockSpider
         return this.stockFaker.GenerateBetween(10, 20).ToArray();
     }
 
-    public async Task<IEnumerable<Quota>> GetQuotasAsync(StockMarkets stockMarket, string stockCode, QuotaFrequencys quotaFrequency, DateTime fromDate, DateTime toDate)
+    public async Task<IEnumerable<Quote>> GetQuotesAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency, DateTime fromDate, DateTime toDate)
     {
-        var result = this.quotaFaker.GenerateBetween(100, 300).ToList();
+        var result = this.quoteFaker.GenerateBetween(100, 300).ToList();
         result.ForEach(x =>
         {
-            x.Frequency = quotaFrequency;
+            x.Frequency = quoteFrequency;
             x.StockMarket = stockMarket;
             x.StockCode = stockCode;
         });
         return result;
     }
 
-    public async Task<(Quota Quota, TradeStrand TradeStrand)> GetStockQuotaAsync(StockMarkets stockMarket, string stockCode)
+    public async Task<(Quote Quote, TradeStrand TradeStrand)> GetStockQuoteAsync(StockMarkets stockMarket, string stockCode)
     {
-        var quota = this.quotaFaker.Generate();
+        var quote = this.quoteFaker.Generate();
         var tradeStrand = this.tradeStrandFaker.Generate();
-        quota.Frequency = QuotaFrequencys.Trade;
-        quota.StockMarket = stockMarket;
-        quota.StockCode = stockCode;
+        quote.Frequency = QuoteFrequencys.Trade;
+        quote.StockMarket = stockMarket;
+        quote.StockCode = stockCode;
         tradeStrand.StockMarket = stockMarket;
         tradeStrand.StockCode = stockCode;
-        return (quota, tradeStrand);
+        return (quote, tradeStrand);
     }
 
     public async Task<IEnumerable<Stock>> SearchStocksAsync(string keyword)

@@ -3,7 +3,7 @@
 <p align="center">
    <img src="https://raw.github.com/CuteLeon/IntelligentInvestor/master/Documents/IntelligentInvestor.png" align="center"/>
    <h2 align="center">Intelligent Investor</h2>
-   <p align="center">A stock and quota system based on .Net 6.0</p>
+   <p align="center">A stock and quote system based on .Net 6.0</p>
    <p align="center">Refactored from https://github.com/CuteLeon/CleverStocker</p>
 </p>
 

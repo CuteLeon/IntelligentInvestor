@@ -1,9 +1,9 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
-using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Quotes;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Domain.Options;
 using IntelligentInvestor.Infrastructure.DBContexts;
-using IntelligentInvestor.Infrastructure.Repositorys.Quotas;
+using IntelligentInvestor.Infrastructure.Repositorys.Quotes;
 using IntelligentInvestor.Infrastructure.Repositorys.Stocks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +17,7 @@ public static class IntelligentInvestorInfrastructureExtension
             .AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>))
             .AddTransient<IGenericOptionRepository, GenericOptionRepository>()
             .AddTransient<IStockRepository, StockRepository>()
-            .AddTransient<IQuotaRepository, QuotaRepository>();
+            .AddTransient<IQuoteRepository, QuoteRepository>();
 
     public static IServiceCollection AddIntelligentInvestorDBContext(
         this IServiceCollection services, string connectionString)

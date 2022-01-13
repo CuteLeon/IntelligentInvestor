@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using IntelligentInvestor.Application.Repositorys.Abstractions;
-using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Quotes;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
 using IntelligentInvestor.Intermediary.Application;
@@ -14,29 +14,29 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public partial class CurrentQuotaForm : SingleToolDockForm
+public partial class CurrentQuoteForm : SingleToolDockForm
 {
     private readonly IStockSpider stockSpider;
     private readonly IServiceProvider serviceProvider;
     private readonly IStockRepository stockRepository;
-    private readonly IQuotaRepository quotaRepository;
+    private readonly IQuoteRepository quoteRepository;
     private readonly IRepositoryBase<TradeStrand> tradeStrandRepository;
     private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
 
-    public CurrentQuotaForm(
-        ILogger<CurrentQuotaForm> logger,
+    public CurrentQuoteForm(
+        ILogger<CurrentQuoteForm> logger,
         IServiceScopeFactory serviceScopeFactory,
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
         IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
-        IQuotaRepository quotaRepository,
+        IQuoteRepository quoteRepository,
         IRepositoryBase<TradeStrand> tradeStrandRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
 
-        this.Icon = IntelligentInvestorResource.CurrentQuotaIcon;
+        this.Icon = IntelligentInvestorResource.CurrentQuoteIcon;
         this.HideOnClose = true;
         this.CloseButton = false;
         this.CloseButtonVisible = false;
@@ -44,7 +44,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.stockEventHandler = stockEventHandler;
         this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
+        this.quoteRepository = quoteRepository;
         this.tradeStrandRepository = tradeStrandRepository;
         this.stockSpider = stockSpider;
 
@@ -63,14 +63,14 @@ public partial class CurrentQuotaForm : SingleToolDockForm
             this.currentStock = value;
             this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
 
-            this.MainStockQuotaControl.Stock = value;
+            this.MainStockQuoteControl.Stock = value;
             this.MainFiveGearControl.Stock = value;
 
             if (value == null)
             {
                 this.Invoke(new Action(() =>
                 {
-                    this.CurrentQuotaToolStrip.Enabled = false;
+                    this.CurrentQuoteToolStrip.Enabled = false;
                     this.AutoRefresh = false;
                 }));
             }
@@ -79,7 +79,7 @@ public partial class CurrentQuotaForm : SingleToolDockForm
                 this.Invoke(new Action(() =>
                 {
                     this.AutoRefresh = true;
-                    this.CurrentQuotaToolStrip.Enabled = true;
+                    this.CurrentQuoteToolStrip.Enabled = true;
                 }));
                 try
                 {
@@ -93,17 +93,17 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         }
     }
 
-    private Quota? currentQuota;
+    private Quote? currentQuote;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public Quota? CurrentQuota
+    public Quote? CurrentQuote
     {
-        get => this.currentQuota;
+        get => this.currentQuote;
         protected set
         {
-            this.currentQuota = value;
-            this.MainStockQuotaControl.AttachEntity = value;
+            this.currentQuote = value;
+            this.MainStockQuoteControl.AttachEntity = value;
         }
     }
 
@@ -139,13 +139,13 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 
             if (value)
             {
-                this.logger.LogDebug($"Start to auto refresh quota ...");
+                this.logger.LogDebug($"Start to auto refresh quote ...");
                 this.AutoRefreshToolButton.Image = IntelligentInvestorResource.Service;
                 this.AutoRefreshTimer.Start();
             }
             else
             {
-                this.logger.LogDebug($"Stop to auto refresh quota.");
+                this.logger.LogDebug($"Stop to auto refresh quote.");
                 this.AutoRefreshToolButton.Image = IntelligentInvestorResource.ServiceFabric;
                 this.AutoRefreshTimer.Stop();
             }
@@ -156,32 +156,32 @@ public partial class CurrentQuotaForm : SingleToolDockForm
     {
         if (e.EventType != StockEventTypes.ChangeCurrent) return;
         this.CurrentStock = e.Stock;
-        this.CurrentQuota = default;
+        this.CurrentQuote = default;
     }
 
-    private void CurrentQuotaForm_Load(object sender, System.EventArgs e)
+    private void CurrentQuoteForm_Load(object sender, System.EventArgs e)
     {
         if (this.DesignMode) return;
         this.AutoRefresh = false;
     }
 
-    public async Task RefreshQuota()
+    public async Task RefreshQuote()
     {
         if (this.currentStock is null) return;
 
         try
         {
-            this.logger.LogDebug($"Refresh quota of {this.currentStock?.GetFullCode()} ...");
-            var (quota, tradeStrand) = await this.stockSpider.GetStockQuotaAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
-            this.CurrentQuota = quota;
+            this.logger.LogDebug($"Refresh quote of {this.currentStock?.GetFullCode()} ...");
+            var (quote, tradeStrand) = await this.stockSpider.GetStockQuoteAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
+            this.CurrentQuote = quote;
             this.CurrentTradeStrand = tradeStrand;
 
-            if (quota != null) await this.quotaRepository.AddAsync(quota);
+            if (quote != null) await this.quoteRepository.AddAsync(quote);
             if (tradeStrand != null) await this.tradeStrandRepository.AddAsync(tradeStrand);
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, $"{nameof(CurrentQuotaForm)} failed to refresh quota.");
+            this.logger.LogError(ex, $"{nameof(CurrentQuoteForm)} failed to refresh quote.");
         }
     }
 
@@ -192,19 +192,19 @@ public partial class CurrentQuotaForm : SingleToolDockForm
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
     {
-        _ = this.RefreshQuota();
+        _ = this.RefreshQuote();
     }
 
     private void AutoRefreshTimer_Tick(object sender, EventArgs e)
     {
-        _ = this.RefreshQuota();
+        _ = this.RefreshQuote();
     }
 
-    private void QuotaRepositoryToolButton_Click(object sender, EventArgs e)
+    private void QuoteRepositoryToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
 
-        var form = this.serviceProvider.GetRequiredService<QuotaRepositoryDocumentForm>();
+        var form = this.serviceProvider.GetRequiredService<QuoteRepositoryDocumentForm>();
         if (form == null) return;
 
         form.Stock = this.currentStock;
@@ -222,11 +222,11 @@ public partial class CurrentQuotaForm : SingleToolDockForm
         form.Show(this.DockPanel);
     }
 
-    private void RecentQuotaToolButton_Click(object sender, EventArgs e)
+    private void RecentQuoteToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
 
-        var form = this.serviceProvider.GetRequiredService<RecentQuotaDocumentForm>();
+        var form = this.serviceProvider.GetRequiredService<RecentQuoteDocumentForm>();
         if (form == null) return;
 
         form.Stock = this.currentStock;
@@ -237,16 +237,16 @@ public partial class CurrentQuotaForm : SingleToolDockForm
     {
         base.ApplyTheme();
 
-        this.themeHandler.CurrentThemeComponent.ApplyTo(this.CurrentQuotaToolStrip);
+        this.themeHandler.CurrentThemeComponent.ApplyTo(this.CurrentQuoteToolStrip);
 
-        this.MainStockQuotaControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
-        this.MainStockQuotaControl.ValueForecolor = this.themeHandler.GetContentForecolor();
+        this.MainStockQuoteControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
+        this.MainStockQuoteControl.ValueForecolor = this.themeHandler.GetContentForecolor();
 
-        this.MainFiveGearControl.LabelForecolor = this.MainStockQuotaControl.LabelForecolor;
-        this.MainFiveGearControl.ValueForecolor = this.MainStockQuotaControl.ValueForecolor;
+        this.MainFiveGearControl.LabelForecolor = this.MainStockQuoteControl.LabelForecolor;
+        this.MainFiveGearControl.ValueForecolor = this.MainStockQuoteControl.ValueForecolor;
     }
 
-    private void CurrentQuotaForm_FormClosed(object sender, FormClosedEventArgs e)
+    private void CurrentQuoteForm_FormClosed(object sender, FormClosedEventArgs e)
     {
         this.AutoRefreshTimer.Stop();
         this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;

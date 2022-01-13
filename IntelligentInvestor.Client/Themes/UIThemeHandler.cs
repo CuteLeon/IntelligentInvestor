@@ -42,6 +42,6 @@ public class UIThemeHandler : IUIThemeHandler
     public Color GetTitleForecolor()
         => CurrentThemeComponent.ColorPalette.CommandBarToolbarDefault.OverflowButtonGlyph;
 
-    public Color GetQuotaForecolor(decimal quota)
-        => quota >= 0.0m ? Color.Crimson : Color.LimeGreen;
+    public Color GetQuoteForecolor(decimal quote)
+        => quote >= 0.0m ? Color.Crimson : Color.LimeGreen;
 }

@@ -25,12 +25,12 @@ namespace IntelligentInvestor.Client.DockForms
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ChartToolButton = new System.Windows.Forms.ToolStripButton();
-            this.QuotaRepositoryToolButton = new System.Windows.Forms.ToolStripButton();
+            this.QuoteRepositoryToolButton = new System.Windows.Forms.ToolStripButton();
             this.RecentToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveToolButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteToolButton = new System.Windows.Forms.ToolStripButton();
-            this.MainStockQuotaControl = new IntelligentInvestor.Client.Controls.StockQuotaControl(themeHandler);
+            this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl(themeHandler);
             this.MainTablePanel.SuspendLayout();
             this.SearchToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +42,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTablePanel.Controls.Add(this.StockComboBox, 0, 0);
             this.MainTablePanel.Controls.Add(this.SearchToolStrip, 0, 1);
-            this.MainTablePanel.Controls.Add(this.MainStockQuotaControl, 0, 2);
+            this.MainTablePanel.Controls.Add(this.MainStockQuoteControl, 0, 2);
             this.MainTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTablePanel.Location = new System.Drawing.Point(0, 0);
             this.MainTablePanel.Name = "MainTablePanel";
@@ -87,7 +87,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.RefreshToolButton,
             this.toolStripSeparator1,
             this.ChartToolButton,
-            this.QuotaRepositoryToolButton,
+            this.QuoteRepositoryToolButton,
             this.RecentToolStripButton,
             this.toolStripSeparator2,
             this.SaveToolButton,
@@ -143,15 +143,15 @@ namespace IntelligentInvestor.Client.DockForms
             this.ChartToolButton.Text = "Chart";
             this.ChartToolButton.Click += new System.EventHandler(this.ChartToolButton_Click);
             // 
-            // QuotaRepositoryToolButton
+            // QuoteRepositoryToolButton
             // 
-            this.QuotaRepositoryToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.QuotaRepositoryToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Context;
-            this.QuotaRepositoryToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.QuotaRepositoryToolButton.Name = "QuotaRepositoryToolButton";
-            this.QuotaRepositoryToolButton.Size = new System.Drawing.Size(23, 22);
-            this.QuotaRepositoryToolButton.Text = "Quota Repository";
-            this.QuotaRepositoryToolButton.Click += new System.EventHandler(this.QuotaRepositoryToolButton_Click);
+            this.QuoteRepositoryToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.QuoteRepositoryToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Context;
+            this.QuoteRepositoryToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.QuoteRepositoryToolButton.Name = "QuoteRepositoryToolButton";
+            this.QuoteRepositoryToolButton.Size = new System.Drawing.Size(23, 22);
+            this.QuoteRepositoryToolButton.Text = "Quote Repository";
+            this.QuoteRepositoryToolButton.Click += new System.EventHandler(this.QuoteRepositoryToolButton_Click);
             // 
             // RecentToolStripButton
             // 
@@ -160,7 +160,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.RecentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RecentToolStripButton.Name = "RecentToolStripButton";
             this.RecentToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.RecentToolStripButton.Text = "Recent Quota";
+            this.RecentToolStripButton.Text = "Recent Quote";
             this.RecentToolStripButton.Click += new System.EventHandler(this.RecentToolStripButton_Click);
             // 
             // toolStripSeparator2
@@ -188,19 +188,19 @@ namespace IntelligentInvestor.Client.DockForms
             this.DeleteToolButton.Text = "Remove";
             this.DeleteToolButton.Click += new System.EventHandler(this.DeleteToolButton_Click);
             // 
-            // MainStockQuotaControl
+            // MainStockQuoteControl
             // 
-            this.MainStockQuotaControl.AttachEntity = null;
-            this.MainTablePanel.SetColumnSpan(this.MainStockQuotaControl, 2);
-            this.MainStockQuotaControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainStockQuotaControl.LabelForecolor = System.Drawing.Color.Empty;
-            this.MainStockQuotaControl.Location = new System.Drawing.Point(3, 53);
-            this.MainStockQuotaControl.Name = "MainStockQuotaControl";
-            this.MainStockQuotaControl.Padding = new System.Windows.Forms.Padding(3);
-            this.MainStockQuotaControl.Size = new System.Drawing.Size(282, 331);
-            this.MainStockQuotaControl.Stock = null;
-            this.MainStockQuotaControl.TabIndex = 8;
-            this.MainStockQuotaControl.ValueForecolor = System.Drawing.Color.Empty;
+            this.MainStockQuoteControl.AttachEntity = null;
+            this.MainTablePanel.SetColumnSpan(this.MainStockQuoteControl, 2);
+            this.MainStockQuoteControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainStockQuoteControl.LabelForecolor = System.Drawing.Color.Empty;
+            this.MainStockQuoteControl.Location = new System.Drawing.Point(3, 53);
+            this.MainStockQuoteControl.Name = "MainStockQuoteControl";
+            this.MainStockQuoteControl.Padding = new System.Windows.Forms.Padding(3);
+            this.MainStockQuoteControl.Size = new System.Drawing.Size(282, 331);
+            this.MainStockQuoteControl.Stock = null;
+            this.MainStockQuoteControl.TabIndex = 8;
+            this.MainStockQuoteControl.ValueForecolor = System.Drawing.Color.Empty;
             // 
             // SearchStockDockForm
             // 
@@ -227,10 +227,10 @@ namespace IntelligentInvestor.Client.DockForms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton SaveToolButton;
         private System.Windows.Forms.ToolStripButton DeleteToolButton;
-        private Controls.StockQuotaControl MainStockQuotaControl;
+        private Controls.StockQuoteControl MainStockQuoteControl;
         private System.Windows.Forms.ToolStripButton ChartToolButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton QuotaRepositoryToolButton;
+        private System.Windows.Forms.ToolStripButton QuoteRepositoryToolButton;
         private System.Windows.Forms.ToolStripButton RecentToolStripButton;
     }
 }

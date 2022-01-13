@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using IntelligentInvestor.Application.Repositorys.Quotas;
+using IntelligentInvestor.Application.Repositorys.Quotes;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Intermediary.Application;
 using IntelligentInvestor.Spider;
@@ -17,7 +17,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     private readonly IServiceProvider serviceProvider;
     private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IStockRepository stockRepository;
-    private readonly IQuotaRepository quotaRepository;
+    private readonly IQuoteRepository quoteRepository;
     private readonly IStockSpider stockSpider;
 
     public SearchStockDockForm(
@@ -26,7 +26,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         IIntermediaryPublisher intermediaryPublisher,
         IServiceScopeFactory serviceScopeFactory,
         IStockRepository stockRepository,
-        IQuotaRepository quotaRepository,
+        IQuoteRepository quoteRepository,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
@@ -35,7 +35,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
-        this.quotaRepository = quotaRepository;
+        this.quoteRepository = quoteRepository;
         this.stockSpider = stockSpider;
     }
 
@@ -51,7 +51,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             this.currentStock = value;
 
             this.SearchToolStrip.Enabled = value != null;
-            this.MainStockQuotaControl.Stock = value;
+            this.MainStockQuoteControl.Stock = value;
             this.logger.LogDebug($"Set current stock => {value.GetFullCode()}");
 
             try
@@ -65,17 +65,17 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
     }
 
-    private Quota currentQuota;
+    private Quote currentQuote;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public Quota CurrentQuota
+    public Quote CurrentQuote
     {
-        get => this.currentQuota;
+        get => this.currentQuote;
         protected set
         {
-            this.currentQuota = value;
-            this.MainStockQuotaControl.AttachEntity = value;
+            this.currentQuote = value;
+            this.MainStockQuoteControl.AttachEntity = value;
         }
     }
 
@@ -87,8 +87,8 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.StockComboBox.BackColor = this.BackColor;
         this.StockComboBox.ForeColor = this.themeHandler.GetContentForecolor();
 
-        this.MainStockQuotaControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
-        this.MainStockQuotaControl.ValueForecolor = this.StockComboBox.ForeColor;
+        this.MainStockQuoteControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
+        this.MainStockQuoteControl.ValueForecolor = this.StockComboBox.ForeColor;
     }
 
     private void AddSelfSelectToolButton_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        _ = this.QueryQuota(this.currentStock.StockCode, this.currentStock.StockMarket);
+        _ = this.QueryQuote(this.currentStock.StockCode, this.currentStock.StockMarket);
     }
 
     private void ChartToolButton_Click(object sender, EventArgs e)
@@ -130,14 +130,14 @@ public partial class SearchStockDockForm : SingleToolDockForm
         form.Show(this.DockPanel);
     }
 
-    private void QuotaRepositoryToolButton_Click(object sender, EventArgs e)
+    private void QuoteRepositoryToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null)
         {
             return;
         }
 
-        var form = this.serviceProvider.GetRequiredService<QuotaRepositoryDocumentForm>();
+        var form = this.serviceProvider.GetRequiredService<QuoteRepositoryDocumentForm>();
         if (form == null)
         {
             return;
@@ -190,7 +190,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        var form = this.serviceProvider.GetRequiredService<RecentQuotaDocumentForm>();
+        var form = this.serviceProvider.GetRequiredService<RecentQuoteDocumentForm>();
         if (form == null)
         {
             return;
@@ -214,7 +214,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         if (string.IsNullOrWhiteSpace(keyword))
         {
             this.CurrentStock = null;
-            this.CurrentQuota = null;
+            this.CurrentQuote = null;
         }
         else
         {
@@ -236,18 +236,18 @@ public partial class SearchStockDockForm : SingleToolDockForm
         if (this.StockComboBox.SelectedItem is not Stock stock)
         {
             this.CurrentStock = null;
-            this.CurrentQuota = null;
+            this.CurrentQuote = null;
         }
         else
         {
-            _ = this.QueryQuota(stock.StockCode, stock.StockMarket);
+            _ = this.QueryQuote(stock.StockCode, stock.StockMarket);
         }
     }
 
-    public async Task QueryQuota(string code, StockMarkets market)
+    public async Task QueryQuote(string code, StockMarkets market)
     {
-        this.logger.LogDebug($"Query quota of stock {this.currentStock.GetFullCode()} ...");
-        var (quota, _) = await this.stockSpider.GetStockQuotaAsync(market, code);
-        this.CurrentQuota = quota;
+        this.logger.LogDebug($"Query quote of stock {this.currentStock.GetFullCode()} ...");
+        var (quote, _) = await this.stockSpider.GetStockQuoteAsync(market, code);
+        this.CurrentQuote = quote;
     }
 }

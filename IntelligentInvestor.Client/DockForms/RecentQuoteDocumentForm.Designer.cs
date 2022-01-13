@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    partial class RecentQuotaDocumentForm
+    partial class RecentQuoteDocumentForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,7 +17,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.RecentQuotaGridView = new System.Windows.Forms.DataGridView();
+            this.RecentQuoteGridView = new System.Windows.Forms.DataGridView();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openningPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -25,60 +25,60 @@
             this.highestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lowestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quotaTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quotaFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecentQuotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RecentQuotaToolStrip = new System.Windows.Forms.ToolStrip();
+            this.quoteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quoteFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecentQuoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RecentQuoteToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.QuotaFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.QuotaLengthToolLabel = new System.Windows.Forms.ToolStripLabel();
+            this.QuoteFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.QuoteLengthToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.QueryToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ExportToolButton = new System.Windows.Forms.ToolStripButton();
-            this.QuotaLengthNumeric = new System.Windows.Forms.NumericUpDown();
+            this.QuoteLengthNumeric = new System.Windows.Forms.NumericUpDown();
             this.MLTransformButton = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuotaGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuotaBindingSource)).BeginInit();
-            this.RecentQuotaToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaLengthNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteBindingSource)).BeginInit();
+            this.RecentQuoteToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // RecentQuotaGridView
+            // RecentQuoteGridView
             // 
-            this.RecentQuotaGridView.AllowUserToAddRows = false;
-            this.RecentQuotaGridView.AllowUserToDeleteRows = false;
-            this.RecentQuotaGridView.AllowUserToOrderColumns = true;
-            this.RecentQuotaGridView.AllowUserToResizeRows = false;
-            this.RecentQuotaGridView.AutoGenerateColumns = false;
-            this.RecentQuotaGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.RecentQuotaGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RecentQuotaGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.RecentQuotaGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.RecentQuotaGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecentQuotaGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RecentQuoteGridView.AllowUserToAddRows = false;
+            this.RecentQuoteGridView.AllowUserToDeleteRows = false;
+            this.RecentQuoteGridView.AllowUserToOrderColumns = true;
+            this.RecentQuoteGridView.AllowUserToResizeRows = false;
+            this.RecentQuoteGridView.AutoGenerateColumns = false;
+            this.RecentQuoteGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.RecentQuoteGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RecentQuoteGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.RecentQuoteGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RecentQuoteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecentQuoteGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
-            this.quotaTimeDataGridViewTextBoxColumn,
-            this.quotaFrequencyDataGridViewTextBoxColumn,
+            this.quoteTimeDataGridViewTextBoxColumn,
+            this.quoteFrequencyDataGridViewTextBoxColumn,
             this.openningPriceDataGridViewTextBoxColumn,
             this.closingPriceDataGridViewTextBoxColumn,
             this.highestPriceDataGridViewTextBoxColumn,
             this.lowestPriceDataGridViewTextBoxColumn,
             this.volumeDataGridViewTextBoxColumn});
-            this.RecentQuotaGridView.DataSource = this.RecentQuotaBindingSource;
-            this.RecentQuotaGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecentQuotaGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.RecentQuotaGridView.Location = new System.Drawing.Point(0, 25);
-            this.RecentQuotaGridView.Name = "RecentQuotaGridView";
-            this.RecentQuotaGridView.ReadOnly = true;
-            this.RecentQuotaGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.RecentQuotaGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.RecentQuotaGridView.RowTemplate.Height = 23;
-            this.RecentQuotaGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecentQuotaGridView.Size = new System.Drawing.Size(522, 324);
-            this.RecentQuotaGridView.TabIndex = 3;
+            this.RecentQuoteGridView.DataSource = this.RecentQuoteBindingSource;
+            this.RecentQuoteGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecentQuoteGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.RecentQuoteGridView.Location = new System.Drawing.Point(0, 25);
+            this.RecentQuoteGridView.Name = "RecentQuoteGridView";
+            this.RecentQuoteGridView.ReadOnly = true;
+            this.RecentQuoteGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RecentQuoteGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.RecentQuoteGridView.RowTemplate.Height = 23;
+            this.RecentQuoteGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecentQuoteGridView.Size = new System.Drawing.Size(522, 324);
+            this.RecentQuoteGridView.TabIndex = 3;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -98,29 +98,29 @@
             this.marketDataGridViewTextBoxColumn.ReadOnly = true;
             this.marketDataGridViewTextBoxColumn.Width = 54;
             // 
-            // quotaFrequencyDataGridViewTextBoxColumn
+            // quoteFrequencyDataGridViewTextBoxColumn
             // 
-            this.quotaFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Frequency);
-            this.quotaFrequencyDataGridViewTextBoxColumn.Frozen = true;
-            this.quotaFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
-            this.quotaFrequencyDataGridViewTextBoxColumn.Name = "quotaFrequencyDataGridViewTextBoxColumn";
-            this.quotaFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quotaFrequencyDataGridViewTextBoxColumn.Width = 54;
+            this.quoteFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Frequency);
+            this.quoteFrequencyDataGridViewTextBoxColumn.Frozen = true;
+            this.quoteFrequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
+            this.quoteFrequencyDataGridViewTextBoxColumn.Name = "quoteFrequencyDataGridViewTextBoxColumn";
+            this.quoteFrequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quoteFrequencyDataGridViewTextBoxColumn.Width = 54;
             // 
-            // quotaTimeDataGridViewTextBoxColumn
+            // quoteTimeDataGridViewTextBoxColumn
             // 
-            this.quotaTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.QuotaBase.QuotaTime);
-            this.quotaTimeDataGridViewTextBoxColumn.Frozen = true;
+            this.quoteTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.QuoteBase.QuoteTime);
+            this.quoteTimeDataGridViewTextBoxColumn.Frozen = true;
             dataGridViewCellStyle3.Format = "yyyy-MM-dd HH:mm:ss";
-            this.quotaTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.quotaTimeDataGridViewTextBoxColumn.HeaderText = "Quota Time";
-            this.quotaTimeDataGridViewTextBoxColumn.Name = "quotaTimeDataGridViewTextBoxColumn";
-            this.quotaTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quotaTimeDataGridViewTextBoxColumn.Width = 78;
+            this.quoteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.quoteTimeDataGridViewTextBoxColumn.HeaderText = "Quote Time";
+            this.quoteTimeDataGridViewTextBoxColumn.Name = "quoteTimeDataGridViewTextBoxColumn";
+            this.quoteTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quoteTimeDataGridViewTextBoxColumn.Width = 78;
             // 
             // openningPriceDataGridViewTextBoxColumn
             // 
-            this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.OpenningPrice);
+            this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.OpenningPrice);
             this.openningPriceDataGridViewTextBoxColumn.HeaderText = "Open Price";
             this.openningPriceDataGridViewTextBoxColumn.Name = "openningPriceDataGridViewTextBoxColumn";
             this.openningPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -128,7 +128,7 @@
             // 
             // closingPriceDataGridViewTextBoxColumn
             // 
-            this.closingPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.ClosingPrice);
+            this.closingPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.ClosingPrice);
             this.closingPriceDataGridViewTextBoxColumn.HeaderText = "Close Price";
             this.closingPriceDataGridViewTextBoxColumn.Name = "closingPriceDataGridViewTextBoxColumn";
             this.closingPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -136,7 +136,7 @@
             // 
             // highestPriceDataGridViewTextBoxColumn
             // 
-            this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.HighestPrice);
+            this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.HighestPrice);
             this.highestPriceDataGridViewTextBoxColumn.HeaderText = "Highest Price";
             this.highestPriceDataGridViewTextBoxColumn.Name = "highestPriceDataGridViewTextBoxColumn";
             this.highestPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -144,7 +144,7 @@
             // 
             // lowestPriceDataGridViewTextBoxColumn
             // 
-            this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.LowestPrice);
+            this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.LowestPrice);
             this.lowestPriceDataGridViewTextBoxColumn.HeaderText = "Lowest Price";
             this.lowestPriceDataGridViewTextBoxColumn.Name = "lowestPriceDataGridViewTextBoxColumn";
             this.lowestPriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -152,32 +152,32 @@
             // 
             // volumeDataGridViewTextBoxColumn
             // 
-            this.volumeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotas.Quota.Volume);
+            this.volumeDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Volume);
             this.volumeDataGridViewTextBoxColumn.HeaderText = "Volumn";
             this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
             this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
             this.volumeDataGridViewTextBoxColumn.Width = 66;
             // 
-            // RecentQuotaBindingSource
+            // RecentQuoteBindingSource
             // 
-            this.RecentQuotaBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotas.Quota);
+            this.RecentQuoteBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotes.Quote);
             // 
-            // RecentQuotaToolStrip
+            // RecentQuoteToolStrip
             // 
-            this.RecentQuotaToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RecentQuoteToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
-            this.QuotaFrequencyComboBox,
-            this.QuotaLengthToolLabel,
+            this.QuoteFrequencyComboBox,
+            this.QuoteLengthToolLabel,
             this.toolStripSeparator2,
             this.ExportToolButton,
             this.MLTransformButton,
             this.toolStripSeparator3,
             this.QueryToolButton});
-            this.RecentQuotaToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.RecentQuotaToolStrip.Name = "RecentQuotaToolStrip";
-            this.RecentQuotaToolStrip.Size = new System.Drawing.Size(522, 25);
-            this.RecentQuotaToolStrip.TabIndex = 2;
+            this.RecentQuoteToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.RecentQuoteToolStrip.Name = "RecentQuoteToolStrip";
+            this.RecentQuoteToolStrip.Size = new System.Drawing.Size(522, 25);
+            this.RecentQuoteToolStrip.TabIndex = 2;
             // 
             // StockInfoToolLabel
             // 
@@ -190,18 +190,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // QuotaFrequencyComboBox
+            // QuoteFrequencyComboBox
             // 
-            this.QuotaFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.QuotaFrequencyComboBox.Name = "QuotaFrequencyComboBox";
-            this.QuotaFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
+            this.QuoteFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuoteFrequencyComboBox.Name = "QuoteFrequencyComboBox";
+            this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
-            // QuotaLengthToolLabel
+            // QuoteLengthToolLabel
             // 
-            this.QuotaLengthToolLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.QuotaLengthToolLabel.Name = "QuotaLengthToolLabel";
-            this.QuotaLengthToolLabel.Size = new System.Drawing.Size(56, 22);
-            this.QuotaLengthToolLabel.Text = "Count";
+            this.QuoteLengthToolLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.QuoteLengthToolLabel.Name = "QuoteLengthToolLabel";
+            this.QuoteLengthToolLabel.Size = new System.Drawing.Size(56, 22);
+            this.QuoteLengthToolLabel.Text = "Count";
             // 
             // toolStripSeparator2
             // 
@@ -231,30 +231,30 @@
             this.ExportToolButton.Text = "Export";
             this.ExportToolButton.Click += new System.EventHandler(this.ExportToolButton_Click);
             // 
-            // QuotaLengthNumeric
+            // QuoteLengthNumeric
             // 
-            this.QuotaLengthNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.QuotaLengthNumeric.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuotaLengthNumeric.Increment = new decimal(new int[] {
+            this.QuoteLengthNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.QuoteLengthNumeric.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteLengthNumeric.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.QuotaLengthNumeric.Location = new System.Drawing.Point(224, 149);
-            this.QuotaLengthNumeric.Maximum = new decimal(new int[] {
+            this.QuoteLengthNumeric.Location = new System.Drawing.Point(224, 149);
+            this.QuoteLengthNumeric.Maximum = new decimal(new int[] {
             2400,
             0,
             0,
             0});
-            this.QuotaLengthNumeric.Minimum = new decimal(new int[] {
+            this.QuoteLengthNumeric.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.QuotaLengthNumeric.Name = "QuotaLengthNumeric";
-            this.QuotaLengthNumeric.Size = new System.Drawing.Size(120, 22);
-            this.QuotaLengthNumeric.TabIndex = 4;
-            this.QuotaLengthNumeric.Value = new decimal(new int[] {
+            this.QuoteLengthNumeric.Name = "QuoteLengthNumeric";
+            this.QuoteLengthNumeric.Size = new System.Drawing.Size(120, 22);
+            this.QuoteLengthNumeric.TabIndex = 4;
+            this.QuoteLengthNumeric.Value = new decimal(new int[] {
             20,
             0,
             0,
@@ -269,38 +269,38 @@
             this.MLTransformButton.Text = "ML Train";
             this.MLTransformButton.Click += new System.EventHandler(this.MLTransformButton_Click);
             // 
-            // RecentQuotaDocumentForm
+            // RecentQuoteDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 349);
-            this.Controls.Add(this.QuotaLengthNumeric);
-            this.Controls.Add(this.RecentQuotaGridView);
-            this.Controls.Add(this.RecentQuotaToolStrip);
-            this.Name = "RecentQuotaDocumentForm";
-            this.TabText = "RecentQuotaDocumentForm";
-            this.Text = "RecentQuotaDocumentForm";
-            this.Load += new System.EventHandler(this.RecentQuotaDocumentForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuotaGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuotaBindingSource)).EndInit();
-            this.RecentQuotaToolStrip.ResumeLayout(false);
-            this.RecentQuotaToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuotaLengthNumeric)).EndInit();
+            this.Controls.Add(this.QuoteLengthNumeric);
+            this.Controls.Add(this.RecentQuoteGridView);
+            this.Controls.Add(this.RecentQuoteToolStrip);
+            this.Name = "RecentQuoteDocumentForm";
+            this.TabText = "RecentQuoteDocumentForm";
+            this.Text = "RecentQuoteDocumentForm";
+            this.Load += new System.EventHandler(this.RecentQuoteDocumentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteBindingSource)).EndInit();
+            this.RecentQuoteToolStrip.ResumeLayout(false);
+            this.RecentQuoteToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private System.Windows.Forms.DataGridView RecentQuotaGridView;
-        private System.Windows.Forms.ToolStrip RecentQuotaToolStrip;
+        private System.Windows.Forms.DataGridView RecentQuoteGridView;
+        private System.Windows.Forms.ToolStrip RecentQuoteToolStrip;
         private System.Windows.Forms.ToolStripLabel StockInfoToolLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton QueryToolButton;
-        private System.Windows.Forms.ToolStripComboBox QuotaFrequencyComboBox;
-        private System.Windows.Forms.ToolStripLabel QuotaLengthToolLabel;
-        private System.Windows.Forms.NumericUpDown QuotaLengthNumeric;
-        private System.Windows.Forms.BindingSource RecentQuotaBindingSource;
+        private System.Windows.Forms.ToolStripComboBox QuoteFrequencyComboBox;
+        private System.Windows.Forms.ToolStripLabel QuoteLengthToolLabel;
+        private System.Windows.Forms.NumericUpDown QuoteLengthNumeric;
+        private System.Windows.Forms.BindingSource RecentQuoteBindingSource;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton ExportToolButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
@@ -310,8 +310,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn highestPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lowestPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quotaTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quotaFrequencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quoteTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quoteFrequencyDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton MLTransformButton;
     }
 }

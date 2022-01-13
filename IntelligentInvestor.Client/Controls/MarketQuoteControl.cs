@@ -1,14 +1,14 @@
 ﻿using IntelligentInvestor.Client.Themes;
-using IntelligentInvestor.Domain.Quotas;
+using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
+public partial class MarketQuoteControl : StockAttachControlBaseGeneric<Quote>
 {
     private readonly IUIThemeHandler themeHandler;
 
-    public MarketQuotaControl(
+    public MarketQuoteControl(
         IUIThemeHandler themeHandler)
     {
         this.InitializeComponent();
@@ -19,11 +19,11 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
     {
         this.CountLabel.ForeColor = color;
         this.AmountLabel.ForeColor = color;
-        this.QuotaTimeLabel.ForeColor = color;
+        this.QuoteTimeLabel.ForeColor = color;
         this.CodeValueLabel.ForeColor = color;
         this.MarketValueLabel.ForeColor = color;
         this.StockNameValueLabel.ForeColor = color;
-        this.QuotaTimeValueLabel.ForeColor = color;
+        this.QuoteTimeValueLabel.ForeColor = color;
     }
 
     public override void SetValueForecolor(Color color)
@@ -51,9 +51,9 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
         }
     }
 
-    public override void AttachEntityToFace(Quota quota)
+    public override void AttachEntityToFace(Quote quote)
     {
-        if (quota == null)
+        if (quote == null)
         {
             this.CurrentPriceValueLabel.ForeColor = this.ValueForecolor;
             this.FluctuatingRangeValueLabel.ForeColor = this.ValueForecolor;
@@ -64,21 +64,21 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
             this.FluctuatingRateValueLabel.Text = "-";
             this.CountValueLabel.Text = "-";
             this.AmountValueLabel.Text = "-";
-            this.QuotaTimeValueLabel.Text = "-";
+            this.QuoteTimeValueLabel.Text = "-";
         }
         else
         {
-            Color quotaForecolor = themeHandler.GetQuotaForecolor(quota.FluctuatingRange);
-            this.CurrentPriceValueLabel.ForeColor = quotaForecolor;
-            this.FluctuatingRangeValueLabel.ForeColor = quotaForecolor;
-            this.FluctuatingRateValueLabel.ForeColor = quotaForecolor;
+            Color quoteForecolor = themeHandler.GetQuoteForecolor(quote.FluctuatingRange);
+            this.CurrentPriceValueLabel.ForeColor = quoteForecolor;
+            this.FluctuatingRangeValueLabel.ForeColor = quoteForecolor;
+            this.FluctuatingRateValueLabel.ForeColor = quoteForecolor;
 
-            this.CurrentPriceValueLabel.Text = quota.CurrentPrice.ToString("N4");
-            this.FluctuatingRangeValueLabel.Text = quota.FluctuatingRange.ToString("N4");
-            this.FluctuatingRateValueLabel.Text = $"{quota.FluctuatingRate.ToString("N4")} %";
-            this.CountValueLabel.Text = quota.Volume.ToString("N0");
-            this.AmountValueLabel.Text = quota.Amount.ToString("N0");
-            this.QuotaTimeValueLabel.Text = quota.QuotaTime.ToString("HH:mm:ss");
+            this.CurrentPriceValueLabel.Text = quote.CurrentPrice.ToString("N4");
+            this.FluctuatingRangeValueLabel.Text = quote.FluctuatingRange.ToString("N4");
+            this.FluctuatingRateValueLabel.Text = $"{quote.FluctuatingRate.ToString("N4")} %";
+            this.CountValueLabel.Text = quote.Volume.ToString("N0");
+            this.AmountValueLabel.Text = quote.Amount.ToString("N0");
+            this.QuoteTimeValueLabel.Text = quote.QuoteTime.ToString("HH:mm:ss");
         }
     }
 }
