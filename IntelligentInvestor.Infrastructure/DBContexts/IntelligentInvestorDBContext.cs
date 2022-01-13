@@ -1,4 +1,5 @@
 ﻿using IntelligentInvestor.Domain.Companys;
+using IntelligentInvestor.Domain.Options;
 using IntelligentInvestor.Domain.Quotas;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
@@ -26,6 +27,8 @@ public class IntelligentInvestorDBContext : DbContext
 
     public virtual DbSet<TradeStrand> TradeStrands { get; set; }
 
+    public virtual DbSet<GenericOption> GenericOptions { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -34,6 +37,7 @@ public class IntelligentInvestorDBContext : DbContext
         builder.Entity<Quota>().HasKey(x => new { x.StockMarket, x.StockCode, x.Frequency, x.QuotaTime });
         builder.Entity<Company>().HasKey(x => new { x.StockMarket, x.StockCode });
         builder.Entity<TradeStrand>().HasKey(x => new { x.StockMarket, x.StockCode, x.QuotaTime });
+        builder.Entity<GenericOption>().HasKey(x => new { x.OptionName, x.OwnerLevel, x.Category });
 
         builder.Entity<Stock>().HasOne(x => x.Company).WithOne(x => x.Stock).HasForeignKey<Company>(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey<Stock>(x => new { x.StockMarket, x.StockCode }).IsRequired();
         builder.Entity<Stock>().HasMany(x => x.Quotas).WithOne(x => x.Stock).HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
