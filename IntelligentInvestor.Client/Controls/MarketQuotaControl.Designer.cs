@@ -18,8 +18,8 @@
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.CodeValueLabel = new System.Windows.Forms.Label();
-            this.UpdateTimeLabel = new System.Windows.Forms.Label();
-            this.UpdateTimeValueLabel = new System.Windows.Forms.Label();
+            this.QuotaTimeLabel = new System.Windows.Forms.Label();
+            this.QuotaTimeValueLabel = new System.Windows.Forms.Label();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AmountValueLabel = new System.Windows.Forms.Label();
             this.CountLabel = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@
             this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.MainTablePanel.Controls.Add(this.MarketValueLabel, 2, 1);
             this.MainTablePanel.Controls.Add(this.CodeValueLabel, 2, 0);
-            this.MainTablePanel.Controls.Add(this.UpdateTimeLabel, 2, 4);
-            this.MainTablePanel.Controls.Add(this.UpdateTimeValueLabel, 2, 5);
+            this.MainTablePanel.Controls.Add(this.QuotaTimeLabel, 2, 4);
+            this.MainTablePanel.Controls.Add(this.QuotaTimeValueLabel, 2, 5);
             this.MainTablePanel.Controls.Add(this.AmountLabel, 1, 4);
             this.MainTablePanel.Controls.Add(this.AmountValueLabel, 1, 5);
             this.MainTablePanel.Controls.Add(this.CountLabel, 0, 4);
@@ -92,31 +92,31 @@
             this.CodeValueLabel.Text = "-";
             this.CodeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // UpdateTimeLabel
+            // QuotaTimeLabel
             // 
-            this.UpdateTimeLabel.AutoEllipsis = true;
-            this.UpdateTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
-            this.UpdateTimeLabel.Location = new System.Drawing.Point(188, 65);
-            this.UpdateTimeLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.UpdateTimeLabel.Name = "UpdateTimeLabel";
-            this.UpdateTimeLabel.Size = new System.Drawing.Size(81, 18);
-            this.UpdateTimeLabel.TabIndex = 26;
-            this.UpdateTimeLabel.Text = "Quota Time";
-            this.UpdateTimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.QuotaTimeLabel.AutoEllipsis = true;
+            this.QuotaTimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuotaTimeLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F);
+            this.QuotaTimeLabel.Location = new System.Drawing.Point(188, 65);
+            this.QuotaTimeLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.QuotaTimeLabel.Name = "QuotaTimeLabel";
+            this.QuotaTimeLabel.Size = new System.Drawing.Size(81, 18);
+            this.QuotaTimeLabel.TabIndex = 26;
+            this.QuotaTimeLabel.Text = "Quota Time";
+            this.QuotaTimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // UpdateTimeValueLabel
+            // QuotaTimeValueLabel
             // 
-            this.UpdateTimeValueLabel.AutoEllipsis = true;
-            this.UpdateTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.UpdateTimeValueLabel.Location = new System.Drawing.Point(188, 83);
-            this.UpdateTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.UpdateTimeValueLabel.Name = "UpdateTimeValueLabel";
-            this.UpdateTimeValueLabel.Size = new System.Drawing.Size(81, 20);
-            this.UpdateTimeValueLabel.TabIndex = 25;
-            this.UpdateTimeValueLabel.Text = "-";
-            this.UpdateTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.QuotaTimeValueLabel.AutoEllipsis = true;
+            this.QuotaTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuotaTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaTimeValueLabel.Location = new System.Drawing.Point(188, 83);
+            this.QuotaTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.QuotaTimeValueLabel.Name = "QuotaTimeValueLabel";
+            this.QuotaTimeValueLabel.Size = new System.Drawing.Size(81, 20);
+            this.QuotaTimeValueLabel.TabIndex = 25;
+            this.QuotaTimeValueLabel.Text = "-";
+            this.QuotaTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AmountLabel
             // 
@@ -254,8 +254,8 @@
         private System.Windows.Forms.Label MarketValueLabel;
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
         private System.Windows.Forms.Label CodeValueLabel;
-        private System.Windows.Forms.Label UpdateTimeLabel;
-        private System.Windows.Forms.Label UpdateTimeValueLabel;
+        private System.Windows.Forms.Label QuotaTimeLabel;
+        private System.Windows.Forms.Label QuotaTimeValueLabel;
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label AmountValueLabel;
         private System.Windows.Forms.Label CountLabel;

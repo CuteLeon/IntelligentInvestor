@@ -33,7 +33,7 @@ namespace IntelligentInvestor.Client.Controls
             this.DayLowPriceLabel = new System.Windows.Forms.Label();
             this.DayHighPriceLabel = new System.Windows.Forms.Label();
             this.SeparatorLabel1 = new System.Windows.Forms.Label();
-            this.UpdateTimeValueLabel = new System.Windows.Forms.Label();
+            this.QuotaTimeValueLabel = new System.Windows.Forms.Label();
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.CodeValueLabel = new System.Windows.Forms.Label();
             this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl(themeHandler);
@@ -198,7 +198,7 @@ namespace IntelligentInvestor.Client.Controls
             this.MainTablePanel.Controls.Add(this.DayLowPriceLabel, 1, 4);
             this.MainTablePanel.Controls.Add(this.DayHighPriceLabel, 0, 4);
             this.MainTablePanel.Controls.Add(this.SeparatorLabel1, 0, 3);
-            this.MainTablePanel.Controls.Add(this.UpdateTimeValueLabel, 0, 2);
+            this.MainTablePanel.Controls.Add(this.QuotaTimeValueLabel, 0, 2);
             this.MainTablePanel.Controls.Add(this.MarketValueLabel, 2, 1);
             this.MainTablePanel.Controls.Add(this.CodeValueLabel, 2, 0);
             this.MainTablePanel.Controls.Add(this.AmountLabel, 1, 8);
@@ -270,20 +270,20 @@ namespace IntelligentInvestor.Client.Controls
             this.SeparatorLabel1.Size = new System.Drawing.Size(270, 1);
             this.SeparatorLabel1.TabIndex = 35;
             // 
-            // UpdateTimeValueLabel
+            // QuotaTimeValueLabel
             // 
-            this.UpdateTimeValueLabel.AutoEllipsis = true;
-            this.MainTablePanel.SetColumnSpan(this.UpdateTimeValueLabel, 2);
-            this.UpdateTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UpdateTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.UpdateTimeValueLabel.Location = new System.Drawing.Point(0, 40);
-            this.UpdateTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.UpdateTimeValueLabel.Name = "UpdateTimeValueLabel";
-            this.UpdateTimeValueLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.UpdateTimeValueLabel.Size = new System.Drawing.Size(203, 20);
-            this.UpdateTimeValueLabel.TabIndex = 34;
-            this.UpdateTimeValueLabel.Text = "-";
-            this.UpdateTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.QuotaTimeValueLabel.AutoEllipsis = true;
+            this.MainTablePanel.SetColumnSpan(this.QuotaTimeValueLabel, 2);
+            this.QuotaTimeValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuotaTimeValueLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuotaTimeValueLabel.Location = new System.Drawing.Point(0, 40);
+            this.QuotaTimeValueLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.QuotaTimeValueLabel.Name = "QuotaTimeValueLabel";
+            this.QuotaTimeValueLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.QuotaTimeValueLabel.Size = new System.Drawing.Size(203, 20);
+            this.QuotaTimeValueLabel.TabIndex = 34;
+            this.QuotaTimeValueLabel.Text = "-";
+            this.QuotaTimeValueLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // MarketValueLabel
             // 
@@ -363,7 +363,7 @@ namespace IntelligentInvestor.Client.Controls
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
         private System.Windows.Forms.Label MarketValueLabel;
         private System.Windows.Forms.Label CodeValueLabel;
-        private System.Windows.Forms.Label UpdateTimeValueLabel;
+        private System.Windows.Forms.Label QuotaTimeValueLabel;
         private System.Windows.Forms.Label SeparatorLabel1;
         private System.Windows.Forms.Label DayHighPriceLabel;
         private System.Windows.Forms.Label DayLowPriceLabel;

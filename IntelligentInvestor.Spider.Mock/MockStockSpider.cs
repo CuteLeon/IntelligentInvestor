@@ -75,7 +75,8 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.SellStrand2, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.SellStrand3, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.SellStrand4, faker => faker.Finance.Random.Int(100, 100000))
-            .RuleFor(x => x.SellStrand5, faker => faker.Finance.Random.Int(100, 100000));
+            .RuleFor(x => x.SellStrand5, faker => faker.Finance.Random.Int(100, 100000))
+            .RuleFor(x => x.QuotaTime, faker => DateTime.Now);
         this.bitmaps = new[]
         {
             SpiderMockResource.Chart_1,

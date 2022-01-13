@@ -19,11 +19,11 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
     {
         this.CountLabel.ForeColor = color;
         this.AmountLabel.ForeColor = color;
-        this.UpdateTimeLabel.ForeColor = color;
+        this.QuotaTimeLabel.ForeColor = color;
         this.CodeValueLabel.ForeColor = color;
         this.MarketValueLabel.ForeColor = color;
         this.StockNameValueLabel.ForeColor = color;
-        this.UpdateTimeValueLabel.ForeColor = color;
+        this.QuotaTimeValueLabel.ForeColor = color;
     }
 
     public override void SetValueForecolor(Color color)
@@ -64,7 +64,7 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
             this.FluctuatingRateValueLabel.Text = "-";
             this.CountValueLabel.Text = "-";
             this.AmountValueLabel.Text = "-";
-            this.UpdateTimeValueLabel.Text = "-";
+            this.QuotaTimeValueLabel.Text = "-";
         }
         else
         {
@@ -78,7 +78,7 @@ public partial class MarketQuotaControl : StockAttachControlBaseGeneric<Quota>
             this.FluctuatingRateValueLabel.Text = $"{quota.FluctuatingRate.ToString("N4")} %";
             this.CountValueLabel.Text = quota.Volume.ToString("N0");
             this.AmountValueLabel.Text = quota.Amount.ToString("N0");
-            this.UpdateTimeValueLabel.Text = quota.QuotaTime.ToString("HH:mm:ss");
+            this.QuotaTimeValueLabel.Text = quota.QuotaTime.ToString("HH:mm:ss");
         }
     }
 }

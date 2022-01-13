@@ -5,6 +5,10 @@ namespace IntelligentInvestor.Domain.Trades;
 
 public class TradeStrand : QuotaBase
 {
+    public TradeStrand() : base()
+    {
+    }
+
     public TradeStrand(StockMarkets stockMarket, string stockCode)
         : base(stockMarket, stockCode)
     {
