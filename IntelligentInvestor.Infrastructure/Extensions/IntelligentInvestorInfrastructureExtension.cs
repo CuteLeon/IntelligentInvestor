@@ -21,10 +21,12 @@ public static class IntelligentInvestorInfrastructureExtension
 
     public static IServiceCollection AddIntelligentInvestorDBContext(
         this IServiceCollection services, string connectionString)
-        => services.AddDbContext<DbContext, IntelligentInvestorDBContext>(
-            options => options
-                .UseSqlite(connectionString)
-                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-                .UseLazyLoadingProxies(),
-            ServiceLifetime.Scoped);
+        => services.AddDbContext<DbContext, IntelligentInvestorDBContext>(options =>
+        options
+            .UseSqlite(connectionString)
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            .EnableDetailedErrors(true)
+            .EnableSensitiveDataLogging(true)
+            .UseLazyLoadingProxies(),
+        ServiceLifetime.Scoped);
 }
