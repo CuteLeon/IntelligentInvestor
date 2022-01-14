@@ -6,7 +6,8 @@ using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Intermediary.Application;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Quotes;
+using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
     private readonly IStockSpider stockSpider;
+    private readonly IQuoteSpider quoteSpider;
 
     public SearchStockDockForm(
         ILogger<SearchStockDockForm> logger,
@@ -27,6 +29,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         IServiceScopeFactory serviceScopeFactory,
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
+        IQuoteSpider quoteSpider,
         IStockSpider stockSpider)
         : base(logger, themeHandler)
     {
@@ -36,6 +39,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
+        this.quoteSpider = quoteSpider;
         this.stockSpider = stockSpider;
     }
 
@@ -247,7 +251,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     public async Task QueryQuote(string code, StockMarkets market)
     {
         this.logger.LogDebug($"Query quote of stock {this.currentStock.GetFullCode()} ...");
-        var (quote, _) = await this.stockSpider.GetStockQuoteAsync(market, code);
+        var (quote, _) = await this.quoteSpider.GetQuoteAsync(market, code);
         this.CurrentQuote = quote;
     }
 }

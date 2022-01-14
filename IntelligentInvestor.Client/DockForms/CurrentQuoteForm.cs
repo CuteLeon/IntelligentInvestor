@@ -8,7 +8,7 @@ using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
 using IntelligentInvestor.Intermediary.Application;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Quotes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +16,7 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class CurrentQuoteForm : SingleToolDockForm
 {
-    private readonly IStockSpider stockSpider;
+    private readonly IQuoteSpider quoteSpider;
     private readonly IServiceProvider serviceProvider;
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
@@ -31,7 +31,7 @@ public partial class CurrentQuoteForm : SingleToolDockForm
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
         IRepositoryBase<TradeStrand> tradeStrandRepository,
-        IStockSpider stockSpider)
+        IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
@@ -46,7 +46,7 @@ public partial class CurrentQuoteForm : SingleToolDockForm
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
         this.tradeStrandRepository = tradeStrandRepository;
-        this.stockSpider = stockSpider;
+        this.quoteSpider = quoteSpider;
 
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
@@ -172,7 +172,7 @@ public partial class CurrentQuoteForm : SingleToolDockForm
         try
         {
             this.logger.LogDebug($"Refresh quote of {this.currentStock?.GetFullCode()} ...");
-            var (quote, tradeStrand) = await this.stockSpider.GetStockQuoteAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
+            var (quote, tradeStrand) = await this.quoteSpider.GetQuoteAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
             this.CurrentQuote = quote;
             this.CurrentTradeStrand = tradeStrand;
 

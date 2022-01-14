@@ -3,7 +3,7 @@ using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Quotes;
 using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
@@ -11,13 +11,13 @@ namespace IntelligentInvestor.Client.DockForms;
 public partial class ChartDocumentForm : DocumentDockForm
 {
     private readonly IStockRepository stockRepository;
-    private readonly IStockSpider stockSpider;
+    private readonly IQuoteSpider quoteSpider;
 
     public ChartDocumentForm(
         ILogger<ChartDocumentForm> logger,
         IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
-        IStockSpider stockSpider)
+        IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
@@ -30,7 +30,7 @@ public partial class ChartDocumentForm : DocumentDockForm
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
         this.QuoteFrequencyComboBox.SelectedIndex = 1;
         this.stockRepository = stockRepository;
-        this.stockSpider = stockSpider;
+        this.quoteSpider = quoteSpider;
     }
 
     private Stock stock;
@@ -95,7 +95,7 @@ public partial class ChartDocumentForm : DocumentDockForm
     {
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.Trade;
         this.logger.LogDebug($"Refresh chart for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
-        Image chartImage = await this.stockSpider.GetChartAsync(
+        Image chartImage = await this.quoteSpider.GetChartAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
             frequency);

@@ -3,7 +3,7 @@ using IntelligentInvestor.Client.DockForms.FloatWindows;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Options;
 using IntelligentInvestor.Domain.Themes;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WeifenLuo.WinFormsUI.Docking;

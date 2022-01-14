@@ -4,7 +4,7 @@ using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Intermediary.Application;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;

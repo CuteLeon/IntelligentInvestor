@@ -4,7 +4,7 @@ using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Spider;
+using IntelligentInvestor.Spider.Quotes;
 using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
@@ -13,14 +13,14 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
 {
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
-    private readonly IStockSpider stockSpider;
+    private readonly IQuoteSpider quoteSpider;
 
     public RecentQuoteDocumentForm(
         ILogger<RecentQuoteDocumentForm> logger,
         IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
-        IStockSpider stockSpider)
+        IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
@@ -33,7 +33,7 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
-        this.stockSpider = stockSpider;
+        this.quoteSpider = quoteSpider;
     }
 
     [Browsable(false)]
@@ -226,7 +226,7 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
         if (this.stock == null) return;
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.NotSpecified;
         this.logger.LogDebug($"Query quotes for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
-        var recentQuotes = await this.stockSpider.GetQuotesAsync(
+        var recentQuotes = await this.quoteSpider.GetQuotesAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
             frequency,
