@@ -22,9 +22,12 @@
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openningPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.closingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.closingPriceYesterdayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.highestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lowestPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quoteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quoteFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuoteHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,11 +65,14 @@
             this.marketDataGridViewTextBoxColumn,
             this.quoteTimeDataGridViewTextBoxColumn,
             this.quoteFrequencyDataGridViewTextBoxColumn,
+            this.currentPriceDataGridViewTextBoxColumn,
             this.openningPriceDataGridViewTextBoxColumn,
             this.closingPriceDataGridViewTextBoxColumn,
+            this.closingPriceYesterdayDataGridViewTextBoxColumn,
             this.highestPriceDataGridViewTextBoxColumn,
             this.lowestPriceDataGridViewTextBoxColumn,
-            this.volumeDataGridViewTextBoxColumn});
+            this.volumeDataGridViewTextBoxColumn,
+            this.amountDataGridViewTextBoxColumn});
             this.QuoteHistoryGridView.DataSource = this.QuoteHistoryBindingSource;
             this.QuoteHistoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.QuoteHistoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -118,6 +124,14 @@
             this.quoteTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.quoteTimeDataGridViewTextBoxColumn.Width = 78;
             // 
+            // currentPriceDataGridViewTextBoxColumn
+            // 
+            this.currentPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.CurrentPrice);
+            this.currentPriceDataGridViewTextBoxColumn.HeaderText = "Current Price";
+            this.currentPriceDataGridViewTextBoxColumn.Name = "currentPriceDataGridViewTextBoxColumn";
+            this.currentPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.currentPriceDataGridViewTextBoxColumn.Width = 72;
+            // 
             // openningPriceDataGridViewTextBoxColumn
             // 
             this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.OpenningPrice);
@@ -133,6 +147,14 @@
             this.closingPriceDataGridViewTextBoxColumn.Name = "closingPriceDataGridViewTextBoxColumn";
             this.closingPriceDataGridViewTextBoxColumn.ReadOnly = true;
             this.closingPriceDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // closingPriceYesterdayDataGridViewTextBoxColumn
+            // 
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.ClosingPriceYesterday);
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.HeaderText = "Close Price Yst";
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.Name = "closingPriceYesterdayDataGridViewTextBoxColumn";
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.closingPriceYesterdayDataGridViewTextBoxColumn.Width = 88;
             // 
             // highestPriceDataGridViewTextBoxColumn
             // 
@@ -157,6 +179,14 @@
             this.volumeDataGridViewTextBoxColumn.Name = "volumeDataGridViewTextBoxColumn";
             this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
             this.volumeDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Quotes.Quote.Amount);
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amountDataGridViewTextBoxColumn.Width = 72;
             // 
             // QuoteHistoryBindingSource
             // 
@@ -307,9 +337,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn marketDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn openningPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn closingPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn closingPriceYesterdayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn highestPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lowestPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn volumeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quoteTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quoteFrequencyDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton MLTransformButton;

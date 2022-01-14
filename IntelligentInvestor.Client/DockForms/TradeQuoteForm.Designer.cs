@@ -81,7 +81,7 @@ namespace IntelligentInvestor.Client.DockForms
             // ChartToolButton
             // 
             this.ChartToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ChartToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Quote;
+            this.ChartToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Chart;
             this.ChartToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ChartToolButton.Name = "ChartToolButton";
             this.ChartToolButton.Size = new System.Drawing.Size(23, 22);
