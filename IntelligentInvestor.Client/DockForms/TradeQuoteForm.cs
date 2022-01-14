@@ -1,64 +1,76 @@
 ﻿using System.ComponentModel;
+using IntelligentInvestor.Application.Repositorys.Abstractions;
 using IntelligentInvestor.Application.Repositorys.Quotes;
 using IntelligentInvestor.Application.Repositorys.Stocks;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
+using IntelligentInvestor.Domain.Trades;
 using IntelligentInvestor.Intermediary.Application;
 using IntelligentInvestor.Spider.Quotes;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public partial class MarketQuoteForm : SingleToolDockForm
+public partial class TradeQuoteForm : SingleToolDockForm
 {
-    private readonly ILogger<MarketQuoteForm> logger;
-    private readonly IUIThemeHandler themeHandler;
-    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
+    private readonly IQuoteSpider quoteSpider;
+    private readonly IServiceProvider serviceProvider;
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
-    private readonly IQuoteSpider quoteSpider;
+    private readonly IRepositoryBase<TradeStrand> tradeStrandRepository;
+    private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
 
-    public MarketQuoteForm(
-        ILogger<MarketQuoteForm> logger,
-        IUIThemeHandler themeHandler,
+    public TradeQuoteForm(
+        ILogger<TradeQuoteForm> logger,
+        IServiceScopeFactory serviceScopeFactory,
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
+        IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
+        IRepositoryBase<TradeStrand> tradeStrandRepository,
         IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
-        this.Icon = IntelligentInvestorResource.MarketQuoteIcon;
-        this.logger = logger;
-        this.themeHandler = themeHandler;
+
+        this.Icon = IntelligentInvestorResource.TradeQuoteIcon;
+        this.HideOnClose = true;
+        this.CloseButton = false;
+        this.CloseButtonVisible = false;
+
+        this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.stockEventHandler = stockEventHandler;
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
+        this.tradeStrandRepository = tradeStrandRepository;
         this.quoteSpider = quoteSpider;
 
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 
-    private Stock currentStock;
+    private Stock? currentStock;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public Stock CurrentStock
+    public Stock? CurrentStock
     {
         get => this.currentStock;
         protected set
         {
             this.currentStock = value;
-            this.MainMarketQuoteControl.Stock = value;
             this.logger.LogDebug($"Set current stock => {value?.GetFullCode()}");
+
+            this.MainStockQuoteControl.Stock = value;
+            this.MainFiveGearControl.Stock = value;
 
             if (value == null)
             {
                 this.Invoke(new Action(() =>
                 {
-                    this.MarketQuoteToolStrip.Enabled = false;
+                    this.CurrentQuoteToolStrip.Enabled = false;
                     this.AutoRefresh = false;
                 }));
             }
@@ -67,7 +79,7 @@ public partial class MarketQuoteForm : SingleToolDockForm
                 this.Invoke(new Action(() =>
                 {
                     this.AutoRefresh = true;
-                    this.MarketQuoteToolStrip.Enabled = true;
+                    this.CurrentQuoteToolStrip.Enabled = true;
                 }));
                 try
                 {
@@ -81,17 +93,32 @@ public partial class MarketQuoteForm : SingleToolDockForm
         }
     }
 
-    private Quote currentQuote;
+    private Quote? currentQuote;
 
     [Browsable(false)]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public Quote CurrentQuote
+    public Quote? CurrentQuote
     {
         get => this.currentQuote;
         protected set
         {
             this.currentQuote = value;
-            this.MainMarketQuoteControl.AttachEntity = value;
+            this.MainStockQuoteControl.AttachEntity = value;
+        }
+    }
+
+    private TradeStrand? currentTradeStrand;
+
+    // TODO: Get and display Trade Strand info;
+    [Browsable(false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public TradeStrand? CurrentTradeStrand
+    {
+        get => this.currentTradeStrand;
+        protected set
+        {
+            this.currentTradeStrand = value;
+            this.MainFiveGearControl.AttachEntity = value;
         }
     }
 
@@ -114,7 +141,6 @@ public partial class MarketQuoteForm : SingleToolDockForm
             {
                 this.logger.LogDebug($"Start to auto refresh quote ...");
                 this.AutoRefreshToolButton.Image = IntelligentInvestorResource.Service;
-
                 this.AutoRefreshTimer.Start();
             }
             else
@@ -133,33 +159,29 @@ public partial class MarketQuoteForm : SingleToolDockForm
         this.CurrentQuote = default;
     }
 
-    private void MarketQuoteForm_Load(object sender, EventArgs e)
+    private void TradeQuoteForm_Load(object sender, System.EventArgs e)
     {
-        if (this.DesignMode)
-        {
-            return;
-        }
-
+        if (this.DesignMode) return;
         this.AutoRefresh = false;
     }
 
-
-    public async Task RefreshMarketQuote()
+    public async Task RefreshQuote()
     {
+        if (this.currentStock is null) return;
+
         try
         {
-            this.logger.LogDebug($"Refresh quote of {this.currentStock.GetFullCode()} ...");
-            var (quote, _) = await this.quoteSpider.GetQuoteAsync(this.currentStock.StockMarket, this.currentStock.StockCode);
+            this.logger.LogDebug($"Refresh quote of {this.currentStock?.GetFullCode()} ...");
+            var (quote, tradeStrand) = await this.quoteSpider.GetQuoteAsync(this.currentStock!.StockMarket, this.currentStock!.StockCode);
             this.CurrentQuote = quote;
+            this.CurrentTradeStrand = tradeStrand;
 
-            if (quote != null)
-            {
-                await this.quoteRepository.AddAsync(quote);
-            }
+            if (quote != null) await this.quoteRepository.AddAsync(quote);
+            if (tradeStrand != null) await this.tradeStrandRepository.AddAsync(tradeStrand);
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, $"{nameof(CurrentQuoteForm)} failed to refresh quote.");
+            this.logger.LogError(ex, $"{nameof(TradeQuoteForm)} failed to refresh quote.");
         }
     }
 
@@ -170,24 +192,61 @@ public partial class MarketQuoteForm : SingleToolDockForm
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
     {
-        _ = this.RefreshMarketQuote();
+        _ = this.RefreshQuote();
     }
 
     private void AutoRefreshTimer_Tick(object sender, EventArgs e)
     {
-        _ = this.RefreshMarketQuote();
+        _ = this.RefreshQuote();
+    }
+
+    private void QuoteRepositoryToolButton_Click(object sender, EventArgs e)
+    {
+        if (this.currentStock == null) return;
+
+        var form = this.serviceProvider.GetRequiredService<QuoteRepositoryDocumentForm>();
+        if (form == null) return;
+
+        form.Stock = this.currentStock;
+        form.Show(this.DockPanel);
+    }
+
+    private void ChartToolButton_Click(object sender, EventArgs e)
+    {
+        if (this.currentStock == null) return;
+
+        var form = this.serviceProvider.GetRequiredService<ChartDocumentForm>();
+        if (form == null) return;
+
+        form.Stock = this.currentStock;
+        form.Show(this.DockPanel);
+    }
+
+    private void QuoteHistoryToolButton_Click(object sender, EventArgs e)
+    {
+        if (this.currentStock == null) return;
+
+        var form = this.serviceProvider.GetRequiredService<QuoteHistoryDocumentForm>();
+        if (form == null) return;
+
+        form.Stock = this.currentStock;
+        form.Show(this.DockPanel);
     }
 
     public override void ApplyTheme()
     {
         base.ApplyTheme();
 
-        this.themeHandler.CurrentThemeComponent.ApplyTo(this.MarketQuoteToolStrip);
-        this.MainMarketQuoteControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
-        this.MainMarketQuoteControl.ValueForecolor = this.themeHandler.GetContentForecolor();
+        this.themeHandler.CurrentThemeComponent.ApplyTo(this.CurrentQuoteToolStrip);
+
+        this.MainStockQuoteControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
+        this.MainStockQuoteControl.ValueForecolor = this.themeHandler.GetContentForecolor();
+
+        this.MainFiveGearControl.LabelForecolor = this.MainStockQuoteControl.LabelForecolor;
+        this.MainFiveGearControl.ValueForecolor = this.MainStockQuoteControl.ValueForecolor;
     }
 
-    private void MarketQuoteForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+    private void TradeQuoteForm_FormClosed(object sender, FormClosedEventArgs e)
     {
         this.AutoRefreshTimer.Stop();
         this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;

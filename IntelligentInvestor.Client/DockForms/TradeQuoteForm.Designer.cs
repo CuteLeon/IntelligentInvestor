@@ -2,7 +2,7 @@
 
 namespace IntelligentInvestor.Client.DockForms
 {
-    partial class CurrentQuoteForm
+    partial class TradeQuoteForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -27,7 +27,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.QuoteRepositoryToolButton = new System.Windows.Forms.ToolStripButton();
             this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl(themeHandler);
             this.MainFiveGearControl = new IntelligentInvestor.Client.Controls.StockQuoteFiveGearControl(themeHandler);
-            this.RecentQuoteToolButton = new System.Windows.Forms.ToolStripButton();
+            this.QuoteHistoryToolButton = new System.Windows.Forms.ToolStripButton();
             this.CurrentQuoteToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.toolStripSeparator1,
             this.ChartToolButton,
             this.QuoteRepositoryToolButton,
-            this.RecentQuoteToolButton});
+            this.QuoteHistoryToolButton});
             this.CurrentQuoteToolStrip.Location = new System.Drawing.Point(0, 0);
             this.CurrentQuoteToolStrip.Name = "CurrentQuoteToolStrip";
             this.CurrentQuoteToolStrip.Size = new System.Drawing.Size(349, 25);
@@ -124,17 +124,17 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainFiveGearControl.TabIndex = 3;
             this.MainFiveGearControl.ValueForecolor = System.Drawing.Color.Empty;
             // 
-            // RecentQuoteToolButton
+            // QuoteHistoryToolButton
             // 
-            this.RecentQuoteToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RecentQuoteToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Clock;
-            this.RecentQuoteToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RecentQuoteToolButton.Name = "RecentQuoteToolButton";
-            this.RecentQuoteToolButton.Size = new System.Drawing.Size(23, 22);
-            this.RecentQuoteToolButton.Text = "Recent Quote";
-            this.RecentQuoteToolButton.Click += new System.EventHandler(this.RecentQuoteToolButton_Click);
+            this.QuoteHistoryToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.QuoteHistoryToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Clock;
+            this.QuoteHistoryToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.QuoteHistoryToolButton.Name = "QuoteHistoryToolButton";
+            this.QuoteHistoryToolButton.Size = new System.Drawing.Size(23, 22);
+            this.QuoteHistoryToolButton.Text = "Quote History";
+            this.QuoteHistoryToolButton.Click += new System.EventHandler(this.QuoteHistoryToolButton_Click);
             // 
-            // CurrentQuoteForm
+            // TradeQuoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,12 +142,12 @@ namespace IntelligentInvestor.Client.DockForms
             this.Controls.Add(this.MainFiveGearControl);
             this.Controls.Add(this.MainStockQuoteControl);
             this.Controls.Add(this.CurrentQuoteToolStrip);
-            this.Name = "CurrentQuoteForm";
+            this.Name = "TradeQuoteForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.TabText = "Trade Quote";
             this.Text = "Trade Quote";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CurrentQuoteForm_FormClosed);
-            this.Load += new System.EventHandler(this.CurrentQuoteForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TradeQuoteForm_FormClosed);
+            this.Load += new System.EventHandler(this.TradeQuoteForm_Load);
             this.CurrentQuoteToolStrip.ResumeLayout(false);
             this.CurrentQuoteToolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -163,6 +163,6 @@ namespace IntelligentInvestor.Client.DockForms
         private System.Windows.Forms.ToolStripButton ChartToolButton;
         private Controls.StockQuoteControl MainStockQuoteControl;
         private Controls.StockQuoteFiveGearControl MainFiveGearControl;
-        private System.Windows.Forms.ToolStripButton RecentQuoteToolButton;
+        private System.Windows.Forms.ToolStripButton QuoteHistoryToolButton;
     }
 }

@@ -48,12 +48,12 @@ public partial class MainForm : Form
 
     private void InitializeViewMenu()
     {
-        this.RegisterDockFormToViewMenu<RecentTradeForm>();
-        this.RegisterDockFormToViewMenu<MarketQuoteForm>();
-        this.RegisterDockFormToViewMenu<CurrentQuoteForm>();
+        this.RegisterDockFormToViewMenu<TradeHistoryForm>();
+        this.RegisterDockFormToViewMenu<MarketIndexForm>();
+        this.RegisterDockFormToViewMenu<TradeQuoteForm>();
         this.RegisterDockFormToViewMenu<HotStockDockForm>();
         this.RegisterDockFormToViewMenu<SearchStockDockForm>();
-        this.RegisterDockFormToViewMenu<SelfSelectStockForm>();
+        this.RegisterDockFormToViewMenu<SelectedStockForm>();
     }
 
     public void RegisterDockFormToViewMenu<TDockForm>()
@@ -148,20 +148,20 @@ public partial class MainForm : Form
     private void PredeterminedLayout()
     {
         this.logger.LogDebug("Load predetermined layout ...");
-        var recentTradeForm = this.serviceProvider.GetRequiredService<RecentTradeForm>();
-        recentTradeForm.Show(this.MainDockPanel);
-        var currentQuoteForm = this.serviceProvider.GetRequiredService<CurrentQuoteForm>();
-        currentQuoteForm.Show(recentTradeForm.Pane, recentTradeForm);
+        var tradeHistoryForm = this.serviceProvider.GetRequiredService<TradeHistoryForm>();
+        tradeHistoryForm.Show(this.MainDockPanel);
+        var tradeQuoteForm = this.serviceProvider.GetRequiredService<TradeQuoteForm>();
+        tradeQuoteForm.Show(tradeHistoryForm.Pane, tradeHistoryForm);
 
-        var marketQuoteForm = this.serviceProvider.GetRequiredService<MarketQuoteForm>();
-        marketQuoteForm.Show(recentTradeForm.Pane, DockAlignment.Bottom, 0.3);
+        var marketIndexForm = this.serviceProvider.GetRequiredService<MarketIndexForm>();
+        marketIndexForm.Show(tradeHistoryForm.Pane, DockAlignment.Bottom, 0.3);
 
         var searchStockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
         searchStockForm.Show(this.MainDockPanel);
         var hotStockForm = this.serviceProvider.GetRequiredService<HotStockDockForm>();
         hotStockForm.Show(searchStockForm.Pane, DockAlignment.Top, 0.56);
-        var selfSelectForm = this.serviceProvider.GetRequiredService<SelfSelectStockForm>();
-        selfSelectForm.Show(hotStockForm.Pane, hotStockForm);
+        var selectedStockForm = this.serviceProvider.GetRequiredService<SelectedStockForm>();
+        selectedStockForm.Show(hotStockForm.Pane, hotStockForm);
     }
 
     private void SearchToolButton_Click(object sender, EventArgs e)

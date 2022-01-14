@@ -3,15 +3,15 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public partial class RecentTradeForm : SingleToolDockForm
+public partial class TradeHistoryForm : SingleToolDockForm
 {
-    public RecentTradeForm(
-        ILogger<RecentTradeForm> logger,
+    public TradeHistoryForm(
+        ILogger<TradeHistoryForm> logger,
         IUIThemeHandler themeHandler)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.RecentTradeIcon;
+        this.Icon = IntelligentInvestorResource.TradeHistoryIcon;
     }
 }

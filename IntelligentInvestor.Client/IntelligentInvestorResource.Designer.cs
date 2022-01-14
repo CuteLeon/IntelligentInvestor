@@ -173,9 +173,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon CurrentQuoteIcon {
+        internal static System.Drawing.Icon TradeQuoteIcon {
             get {
-                object obj = ResourceManager.GetObject("CurrentQuoteIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("TradeQuoteIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -393,9 +393,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon MarketQuoteIcon {
+        internal static System.Drawing.Icon MarketIndexIcon {
             get {
-                object obj = ResourceManager.GetObject("MarketQuoteIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("MarketIndexIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -433,9 +433,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon RecentQuoteIcon {
+        internal static System.Drawing.Icon QuoteHistoryIcon {
             get {
-                object obj = ResourceManager.GetObject("RecentQuoteIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("QuoteHistoryIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -443,9 +443,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon RecentTradeIcon {
+        internal static System.Drawing.Icon TradeHistoryIcon {
             get {
-                object obj = ResourceManager.GetObject("RecentTradeIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("TradeHistoryIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -533,9 +533,9 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon SelfSelectIcon {
+        internal static System.Drawing.Icon SelectedStockIcon {
             get {
-                object obj = ResourceManager.GetObject("SelfSelectIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("SelectedStockIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -151,8 +151,8 @@
   <data name="Context" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Context.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CurrentQuoteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\CurrentQuoteIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TradeQuoteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TradeQuoteIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,8 +217,8 @@
   <data name="LaunchBackgroud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\LaunchBackgroud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MarketQuoteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\MarketQuoteIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MarketIndexIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\MarketIndexIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Power" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,11 +229,11 @@
   <data name="Quote" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Quote.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RecentQuoteIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\RecentQuoteIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QuoteHistoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\QuoteHistoryIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RecentTradeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\RecentTradeIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TradeHistoryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TradeHistoryIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,8 +259,8 @@
   <data name="SearchLabel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\SearchLabel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SelfSelectIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\SelfSelectIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SelectedStockIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SelectedStockIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Server" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

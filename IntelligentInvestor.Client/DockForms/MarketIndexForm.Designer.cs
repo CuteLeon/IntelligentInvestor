@@ -2,7 +2,7 @@
 
 namespace IntelligentInvestor.Client.DockForms
 {
-    partial class MarketQuoteForm
+    partial class MarketIndexForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -18,25 +18,25 @@ namespace IntelligentInvestor.Client.DockForms
         private void InitializeComponent(IUIThemeHandler themeHandler)
         {
             this.components = new System.ComponentModel.Container();
-            this.MarketQuoteToolStrip = new System.Windows.Forms.ToolStrip();
+            this.MarketIndexToolStrip = new System.Windows.Forms.ToolStrip();
             this.AutoRefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.MainMarketQuoteControl = new IntelligentInvestor.Client.Controls.MarketQuoteControl(themeHandler);
+            this.MainMarketIndexControl = new IntelligentInvestor.Client.Controls.MarketIndexControl(themeHandler);
             this.AutoRefreshTimer = new System.Windows.Forms.Timer(this.components);
-            this.MarketQuoteToolStrip.SuspendLayout();
+            this.MarketIndexToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MarketQuoteToolStrip
+            // MarketIndexToolStrip
             // 
-            this.MarketQuoteToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MarketIndexToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AutoRefreshToolButton,
             this.RefreshToolButton,
             this.toolStripSeparator1});
-            this.MarketQuoteToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.MarketQuoteToolStrip.Name = "MarketQuoteToolStrip";
-            this.MarketQuoteToolStrip.Size = new System.Drawing.Size(330, 25);
-            this.MarketQuoteToolStrip.TabIndex = 2;
+            this.MarketIndexToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.MarketIndexToolStrip.Name = "MarketIndexToolStrip";
+            this.MarketIndexToolStrip.Size = new System.Drawing.Size(330, 25);
+            this.MarketIndexToolStrip.TabIndex = 2;
             // 
             // AutoRefreshToolButton
             // 
@@ -66,47 +66,47 @@ namespace IntelligentInvestor.Client.DockForms
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // MainMarketQuoteControl
+            // MainMarketIndexControl
             // 
-            this.MainMarketQuoteControl.AttachEntity = null;
-            this.MainMarketQuoteControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMarketQuoteControl.LabelForecolor = System.Drawing.Color.Empty;
-            this.MainMarketQuoteControl.Location = new System.Drawing.Point(0, 25);
-            this.MainMarketQuoteControl.Name = "MainMarketQuoteControl";
-            this.MainMarketQuoteControl.Padding = new System.Windows.Forms.Padding(3);
-            this.MainMarketQuoteControl.Size = new System.Drawing.Size(330, 197);
-            this.MainMarketQuoteControl.Stock = null;
-            this.MainMarketQuoteControl.TabIndex = 3;
-            this.MainMarketQuoteControl.ValueForecolor = System.Drawing.Color.Empty;
+            this.MainMarketIndexControl.AttachEntity = null;
+            this.MainMarketIndexControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainMarketIndexControl.LabelForecolor = System.Drawing.Color.Empty;
+            this.MainMarketIndexControl.Location = new System.Drawing.Point(0, 25);
+            this.MainMarketIndexControl.Name = "MainMarketIndexControl";
+            this.MainMarketIndexControl.Padding = new System.Windows.Forms.Padding(3);
+            this.MainMarketIndexControl.Size = new System.Drawing.Size(330, 197);
+            this.MainMarketIndexControl.Stock = null;
+            this.MainMarketIndexControl.TabIndex = 3;
+            this.MainMarketIndexControl.ValueForecolor = System.Drawing.Color.Empty;
             // 
             // AutoRefreshTimer
             // 
             this.AutoRefreshTimer.Interval = 5000;
             this.AutoRefreshTimer.Tick += new System.EventHandler(this.AutoRefreshTimer_Tick);
             // 
-            // MarketQuoteForm
+            // MarketIndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 222);
-            this.Controls.Add(this.MainMarketQuoteControl);
-            this.Controls.Add(this.MarketQuoteToolStrip);
-            this.Name = "MarketQuoteForm";
+            this.Controls.Add(this.MainMarketIndexControl);
+            this.Controls.Add(this.MarketIndexToolStrip);
+            this.Name = "MarketIndexForm";
             this.TabText = "Market Index";
             this.Text = "Market Index";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MarketQuoteForm_FormClosed);
-            this.Load += new System.EventHandler(this.MarketQuoteForm_Load);
-            this.MarketQuoteToolStrip.ResumeLayout(false);
-            this.MarketQuoteToolStrip.PerformLayout();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MarketIndexForm_FormClosed);
+            this.Load += new System.EventHandler(this.MarketIndexForm_Load);
+            this.MarketIndexToolStrip.ResumeLayout(false);
+            this.MarketIndexToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStrip MarketQuoteToolStrip;
+        private System.Windows.Forms.ToolStrip MarketIndexToolStrip;
         private System.Windows.Forms.ToolStripButton AutoRefreshToolButton;
         private System.Windows.Forms.ToolStripButton RefreshToolButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private Controls.MarketQuoteControl MainMarketQuoteControl;
+        private Controls.MarketIndexControl MainMarketIndexControl;
         private System.Windows.Forms.Timer AutoRefreshTimer;
     }
 }

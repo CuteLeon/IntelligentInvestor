@@ -20,13 +20,13 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.StockComboBox = new System.Windows.Forms.ComboBox();
             this.SearchToolStrip = new System.Windows.Forms.ToolStrip();
-            this.AddSelfSelectToolButton = new System.Windows.Forms.ToolStripButton();
-            this.RemoveSelfSelectToolButton = new System.Windows.Forms.ToolStripButton();
+            this.AddSelectedStockToolButton = new System.Windows.Forms.ToolStripButton();
+            this.RemoveSelectedStockToolButton = new System.Windows.Forms.ToolStripButton();
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ChartToolButton = new System.Windows.Forms.ToolStripButton();
             this.QuoteRepositoryToolButton = new System.Windows.Forms.ToolStripButton();
-            this.RecentToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.QuoteHistoryStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveToolButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteToolButton = new System.Windows.Forms.ToolStripButton();
@@ -82,13 +82,13 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel.SetColumnSpan(this.SearchToolStrip, 2);
             this.SearchToolStrip.Enabled = false;
             this.SearchToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddSelfSelectToolButton,
-            this.RemoveSelfSelectToolButton,
+            this.AddSelectedStockToolButton,
+            this.RemoveSelectedStockToolButton,
             this.RefreshToolButton,
             this.toolStripSeparator1,
             this.ChartToolButton,
             this.QuoteRepositoryToolButton,
-            this.RecentToolStripButton,
+            this.QuoteHistoryStripButton,
             this.toolStripSeparator2,
             this.SaveToolButton,
             this.DeleteToolButton});
@@ -98,25 +98,25 @@ namespace IntelligentInvestor.Client.DockForms
             this.SearchToolStrip.TabIndex = 7;
             this.SearchToolStrip.Text = "toolStrip1";
             // 
-            // AddSelfSelectToolButton
+            // AddSelectedStockToolButton
             // 
-            this.AddSelfSelectToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddSelfSelectToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Add;
-            this.AddSelfSelectToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.AddSelfSelectToolButton.Name = "AddSelfSelectToolButton";
-            this.AddSelfSelectToolButton.Size = new System.Drawing.Size(23, 22);
-            this.AddSelfSelectToolButton.Text = "Select";
-            this.AddSelfSelectToolButton.Click += new System.EventHandler(this.AddSelfSelectToolButton_Click);
+            this.AddSelectedStockToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.AddSelectedStockToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Add;
+            this.AddSelectedStockToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddSelectedStockToolButton.Name = "AddSelectedStockToolButton";
+            this.AddSelectedStockToolButton.Size = new System.Drawing.Size(23, 22);
+            this.AddSelectedStockToolButton.Text = "Select";
+            this.AddSelectedStockToolButton.Click += new System.EventHandler(this.AddSelectedStockToolButton_Click);
             // 
-            // RemoveSelfSelectToolButton
+            // RemoveSelectedStockToolButton
             // 
-            this.RemoveSelfSelectToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RemoveSelfSelectToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Remove;
-            this.RemoveSelfSelectToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RemoveSelfSelectToolButton.Name = "RemoveSelfSelectToolButton";
-            this.RemoveSelfSelectToolButton.Size = new System.Drawing.Size(23, 22);
-            this.RemoveSelfSelectToolButton.Text = "Unselect";
-            this.RemoveSelfSelectToolButton.Click += new System.EventHandler(this.RemoveSelfSelectToolButton_Click);
+            this.RemoveSelectedStockToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.RemoveSelectedStockToolButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Remove;
+            this.RemoveSelectedStockToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveSelectedStockToolButton.Name = "RemoveSelectedStockToolButton";
+            this.RemoveSelectedStockToolButton.Size = new System.Drawing.Size(23, 22);
+            this.RemoveSelectedStockToolButton.Text = "Unselect";
+            this.RemoveSelectedStockToolButton.Click += new System.EventHandler(this.RemoveSelectedStockToolButton_Click);
             // 
             // RefreshToolButton
             // 
@@ -153,15 +153,15 @@ namespace IntelligentInvestor.Client.DockForms
             this.QuoteRepositoryToolButton.Text = "Quote Repository";
             this.QuoteRepositoryToolButton.Click += new System.EventHandler(this.QuoteRepositoryToolButton_Click);
             // 
-            // RecentToolStripButton
+            // QuoteHistoryStripButton
             // 
-            this.RecentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RecentToolStripButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Clock;
-            this.RecentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RecentToolStripButton.Name = "RecentToolStripButton";
-            this.RecentToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.RecentToolStripButton.Text = "Recent Quote";
-            this.RecentToolStripButton.Click += new System.EventHandler(this.RecentToolStripButton_Click);
+            this.QuoteHistoryStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.QuoteHistoryStripButton.Image = global::IntelligentInvestor.Client.IntelligentInvestorResource.Clock;
+            this.QuoteHistoryStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.QuoteHistoryStripButton.Name = "QuoteHistoryStripButton";
+            this.QuoteHistoryStripButton.Size = new System.Drawing.Size(23, 22);
+            this.QuoteHistoryStripButton.Text = "Quote History";
+            this.QuoteHistoryStripButton.Click += new System.EventHandler(this.QuoteHistoryStripButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -221,8 +221,8 @@ namespace IntelligentInvestor.Client.DockForms
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
         private System.Windows.Forms.ComboBox StockComboBox;
         private System.Windows.Forms.ToolStrip SearchToolStrip;
-        private System.Windows.Forms.ToolStripButton AddSelfSelectToolButton;
-        private System.Windows.Forms.ToolStripButton RemoveSelfSelectToolButton;
+        private System.Windows.Forms.ToolStripButton AddSelectedStockToolButton;
+        private System.Windows.Forms.ToolStripButton RemoveSelectedStockToolButton;
         private System.Windows.Forms.ToolStripButton RefreshToolButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton SaveToolButton;
@@ -231,6 +231,6 @@ namespace IntelligentInvestor.Client.DockForms
         private System.Windows.Forms.ToolStripButton ChartToolButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton QuoteRepositoryToolButton;
-        private System.Windows.Forms.ToolStripButton RecentToolStripButton;
+        private System.Windows.Forms.ToolStripButton QuoteHistoryStripButton;
     }
 }

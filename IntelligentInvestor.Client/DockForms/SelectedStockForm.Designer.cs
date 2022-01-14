@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    partial class SelfSelectStockForm
+    partial class SelectedStockForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -16,41 +16,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.SelfSelectStockToolStrip = new System.Windows.Forms.ToolStrip();
+            this.SelectedStockStockToolStrip = new System.Windows.Forms.ToolStrip();
             this.AddToolButton = new System.Windows.Forms.ToolStripButton();
             this.RemoveToolButton = new System.Windows.Forms.ToolStripButton();
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.SearchToolTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.SelfSelectStockGridView = new System.Windows.Forms.DataGridView();
+            this.SelectedStockStockGridView = new System.Windows.Forms.DataGridView();
             this.StockCodeGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockMarketGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockNameGridViewColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SelfSelectStockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SelfSelectGridViewMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.SelectedStockStockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SelectedStockGridViewMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RefreshMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SelfSelectStockToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelfSelectStockGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SelfSelectStockBindingSource)).BeginInit();
-            this.SelfSelectGridViewMenuStrip.SuspendLayout();
+            this.SelectedStockStockToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedStockStockGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedStockStockBindingSource)).BeginInit();
+            this.SelectedStockGridViewMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SelfSelectStockToolStrip
+            // SelectedStockStockToolStrip
             // 
-            this.SelfSelectStockToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectedStockStockToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddToolButton,
             this.RemoveToolButton,
             this.RefreshToolButton,
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.SearchToolTextBox});
-            this.SelfSelectStockToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.SelfSelectStockToolStrip.Name = "SelfSelectStockToolStrip";
-            this.SelfSelectStockToolStrip.Size = new System.Drawing.Size(254, 25);
-            this.SelfSelectStockToolStrip.TabIndex = 0;
+            this.SelectedStockStockToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.SelectedStockStockToolStrip.Name = "SelectedStockStockToolStrip";
+            this.SelectedStockStockToolStrip.Size = new System.Drawing.Size(254, 25);
+            this.SelectedStockStockToolStrip.TabIndex = 0;
             // 
             // AddToolButton
             // 
@@ -103,38 +103,38 @@
             this.SearchToolTextBox.Size = new System.Drawing.Size(100, 25);
             this.SearchToolTextBox.TextChanged += new System.EventHandler(this.SearchToolTextBox_TextChanged);
             // 
-            // SelfSelectStockGridView
+            // SelectedStockStockGridView
             // 
-            this.SelfSelectStockGridView.AllowUserToAddRows = false;
-            this.SelfSelectStockGridView.AllowUserToDeleteRows = false;
-            this.SelfSelectStockGridView.AllowUserToOrderColumns = true;
-            this.SelfSelectStockGridView.AllowUserToResizeColumns = false;
-            this.SelfSelectStockGridView.AllowUserToResizeRows = false;
-            this.SelfSelectStockGridView.AutoGenerateColumns = false;
-            this.SelfSelectStockGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.SelfSelectStockGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.SelfSelectStockGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SelfSelectStockGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.SelfSelectStockGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.SelfSelectStockGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SelfSelectStockGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SelectedStockStockGridView.AllowUserToAddRows = false;
+            this.SelectedStockStockGridView.AllowUserToDeleteRows = false;
+            this.SelectedStockStockGridView.AllowUserToOrderColumns = true;
+            this.SelectedStockStockGridView.AllowUserToResizeColumns = false;
+            this.SelectedStockStockGridView.AllowUserToResizeRows = false;
+            this.SelectedStockStockGridView.AutoGenerateColumns = false;
+            this.SelectedStockStockGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.SelectedStockStockGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.SelectedStockStockGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SelectedStockStockGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.SelectedStockStockGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SelectedStockStockGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SelectedStockStockGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockCodeGridViewColumn,
             this.StockMarketGridViewColumn,
             this.StockNameGridViewColumn});
-            this.SelfSelectStockGridView.DataSource = this.SelfSelectStockBindingSource;
-            this.SelfSelectStockGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SelfSelectStockGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.SelfSelectStockGridView.Location = new System.Drawing.Point(0, 25);
-            this.SelfSelectStockGridView.MultiSelect = false;
-            this.SelfSelectStockGridView.Name = "SelfSelectStockGridView";
-            this.SelfSelectStockGridView.ReadOnly = true;
-            this.SelfSelectStockGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.SelfSelectStockGridView.RowHeadersVisible = false;
-            this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.SelfSelectStockGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SelfSelectStockGridView.Size = new System.Drawing.Size(254, 256);
-            this.SelfSelectStockGridView.TabIndex = 1;
+            this.SelectedStockStockGridView.DataSource = this.SelectedStockStockBindingSource;
+            this.SelectedStockStockGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedStockStockGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.SelectedStockStockGridView.Location = new System.Drawing.Point(0, 25);
+            this.SelectedStockStockGridView.MultiSelect = false;
+            this.SelectedStockStockGridView.Name = "SelectedStockStockGridView";
+            this.SelectedStockStockGridView.ReadOnly = true;
+            this.SelectedStockStockGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SelectedStockStockGridView.RowHeadersVisible = false;
+            this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.SelectedStockStockGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.SelectedStockStockGridView.Size = new System.Drawing.Size(254, 256);
+            this.SelectedStockStockGridView.TabIndex = 1;
             // 
             // StockCodeGridViewColumn
             // 
@@ -158,19 +158,19 @@
             this.StockNameGridViewColumn.Name = "StockNameGridViewColumn";
             this.StockNameGridViewColumn.ReadOnly = true;
             // 
-            // SelfSelectStockBindingSource
+            // SelectedStockStockBindingSource
             // 
-            this.SelfSelectStockBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Stocks.Stock);
-            this.SelfSelectStockBindingSource.CurrentChanged += new EventHandler(this.SelfSelectStockBindingSource_CurrentChanged);
+            this.SelectedStockStockBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Stocks.Stock);
+            this.SelectedStockStockBindingSource.CurrentChanged += new EventHandler(this.SelectedStockStockBindingSource_CurrentChanged);
             // 
-            // SelfSelectGridViewMenuStrip
+            // SelectedStockGridViewMenuStrip
             // 
-            this.SelfSelectGridViewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectedStockGridViewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddMenuItem,
             this.RemoveMenuItem,
             this.RefreshMenuItem});
-            this.SelfSelectGridViewMenuStrip.Name = "SelfSelectGridViewMenuStrip";
-            this.SelfSelectGridViewMenuStrip.Size = new System.Drawing.Size(101, 70);
+            this.SelectedStockGridViewMenuStrip.Name = "SelectedStockGridViewMenuStrip";
+            this.SelectedStockGridViewMenuStrip.Size = new System.Drawing.Size(101, 70);
             // 
             // AddMenuItem
             // 
@@ -196,39 +196,39 @@
             this.RefreshMenuItem.Text = "Refresh";
             this.RefreshMenuItem.Click += new System.EventHandler(this.RefreshMenuItem_Click);
             // 
-            // SelfSelectStockForm
+            // SelectedStockStockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(254, 281);
-            this.Controls.Add(this.SelfSelectStockGridView);
-            this.Controls.Add(this.SelfSelectStockToolStrip);
+            this.Controls.Add(this.SelectedStockStockGridView);
+            this.Controls.Add(this.SelectedStockStockToolStrip);
             this.DoubleBuffered = true;
-            this.Name = "SelfSelectStockForm";
+            this.Name = "SelectedStockStockForm";
             this.TabText = "Selected";
             this.Text = "Selected";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SelfSelectStockForm_FormClosed);
-            this.Load += new System.EventHandler(this.SelfSelectStockForm_Load);
-            this.Shown += new System.EventHandler(this.SelfSelectStockForm_Shown);
-            this.SelfSelectStockToolStrip.ResumeLayout(false);
-            this.SelfSelectStockToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelfSelectStockGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SelfSelectStockBindingSource)).EndInit();
-            this.SelfSelectGridViewMenuStrip.ResumeLayout(false);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SelectedStockStockForm_FormClosed);
+            this.Load += new System.EventHandler(this.SelectedStockStockForm_Load);
+            this.Shown += new System.EventHandler(this.SelectedStockStockForm_Shown);
+            this.SelectedStockStockToolStrip.ResumeLayout(false);
+            this.SelectedStockStockToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedStockStockGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedStockStockBindingSource)).EndInit();
+            this.SelectedStockGridViewMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStrip SelfSelectStockToolStrip;
-        private System.Windows.Forms.DataGridView SelfSelectStockGridView;
+        private System.Windows.Forms.ToolStrip SelectedStockStockToolStrip;
+        private System.Windows.Forms.DataGridView SelectedStockStockGridView;
         private System.Windows.Forms.ToolStripButton RefreshToolButton;
-        private System.Windows.Forms.ContextMenuStrip SelfSelectGridViewMenuStrip;
+        private System.Windows.Forms.ContextMenuStrip SelectedStockGridViewMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem RefreshMenuItem;
         private System.Windows.Forms.ToolStripButton AddToolButton;
         private System.Windows.Forms.ToolStripButton RemoveToolButton;
         private System.Windows.Forms.ToolStripMenuItem AddMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RemoveMenuItem;
-        private System.Windows.Forms.BindingSource SelfSelectStockBindingSource;
+        private System.Windows.Forms.BindingSource SelectedStockStockBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockCodeGridViewColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMarketGridViewColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockNameGridViewColumn;

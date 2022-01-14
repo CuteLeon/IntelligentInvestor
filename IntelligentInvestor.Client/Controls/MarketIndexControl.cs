@@ -4,11 +4,11 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class MarketQuoteControl : StockAttachControlBaseGeneric<Quote>
+public partial class MarketIndexControl : StockAttachControlBaseGeneric<Quote>
 {
     private readonly IUIThemeHandler themeHandler;
 
-    public MarketQuoteControl(
+    public MarketIndexControl(
         IUIThemeHandler themeHandler)
     {
         this.InitializeComponent();

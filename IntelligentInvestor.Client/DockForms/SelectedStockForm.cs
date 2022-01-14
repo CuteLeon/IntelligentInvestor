@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public partial class SelfSelectStockForm : SingleToolDockForm
+public partial class SelectedStockForm : SingleToolDockForm
 {
     private readonly StockBaseComparer<Stock> stockComparer = new StockBaseComparer<Stock>();
     private readonly IServiceProvider serviceProvider;
@@ -18,8 +18,8 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IStockRepository stockRepository;
 
-    public SelfSelectStockForm(
-        ILogger<SelfSelectStockForm> logger,
+    public SelectedStockForm(
+        ILogger<SelectedStockForm> logger,
         IUIThemeHandler themeHandler,
         IIntermediaryEventHandler<StockEvent> stockEventHandler,
         IIntermediaryPublisher intermediaryPublisher,
@@ -29,10 +29,10 @@ public partial class SelfSelectStockForm : SingleToolDockForm
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.SelfSelectIcon;
+        this.Icon = IntelligentInvestorResource.SelectedStockIcon;
 
-        this.TabPageContextMenuStrip = this.SelfSelectGridViewMenuStrip;
-        this.SelfSelectStockGridView.ContextMenuStrip = this.SelfSelectGridViewMenuStrip;
+        this.TabPageContextMenuStrip = this.SelectedStockGridViewMenuStrip;
+        this.SelectedStockStockGridView.ContextMenuStrip = this.SelectedStockGridViewMenuStrip;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.stockEventHandler = stockEventHandler;
         this.intermediaryPublisher = intermediaryPublisher;
@@ -79,7 +79,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
     }
 
-    private void SelfSelectStockForm_Load(object sender, EventArgs e)
+    private void SelectedStockStockForm_Load(object sender, EventArgs e)
     {
         if (this.DesignMode)
         {
@@ -87,7 +87,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
     }
 
-    private async void SelfSelectStockForm_Shown(object sender, EventArgs e)
+    private async void SelectedStockStockForm_Shown(object sender, EventArgs e)
     {
         try
         {
@@ -96,32 +96,32 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, $"Initialize {nameof(SelfSelectStockForm)} failed.");
+            this.logger.LogError(ex, $"Initialize {nameof(SelectedStockForm)} failed.");
         }
     }
 
     public override void ApplyTheme()
     {
         base.ApplyTheme();
-        this.themeHandler.CurrentThemeComponent.ApplyTo(this.SelfSelectGridViewMenuStrip);
+        this.themeHandler.CurrentThemeComponent.ApplyTo(this.SelectedStockGridViewMenuStrip);
 
-        this.SelfSelectStockGridView.BackgroundColor = this.BackColor;
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
-        this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();
+        this.SelectedStockStockGridView.BackgroundColor = this.BackColor;
+        this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
+        this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
+        this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
+        this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
+        this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();
 
-        this.SelfSelectStockGridView.EnableHeadersVisualStyles = false;
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.BackColor = this.themeHandler.GetTitleBackcolor();
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.ForeColor = this.themeHandler.GetTitleForecolor();
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.BackColor;
-        this.SelfSelectStockGridView.ColumnHeadersDefaultCellStyle.Font = new Font(this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.Font, FontStyle.Regular);
+        this.SelectedStockStockGridView.EnableHeadersVisualStyles = false;
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.BackColor = this.themeHandler.GetTitleBackcolor();
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.ForeColor = this.themeHandler.GetTitleForecolor();
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.BackColor;
+        this.SelectedStockStockGridView.ColumnHeadersDefaultCellStyle.Font = new Font(this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.Font, FontStyle.Regular);
 
         this.SearchToolTextBox.BackColor = this.BackColor;
-        this.SearchToolTextBox.ForeColor = this.SelfSelectStockGridView.RowTemplate.DefaultCellStyle.ForeColor;
+        this.SearchToolTextBox.ForeColor = this.SelectedStockStockGridView.RowTemplate.DefaultCellStyle.ForeColor;
     }
 
     private void StockEventHandler_EventRaised(object? sender, StockEvent e)
@@ -129,17 +129,17 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         if (e.Stock is null) return;
         if (e.EventType == StockEventTypes.Select)
         {
-            this.AddSelfSelectStock(e.Stock);
+            this.AddSelectedStockStock(e.Stock);
         }
         else if (e.EventType == StockEventTypes.Unselect)
         {
-            this.RemoveSelfSelectStock(e.Stock);
+            this.RemoveSelectedStockStock(e.Stock);
         }
     }
 
-    private void SelfSelectStockBindingSource_CurrentChanged(object sender, EventArgs e)
+    private void SelectedStockStockBindingSource_CurrentChanged(object sender, EventArgs e)
     {
-        this.CurrentStock = this.SelfSelectStockBindingSource.Current as Stock;
+        this.CurrentStock = this.SelectedStockStockBindingSource.Current as Stock;
     }
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
@@ -154,12 +154,12 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
     private void RemoveToolButton_Click(object sender, EventArgs e)
     {
-        this.RemoveSelfSelectStock(this.currentStock);
+        this.RemoveSelectedStockStock(this.currentStock);
     }
 
     private void RemoveMenuItem_Click(object sender, EventArgs e)
     {
-        this.RemoveSelfSelectStock(this.currentStock);
+        this.RemoveSelectedStockStock(this.currentStock);
     }
 
     private async void SearchToolTextBox_TextChanged(object sender, EventArgs e)
@@ -174,7 +174,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         {
             try
             {
-                this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(keyWord, true);
+                this.SelectedStockStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(keyWord, true);
             }
             catch (Exception ex)
             {
@@ -198,7 +198,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         this.logger.LogDebug("Load self selected stocks ...");
         try
         {
-            this.SelfSelectStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(null, true);
+            this.SelectedStockStockBindingSource.DataSource = await this.stockRepository.SearchStocksAsync(null, true);
         }
         catch (Exception ex)
         {
@@ -206,7 +206,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         }
     }
 
-    private async void RemoveSelfSelectStock(Stock stock)
+    private async void RemoveSelectedStockStock(Stock stock)
     {
         if (stock == null) return;
         stock.IsSelected = false;
@@ -224,11 +224,11 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         var index = this.GetIndexInDataSource(stock);
         if (index != null)
         {
-            this.SelfSelectStockBindingSource.RemoveAt(index.Value);
+            this.SelectedStockStockBindingSource.RemoveAt(index.Value);
         }
     }
 
-    private async void AddSelfSelectStock(Stock stock)
+    private async void AddSelectedStockStock(Stock stock)
     {
         if (stock == null) return;
         stock.IsSelected = true;
@@ -245,17 +245,17 @@ public partial class SelfSelectStockForm : SingleToolDockForm
 
         if (!this.CheckDataSourceContains(stock))
         {
-            this.SelfSelectStockBindingSource.Add(stock);
+            this.SelectedStockStockBindingSource.Add(stock);
         }
     }
 
     private bool CheckDataSourceContains(Stock stock)
-        => this.SelfSelectStockBindingSource.Cast<Stock>()?.Contains(stock, this.stockComparer) ?? false;
+        => this.SelectedStockStockBindingSource.Cast<Stock>()?.Contains(stock, this.stockComparer) ?? false;
 
     private int? GetIndexInDataSource(Stock stock)
     {
         int index = 0;
-        foreach (var current in this.SelfSelectStockBindingSource.Cast<Stock>())
+        foreach (var current in this.SelectedStockStockBindingSource.Cast<Stock>())
         {
             if (this.stockComparer.Equals(stock, current)) return index;
             index++;
@@ -274,7 +274,7 @@ public partial class SelfSelectStockForm : SingleToolDockForm
         dockForm.Show(this.DockPanel);
     }
 
-    private void SelfSelectStockForm_FormClosed(object sender, FormClosedEventArgs e)
+    private void SelectedStockStockForm_FormClosed(object sender, FormClosedEventArgs e)
     {
         this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
     }

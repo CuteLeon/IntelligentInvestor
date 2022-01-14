@@ -10,13 +10,13 @@ public static class IntelligentInvestorClientExtension
         => services
             .AddSingleton<IUIThemeHandler, UIThemeHandler>()
             .AddSingleton<MainForm>()
-            .AddSingleton<RecentTradeForm>()
-            .AddSingleton<MarketQuoteForm>()
-            .AddSingleton<CurrentQuoteForm>()
+            .AddSingleton<TradeHistoryForm>()
+            .AddSingleton<MarketIndexForm>()
+            .AddSingleton<TradeQuoteForm>()
             .AddSingleton<HotStockDockForm>()
             .AddSingleton<SearchStockDockForm>()
-            .AddSingleton<SelfSelectStockForm>()
+            .AddSingleton<SelectedStockForm>()
             .AddTransient<ChartDocumentForm>()
-            .AddTransient<RecentQuoteDocumentForm>()
+            .AddTransient<QuoteHistoryDocumentForm>()
             .AddTransient<QuoteRepositoryDocumentForm>();
 }

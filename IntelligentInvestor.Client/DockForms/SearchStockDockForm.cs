@@ -95,13 +95,13 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.MainStockQuoteControl.ValueForecolor = this.StockComboBox.ForeColor;
     }
 
-    private void AddSelfSelectToolButton_Click(object sender, EventArgs e)
+    private void AddSelectedStockToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
         this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
     }
 
-    private void RemoveSelfSelectToolButton_Click(object sender, EventArgs e)
+    private void RemoveSelectedStockToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
         this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
@@ -114,7 +114,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        _ = this.QueryQuote(this.currentStock.StockCode, this.currentStock.StockMarket);
+        _ = this.QueryQuote(this.currentStock);
     }
 
     private void ChartToolButton_Click(object sender, EventArgs e)
@@ -187,14 +187,14 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
     }
 
-    private void RecentToolStripButton_Click(object sender, EventArgs e)
+    private void QuoteHistoryStripButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null)
         {
             return;
         }
 
-        var form = this.serviceProvider.GetRequiredService<RecentQuoteDocumentForm>();
+        var form = this.serviceProvider.GetRequiredService<QuoteHistoryDocumentForm>();
         if (form == null)
         {
             return;
@@ -244,14 +244,15 @@ public partial class SearchStockDockForm : SingleToolDockForm
         }
         else
         {
-            _ = this.QueryQuote(stock.StockCode, stock.StockMarket);
+            this.CurrentStock = stock;
+            _ = this.QueryQuote(stock);
         }
     }
 
-    public async Task QueryQuote(string code, StockMarkets market)
+    public async Task QueryQuote(Stock stock)
     {
-        this.logger.LogDebug($"Query quote of stock {this.currentStock.GetFullCode()} ...");
-        var (quote, _) = await this.quoteSpider.GetQuoteAsync(market, code);
+        this.logger.LogDebug($"Query quote of stock {stock.GetFullCode()} ...");
+        var (quote, _) = await this.quoteSpider.GetQuoteAsync(stock.StockMarket, stock.StockCode);
         this.CurrentQuote = quote;
     }
 }

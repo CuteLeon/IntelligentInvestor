@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.Controls
 {
-    partial class MarketQuoteControl
+    partial class MarketIndexControl
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -237,12 +237,12 @@
             this.SeparatorLabel1.Size = new System.Drawing.Size(249, 1);
             this.SeparatorLabel1.TabIndex = 31;
             // 
-            // MarketQuoteControl
+            // MarketIndexControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainTablePanel);
-            this.Name = "MarketQuoteControl";
+            this.Name = "MarketIndexControl";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Size = new System.Drawing.Size(275, 122);
             this.MainTablePanel.ResumeLayout(false);

@@ -9,14 +9,14 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public partial class RecentQuoteDocumentForm : DocumentDockForm
+public partial class QuoteHistoryDocumentForm : DocumentDockForm
 {
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
     private readonly IQuoteSpider quoteSpider;
 
-    public RecentQuoteDocumentForm(
-        ILogger<RecentQuoteDocumentForm> logger,
+    public QuoteHistoryDocumentForm(
+        ILogger<QuoteHistoryDocumentForm> logger,
         IUIThemeHandler themeHandler,
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
@@ -67,17 +67,17 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
 
             if (value == null)
             {
-                this.Text = "Recent Quote - [Empty]";
+                this.Text = "Quote History - [Empty]";
                 this.StockInfoToolLabel.Text = "[Empty]";
 
-                this.RecentQuoteToolStrip.Enabled = false;
+                this.QuoteHistoryToolStrip.Enabled = false;
             }
             else
             {
-                this.Text = $"Recent Quote - {value.StockName}";
+                this.Text = $"Quote History - {value.StockName}";
                 this.StockInfoToolLabel.Text = value.StockName;
 
-                this.RecentQuoteToolStrip.Enabled = true;
+                this.QuoteHistoryToolStrip.Enabled = true;
 
                 try
                 {
@@ -91,7 +91,7 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
         }
     }
 
-    private void RecentQuoteDocumentForm_Load(object sender, EventArgs e)
+    private void QuoteHistoryDocumentForm_Load(object sender, EventArgs e)
     {
         if (this.DesignMode)
         {
@@ -99,8 +99,8 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
         }
 
         ToolStripControlHost quoteLengthNumericHost = new ToolStripControlHost(this.QuoteLengthNumeric);
-        int insertIndex = this.RecentQuoteToolStrip.Items.IndexOf(this.QuoteLengthToolLabel) + 1;
-        this.RecentQuoteToolStrip.Items.Insert(insertIndex, quoteLengthNumericHost);
+        int insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.QuoteLengthToolLabel) + 1;
+        this.QuoteHistoryToolStrip.Items.Insert(insertIndex, quoteLengthNumericHost);
 
         this.QuoteFrequencyComboBox.SelectedIndex = 0;
         this.QuoteLengthNumeric.Value = 20;
@@ -110,27 +110,27 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
     {
         base.ApplyTheme();
 
-        this.RecentQuoteGridView.BackgroundColor = this.BackColor;
-        this.RecentQuoteGridView.RowHeadersDefaultCellStyle.BackColor = this.BackColor;
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
-        this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();
+        this.QuoteHistoryGridView.BackgroundColor = this.BackColor;
+        this.QuoteHistoryGridView.RowHeadersDefaultCellStyle.BackColor = this.BackColor;
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Regular, GraphicsUnit.Point, 134);
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.ForeColor = this.themeHandler.GetContentForecolor();
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = this.themeHandler.GetContentHighLightBackcolor();
+        this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = this.themeHandler.GetContentHighLightForecolor();
 
-        this.RecentQuoteGridView.EnableHeadersVisualStyles = false;
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.BackColor = this.themeHandler.GetTitleBackcolor();
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.ForeColor = this.themeHandler.GetTitleForecolor();
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.BackColor;
-        this.RecentQuoteGridView.ColumnHeadersDefaultCellStyle.Font = this.RecentQuoteGridView.RowTemplate.DefaultCellStyle.Font;
+        this.QuoteHistoryGridView.EnableHeadersVisualStyles = false;
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.BackColor = this.themeHandler.GetTitleBackcolor();
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.ForeColor = this.themeHandler.GetTitleForecolor();
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.BackColor;
+        this.QuoteHistoryGridView.ColumnHeadersDefaultCellStyle.Font = this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.Font;
     }
 
     private void QueryToolButton_Click(object sender, EventArgs e)
     {
-        _ = this.QueryRecentQuotes();
+        _ = this.QueryQuoteHistorys();
     }
 
     private void ExportToolButton_Click(object sender, EventArgs e)
@@ -140,7 +140,7 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
             return;
         }
 
-        if (this.RecentQuoteGridView.Rows.Count == 0)
+        if (this.QuoteHistoryGridView.Rows.Count == 0)
         {
             return;
         }
@@ -167,7 +167,7 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
                     string line = "Code\tMarket\tName\tOpenPrice\tClosePrice\tHighestPrice\tLowestPrice\tVolumn\tQuoteTime\tNextOpenPrice";
                     streamWriter.WriteLine(line);
 
-                    var quotes = this.RecentQuoteBindingSource.Cast<Quote>()
+                    var quotes = this.QuoteHistoryBindingSource.Cast<Quote>()
                         .OrderByDescending(quote => quote.QuoteTime)
                         .ToList();
 
@@ -193,14 +193,14 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
     private void MLTransformButton_Click(object sender, EventArgs e)
     {
         if (this.stock == null) return;
-        if (this.RecentQuoteGridView.Rows.Count == 0) return;
+        if (this.QuoteHistoryGridView.Rows.Count == 0) return;
 
         /*
         var convertor = DIContainerHelper.Resolve<INOPInputConverter>();
         var prediction = DIContainerHelper.Resolve<INOPStockPrediction>();
 
         var modelPath = @"D:\ML\Model.zip";
-        var quotes = this.RecentQuoteBindingSource.Cast<RecentQuote>()
+        var quotes = this.QuoteHistoryBindingSource.Cast<QuoteHistory>()
 
         // if (!File.Exists(modelPath))
         {
@@ -221,17 +221,17 @@ public partial class RecentQuoteDocumentForm : DocumentDockForm
          */
     }
 
-    public async Task QueryRecentQuotes()
+    public async Task QueryQuoteHistorys()
     {
         if (this.stock == null) return;
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.NotSpecified;
         this.logger.LogDebug($"Query quotes for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
-        var recentQuotes = await this.quoteSpider.GetQuotesAsync(
+        var quoteHistorys = await this.quoteSpider.GetQuotesAsync(
             this.stock.StockMarket,
             this.stock.StockCode,
             frequency,
             DateTime.Now.AddMinutes(-1 * Convert.ToInt32(this.QuoteLengthNumeric.Value)),
             DateTime.Now);
-        this.RecentQuoteBindingSource.DataSource = recentQuotes;
+        this.QuoteHistoryBindingSource.DataSource = quoteHistorys;
     }
 }

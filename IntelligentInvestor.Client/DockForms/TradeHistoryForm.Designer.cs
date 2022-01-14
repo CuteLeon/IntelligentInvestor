@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    partial class RecentTradeForm
+    partial class TradeHistoryForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,15 +17,15 @@
         {
             this.SuspendLayout();
             // 
-            // RecentTradeForm
+            // TradeHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "RecentTradeForm";
+            this.Name = "TradeHistoryForm";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.TabText = "Recent Tarde";
-            this.Text = "Recent Trade";
+            this.Text = "Trade History";
             this.ResumeLayout(false);
         }
     }

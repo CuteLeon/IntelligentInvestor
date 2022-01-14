@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    partial class RecentQuoteDocumentForm
+    partial class QuoteHistoryDocumentForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,7 +17,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.RecentQuoteGridView = new System.Windows.Forms.DataGridView();
+            this.QuoteHistoryGridView = new System.Windows.Forms.DataGridView();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openningPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -27,8 +27,8 @@
             this.volumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quoteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quoteFrequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecentQuoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.RecentQuoteToolStrip = new System.Windows.Forms.ToolStrip();
+            this.QuoteHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.QuoteHistoryToolStrip = new System.Windows.Forms.ToolStrip();
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.QuoteFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
@@ -39,25 +39,25 @@
             this.ExportToolButton = new System.Windows.Forms.ToolStripButton();
             this.QuoteLengthNumeric = new System.Windows.Forms.NumericUpDown();
             this.MLTransformButton = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteBindingSource)).BeginInit();
-            this.RecentQuoteToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryBindingSource)).BeginInit();
+            this.QuoteHistoryToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // RecentQuoteGridView
+            // QuoteHistoryGridView
             // 
-            this.RecentQuoteGridView.AllowUserToAddRows = false;
-            this.RecentQuoteGridView.AllowUserToDeleteRows = false;
-            this.RecentQuoteGridView.AllowUserToOrderColumns = true;
-            this.RecentQuoteGridView.AllowUserToResizeRows = false;
-            this.RecentQuoteGridView.AutoGenerateColumns = false;
-            this.RecentQuoteGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.RecentQuoteGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RecentQuoteGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.RecentQuoteGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.RecentQuoteGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecentQuoteGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.QuoteHistoryGridView.AllowUserToAddRows = false;
+            this.QuoteHistoryGridView.AllowUserToDeleteRows = false;
+            this.QuoteHistoryGridView.AllowUserToOrderColumns = true;
+            this.QuoteHistoryGridView.AllowUserToResizeRows = false;
+            this.QuoteHistoryGridView.AutoGenerateColumns = false;
+            this.QuoteHistoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.QuoteHistoryGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.QuoteHistoryGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.QuoteHistoryGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.QuoteHistoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.QuoteHistoryGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
             this.marketDataGridViewTextBoxColumn,
             this.quoteTimeDataGridViewTextBoxColumn,
@@ -67,18 +67,18 @@
             this.highestPriceDataGridViewTextBoxColumn,
             this.lowestPriceDataGridViewTextBoxColumn,
             this.volumeDataGridViewTextBoxColumn});
-            this.RecentQuoteGridView.DataSource = this.RecentQuoteBindingSource;
-            this.RecentQuoteGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecentQuoteGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.RecentQuoteGridView.Location = new System.Drawing.Point(0, 25);
-            this.RecentQuoteGridView.Name = "RecentQuoteGridView";
-            this.RecentQuoteGridView.ReadOnly = true;
-            this.RecentQuoteGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.RecentQuoteGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.RecentQuoteGridView.RowTemplate.Height = 23;
-            this.RecentQuoteGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecentQuoteGridView.Size = new System.Drawing.Size(522, 324);
-            this.RecentQuoteGridView.TabIndex = 3;
+            this.QuoteHistoryGridView.DataSource = this.QuoteHistoryBindingSource;
+            this.QuoteHistoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.QuoteHistoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.QuoteHistoryGridView.Location = new System.Drawing.Point(0, 25);
+            this.QuoteHistoryGridView.Name = "QuoteHistoryGridView";
+            this.QuoteHistoryGridView.ReadOnly = true;
+            this.QuoteHistoryGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.QuoteHistoryGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.QuoteHistoryGridView.RowTemplate.Height = 23;
+            this.QuoteHistoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.QuoteHistoryGridView.Size = new System.Drawing.Size(522, 324);
+            this.QuoteHistoryGridView.TabIndex = 3;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -158,13 +158,13 @@
             this.volumeDataGridViewTextBoxColumn.ReadOnly = true;
             this.volumeDataGridViewTextBoxColumn.Width = 66;
             // 
-            // RecentQuoteBindingSource
+            // QuoteHistoryBindingSource
             // 
-            this.RecentQuoteBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotes.Quote);
+            this.QuoteHistoryBindingSource.DataSource = typeof(IntelligentInvestor.Domain.Quotes.Quote);
             // 
-            // RecentQuoteToolStrip
+            // QuoteHistoryToolStrip
             // 
-            this.RecentQuoteToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.QuoteHistoryToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
             this.QuoteFrequencyComboBox,
@@ -174,10 +174,10 @@
             this.MLTransformButton,
             this.toolStripSeparator3,
             this.QueryToolButton});
-            this.RecentQuoteToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.RecentQuoteToolStrip.Name = "RecentQuoteToolStrip";
-            this.RecentQuoteToolStrip.Size = new System.Drawing.Size(522, 25);
-            this.RecentQuoteToolStrip.TabIndex = 2;
+            this.QuoteHistoryToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.QuoteHistoryToolStrip.Name = "QuoteHistoryToolStrip";
+            this.QuoteHistoryToolStrip.Size = new System.Drawing.Size(522, 25);
+            this.QuoteHistoryToolStrip.TabIndex = 2;
             // 
             // StockInfoToolLabel
             // 
@@ -269,30 +269,30 @@
             this.MLTransformButton.Text = "ML Train";
             this.MLTransformButton.Click += new System.EventHandler(this.MLTransformButton_Click);
             // 
-            // RecentQuoteDocumentForm
+            // QuoteHistoryDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 349);
             this.Controls.Add(this.QuoteLengthNumeric);
-            this.Controls.Add(this.RecentQuoteGridView);
-            this.Controls.Add(this.RecentQuoteToolStrip);
-            this.Name = "RecentQuoteDocumentForm";
-            this.TabText = "RecentQuoteDocumentForm";
-            this.Text = "RecentQuoteDocumentForm";
-            this.Load += new System.EventHandler(this.RecentQuoteDocumentForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecentQuoteBindingSource)).EndInit();
-            this.RecentQuoteToolStrip.ResumeLayout(false);
-            this.RecentQuoteToolStrip.PerformLayout();
+            this.Controls.Add(this.QuoteHistoryGridView);
+            this.Controls.Add(this.QuoteHistoryToolStrip);
+            this.Name = "QuoteHistoryDocumentForm";
+            this.TabText = "QuoteHistoryDocumentForm";
+            this.Text = "QuoteHistoryDocumentForm";
+            this.Load += new System.EventHandler(this.QuoteHistoryDocumentForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryBindingSource)).EndInit();
+            this.QuoteHistoryToolStrip.ResumeLayout(false);
+            this.QuoteHistoryToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private System.Windows.Forms.DataGridView RecentQuoteGridView;
-        private System.Windows.Forms.ToolStrip RecentQuoteToolStrip;
+        private System.Windows.Forms.DataGridView QuoteHistoryGridView;
+        private System.Windows.Forms.ToolStrip QuoteHistoryToolStrip;
         private System.Windows.Forms.ToolStripLabel StockInfoToolLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -300,7 +300,7 @@
         private System.Windows.Forms.ToolStripComboBox QuoteFrequencyComboBox;
         private System.Windows.Forms.ToolStripLabel QuoteLengthToolLabel;
         private System.Windows.Forms.NumericUpDown QuoteLengthNumeric;
-        private System.Windows.Forms.BindingSource RecentQuoteBindingSource;
+        private System.Windows.Forms.BindingSource QuoteHistoryBindingSource;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton ExportToolButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
