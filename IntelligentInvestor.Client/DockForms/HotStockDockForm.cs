@@ -25,7 +25,7 @@ public partial class HotStockDockForm : SingleToolDockForm
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
-        this.Icon = IntelligentInvestorResource.HotIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Hot.GetHicon());
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.stockSpider = stockSpider;

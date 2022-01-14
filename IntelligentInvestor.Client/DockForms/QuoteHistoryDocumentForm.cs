@@ -30,6 +30,7 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
             return;
         }
 
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Clock.GetHicon());
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;

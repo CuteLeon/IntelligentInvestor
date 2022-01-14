@@ -93,6 +93,26 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Architecture {
+            get {
+                object obj = ResourceManager.GetObject("Architecture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Attention {
+            get {
+                object obj = ResourceManager.GetObject("Attention", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Block {
             get {
                 object obj = ResourceManager.GetObject("Block", resourceCulture);
@@ -106,6 +126,16 @@ namespace IntelligentInvestor.Client {
         internal static System.Drawing.Bitmap Box {
             get {
                 object obj = ResourceManager.GetObject("Box", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Canceled {
+            get {
+                object obj = ResourceManager.GetObject("Canceled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -151,32 +181,12 @@ namespace IntelligentInvestor.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon CompanyInfoIcon {
-            get {
-                object obj = ResourceManager.GetObject("CompanyInfoIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Context {
             get {
                 object obj = ResourceManager.GetObject("Context", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon TradeQuoteIcon {
-            get {
-                object obj = ResourceManager.GetObject("TradeQuoteIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -201,21 +211,21 @@ namespace IntelligentInvestor.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon DocumentIcon {
+        internal static System.Drawing.Bitmap DownArrow {
             get {
-                object obj = ResourceManager.GetObject("DocumentIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("DownArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DownArrow {
+        internal static System.Drawing.Bitmap Download {
             get {
-                object obj = ResourceManager.GetObject("DownArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("Download", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,6 +273,16 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Filter {
+            get {
+                object obj = ResourceManager.GetObject("Filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Forbidden {
             get {
                 object obj = ResourceManager.GetObject("Forbidden", resourceCulture);
@@ -301,12 +321,22 @@ namespace IntelligentInvestor.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon HotIcon {
+        internal static System.Drawing.Bitmap HotPath {
             get {
-                object obj = ResourceManager.GetObject("HotIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("HotPath", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HotProcesser {
+            get {
+                object obj = ResourceManager.GetObject("HotProcesser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -346,6 +376,16 @@ namespace IntelligentInvestor.Client {
         internal static System.Drawing.Bitmap InsightTable {
             get {
                 object obj = ResourceManager.GetObject("InsightTable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Inspect {
+            get {
+                object obj = ResourceManager.GetObject("Inspect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -391,12 +431,12 @@ namespace IntelligentInvestor.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon MarketIndexIcon {
+        internal static System.Drawing.Bitmap Play {
             get {
-                object obj = ResourceManager.GetObject("MarketIndexIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -427,26 +467,6 @@ namespace IntelligentInvestor.Client {
             get {
                 object obj = ResourceManager.GetObject("Quote", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon QuoteHistoryIcon {
-            get {
-                object obj = ResourceManager.GetObject("QuoteHistoryIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon TradeHistoryIcon {
-            get {
-                object obj = ResourceManager.GetObject("TradeHistoryIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -511,32 +531,12 @@ namespace IntelligentInvestor.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon SearchIcon {
-            get {
-                object obj = ResourceManager.GetObject("SearchIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap SearchLabel {
             get {
                 object obj = ResourceManager.GetObject("SearchLabel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon SelectedStockIcon {
-            get {
-                object obj = ResourceManager.GetObject("SelectedStockIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -576,6 +576,16 @@ namespace IntelligentInvestor.Client {
         internal static System.Drawing.Bitmap Setting {
             get {
                 object obj = ResourceManager.GetObject("Setting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StackedLineChart {
+            get {
+                object obj = ResourceManager.GetObject("StackedLineChart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,9 +653,29 @@ namespace IntelligentInvestor.Client {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ValueCollectionType {
+            get {
+                object obj = ResourceManager.GetObject("ValueCollectionType", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap View {
             get {
                 object obj = ResourceManager.GetObject("View", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewDiagnostics {
+            get {
+                object obj = ResourceManager.GetObject("ViewDiagnostics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

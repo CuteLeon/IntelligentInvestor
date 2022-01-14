@@ -12,6 +12,6 @@ public partial class CompanyInfoForm : SingleToolDockForm
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.CompanyInfoIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Architecture.GetHicon());
     }
 }

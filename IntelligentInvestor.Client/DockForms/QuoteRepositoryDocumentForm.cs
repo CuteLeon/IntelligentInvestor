@@ -27,6 +27,7 @@ public partial class QuoteRepositoryDocumentForm : DocumentDockForm
             return;
         }
 
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Context.GetHicon());
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
         this.QuoteFrequencyComboBox.SelectedIndex = 0;
         this.stockRepository = stockRepository;

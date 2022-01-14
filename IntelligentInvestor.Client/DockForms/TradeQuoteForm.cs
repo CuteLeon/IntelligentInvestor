@@ -36,7 +36,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
     {
         this.InitializeComponent(themeHandler);
 
-        this.Icon = IntelligentInvestorResource.TradeQuoteIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Processer.GetHicon());
         this.HideOnClose = true;
         this.CloseButton = false;
         this.CloseButtonVisible = false;

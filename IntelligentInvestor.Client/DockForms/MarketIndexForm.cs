@@ -30,7 +30,7 @@ public partial class MarketIndexForm : SingleToolDockForm
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
-        this.Icon = IntelligentInvestorResource.MarketIndexIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Graph.GetHicon());
         this.logger = logger;
         this.themeHandler = themeHandler;
         this.stockEventHandler = stockEventHandler;

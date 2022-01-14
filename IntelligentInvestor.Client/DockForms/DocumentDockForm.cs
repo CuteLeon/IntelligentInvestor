@@ -12,6 +12,6 @@ public partial class DocumentDockForm : DockFormBase
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.DocumentIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Document.GetHicon());
     }
 }

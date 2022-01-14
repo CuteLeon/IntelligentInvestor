@@ -12,6 +12,6 @@ public partial class TradeHistoryForm : SingleToolDockForm
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.TradeHistoryIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Clock.GetHicon());
     }
 }

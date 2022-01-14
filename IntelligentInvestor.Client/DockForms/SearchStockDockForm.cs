@@ -34,7 +34,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
-        this.Icon = IntelligentInvestorResource.SearchIcon;
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Search.GetHicon());
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;

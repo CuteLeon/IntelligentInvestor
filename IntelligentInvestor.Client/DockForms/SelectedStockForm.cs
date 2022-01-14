@@ -29,8 +29,7 @@ public partial class SelectedStockForm : SingleToolDockForm
     {
         this.InitializeComponent();
 
-        this.Icon = IntelligentInvestorResource.SelectedStockIcon;
-
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.InsightTable.GetHicon());
         this.TabPageContextMenuStrip = this.SelectedStockGridViewMenuStrip;
         this.SelectedStockStockGridView.ContextMenuStrip = this.SelectedStockGridViewMenuStrip;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;

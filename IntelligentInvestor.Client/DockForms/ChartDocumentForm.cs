@@ -27,6 +27,7 @@ public partial class ChartDocumentForm : DocumentDockForm
             return;
         }
 
+        this.Icon = Icon.FromHandle(IntelligentInvestorResource.Chart.GetHicon());
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
         this.QuoteFrequencyComboBox.SelectedIndex = 1;
         this.stockRepository = stockRepository;
