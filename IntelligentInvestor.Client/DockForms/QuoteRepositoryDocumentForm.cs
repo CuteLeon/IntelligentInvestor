@@ -139,20 +139,24 @@ public partial class QuoteRepositoryDocumentForm : DocumentDockForm
 
     private async void LoadQuotes()
     {
+        if (this.stock == null) return;
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.NotSpecified;
+        var fromDate = this.QuoteStartDatePicker.Checked ? (DateTime?)this.QuoteStartDatePicker.Value.Date : null;
+        var toDate = this.QuoteEndDatePicker.Checked ? (DateTime?)this.QuoteEndDatePicker.Value.Date : null;
         this.logger.LogDebug($"Load quotes for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
         try
         {
-            this.QuoteRepositoryBindingSource.DataSource = await this.quoteRepository.GetStockQuotesAsync(
+            var quotes = await this.quoteRepository.GetQuotesAsync(
                 this.stock.StockMarket,
                 this.stock.StockCode,
                 frequency,
-                this.QuoteStartDatePicker.Checked ? this.QuoteStartDatePicker.Value.Date : null,
-                this.QuoteEndDatePicker.Checked ? this.QuoteEndDatePicker.Value.Date : null);
+                fromDate,
+                toDate);
+            this.QuoteRepositoryBindingSource.DataSource = quotes;
         }
         catch (Exception ex)
         {
-            this.logger.LogError(ex, $"Failed to query quotes.");
+            this.logger.LogError(ex, $"Failed to load quotes.");
         }
     }
 }

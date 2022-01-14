@@ -35,17 +35,18 @@
             this.StockInfoToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.QuoteFrequencyComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.QuoteLengthToolLabel = new System.Windows.Forms.ToolStripLabel();
+            this.StartTimeToolLabel = new System.Windows.Forms.ToolStripLabel();
+            this.EndTimeToolLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.QueryToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ExportToolButton = new System.Windows.Forms.ToolStripButton();
-            this.QuoteLengthNumeric = new System.Windows.Forms.NumericUpDown();
+            this.QuoteStartDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.QuoteEndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MLTransformButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryBindingSource)).BeginInit();
             this.QuoteHistoryToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // QuoteHistoryGridView
@@ -198,7 +199,8 @@
             this.StockInfoToolLabel,
             this.toolStripSeparator1,
             this.QuoteFrequencyComboBox,
-            this.QuoteLengthToolLabel,
+            this.StartTimeToolLabel,
+            this.EndTimeToolLabel,
             this.toolStripSeparator2,
             this.ExportToolButton,
             this.MLTransformButton,
@@ -226,12 +228,27 @@
             this.QuoteFrequencyComboBox.Name = "QuoteFrequencyComboBox";
             this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
             // 
-            // QuoteLengthToolLabel
+            // QuoteStartDatePicker
             // 
-            this.QuoteLengthToolLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.QuoteLengthToolLabel.Name = "QuoteLengthToolLabel";
-            this.QuoteLengthToolLabel.Size = new System.Drawing.Size(56, 22);
-            this.QuoteLengthToolLabel.Text = "Count";
+            this.QuoteStartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteStartDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteStartDatePicker.Location = new System.Drawing.Point(94, 166);
+            this.QuoteStartDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteStartDatePicker.Name = "QuoteStartDatePicker";
+            this.QuoteStartDatePicker.ShowCheckBox = true;
+            this.QuoteStartDatePicker.Size = new System.Drawing.Size(173, 26);
+            this.QuoteStartDatePicker.TabIndex = 2;
+            // 
+            // QuoteEndDatePicker
+            // 
+            this.QuoteEndDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteEndDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.QuoteEndDatePicker.Location = new System.Drawing.Point(281, 166);
+            this.QuoteEndDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.QuoteEndDatePicker.Name = "QuoteEndDatePicker";
+            this.QuoteEndDatePicker.ShowCheckBox = true;
+            this.QuoteEndDatePicker.Size = new System.Drawing.Size(173, 26);
+            this.QuoteEndDatePicker.TabIndex = 3;
             // 
             // toolStripSeparator2
             // 
@@ -261,34 +278,17 @@
             this.ExportToolButton.Text = "Export";
             this.ExportToolButton.Click += new System.EventHandler(this.ExportToolButton_Click);
             // 
-            // QuoteLengthNumeric
+            // StartTimeToolLabel
             // 
-            this.QuoteLengthNumeric.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.QuoteLengthNumeric.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.QuoteLengthNumeric.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.QuoteLengthNumeric.Location = new System.Drawing.Point(224, 149);
-            this.QuoteLengthNumeric.Maximum = new decimal(new int[] {
-            2400,
-            0,
-            0,
-            0});
-            this.QuoteLengthNumeric.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.QuoteLengthNumeric.Name = "QuoteLengthNumeric";
-            this.QuoteLengthNumeric.Size = new System.Drawing.Size(120, 22);
-            this.QuoteLengthNumeric.TabIndex = 4;
-            this.QuoteLengthNumeric.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
+            this.StartTimeToolLabel.Name = "StartTimeToolLabel";
+            this.StartTimeToolLabel.Size = new System.Drawing.Size(32, 22);
+            this.StartTimeToolLabel.Text = "Start";
+            // 
+            // EndTimeToolLabel
+            // 
+            this.EndTimeToolLabel.Name = "EndTimeToolLabel";
+            this.EndTimeToolLabel.Size = new System.Drawing.Size(32, 22);
+            this.EndTimeToolLabel.Text = "End";
             // 
             // MLTransformButton
             // 
@@ -304,7 +304,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 349);
-            this.Controls.Add(this.QuoteLengthNumeric);
+            this.Controls.Add(this.QuoteEndDatePicker);
+            this.Controls.Add(this.QuoteStartDatePicker);
             this.Controls.Add(this.QuoteHistoryGridView);
             this.Controls.Add(this.QuoteHistoryToolStrip);
             this.Name = "QuoteHistoryDocumentForm";
@@ -315,7 +316,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.QuoteHistoryBindingSource)).EndInit();
             this.QuoteHistoryToolStrip.ResumeLayout(false);
             this.QuoteHistoryToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuoteLengthNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,8 +328,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton QueryToolButton;
         private System.Windows.Forms.ToolStripComboBox QuoteFrequencyComboBox;
-        private System.Windows.Forms.ToolStripLabel QuoteLengthToolLabel;
-        private System.Windows.Forms.NumericUpDown QuoteLengthNumeric;
+        private System.Windows.Forms.ToolStripLabel StartTimeToolLabel;
+        private System.Windows.Forms.ToolStripLabel EndTimeToolLabel;
+        private System.Windows.Forms.DateTimePicker QuoteStartDatePicker;
+        private System.Windows.Forms.DateTimePicker QuoteEndDatePicker;
         private System.Windows.Forms.BindingSource QuoteHistoryBindingSource;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton ExportToolButton;

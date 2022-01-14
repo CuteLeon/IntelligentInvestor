@@ -16,7 +16,7 @@ public class QuoteRepository : RepositoryBase<Quote>, IQuoteRepository
     {
     }
 
-    public async Task<IEnumerable<Quote>> GetStockQuotesAsync(
+    public async Task<IEnumerable<Quote>> GetQuotesAsync(
         StockMarkets stockMarket,
         string stockCode,
         QuoteFrequencys quoteFrequency = QuoteFrequencys.NotSpecified,

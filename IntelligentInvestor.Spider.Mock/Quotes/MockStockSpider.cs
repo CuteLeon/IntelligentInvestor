@@ -73,7 +73,7 @@ public class MockQuoteSpider : IQuoteSpider
         return this.chartsFaker.PickRandom(bitmaps);
     }
 
-    public async Task<IEnumerable<Quote>> GetQuotesAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency, DateTime fromDate, DateTime toDate)
+    public async Task<IEnumerable<Quote>> GetQuotesAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency, DateTime? fromDate, DateTime? toDate)
     {
         var result = this.quoteFaker.GenerateBetween(100, 300).ToList();
         result.ForEach(x =>

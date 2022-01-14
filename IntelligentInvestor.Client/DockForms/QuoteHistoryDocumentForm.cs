@@ -32,6 +32,7 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
 
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Clock.GetHicon());
         this.QuoteFrequencyComboBox.Items.AddRange(Enum.GetNames(typeof(QuoteFrequencys)));
+        this.QuoteFrequencyComboBox.SelectedIndex = 1;
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
         this.quoteSpider = quoteSpider;
@@ -99,12 +100,15 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
             return;
         }
 
-        ToolStripControlHost quoteLengthNumericHost = new ToolStripControlHost(this.QuoteLengthNumeric);
-        int insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.QuoteLengthToolLabel) + 1;
-        this.QuoteHistoryToolStrip.Items.Insert(insertIndex, quoteLengthNumericHost);
+        ToolStripControlHost startDatePickerHost = new(this.QuoteStartDatePicker);
+        ToolStripControlHost endDatePickerHost = new(this.QuoteEndDatePicker);
+        int insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
+        this.QuoteHistoryToolStrip.Items.Insert(insertIndex, startDatePickerHost);
+        insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.EndTimeToolLabel) + 1;
+        this.QuoteHistoryToolStrip.Items.Insert(insertIndex, endDatePickerHost);
 
-        this.QuoteFrequencyComboBox.SelectedIndex = 0;
-        this.QuoteLengthNumeric.Value = 20;
+        this.QuoteStartDatePicker.Value = DateTime.Today.AddDays(-7);
+        this.QuoteEndDatePicker.Value = DateTime.Today.AddDays(1);
     }
 
     public override void ApplyTheme()
@@ -226,13 +230,22 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
     {
         if (this.stock == null) return;
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.NotSpecified;
+        var fromDate = this.QuoteStartDatePicker.Checked ? (DateTime?)this.QuoteStartDatePicker.Value.Date : null;
+        var toDate = this.QuoteEndDatePicker.Checked ? (DateTime?)this.QuoteEndDatePicker.Value.Date : null;
         this.logger.LogDebug($"Query quotes for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
-        var quoteHistorys = await this.quoteSpider.GetQuotesAsync(
-            this.stock.StockMarket,
-            this.stock.StockCode,
-            frequency,
-            DateTime.Now.AddMinutes(-1 * Convert.ToInt32(this.QuoteLengthNumeric.Value)),
-            DateTime.Now);
-        this.QuoteHistoryBindingSource.DataSource = quoteHistorys;
+        try
+        {
+            var quoteHistorys = await this.quoteSpider.GetQuotesAsync(
+                this.stock.StockMarket,
+                this.stock.StockCode,
+                frequency,
+                fromDate,
+                toDate);
+            this.QuoteHistoryBindingSource.DataSource = quoteHistorys;
+        }
+        catch (Exception ex)
+        {
+            this.logger.LogError(ex, $"Failed to query quotes.");
+        }
     }
 }
