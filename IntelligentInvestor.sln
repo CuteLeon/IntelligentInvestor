@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Interme
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Intermediary.Abstractions", "IntelligentInvestor.Intermediary.Abstractions\IntelligentInvestor.Intermediary.Abstractions.csproj", "{4E0C42F1-9860-43A2-8A3D-92ED93D5264E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Spider.Mock", "IntelligentInvestor.Spider.Mock\IntelligentInvestor.Spider.Mock.csproj", "{42BD3B91-3D03-42A6-95C8-A8D6A6CECD0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Spider.Mock", "IntelligentInvestor.Spider.Mock\IntelligentInvestor.Spider.Mock.csproj", "{42BD3B91-3D03-42A6-95C8-A8D6A6CECD0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.Spider.UData", "IntelligentInvestor.Spider.UData\IntelligentInvestor.Spider.UData.csproj", "{8E362762-AB44-4FF8-899B-086B8003FFAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{42BD3B91-3D03-42A6-95C8-A8D6A6CECD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BD3B91-3D03-42A6-95C8-A8D6A6CECD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BD3B91-3D03-42A6-95C8-A8D6A6CECD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E362762-AB44-4FF8-899B-086B8003FFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E362762-AB44-4FF8-899B-086B8003FFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E362762-AB44-4FF8-899B-086B8003FFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E362762-AB44-4FF8-899B-086B8003FFAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
