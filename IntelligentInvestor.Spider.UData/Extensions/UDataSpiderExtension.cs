@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using IntelligentInvestor.Spider.Options;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace IntelligentInvestor.Spider.UData.Extensions;
 
 public static class UDataSpiderExtension
 {
-    public static IServiceCollection AddIntelligentInvestorClient(this IServiceCollection services)
+    public static IServiceCollection AddUDataSpider(this IServiceCollection services, SpiderOption options)
         => services;
 }
