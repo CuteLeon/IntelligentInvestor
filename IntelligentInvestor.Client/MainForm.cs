@@ -12,7 +12,7 @@ using WinApplication = System.Windows.Forms.Application;
 namespace IntelligentInvestor.Client;
 
 
-// Test cc
+// Test cc 1
 public partial class MainForm : Form
 {
     private readonly ILogger<MainForm> logger;
