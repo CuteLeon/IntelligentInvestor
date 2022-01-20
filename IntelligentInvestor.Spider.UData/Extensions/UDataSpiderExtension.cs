@@ -14,7 +14,7 @@ public static class UDataSpiderExtension
             httpClient.BaseAddress = new Uri(options.BaseAddress);
             httpClient.DefaultRequestHeaders.Add("Application-Token", options.Token);
         });
-        services.AddHttpClient<IStockSpider, UDataStockSpider>(httpClientConfiguration);
+        services.AddHttpClient<IHotStockSpider, UDataHotStockSpider>(httpClientConfiguration);
         return services.AddTransient<StockCodeMarketParser>();
     }
 }

@@ -17,21 +17,18 @@ public partial class MainForm : Form
     private readonly IUIThemeHandler themeHandler;
     private readonly IGenericOptionRepository genericOptionRepository;
     private readonly IServiceProvider serviceProvider;
-    private readonly IStockSpider stockSpider;
     private const string DockLayoutFileName = "IntelligentInvestor.Layout.xml";
 
     public MainForm(
         ILogger<MainForm> logger,
         IUIThemeHandler themeHandler,
         IServiceScopeFactory serviceScopeFactory,
-        IGenericOptionRepository genericOptionRepository,
-        IStockSpider stockSpider)
+        IGenericOptionRepository genericOptionRepository)
     {
         this.logger = logger;
         this.themeHandler = themeHandler;
         this.genericOptionRepository = genericOptionRepository;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
-        this.stockSpider = stockSpider;
         this.Icon = IntelligentInvestorResource.IntelligentInvestor;
         InitializeComponent();
     }

@@ -2,7 +2,7 @@
 
 namespace IntelligentInvestor.Spider.Stocks;
 
-public interface IStockSpider
+public interface IHotStockSpider
 {
-    Task<IEnumerable<Stock>> SearchStocksAsync(string keyword);
+    Task<IEnumerable<Stock>> GetHotStocksAsync();
 }

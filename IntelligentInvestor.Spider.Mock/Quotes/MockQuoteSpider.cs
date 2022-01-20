@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using Bogus;
+﻿using Bogus;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
@@ -13,8 +12,6 @@ public class MockQuoteSpider : IQuoteSpider
     private readonly ILogger<MockQuoteSpider> logger;
     private readonly Faker<Quote> quoteFaker;
     private readonly Faker<TradeStrand> tradeStrandFaker;
-    private readonly Faker chartsFaker;
-    private readonly Bitmap[] bitmaps;
 
     public MockQuoteSpider(
         ILogger<MockQuoteSpider> logger)
@@ -59,18 +56,6 @@ public class MockQuoteSpider : IQuoteSpider
             .RuleFor(x => x.SellStrand4, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.SellStrand5, faker => faker.Finance.Random.Int(100, 100000))
             .RuleFor(x => x.QuoteTime, faker => DateTime.Now);
-        this.bitmaps = new[]
-        {
-            SpiderMockResource.Chart_1,
-            SpiderMockResource.Chart_2,
-            SpiderMockResource.Chart_3,
-        };
-        this.chartsFaker = new Faker();
-    }
-
-    public async Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency)
-    {
-        return this.chartsFaker.PickRandom(bitmaps);
     }
 
     public async Task<IEnumerable<Quote>> GetQuotesAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency, DateTime? fromDate, DateTime? toDate)

@@ -5,13 +5,13 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Spider.Mock.Stocks;
 
-public class MockStockSpider : IStockSpider
+public class MockHotStockSpider : IHotStockSpider
 {
-    private readonly ILogger<MockStockSpider> logger;
+    private readonly ILogger<MockHotStockSpider> logger;
     private readonly Faker<Stock> stockFaker;
 
-    public MockStockSpider(
-        ILogger<MockStockSpider> logger)
+    public MockHotStockSpider(
+        ILogger<MockHotStockSpider> logger)
     {
         this.logger = logger;
         this.stockFaker = new Faker<Stock>()
@@ -21,9 +21,8 @@ public class MockStockSpider : IStockSpider
             .RuleFor(x => x.IsSelected, faker => faker.Random.Bool());
     }
 
-    public async Task<IEnumerable<Stock>> SearchStocksAsync(string keyword)
+    public async Task<IEnumerable<Stock>> GetHotStocksAsync()
     {
-        var result = this.stockFaker.GenerateBetween(5, 10).ToArray();
-        return result;
+        return this.stockFaker.GenerateBetween(10, 20).ToArray();
     }
 }

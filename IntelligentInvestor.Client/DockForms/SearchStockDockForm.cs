@@ -19,8 +19,9 @@ public partial class SearchStockDockForm : SingleToolDockForm
     private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IStockRepository stockRepository;
     private readonly IQuoteRepository quoteRepository;
-    private readonly IStockSpider stockSpider;
+    private readonly IHotStockSpider hotStockSpider;
     private readonly IQuoteSpider quoteSpider;
+    private readonly IStockSpider stockSpider;
 
     public SearchStockDockForm(
         ILogger<SearchStockDockForm> logger,
@@ -30,7 +31,8 @@ public partial class SearchStockDockForm : SingleToolDockForm
         IStockRepository stockRepository,
         IQuoteRepository quoteRepository,
         IQuoteSpider quoteSpider,
-        IStockSpider stockSpider)
+        IStockSpider stockSpider,
+        IHotStockSpider hotStockSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
@@ -41,6 +43,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.quoteRepository = quoteRepository;
         this.quoteSpider = quoteSpider;
         this.stockSpider = stockSpider;
+        this.hotStockSpider = hotStockSpider;
     }
 
     private Stock currentStock;

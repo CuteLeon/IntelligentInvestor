@@ -14,21 +14,21 @@ public partial class HotStockDockForm : SingleToolDockForm
     private readonly StockBaseComparer<Stock> stockComparer = new();
     private readonly IIntermediaryPublisher intermediaryPublisher;
     private readonly IStockRepository stockRepository;
-    private readonly IStockSpider stockSpider;
+    private readonly IHotStockSpider hotStockSpider;
 
     public HotStockDockForm(
         ILogger<HotStockDockForm> logger,
         IUIThemeHandler themeHandler,
         IIntermediaryPublisher intermediaryPublisher,
         IStockRepository stockRepository,
-        IStockSpider stockSpider)
+        IHotStockSpider hotStockSpider)
         : base(logger, themeHandler)
     {
         this.InitializeComponent();
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Hot.GetHicon());
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
-        this.stockSpider = stockSpider;
+        this.hotStockSpider = hotStockSpider;
     }
 
     private Stock currentStock;
@@ -97,6 +97,6 @@ public partial class HotStockDockForm : SingleToolDockForm
     private async Task RefreshDataSource()
     {
         this.logger.LogDebug($"Get hot stocks ...");
-        this.HotStockBindingSource.DataSource = await this.stockSpider.GetHotStocksAsync();
+        this.HotStockBindingSource.DataSource = await this.hotStockSpider.GetHotStocksAsync();
     }
 }
