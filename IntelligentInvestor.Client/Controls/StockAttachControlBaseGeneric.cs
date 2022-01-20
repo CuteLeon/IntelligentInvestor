@@ -5,14 +5,14 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls
 {
-    public class StockAttachControlBaseGeneric<TAttachEntity> : UserControl, IStockAttachControlBaseGeneric<TAttachEntity>
+    public class StockAttachControlBaseGeneric<TAttachEntity> : UserControl,
         where TAttachEntity : StockBase
     {
         public StockAttachControlBaseGeneric() : base()
         {
         }
 
-        protected readonly StockBaseComparer<Stock> StockComparer = new StockBaseComparer<Stock>();
+        protected readonly StockBaseComparer<Stock> StockComparer = new();
 
         private Color labelForecolor;
 
