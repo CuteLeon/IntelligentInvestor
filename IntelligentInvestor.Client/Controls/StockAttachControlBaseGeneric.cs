@@ -5,7 +5,7 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls
 {
-    public class StockAttachControlBaseGeneric<TAttachEntity> : UserControl,
+    public class StockAttachControlBaseGeneric<TAttachEntity> : UserControl
         where TAttachEntity : StockBase
     {
         public StockAttachControlBaseGeneric() : base()
