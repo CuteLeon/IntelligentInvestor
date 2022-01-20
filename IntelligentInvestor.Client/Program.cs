@@ -16,7 +16,7 @@ using NLogger = NLog.Logger;
 using WinApplication = System.Windows.Forms.Application;
 
 namespace IntelligentInvestor.Client;
-break1
+
 internal static class Program
 {
     public static ProgramHost Host { get; } = new ProgramHost();
