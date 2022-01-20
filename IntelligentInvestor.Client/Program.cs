@@ -5,6 +5,7 @@ using IntelligentInvestor.Infrastructure.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
 using IntelligentInvestor.Spider.Mock;
 using IntelligentInvestor.Spider.Options;
+using IntelligentInvestor.Spider.Sina.Extensions;
 using IntelligentInvestor.Spider.UData.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -118,10 +119,11 @@ namespace IntelligentInvestor.Client
         {
             Logger.Debug("Initialize stock spider ...");
             yield return "Initialize stock spider ...";
-            var options = Host.Configuration.GetSection("Spider").Get<SpiderOption>();
+            var spiderOptions = Host.Configuration.GetSection("Spider");
             var services = host.Services
                 .AddMockSpider()
-                .AddUDataSpider(options);
+                .AddSinaSpider(spiderOptions.GetSection("Sina").Get<SpiderOption>())
+                .AddUDataSpider(spiderOptions.GetSection("UData").Get<SpiderOption>());
         }
 
         static IEnumerable<string> InitializeIntermediary(this ProgramHost host)

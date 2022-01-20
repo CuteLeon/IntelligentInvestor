@@ -91,25 +91,36 @@ public partial class ChartDocumentForm : DocumentDockForm
         }
     }
 
-    private void ChartDocumentForm_Shown(object sender, EventArgs e)
+    private async void ChartDocumentForm_Shown(object sender, EventArgs e)
     {
-        _ = this.RefreshChart();
+        await this.RefreshChart();
     }
 
     private async Task RefreshChart()
     {
         var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.Trade;
         this.logger.LogDebug($"Refresh chart for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
-        Image chartImage = await this.chartSpider.GetChartAsync(
-            this.stock.StockMarket,
-            this.stock.StockCode,
-            frequency);
 
-        this.ChartPictureBox.BackgroundImage = chartImage;
+        try
+        {
+            Image chartImage = await this.chartSpider.GetChartAsync(
+                this.stock.StockMarket,
+                this.stock.StockCode,
+                frequency);
+
+            this.ChartPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            this.ChartPictureBox.BackgroundImage = chartImage;
+        }
+        catch (Exception ex)
+        {
+            this.ChartPictureBox.BackgroundImageLayout = ImageLayout.Center;
+            this.ChartPictureBox.BackgroundImage = IntelligentInvestorResource.Canceled;
+            this.logger.LogError(ex, "Failed to get chart.");
+        }
     }
 
-    private void RefreshToolButton_Click(object sender, EventArgs e)
+    private async void RefreshToolButton_Click(object sender, EventArgs e)
     {
-        _ = this.RefreshChart();
+        await this.RefreshChart();
     }
 }
