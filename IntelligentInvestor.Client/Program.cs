@@ -3,6 +3,7 @@ using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Intermediary.Themes;
 using IntelligentInvestor.Infrastructure.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
+using IntelligentInvestor.ModelPortfolio.Extensions;
 using IntelligentInvestor.Spider.Mock;
 using IntelligentInvestor.Spider.Options;
 using IntelligentInvestor.Spider.Sina.Extensions;
@@ -81,6 +82,7 @@ internal static class Program
         var services = host.Services
             .AddIntelligentInvestorClient()
             .AddIntelligentInvestorIntermediary()
+            .AddModelPortfolio()
             .AddIntelligentInvestorDBContext(host.Configuration.GetConnectionString("IIDB"))
             .AddIntelligentInvestorInfrastructure();
 
