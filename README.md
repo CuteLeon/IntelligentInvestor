@@ -13,6 +13,9 @@
    <a href="https://github.com/CuteLeon/IntelligentInvestor/actions/workflows/dotnet-core.yml">
       <img border="0" src="https://github.com/CuteLeon/IntelligentInvestor/workflows/.NET%20Core%20Desktop/badge.svg" />
    </a>
+   <a href="https://github.com/CuteLeon/IntelligentInvestor/actions/workflows/codeql-analysis.yml">
+      <img border="0" src="https://github.com/CuteLeon/IntelligentInvestor/workflows/CodeQL/badge.svg" />
+   </a>
    <a href="https://github.com/CuteLeon/IntelligentInvestor/blob/master/LICENSE">
       <img border="0" src="https://img.shields.io/github/license/CuteLeon/IntelligentInvestor" />
    </a>
