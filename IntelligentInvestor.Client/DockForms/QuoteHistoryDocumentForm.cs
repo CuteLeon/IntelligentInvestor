@@ -145,11 +145,6 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
             return;
         }
 
-        if (this.QuoteHistoryGridView.Rows.Count == 0)
-        {
-            return;
-        }
-
         using (var dialog = new SaveFileDialog()
         {
             DefaultExt = ".txt",
