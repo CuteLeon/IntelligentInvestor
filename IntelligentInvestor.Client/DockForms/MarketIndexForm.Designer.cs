@@ -68,7 +68,6 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainMarketIndexControl
             // 
-            this.MainMarketIndexControl.AttachEntity = null;
             this.MainMarketIndexControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainMarketIndexControl.LabelForecolor = System.Drawing.Color.Empty;
             this.MainMarketIndexControl.Location = new System.Drawing.Point(0, 25);

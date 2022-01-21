@@ -103,7 +103,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
         protected set
         {
             this.currentQuote = value;
-            this.MainStockQuoteControl.AttachEntity = value;
+            this.MainStockQuoteControl.EntityToFace(value);
         }
     }
 
@@ -118,7 +118,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
         protected set
         {
             this.currentTradeStrand = value;
-            this.MainFiveGearControl.AttachEntity = value;
+            this.MainFiveGearControl.EntityToFace(value);
         }
     }
 

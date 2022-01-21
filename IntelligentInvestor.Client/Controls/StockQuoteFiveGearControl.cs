@@ -1,9 +1,10 @@
 ﻿using IntelligentInvestor.Client.Themes;
+using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class StockQuoteFiveGearControl : StockAttachControlBaseGeneric<TradeStrand>
+public partial class StockQuoteFiveGearControl : StockControlBase
 {
     private readonly IUIThemeHandler themeHandler;
 
@@ -62,8 +63,9 @@ public partial class StockQuoteFiveGearControl : StockAttachControlBaseGeneric<T
         this.Sell5PriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
     }
 
-    public override void AttachEntityToFace(TradeStrand tradeStrand)
+    public override void EntityToFace(StockBase? entity)
     {
+        var tradeStrand = (TradeStrand?)entity;
         if (tradeStrand == null)
         {
             this.BiddingPriceValueLabel.Text = "-";

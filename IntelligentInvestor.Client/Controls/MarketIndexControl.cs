@@ -4,7 +4,7 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class MarketIndexControl : StockAttachControlBaseGeneric<Quote>
+public partial class MarketIndexControl : StockControlBase
 {
     private readonly IUIThemeHandler themeHandler;
 
@@ -51,8 +51,9 @@ public partial class MarketIndexControl : StockAttachControlBaseGeneric<Quote>
         }
     }
 
-    public override void AttachEntityToFace(Quote quote)
+    public override void EntityToFace(StockBase? entity)
     {
+        var quote = (Quote?)entity;
         if (quote == null)
         {
             this.CurrentPriceValueLabel.ForeColor = this.ValueForecolor;

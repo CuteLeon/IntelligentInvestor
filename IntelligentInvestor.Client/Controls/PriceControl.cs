@@ -4,7 +4,6 @@ namespace IntelligentInvestor.Client.Controls
 {
     public class PriceControl : Label
     {
-        private readonly IUIThemeHandler themeHandler;
         private Color staticForecolor = Color.Black;
         private Color riseForeColor;
         private Color fallForeColor;
@@ -30,10 +29,10 @@ namespace IntelligentInvestor.Client.Controls
             this.ImageList.Images.Add(IntelligentInvestorResource.UpArrow);
             this.ImageList.Images.Add(IntelligentInvestorResource.DownArrow);
             this.ImageIndex = 0;
-            this.themeHandler = themeHandler;
 
-            this.riseForeColor = this.themeHandler.GetQuoteForecolor(1);
-            this.fallForeColor = this.themeHandler.GetQuoteForecolor(-1);
+            this.riseForeColor = themeHandler?.GetQuoteForecolor(1) ?? Color.Crimson;
+            this.fallForeColor = themeHandler?.GetQuoteForecolor(-1) ?? Color.LimeGreen;
+
         }
 
         public Color StaticForecolor

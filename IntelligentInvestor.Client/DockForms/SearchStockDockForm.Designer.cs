@@ -190,7 +190,6 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainStockQuoteControl
             // 
-            this.MainStockQuoteControl.AttachEntity = null;
             this.MainTablePanel.SetColumnSpan(this.MainStockQuoteControl, 2);
             this.MainStockQuoteControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainStockQuoteControl.LabelForecolor = System.Drawing.Color.Empty;

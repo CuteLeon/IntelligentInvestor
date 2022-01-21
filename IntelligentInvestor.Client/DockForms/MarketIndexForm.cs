@@ -91,7 +91,7 @@ public partial class MarketIndexForm : SingleToolDockForm
         protected set
         {
             this.currentQuote = value;
-            this.MainMarketIndexControl.AttachEntity = value;
+            this.MainMarketIndexControl.EntityToFace(value);
         }
     }
 

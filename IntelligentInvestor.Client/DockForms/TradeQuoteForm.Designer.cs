@@ -100,7 +100,6 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainStockQuoteControl
             // 
-            this.MainStockQuoteControl.AttachEntity = null;
             this.MainStockQuoteControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainStockQuoteControl.LabelForecolor = System.Drawing.Color.Empty;
             this.MainStockQuoteControl.Location = new System.Drawing.Point(0, 25);
@@ -113,7 +112,6 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainFiveGearControl
             // 
-            this.MainFiveGearControl.AttachEntity = null;
             this.MainFiveGearControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.MainFiveGearControl.LabelForecolor = System.Drawing.Color.Empty;
             this.MainFiveGearControl.Location = new System.Drawing.Point(0, 210);

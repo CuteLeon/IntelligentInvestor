@@ -82,7 +82,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         protected set
         {
             this.currentQuote = value;
-            this.MainStockQuoteControl.AttachEntity = value;
+            this.MainStockQuoteControl.EntityToFace(value);
         }
     }
 

@@ -15,6 +15,9 @@ namespace IntelligentInvestor.Client.Controls
             base.Dispose(disposing);
         }
 
+        private void InitializeComponent()
+            => this.InitializeComponent(default);
+
         private void InitializeComponent(IUIThemeHandler themeHandler)
         {
             this.components = new System.ComponentModel.Container();

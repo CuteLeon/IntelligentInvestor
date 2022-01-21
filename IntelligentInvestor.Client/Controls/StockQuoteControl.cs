@@ -4,7 +4,7 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls;
 
-public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
+public partial class StockQuoteControl : StockControlBase
 {
     private readonly IUIThemeHandler themeHandler;
 
@@ -12,12 +12,6 @@ public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
         IUIThemeHandler themeHandler)
     {
         this.InitializeComponent(themeHandler);
-
-        if (this.DesignMode)
-        {
-            return;
-        }
-
         this.themeHandler = themeHandler;
     }
 
@@ -41,8 +35,8 @@ public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
         this.CurrentPriceValueLabel.StaticForecolor = color;
         this.ClosingPriceYesterdayValueLabel.ForeColor = color;
         this.OpeningPriceTodayValueLabel.ForeColor = color;
-        this.DayHighPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
-        this.DayLowPriceValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+        this.DayHighPriceValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(1) ?? Color.Crimson;
+        this.DayLowPriceValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(-1) ?? Color.LimeGreen;
         this.CountValueLabel.ForeColor = color;
         this.AmountValueLabel.ForeColor = color;
     }
@@ -65,8 +59,9 @@ public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
         }
     }
 
-    public override void AttachEntityToFace(Quote quote)
+    public override void EntityToFace(StockBase? entity)
     {
+        var quote = (Quote?)entity;
         if (quote == null)
         {
             this.CurrentPriceValueLabel.Price = null;
@@ -85,13 +80,13 @@ public partial class StockQuoteControl : StockAttachControlBaseGeneric<Quote>
         {
             if (quote.OpenningPrice > quote.ClosingPriceYesterday)
             {
-                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
-                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
+                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(1) ?? Color.Crimson;
+                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(-1) ?? Color.LimeGreen;
             }
             else
             {
-                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(-1);
-                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler.GetQuoteForecolor(1);
+                this.OpeningPriceTodayValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(-1) ?? Color.LimeGreen;
+                this.ClosingPriceYesterdayValueLabel.ForeColor = this.themeHandler?.GetQuoteForecolor(1) ?? Color.Crimson;
             }
 
             this.CurrentPriceValueLabel.BasePrice = quote.OpenningPrice;

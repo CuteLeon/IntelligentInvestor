@@ -5,10 +5,9 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Client.Controls
 {
-    public class StockAttachControlBaseGeneric<TAttachEntity> : UserControl
-        where TAttachEntity : StockBase
+    public class StockControlBase : UserControl
     {
-        public StockAttachControlBaseGeneric() : base()
+        public StockControlBase() : base()
         {
         }
 
@@ -60,21 +59,6 @@ namespace IntelligentInvestor.Client.Controls
             }
         }
 
-        private TAttachEntity attachEntity;
-
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual TAttachEntity AttachEntity
-        {
-            get => this.attachEntity;
-            set
-            {
-                this.attachEntity = value;
-
-                this.InvokeIfRequired<ValueType, Action<TAttachEntity>>(this.AttachEntityToFace, value);
-            }
-        }
-
         public virtual void SetLabelForecolor(Color obj)
         {
         }
@@ -87,7 +71,7 @@ namespace IntelligentInvestor.Client.Controls
         {
         }
 
-        public virtual void AttachEntityToFace(TAttachEntity entity)
+        public virtual void EntityToFace(StockBase? entity)
         {
         }
     }
