@@ -42,13 +42,13 @@
             this.RefreshToolButton});
             this.ChartRepositoryToolStrip.Location = new System.Drawing.Point(0, 0);
             this.ChartRepositoryToolStrip.Name = "ChartRepositoryToolStrip";
-            this.ChartRepositoryToolStrip.Size = new System.Drawing.Size(800, 25);
+            this.ChartRepositoryToolStrip.Size = new System.Drawing.Size(933, 25);
             this.ChartRepositoryToolStrip.TabIndex = 1;
             this.ChartRepositoryToolStrip.Text = "toolStrip1";
             // 
             // StockInfoToolLabel
             // 
-            this.StockInfoToolLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StockInfoToolLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.StockInfoToolLabel.Name = "StockInfoToolLabel";
             this.StockInfoToolLabel.Size = new System.Drawing.Size(0, 22);
             // 
@@ -61,7 +61,7 @@
             // 
             this.QuoteFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.QuoteFrequencyComboBox.Name = "QuoteFrequencyComboBox";
-            this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(121, 25);
+            this.QuoteFrequencyComboBox.Size = new System.Drawing.Size(100, 25);
             // 
             // toolStripSeparator2
             // 
@@ -83,19 +83,21 @@
             this.ChartPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ChartPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChartPictureBox.Location = new System.Drawing.Point(0, 25);
+            this.ChartPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ChartPictureBox.Name = "ChartPictureBox";
-            this.ChartPictureBox.Size = new System.Drawing.Size(800, 425);
+            this.ChartPictureBox.Size = new System.Drawing.Size(933, 537);
             this.ChartPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ChartPictureBox.TabIndex = 2;
             this.ChartPictureBox.TabStop = false;
             // 
             // ChartDocumentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 562);
             this.Controls.Add(this.ChartPictureBox);
             this.Controls.Add(this.ChartRepositoryToolStrip);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChartDocumentForm";
             this.TabText = "Chart";
             this.Text = "Chart";
