@@ -35,7 +35,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         IHotStockSpider hotStockSpider)
         : base(logger, themeHandler)
     {
-        this.InitializeComponent(themeHandler);
+        this.InitializeComponent();
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Search.GetHicon());
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.intermediaryPublisher = intermediaryPublisher;
@@ -44,6 +44,8 @@ public partial class SearchStockDockForm : SingleToolDockForm
         this.quoteSpider = quoteSpider;
         this.stockSpider = stockSpider;
         this.hotStockSpider = hotStockSpider;
+
+        this.MainStockQuoteControl.ThemeHandler = themeHandler;
     }
 
     private Stock currentStock;

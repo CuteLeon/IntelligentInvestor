@@ -29,7 +29,7 @@ public partial class MarketIndexForm : SingleToolDockForm
         IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
-        this.InitializeComponent(themeHandler);
+        this.InitializeComponent();
         if (this.DesignMode) return;
 
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Graph.GetHicon());
@@ -39,6 +39,8 @@ public partial class MarketIndexForm : SingleToolDockForm
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
         this.quoteSpider = quoteSpider;
+
+        this.MainMarketIndexControl.ThemeHandler = themeHandler;
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 

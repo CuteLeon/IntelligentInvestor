@@ -6,13 +6,11 @@ namespace IntelligentInvestor.Client.Controls;
 
 public partial class MarketIndexControl : StockControlBase
 {
-    private readonly IUIThemeHandler themeHandler;
+    public IUIThemeHandler ThemeHandler { get; set; }
 
-    public MarketIndexControl(
-        IUIThemeHandler themeHandler)
+    public MarketIndexControl()
     {
         this.InitializeComponent();
-        this.themeHandler = themeHandler;
     }
 
     public override void SetLabelForecolor(Color color)
@@ -69,7 +67,7 @@ public partial class MarketIndexControl : StockControlBase
         }
         else
         {
-            Color quoteForecolor = themeHandler.GetQuoteForecolor(quote.FluctuatingRange);
+            Color quoteForecolor = this.ThemeHandler?.GetQuoteForecolor(quote.FluctuatingRange) ?? Color.Black;
             this.CurrentPriceValueLabel.ForeColor = quoteForecolor;
             this.FluctuatingRangeValueLabel.ForeColor = quoteForecolor;
             this.FluctuatingRateValueLabel.ForeColor = quoteForecolor;

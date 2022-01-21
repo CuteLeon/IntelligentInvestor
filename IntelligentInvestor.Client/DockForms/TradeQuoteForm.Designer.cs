@@ -15,7 +15,7 @@ namespace IntelligentInvestor.Client.DockForms
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent(IUIThemeHandler themeHandler)
+        private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             this.AutoRefreshTimer = new System.Windows.Forms.Timer(this.components);
@@ -25,8 +25,8 @@ namespace IntelligentInvestor.Client.DockForms
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ChartToolButton = new System.Windows.Forms.ToolStripButton();
             this.QuoteRepositoryToolButton = new System.Windows.Forms.ToolStripButton();
-            this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl(themeHandler);
-            this.MainFiveGearControl = new IntelligentInvestor.Client.Controls.StockQuoteFiveGearControl(themeHandler);
+            this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl();
+            this.MainFiveGearControl = new IntelligentInvestor.Client.Controls.StockQuoteFiveGearControl();
             this.QuoteHistoryToolButton = new System.Windows.Forms.ToolStripButton();
             this.CurrentQuoteToolStrip.SuspendLayout();
             this.SuspendLayout();

@@ -34,7 +34,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
         IQuoteSpider quoteSpider)
         : base(logger, themeHandler)
     {
-        this.InitializeComponent(themeHandler);
+        this.InitializeComponent();
 
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Processer.GetHicon());
         this.HideOnClose = true;
@@ -48,6 +48,8 @@ public partial class TradeQuoteForm : SingleToolDockForm
         this.tradeStrandRepository = tradeStrandRepository;
         this.quoteSpider = quoteSpider;
 
+        this.MainStockQuoteControl.ThemeHandler = themeHandler;
+        this.MainFiveGearControl.ThemeHandler = themeHandler;
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 

@@ -15,14 +15,14 @@ namespace IntelligentInvestor.Client.DockForms
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent(IUIThemeHandler themeHandler)
+        private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             this.MarketIndexToolStrip = new System.Windows.Forms.ToolStrip();
             this.AutoRefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.RefreshToolButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.MainMarketIndexControl = new IntelligentInvestor.Client.Controls.MarketIndexControl(themeHandler);
+            this.MainMarketIndexControl = new IntelligentInvestor.Client.Controls.MarketIndexControl();
             this.AutoRefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.MarketIndexToolStrip.SuspendLayout();
             this.SuspendLayout();

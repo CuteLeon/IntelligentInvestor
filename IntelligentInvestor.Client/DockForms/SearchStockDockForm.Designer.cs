@@ -15,7 +15,7 @@ namespace IntelligentInvestor.Client.DockForms
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent(IUIThemeHandler themeHandler)
+        private void InitializeComponent()
         {
             this.MainTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.StockComboBox = new System.Windows.Forms.ComboBox();
@@ -30,7 +30,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveToolButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteToolButton = new System.Windows.Forms.ToolStripButton();
-            this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl(themeHandler);
+            this.MainStockQuoteControl = new IntelligentInvestor.Client.Controls.StockQuoteControl();
             this.MainTablePanel.SuspendLayout();
             this.SearchToolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -38,28 +38,28 @@ namespace IntelligentInvestor.Client.DockForms
             // MainTablePanel
             // 
             this.MainTablePanel.ColumnCount = 2;
-            this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTablePanel.Controls.Add(this.StockComboBox, 0, 0);
             this.MainTablePanel.Controls.Add(this.SearchToolStrip, 0, 1);
-            this.MainTablePanel.Controls.Add(this.MainStockQuoteControl, 0, 2);
             this.MainTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTablePanel.Location = new System.Drawing.Point(0, 0);
+            this.MainTablePanel.Margin = new System.Windows.Forms.Padding(4);
             this.MainTablePanel.Name = "MainTablePanel";
             this.MainTablePanel.RowCount = 3;
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainTablePanel.Size = new System.Drawing.Size(288, 387);
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.MainTablePanel.Size = new System.Drawing.Size(336, 484);
             this.MainTablePanel.TabIndex = 0;
             // 
             // StockComboBox
@@ -67,12 +67,12 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel.SetColumnSpan(this.StockComboBox, 2);
             this.StockComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StockComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.StockComboBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.StockComboBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.StockComboBox.Location = new System.Drawing.Point(0, 0);
             this.StockComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.StockComboBox.MaxDropDownItems = 10;
             this.StockComboBox.Name = "StockComboBox";
-            this.StockComboBox.Size = new System.Drawing.Size(288, 25);
+            this.StockComboBox.Size = new System.Drawing.Size(336, 25);
             this.StockComboBox.TabIndex = 6;
             this.StockComboBox.SelectedValueChanged += new System.EventHandler(this.StockComboBox_SelectedValueChanged);
             this.StockComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StockComboBox_KeyDown);
@@ -92,9 +92,9 @@ namespace IntelligentInvestor.Client.DockForms
             this.toolStripSeparator2,
             this.SaveToolButton,
             this.DeleteToolButton});
-            this.SearchToolStrip.Location = new System.Drawing.Point(0, 25);
+            this.SearchToolStrip.Location = new System.Drawing.Point(0, 31);
             this.SearchToolStrip.Name = "SearchToolStrip";
-            this.SearchToolStrip.Size = new System.Drawing.Size(288, 25);
+            this.SearchToolStrip.Size = new System.Drawing.Size(336, 25);
             this.SearchToolStrip.TabIndex = 7;
             this.SearchToolStrip.Text = "toolStrip1";
             // 
@@ -190,23 +190,24 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainStockQuoteControl
             // 
-            this.MainTablePanel.SetColumnSpan(this.MainStockQuoteControl, 2);
-            this.MainStockQuoteControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainStockQuoteControl.LabelForecolor = System.Drawing.Color.Empty;
-            this.MainStockQuoteControl.Location = new System.Drawing.Point(3, 53);
+            this.MainStockQuoteControl.Location = new System.Drawing.Point(0, 0);
+            this.MainStockQuoteControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MainStockQuoteControl.Name = "MainStockQuoteControl";
-            this.MainStockQuoteControl.Padding = new System.Windows.Forms.Padding(3);
-            this.MainStockQuoteControl.Size = new System.Drawing.Size(282, 331);
+            this.MainStockQuoteControl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainStockQuoteControl.Size = new System.Drawing.Size(345, 250);
             this.MainStockQuoteControl.Stock = null;
-            this.MainStockQuoteControl.TabIndex = 8;
+            this.MainStockQuoteControl.TabIndex = 0;
+            this.MainStockQuoteControl.ThemeHandler = null;
             this.MainStockQuoteControl.ValueForecolor = System.Drawing.Color.Empty;
             // 
             // SearchStockDockForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 387);
+            this.ClientSize = new System.Drawing.Size(336, 484);
             this.Controls.Add(this.MainTablePanel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SearchStockDockForm";
             this.TabText = "Search";
             this.Text = "Search";
@@ -215,6 +216,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.SearchToolStrip.ResumeLayout(false);
             this.SearchToolStrip.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.TableLayoutPanel MainTablePanel;
