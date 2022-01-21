@@ -16,9 +16,6 @@ namespace IntelligentInvestor.Client.Controls
         }
 
         private void InitializeComponent()
-            => this.InitializeComponent(default);
-
-        private void InitializeComponent(IUIThemeHandler themeHandler)
         {
             this.components = new System.ComponentModel.Container();
             this.AmountLabel = new System.Windows.Forms.Label();
@@ -39,7 +36,7 @@ namespace IntelligentInvestor.Client.Controls
             this.QuoteTimeValueLabel = new System.Windows.Forms.Label();
             this.MarketValueLabel = new System.Windows.Forms.Label();
             this.CodeValueLabel = new System.Windows.Forms.Label();
-            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl(themeHandler);
+            this.CurrentPriceValueLabel = new IntelligentInvestor.Client.Controls.PriceControl();
             this.MainTablePanel.SuspendLayout();
             this.SuspendLayout();
             // 

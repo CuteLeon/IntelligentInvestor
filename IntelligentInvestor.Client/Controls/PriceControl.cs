@@ -1,20 +1,17 @@
-﻿using IntelligentInvestor.Client.Themes;
-
-namespace IntelligentInvestor.Client.Controls
+﻿namespace IntelligentInvestor.Client.Controls
 {
     public class PriceControl : Label
     {
         private Color staticForecolor = Color.Black;
-        private Color riseForeColor;
-        private Color fallForeColor;
+        private Color riseForeColor = Color.Crimson;
+        private Color fallForeColor = Color.LimeGreen;
         private byte accuracy = 4;
         private string priceFormat = "N4";
         private decimal? lastPrice;
         private decimal? basePrice;
         private decimal? price;
 
-        public PriceControl(
-            IUIThemeHandler themeHandler)
+        public PriceControl()
         {
             this.AutoEllipsis = true;
             this.Dock = DockStyle.Fill;
@@ -29,10 +26,6 @@ namespace IntelligentInvestor.Client.Controls
             this.ImageList.Images.Add(IntelligentInvestorResource.UpArrow);
             this.ImageList.Images.Add(IntelligentInvestorResource.DownArrow);
             this.ImageIndex = 0;
-
-            this.riseForeColor = themeHandler?.GetQuoteForecolor(1) ?? Color.Crimson;
-            this.fallForeColor = themeHandler?.GetQuoteForecolor(-1) ?? Color.LimeGreen;
-
         }
 
         public Color StaticForecolor
