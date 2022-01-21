@@ -127,6 +127,9 @@ public partial class QuoteRepositoryDocumentForm : DocumentDockForm
     {
         base.ApplyTheme();
 
+        this.QuoteFrequencyComboBox.BackColor = this.themeHandler.GetContainerBackcolor();
+        this.QuoteFrequencyComboBox.ForeColor = this.themeHandler.GetContentForecolor();
+
         this.QuoteRepositoryGridView.BackgroundColor = this.BackColor;
         this.QuoteRepositoryGridView.RowHeadersDefaultCellStyle.BackColor = this.BackColor;
         this.QuoteRepositoryGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;

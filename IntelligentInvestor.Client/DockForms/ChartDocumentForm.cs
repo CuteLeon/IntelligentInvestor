@@ -123,4 +123,11 @@ public partial class ChartDocumentForm : DocumentDockForm
     {
         await this.RefreshChart();
     }
+
+    public override void ApplyTheme()
+    {
+        base.ApplyTheme();
+        this.QuoteFrequencyComboBox.BackColor = this.themeHandler.GetContainerBackcolor();
+        this.QuoteFrequencyComboBox.ForeColor = this.themeHandler.GetContentForecolor();
+    }
 }

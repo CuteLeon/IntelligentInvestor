@@ -16,7 +16,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.QuoteHistoryGridView = new System.Windows.Forms.DataGridView();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +78,7 @@
             this.QuoteHistoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.QuoteHistoryGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.QuoteHistoryGridView.Location = new System.Drawing.Point(0, 25);
-            this.QuoteHistoryGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QuoteHistoryGridView.Margin = new System.Windows.Forms.Padding(4);
             this.QuoteHistoryGridView.Name = "QuoteHistoryGridView";
             this.QuoteHistoryGridView.ReadOnly = true;
             this.QuoteHistoryGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -106,8 +106,8 @@
             // 
             // quoteTimeDataGridViewTextBoxColumn
             // 
-            dataGridViewCellStyle13.Format = "yyyy-MM-dd HH:mm:ss";
-            this.quoteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Format = "yyyy-MM-dd HH:mm:ss";
+            this.quoteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.quoteTimeDataGridViewTextBoxColumn.Frozen = true;
             this.quoteTimeDataGridViewTextBoxColumn.HeaderText = "Quote Time";
             this.quoteTimeDataGridViewTextBoxColumn.Name = "quoteTimeDataGridViewTextBoxColumn";
@@ -269,6 +269,11 @@
             // QuoteStartDatePicker
             // 
             this.QuoteStartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QuoteStartDatePicker.CalendarForeColor = System.Drawing.Color.Gray;
+            this.QuoteStartDatePicker.CalendarMonthBackground = System.Drawing.Color.Black;
+            this.QuoteStartDatePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.QuoteStartDatePicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.QuoteStartDatePicker.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.QuoteStartDatePicker.CustomFormat = "yyyy-MM-dd";
             this.QuoteStartDatePicker.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.QuoteStartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -276,7 +281,7 @@
             this.QuoteStartDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.QuoteStartDatePicker.Name = "QuoteStartDatePicker";
             this.QuoteStartDatePicker.ShowCheckBox = true;
-            this.QuoteStartDatePicker.Size = new System.Drawing.Size(135, 25);
+            this.QuoteStartDatePicker.Size = new System.Drawing.Size(140, 25);
             this.QuoteStartDatePicker.TabIndex = 2;
             // 
             // QuoteEndDatePicker
@@ -289,7 +294,7 @@
             this.QuoteEndDatePicker.Margin = new System.Windows.Forms.Padding(0);
             this.QuoteEndDatePicker.Name = "QuoteEndDatePicker";
             this.QuoteEndDatePicker.ShowCheckBox = true;
-            this.QuoteEndDatePicker.Size = new System.Drawing.Size(135, 25);
+            this.QuoteEndDatePicker.Size = new System.Drawing.Size(140, 25);
             this.QuoteEndDatePicker.TabIndex = 3;
             // 
             // QuoteHistoryDocumentForm
@@ -301,7 +306,7 @@
             this.Controls.Add(this.QuoteStartDatePicker);
             this.Controls.Add(this.QuoteHistoryGridView);
             this.Controls.Add(this.QuoteHistoryToolStrip);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuoteHistoryDocumentForm";
             this.TabText = "QuoteHistoryDocumentForm";
             this.Text = "QuoteHistoryDocumentForm";

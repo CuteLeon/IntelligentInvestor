@@ -30,6 +30,8 @@ public partial class MarketIndexForm : SingleToolDockForm
         : base(logger, themeHandler)
     {
         this.InitializeComponent(themeHandler);
+        if (this.DesignMode) return;
+
         this.Icon = Icon.FromHandle(IntelligentInvestorResource.Graph.GetHicon());
         this.logger = logger;
         this.themeHandler = themeHandler;
@@ -37,7 +39,6 @@ public partial class MarketIndexForm : SingleToolDockForm
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
         this.quoteSpider = quoteSpider;
-
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 

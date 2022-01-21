@@ -128,6 +128,9 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
     {
         base.ApplyTheme();
 
+        this.QuoteFrequencyComboBox.BackColor = this.themeHandler.GetContainerBackcolor();
+        this.QuoteFrequencyComboBox.ForeColor = this.themeHandler.GetContentForecolor();
+
         this.QuoteHistoryGridView.BackgroundColor = this.BackColor;
         this.QuoteHistoryGridView.RowHeadersDefaultCellStyle.BackColor = this.BackColor;
         this.QuoteHistoryGridView.RowTemplate.DefaultCellStyle.BackColor = this.BackColor;

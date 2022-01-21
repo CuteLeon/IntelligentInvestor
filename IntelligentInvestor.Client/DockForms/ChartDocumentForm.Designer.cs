@@ -83,7 +83,7 @@
             this.ChartPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ChartPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChartPictureBox.Location = new System.Drawing.Point(0, 25);
-            this.ChartPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ChartPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.ChartPictureBox.Name = "ChartPictureBox";
             this.ChartPictureBox.Size = new System.Drawing.Size(933, 537);
             this.ChartPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -97,7 +97,7 @@
             this.ClientSize = new System.Drawing.Size(933, 562);
             this.Controls.Add(this.ChartPictureBox);
             this.Controls.Add(this.ChartRepositoryToolStrip);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChartDocumentForm";
             this.TabText = "Chart";
             this.Text = "Chart";

@@ -90,8 +90,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
     {
         base.ApplyTheme();
 
-        this.themeHandler.CurrentThemeComponent.ApplyTo(this.SearchToolStrip);
-        this.StockComboBox.BackColor = this.BackColor;
+        this.StockComboBox.BackColor = this.themeHandler.GetContainerBackcolor();
         this.StockComboBox.ForeColor = this.themeHandler.GetContentForecolor();
 
         this.MainStockQuoteControl.LabelForecolor = this.themeHandler.GetTitleForecolor();
