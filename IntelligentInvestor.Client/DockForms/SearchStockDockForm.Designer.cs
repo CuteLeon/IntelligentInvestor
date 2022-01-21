@@ -42,9 +42,10 @@ namespace IntelligentInvestor.Client.DockForms
             this.MainTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.MainTablePanel.Controls.Add(this.StockComboBox, 0, 0);
             this.MainTablePanel.Controls.Add(this.SearchToolStrip, 0, 1);
+            this.MainTablePanel.Controls.Add(this.MainStockQuoteControl, 0, 2);
             this.MainTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTablePanel.Location = new System.Drawing.Point(0, 0);
-            this.MainTablePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.MainTablePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MainTablePanel.Name = "MainTablePanel";
             this.MainTablePanel.RowCount = 3;
             this.MainTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
@@ -190,14 +191,16 @@ namespace IntelligentInvestor.Client.DockForms
             // 
             // MainStockQuoteControl
             // 
+            this.MainTablePanel.SetColumnSpan(this.MainStockQuoteControl, 2);
+            this.MainStockQuoteControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainStockQuoteControl.LabelForecolor = System.Drawing.Color.Empty;
-            this.MainStockQuoteControl.Location = new System.Drawing.Point(0, 0);
-            this.MainStockQuoteControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainStockQuoteControl.Location = new System.Drawing.Point(5, 67);
+            this.MainStockQuoteControl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MainStockQuoteControl.Name = "MainStockQuoteControl";
             this.MainStockQuoteControl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MainStockQuoteControl.Size = new System.Drawing.Size(345, 250);
+            this.MainStockQuoteControl.Size = new System.Drawing.Size(326, 412);
             this.MainStockQuoteControl.Stock = null;
-            this.MainStockQuoteControl.TabIndex = 0;
+            this.MainStockQuoteControl.TabIndex = 8;
             this.MainStockQuoteControl.ThemeHandler = null;
             this.MainStockQuoteControl.ValueForecolor = System.Drawing.Color.Empty;
             // 
@@ -207,7 +210,7 @@ namespace IntelligentInvestor.Client.DockForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 484);
             this.Controls.Add(this.MainTablePanel);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SearchStockDockForm";
             this.TabText = "Search";
             this.Text = "Search";
