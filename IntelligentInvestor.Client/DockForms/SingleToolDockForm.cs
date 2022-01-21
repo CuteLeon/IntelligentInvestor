@@ -5,6 +5,8 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class SingleToolDockForm : ToolDockForm
 {
+    public SingleToolDockForm() : base() { }
+
     public SingleToolDockForm(
         ILogger<SingleToolDockForm> logger,
         IUIThemeHandler themeHandler)

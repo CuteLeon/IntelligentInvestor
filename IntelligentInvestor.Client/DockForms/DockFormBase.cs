@@ -5,15 +5,17 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace IntelligentInvestor.Client.DockForms;
 
-public abstract partial class DockFormBase : DockContent, IThemeAppliable
+public partial class DockFormBase : DockContent, IThemeAppliable
 {
     protected readonly ILogger<DockFormBase> logger;
     protected readonly IUIThemeHandler themeHandler;
 
+    public DockFormBase() : base() { }
+
     public DockFormBase(
         ILogger<DockFormBase> logger,
         IUIThemeHandler themeHandler)
-        : base()
+        : this()
     {
         this.InitializeComponent();
         this.logger = logger;

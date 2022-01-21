@@ -36,6 +36,19 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
         this.stockRepository = stockRepository;
         this.quoteRepository = quoteRepository;
         this.quoteSpider = quoteSpider;
+
+        this.codeDataGridViewTextBoxColumn.DataPropertyName = nameof(StockBase.StockCode);
+        this.marketDataGridViewTextBoxColumn.DataPropertyName = nameof(StockBase.StockMarket);
+        this.quoteFrequencyDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.Frequency);
+        this.quoteTimeDataGridViewTextBoxColumn.DataPropertyName = nameof(QuoteBase.QuoteTime);
+        this.currentPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.CurrentPrice);
+        this.openningPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.OpenningPrice);
+        this.closingPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.ClosingPrice);
+        this.closingPriceYesterdayDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.ClosingPriceYesterday);
+        this.highestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.HighestPrice);
+        this.lowestPriceDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.LowestPrice);
+        this.volumeDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.Volume);
+        this.amountDataGridViewTextBoxColumn.DataPropertyName = nameof(Quote.Amount);
     }
 
     [Browsable(false)]

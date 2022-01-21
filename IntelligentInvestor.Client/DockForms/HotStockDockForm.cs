@@ -29,6 +29,10 @@ public partial class HotStockDockForm : SingleToolDockForm
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
         this.hotStockSpider = hotStockSpider;
+
+        this.codeDataGridViewTextBoxColumn.DataPropertyName = nameof(StockBase.StockCode);
+        this.marketDataGridViewTextBoxColumn.DataPropertyName = nameof(StockBase.StockMarket);
+        this.nameDataGridViewTextBoxColumn.DataPropertyName = nameof(Stock.StockName);
     }
 
     private Stock currentStock;

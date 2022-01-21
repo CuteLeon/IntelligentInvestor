@@ -1,6 +1,6 @@
 ﻿namespace IntelligentInvestor.Client.DockForms
 {
-    abstract partial class DockFormBase
+    partial class DockFormBase
     {
         private System.ComponentModel.IContainer components = null;
 

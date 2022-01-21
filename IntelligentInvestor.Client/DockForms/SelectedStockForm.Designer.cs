@@ -139,21 +139,18 @@
             // StockCodeGridViewColumn
             // 
             this.StockCodeGridViewColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.StockCodeGridViewColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockCode);
             this.StockCodeGridViewColumn.HeaderText = "Code";
             this.StockCodeGridViewColumn.Name = "StockCodeGridViewColumn";
             this.StockCodeGridViewColumn.ReadOnly = true;
             // 
             // StockMarketGridViewColumn
             // 
-            this.StockMarketGridViewColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.StockBase.StockMarket);
             this.StockMarketGridViewColumn.HeaderText = "Market";
             this.StockMarketGridViewColumn.Name = "StockMarketGridViewColumn";
             this.StockMarketGridViewColumn.ReadOnly = true;
             // 
             // StockNameGridViewColumn
             // 
-            this.StockNameGridViewColumn.DataPropertyName = nameof(IntelligentInvestor.Domain.Stocks.Stock.StockName);
             this.StockNameGridViewColumn.HeaderText = "Name";
             this.StockNameGridViewColumn.Name = "StockNameGridViewColumn";
             this.StockNameGridViewColumn.ReadOnly = true;

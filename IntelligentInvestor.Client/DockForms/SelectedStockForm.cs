@@ -37,6 +37,10 @@ public partial class SelectedStockForm : SingleToolDockForm
         this.intermediaryPublisher = intermediaryPublisher;
         this.stockRepository = stockRepository;
 
+        this.StockCodeGridViewColumn.DataPropertyName = nameof(StockBase.StockCode);
+        this.StockMarketGridViewColumn.DataPropertyName = nameof(StockBase.StockMarket);
+        this.StockNameGridViewColumn.DataPropertyName = nameof(Stock.StockName);
+
         this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
     }
 
