@@ -6,14 +6,14 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Spider.UData.Stocks;
 
-public class UDataHotStockSpider : IHotStockSpider
+public class UDataStockSpider : IStockSpider
 {
-    private readonly ILogger<UDataHotStockSpider> logger;
+    private readonly ILogger<UDataStockSpider> logger;
     private readonly StockCodeMarketParser stockCodeMarketParser;
     private readonly HttpClient httpClient;
 
-    public UDataHotStockSpider(
-        ILogger<UDataHotStockSpider> logger,
+    public UDataStockSpider(
+        ILogger<UDataStockSpider> logger,
         StockCodeMarketParser stockCodeMarketParser,
         HttpClient httpClient)
     {
@@ -22,12 +22,12 @@ public class UDataHotStockSpider : IHotStockSpider
         this.httpClient = httpClient;
     }
 
-    public async Task<IEnumerable<Stock>> GetHotStocksAsync()
+    public async Task<IEnumerable<Stock>> SearchStocksAsync(string keyword)
     {
-        var response = await httpClient.GetFromJsonAsync<UDataResponse<UDataHotStock>>("udata/business/v1/app_services/market_info/lh_daily?fields=secu_abbr,secu_code");
+        var response = await httpClient.GetFromJsonAsync<UDataResponse<UDataStock>>("udata/business/v1/app_services/basic_data/stock_list?fields=secu_abbr,hs_code");
         if (!"0".Equals(response.ErrorCode)) throw new InvalidOperationException(response.ErrorInfo);
         var stocks = response.Datas
-            .Where(x => !string.IsNullOrWhiteSpace(x.StockName))
+            .Where(x => x.StockName.Contains(keyword) || x.StockCodeMarket.Contains(keyword))
             .Select(x => this.stockCodeMarketParser.TryParse(x.StockCodeMarket, out var stockMarket, out var stockCode) ?
                 new Stock(stockMarket, stockCode) { StockName = x.StockName } : default)
             .Where(x => x is not null)
