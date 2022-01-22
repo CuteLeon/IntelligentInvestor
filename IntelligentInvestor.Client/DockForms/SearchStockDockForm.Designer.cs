@@ -59,6 +59,7 @@
             this.AddSelectedStockToolButton.Name = "AddSelectedStockToolButton";
             this.AddSelectedStockToolButton.Size = new System.Drawing.Size(23, 22);
             this.AddSelectedStockToolButton.Text = "Select";
+            this.AddSelectedStockToolButton.Click += this.AddSelectedStockToolButton_Click;
             // 
             // RemoveSelectedStockToolButton
             // 
@@ -68,6 +69,7 @@
             this.RemoveSelectedStockToolButton.Name = "RemoveSelectedStockToolButton";
             this.RemoveSelectedStockToolButton.Size = new System.Drawing.Size(23, 22);
             this.RemoveSelectedStockToolButton.Text = "Unselect";
+            this.RemoveSelectedStockToolButton.Click += this.RemoveSelectedStockToolButton_Click;
             // 
             // RefreshToolButton
             // 
@@ -77,6 +79,7 @@
             this.RefreshToolButton.Name = "RefreshToolButton";
             this.RefreshToolButton.Size = new System.Drawing.Size(23, 22);
             this.RefreshToolButton.Text = "Refresh";
+            this.RefreshToolButton.Click += this.RefreshToolButton_Click;
             // 
             // toolStripSeparator1
             // 
@@ -91,6 +94,7 @@
             this.ChartToolButton.Name = "ChartToolButton";
             this.ChartToolButton.Size = new System.Drawing.Size(23, 22);
             this.ChartToolButton.Text = "Chart";
+            this.ChartToolButton.Click += this.ChartToolButton_Click;
             // 
             // QuoteRepositoryToolButton
             // 
@@ -100,6 +104,7 @@
             this.QuoteRepositoryToolButton.Name = "QuoteRepositoryToolButton";
             this.QuoteRepositoryToolButton.Size = new System.Drawing.Size(23, 22);
             this.QuoteRepositoryToolButton.Text = "Quote Repository";
+            this.QuoteRepositoryToolButton.Click += this.QuoteRepositoryToolButton_Click;
             // 
             // QuoteHistoryStripButton
             // 
@@ -109,6 +114,7 @@
             this.QuoteHistoryStripButton.Name = "QuoteHistoryStripButton";
             this.QuoteHistoryStripButton.Size = new System.Drawing.Size(23, 22);
             this.QuoteHistoryStripButton.Text = "Quote History";
+            this.QuoteHistoryStripButton.Click += this.QuoteHistoryStripButton_Click;
             // 
             // toolStripSeparator2
             // 
@@ -123,6 +129,7 @@
             this.SaveToolButton.Name = "SaveToolButton";
             this.SaveToolButton.Size = new System.Drawing.Size(23, 22);
             this.SaveToolButton.Text = "Save";
+            this.SaveToolButton.Click += this.SaveToolButton_Click;
             // 
             // DeleteToolButton
             // 
@@ -132,6 +139,7 @@
             this.DeleteToolButton.Name = "DeleteToolButton";
             this.DeleteToolButton.Size = new System.Drawing.Size(23, 22);
             this.DeleteToolButton.Text = "Remove";
+            this.DeleteToolButton.Click += this.DeleteToolButton_Click;
             // 
             // StockComboBox
             // 
@@ -144,6 +152,8 @@
             this.StockComboBox.Name = "StockComboBox";
             this.StockComboBox.Size = new System.Drawing.Size(336, 25);
             this.StockComboBox.TabIndex = 9;
+            this.StockComboBox.KeyDown += this.StockComboBox_KeyDown;
+            this.StockComboBox.SelectedValueChanged += this.StockComboBox_SelectedValueChanged;
             // 
             // MainStockQuoteControl
             // 

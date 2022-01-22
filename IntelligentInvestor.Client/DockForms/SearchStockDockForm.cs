@@ -58,18 +58,25 @@ public partial class SearchStockDockForm : SingleToolDockForm
         protected set
         {
             this.currentStock = value;
-
-            this.SearchToolStrip.Enabled = value != null;
             this.MainStockQuoteControl.Stock = value;
-            this.logger.LogDebug($"Set current stock => {value.GetFullCode()}");
+            this.logger.LogDebug($"Set current stock => {value?.GetFullCode() ?? "Empty"}");
 
-            try
+            if (value is null)
             {
-                this.stockRepository.AddOrUpdateStock(value);
+                this.SearchToolStrip.Enabled = false;
             }
-            catch (Exception ex)
+            else
             {
-                this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                this.SearchToolStrip.Enabled = true;
+
+                try
+                {
+                    this.stockRepository.AddOrUpdateStock(value);
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
+                }
             }
         }
     }
