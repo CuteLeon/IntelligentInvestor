@@ -13,7 +13,7 @@ public class Quote : QuoteBase
     {
     }
 
-    public QuoteFrequencys Frequency { get; set; } = QuoteFrequencys.Trade;
+    public QuoteFrequencys Frequency { get; set; } = QuoteFrequencys.Trading;
 
     public decimal ClosingPriceYesterday { get; set; }
 

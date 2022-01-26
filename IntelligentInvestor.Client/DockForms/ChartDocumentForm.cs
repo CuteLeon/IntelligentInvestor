@@ -98,7 +98,7 @@ public partial class ChartDocumentForm : DocumentDockForm
 
     private async Task RefreshChart()
     {
-        var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.Trade;
+        var frequency = Enum.TryParse(this.QuoteFrequencyComboBox.SelectedItem.ToString(), out QuoteFrequencys quoteFrequency) ? quoteFrequency : QuoteFrequencys.Trading;
         this.logger.LogDebug($"Refresh chart for stock {this.stock.GetFullCode()} at {frequency} frequency ...");
 
         try

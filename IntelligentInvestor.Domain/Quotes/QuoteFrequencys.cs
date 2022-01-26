@@ -3,8 +3,9 @@
 public enum QuoteFrequencys
 {
     NotSpecified = 0,
-    Trade,
-    Day,
-    Week,
-    Month,
+    Trading,
+    Daily,
+    Weekly,
+    Monthly,
+    Yearly
 }

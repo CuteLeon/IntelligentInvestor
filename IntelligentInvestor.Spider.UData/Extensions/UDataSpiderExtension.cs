@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using IntelligentInvestor.Spider.UData.Stocks;
 using IntelligentInvestor.Spider.Stocks;
+using IntelligentInvestor.Spider.Quotes;
+using IntelligentInvestor.Spider.UData.Quotes;
 
 namespace IntelligentInvestor.Spider.UData.Extensions;
 
@@ -15,6 +17,7 @@ public static class UDataSpiderExtension
             httpClient.DefaultRequestHeaders.Add("Application-Token", options.Token);
         });
         services.AddHttpClient<IStockSpider, UDataStockSpider>(httpClientConfiguration);
+        services.AddHttpClient<IQuoteSpider, UDataQuoteSpider>(httpClientConfiguration);
         services.AddHttpClient<IHotStockSpider, UDataHotStockSpider>(httpClientConfiguration);
         return services.AddTransient<StockCodeMarketParser>();
     }

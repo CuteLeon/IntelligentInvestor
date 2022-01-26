@@ -23,10 +23,10 @@ public class SinaChartSpider : IChartSpider
     {
         var frequency = quoteFrequency switch
         {
-            QuoteFrequencys.Trade => "min",
-            QuoteFrequencys.Day => "daily",
-            QuoteFrequencys.Week => "weekly",
-            QuoteFrequencys.Month => "monthly",
+            QuoteFrequencys.Trading => "min",
+            QuoteFrequencys.Daily => "daily",
+            QuoteFrequencys.Weekly => "weekly",
+            QuoteFrequencys.Monthly => "monthly",
             _ => throw new ArgumentException(null, nameof(quoteFrequency)),
         };
         var market = stockMarket switch

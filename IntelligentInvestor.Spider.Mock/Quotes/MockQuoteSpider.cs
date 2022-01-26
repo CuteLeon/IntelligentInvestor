@@ -74,7 +74,7 @@ public class MockQuoteSpider : IQuoteSpider
     {
         var quote = this.quoteFaker.Generate();
         var tradeStrand = this.tradeStrandFaker.Generate();
-        quote.Frequency = QuoteFrequencys.Trade;
+        quote.Frequency = QuoteFrequencys.Trading;
         quote.StockMarket = stockMarket;
         quote.StockCode = stockCode;
         tradeStrand.StockMarket = stockMarket;
