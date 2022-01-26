@@ -52,7 +52,7 @@ public class UDataQuoteSpider : IQuoteSpider
         var response = await httpClient.GetFromJsonAsync<UDataResponse<UDataQuote>>($"udata/business/v1/app_services/market_info/{frequency}?{queryString}");
         if (!"0".Equals(response.ErrorCode)) throw new InvalidOperationException(response.ErrorInfo);
         var result = response.Datas.Select(x => new Quote()
-        {ss
+        {
             Amount = x.Amount,
             ClosingPrice = x.ClosingPrice,
             FluctuatingRange = string.IsNullOrWhiteSpace(x.FluctuatingRange) ? 0 : Convert.ToDecimal(x.FluctuatingRange),
