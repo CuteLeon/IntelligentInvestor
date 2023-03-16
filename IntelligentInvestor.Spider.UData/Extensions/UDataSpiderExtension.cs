@@ -7,6 +7,7 @@ using IntelligentInvestor.Spider.UData.Quotes;
 
 namespace IntelligentInvestor.Spider.UData.Extensions;
 
+[Obsolete("Token expired")]
 public static class UDataSpiderExtension
 {
     public static IServiceCollection AddUDataSpider(this IServiceCollection services, SpiderOption options)

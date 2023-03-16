@@ -1,16 +1,15 @@
-﻿using System;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
 using IntelligentInvestor.Spider.Quotes;
 using IntelligentInvestor.Spider.UData.Domain;
 using IntelligentInvestor.Spider.UData.Stocks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Spider.UData.Quotes;
 
+[Obsolete("Token expired")]
 public class UDataQuoteSpider : IQuoteSpider
 {
     private readonly ILogger<UDataQuoteSpider> logger;

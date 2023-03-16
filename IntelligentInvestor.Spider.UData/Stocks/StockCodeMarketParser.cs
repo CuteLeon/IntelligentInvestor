@@ -3,6 +3,7 @@ using IntelligentInvestor.Domain.Stocks;
 
 namespace IntelligentInvestor.Spider.UData.Stocks;
 
+[Obsolete("Token expired")]
 public class StockCodeMarketParser
 {
     private readonly Regex stockCodeMarketRegex = new Regex(

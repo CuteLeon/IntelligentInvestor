@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace IntelligentInvestor.Spider.UData.Stocks;
 
+[Obsolete("Token expired")]
 public class UDataStockSpider : IStockSpider
 {
     private readonly ILogger<UDataStockSpider> logger;
