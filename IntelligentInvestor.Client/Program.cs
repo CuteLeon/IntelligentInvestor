@@ -124,8 +124,8 @@ internal static class Program
         var spiderOptions = Host.Configuration.GetSection("Spider");
         var services = host.Services
             .AddMockSpider()
-            .AddSinaSpider(spiderOptions.GetSection("Sina").Get<SpiderOption>())
-            .AddUDataSpider(spiderOptions.GetSection("UData").Get<SpiderOption>());
+            .AddSinaSpider(spiderOptions.GetSection("Sina").Get<SpiderOption>());
+            //.AddUDataSpider(spiderOptions.GetSection("UData").Get<SpiderOption>());
     }
 
     static IEnumerable<string> InitializeIntermediary(this ProgramHost host)
