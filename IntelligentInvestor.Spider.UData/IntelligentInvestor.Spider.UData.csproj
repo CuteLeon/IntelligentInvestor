@@ -8,10 +8,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.2-mauipre.1.22054.8" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.2-mauipre.1.22054.8" />
-		<PackageReference Include="System.Net.Http.Json" Version="6.0.2-mauipre.1.22054.8" />
-		<PackageReference Include="System.Resources.Extensions" Version="6.0.2-mauipre.1.22054.8" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0-preview.2.23128.3" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-preview.2.23128.3" />
+		<PackageReference Include="System.Net.Http.Json" Version="8.0.0-preview.2.23128.3" />
+		<PackageReference Include="System.Resources.Extensions" Version="8.0.0-preview.2.23128.3" />
 	</ItemGroup>
 
 	<ItemGroup>
