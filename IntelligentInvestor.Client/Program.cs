@@ -7,7 +7,6 @@ using IntelligentInvestor.ModelPortfolio.Extensions;
 using IntelligentInvestor.Spider.Mock;
 using IntelligentInvestor.Spider.Options;
 using IntelligentInvestor.Spider.Sina.Extensions;
-using IntelligentInvestor.Spider.UData.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,10 +27,8 @@ internal static class Program
     static void Main()
     {
         Logger = NLog.LogManager.LoadConfiguration("NLog.config").GetCurrentClassLogger();
-        WinApplication.EnableVisualStyles();
-        WinApplication.SetCompatibleTextRenderingDefault(false);
-        WinApplication.SetHighDpiMode(HighDpiMode.SystemAware);
-
+        
+        ApplicationConfiguration.Initialize();
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         WinApplication.ThreadException += Application_ThreadException;
         WinApplication.ApplicationExit += Application_ApplicationExit;

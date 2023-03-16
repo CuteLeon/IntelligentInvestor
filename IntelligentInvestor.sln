@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Spider.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.Spider.Sina", "IntelligentInvestor.Spider.Sina\IntelligentInvestor.Spider.Sina.csproj", "{599D2EEA-16AA-4E0B-A075-4E5603F7436F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntelligentInvestor.ModelPortfolio", "IntelligentInvestor.ModelPortfolio\IntelligentInvestor.ModelPortfolio.csproj", "{1F9E9079-872A-4C9D-82D5-57211960A558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelligentInvestor.ModelPortfolio", "IntelligentInvestor.ModelPortfolio\IntelligentInvestor.ModelPortfolio.csproj", "{1F9E9079-872A-4C9D-82D5-57211960A558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

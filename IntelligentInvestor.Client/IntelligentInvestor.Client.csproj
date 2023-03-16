@@ -2,40 +2,37 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>IntelligentInvestor.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="IntelligentInvestor.ico" />
   </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="DockPanelSuite" Version="3.1.0" />
+        <PackageReference Include="DockPanelSuite.ThemeVS2015" Version="3.1.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="NLog" Version="5.0.0-rc2" />
+        <PackageReference Include="NLog.Extensions.Logging" Version="5.0.0-rc2" />
+    </ItemGroup>
+    
   <ItemGroup>
-    <PackageReference Include="DockPanelSuite" Version="3.1.0" />
-    <PackageReference Include="DockPanelSuite.ThemeVS2015" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.2-mauipre.1.22054.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.2-mauipre.1.22054.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.2-mauipre.1.22054.8" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2-mauipre.1.22054.8" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.2-mauipre.1.22054.8" />
-    <PackageReference Include="NLog" Version="5.0.0-rc2" />
-    <PackageReference Include="NLog.Extensions.Logging" Version="5.0.0-rc2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\IntelligentInvestor.Application\IntelligentInvestor.Application.csproj" />
-    <ProjectReference Include="..\IntelligentInvestor.Domain\IntelligentInvestor.Domain.csproj" />
     <ProjectReference Include="..\IntelligentInvestor.Infrastructure\IntelligentInvestor.Infrastructure.csproj" />
     <ProjectReference Include="..\IntelligentInvestor.Intermediary\IntelligentInvestor.Intermediary.csproj" />
     <ProjectReference Include="..\IntelligentInvestor.ModelPortfolio\IntelligentInvestor.ModelPortfolio.csproj" />
