@@ -63,7 +63,7 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
                 return;
             }
 
-            var (code, market, _) = Stock.GetMarketCode(value);
+            var (market, code, _) = Stock.GetMarketCode(value);
             this.Stock = this.stockRepository.GetStock(market, code) ?? new Stock(market, code);
         }
     }

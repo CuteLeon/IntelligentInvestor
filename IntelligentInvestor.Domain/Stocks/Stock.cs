@@ -6,6 +6,8 @@ namespace IntelligentInvestor.Domain.Stocks;
 
 public class Stock : StockBase
 {
+    private const char FullCodeSpliter = '-';
+
     public Stock() : base()
     {
     }
@@ -24,18 +26,18 @@ public class Stock : StockBase
     public override string ToString() => $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
 
     public string GetFullCode()
-        => $"{this.StockMarket}-{this.StockCode}-{this.StockName}";
+        => $"{this.StockMarket}{FullCodeSpliter}{this.StockCode}{FullCodeSpliter}{this.StockName}";
 
-    public static (string StockCode, StockMarkets StockMarket, string StockName) GetMarketCode(string fullCode)
+    public static (StockMarkets StockMarket, string StockCode, string StockName) GetMarketCode(string fullCode)
     {
-        var values = fullCode.Split(new[] { '-' }, 3);
+        var values = fullCode.Split(new[] { FullCodeSpliter }, 3);
         if (values.Length == 3)
         {
-            return (values[0], Enum.TryParse(values[1], out StockMarkets stockMarket) ? stockMarket : StockMarkets.NotSpecified, values[2]);
+            return (Enum.TryParse(values[0], out StockMarkets stockMarket) ? stockMarket : StockMarkets.NotSpecified, values[1], values[2]);
         }
         else
         {
-            return (string.Empty, StockMarkets.NotSpecified, string.Empty);
+            return (StockMarkets.NotSpecified, string.Empty, string.Empty);
         }
     }
 }
