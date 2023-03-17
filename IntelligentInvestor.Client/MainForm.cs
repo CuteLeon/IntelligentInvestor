@@ -1,4 +1,5 @@
-﻿using IntelligentInvestor.Client.DockForms;
+﻿using IntelligentInvestor.Application.Repositorys.Options;
+using IntelligentInvestor.Client.DockForms;
 using IntelligentInvestor.Client.DockForms.FloatWindows;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Options;
