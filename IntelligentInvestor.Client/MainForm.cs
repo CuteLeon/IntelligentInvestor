@@ -3,7 +3,6 @@ using IntelligentInvestor.Client.DockForms.FloatWindows;
 using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Options;
 using IntelligentInvestor.Domain.Themes;
-using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WeifenLuo.WinFormsUI.Docking;
@@ -30,7 +29,7 @@ public partial class MainForm : Form
         this.genericOptionRepository = genericOptionRepository;
         this.serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
         this.Icon = IntelligentInvestorResource.IntelligentInvestor;
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     private void MainForm_Shown(object sender, EventArgs e)
@@ -99,14 +98,14 @@ public partial class MainForm : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Failed to test\n{ex.Message}");
+            _ = MessageBox.Show($"Failed to test\n{ex.Message}");
         }
     }
 
     private async void ThemeMenuItem_Click(object sender, EventArgs e)
     {
         if (sender is not ToolStripMenuItem menuItem || menuItem.Checked) return;
-        UIThemes theme = (UIThemes)menuItem.Tag;
+        var theme = (UIThemes)menuItem.Tag;
         this.logger.LogDebug($"Set theme to {theme} ...");
         await this.genericOptionRepository.AddOrUpdateGenericOptionAsync(new GenericOption()
         {
@@ -116,7 +115,7 @@ public partial class MainForm : Form
             OptionValue = theme.ToString(),
         });
 
-        MessageBox.Show($"UI Theme will be changed to {theme} after next launch.", "UI Theme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        _ = MessageBox.Show($"UI Theme will be changed to {theme} after next launch.", "UI Theme", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     public async Task ApplyTheme()
@@ -127,7 +126,7 @@ public partial class MainForm : Form
 
         var themeName = await this.genericOptionRepository.GetGenericOptionAsync("Theme", "Client", "UI");
         if (!Enum.TryParse(themeName?.OptionValue, out UIThemes theme)) theme = UIThemes.Dark;
-        this.themeHandler.SetTheme(theme);
+        _ = this.themeHandler.SetTheme(theme);
         if (theme == UIThemes.Light)
             this.LightThemeMenuItem.Checked = true;
         else if (theme == UIThemes.Dark)
@@ -163,7 +162,7 @@ public partial class MainForm : Form
 
     private void SearchToolButton_Click(object sender, EventArgs e)
     {
-        SearchStockDockForm dockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
+        var dockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
         if (dockForm == null) return;
 
         dockForm.Show(this.MainDockPanel);
@@ -183,9 +182,9 @@ public partial class MainForm : Form
 
     private void ViewsMenuItem_Click(object sender, EventArgs e)
     {
-        Type viewType = (sender as ToolStripItem)?.Tag as Type;
+        var viewType = (sender as ToolStripItem)?.Tag as Type;
         this.logger.LogDebug($"Launch {viewType.FullName} view ...");
-        if (!(this.serviceProvider.GetRequiredService(viewType!) is DockFormBase dockForm))
+        if (this.serviceProvider.GetRequiredService(viewType!) is not DockFormBase dockForm)
         {
             throw new NullReferenceException();
         }
@@ -204,7 +203,7 @@ public partial class MainForm : Form
     {
         this.SaveLayoute();
 
-        MessageBox.Show($"Save layout successfully.", "Save Layout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        _ = MessageBox.Show($"Save layout successfully.", "Save Layout", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void LoadLayout()
@@ -223,8 +222,8 @@ public partial class MainForm : Form
     {
         try
         {
-            string[] persists = persist.Split(new[] { '@' }, 2);
-            Type type = this.GetType().Assembly.GetType(persists[0]);
+            var persists = persist.Split(new[] { '@' }, 2);
+            var type = this.GetType().Assembly.GetType(persists[0]);
             this.logger.LogDebug($"Restore dock form {type.FullName} ...");
 
             if (this.serviceProvider.GetRequiredService(type) is not DockFormBase dockForm)

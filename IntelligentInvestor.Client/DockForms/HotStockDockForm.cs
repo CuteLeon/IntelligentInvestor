@@ -3,7 +3,7 @@ using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Intermediary.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Application;
 using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.Logging;
 
@@ -47,7 +47,7 @@ public partial class HotStockDockForm : SingleToolDockForm
 
             this.currentStock = value;
             this.RemoveToolButton.Enabled = value != null;
-            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
+            _ = this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
     }
 
@@ -84,13 +84,13 @@ public partial class HotStockDockForm : SingleToolDockForm
     private void AddToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
+        _ = this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
     }
 
     private void RemoveToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
+        _ = this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
     }
 
     private void RefreshToolButton_Click(object sender, EventArgs e)

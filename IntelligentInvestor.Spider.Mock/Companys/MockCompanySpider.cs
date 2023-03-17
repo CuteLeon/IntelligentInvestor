@@ -4,7 +4,7 @@ using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Spider.Companys;
 using Microsoft.Extensions.Logging;
 
-namespace IntelligentInvestor.Spider.Mock.Stocks;
+namespace IntelligentInvestor.Spider.Mock.Companys;
 
 public class MockCompanySpider : ICompanySpider
 {

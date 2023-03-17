@@ -8,8 +8,12 @@ public class FloatedWindowFactory : IFloatWindowFactory
     public static FloatedWindowFactory SingleInstance { get; } = new FloatedWindowFactory();
 
     public FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane, Rectangle bounds)
-        => new FloatedWindow(dockPanel, pane, bounds);
+    {
+        return new FloatedWindow(dockPanel, pane, bounds);
+    }
 
     public FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane)
-        => new FloatedWindow(dockPanel, pane);
+    {
+        return new FloatedWindow(dockPanel, pane);
+    }
 }

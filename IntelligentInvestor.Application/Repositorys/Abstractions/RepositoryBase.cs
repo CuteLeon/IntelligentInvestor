@@ -23,14 +23,20 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
 
     public DbContext DbContext { get; init; }
 
-    public DatabaseFacade Database { get => this.DbContext.Database; }
+    public DatabaseFacade Database => this.DbContext.Database;
     #endregion
 
     #region Entity Set
 
-    public EntityEntry<TEntity> Entity(TEntity entity) => this.DbContext.Entry(entity);
+    public EntityEntry<TEntity> Entity(TEntity entity)
+    {
+        return this.DbContext.Entry(entity);
+    }
 
-    public DbSet<TEntity> Set() => this.DbContext.Set<TEntity>();
+    public DbSet<TEntity> Set()
+    {
+        return this.DbContext.Set<TEntity>();
+    }
     #endregion
 
     #region Add
@@ -38,14 +44,14 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public virtual async Task<TEntity> AddAsync(TEntity entity)
     {
         var result = await this.DbContext.Set<TEntity>().AddAsync(entity);
-        await this.DbContext.SaveChangesAsync();
+        _ = await this.DbContext.SaveChangesAsync();
         return result.Entity;
     }
 
     public virtual TEntity Add(TEntity entity)
     {
         var result = this.DbContext.Set<TEntity>().Add(entity);
-        this.DbContext.SaveChanges();
+        _ = this.DbContext.SaveChanges();
         return result.Entity;
     }
 
@@ -69,14 +75,14 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public virtual async Task<TEntity> UpdateAsync(TEntity entity)
     {
         var result = this.DbContext.Set<TEntity>().Update(entity);
-        await this.DbContext.SaveChangesAsync();
+        _ = await this.DbContext.SaveChangesAsync();
         return result.Entity;
     }
 
     public virtual TEntity Update(TEntity entity)
     {
         var result = this.DbContext.Set<TEntity>().Update(entity);
-        this.DbContext.SaveChanges();
+        _ = this.DbContext.SaveChanges();
         return result.Entity;
     }
 
@@ -100,14 +106,14 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     public virtual async Task<TEntity> RemoveAsync(TEntity entity)
     {
         var result = this.DbContext.Set<TEntity>().Remove(entity);
-        await this.DbContext.SaveChangesAsync();
+        _ = await this.DbContext.SaveChangesAsync();
         return result.Entity;
     }
 
     public virtual TEntity Remove(TEntity entity)
     {
         var result = this.DbContext.Set<TEntity>().Remove(entity);
-        this.DbContext.SaveChanges();
+        _ = this.DbContext.SaveChanges();
         return result.Entity;
     }
 

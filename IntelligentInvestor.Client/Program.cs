@@ -2,6 +2,7 @@
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Intermediary.Themes;
 using IntelligentInvestor.Infrastructure.Extensions;
+using IntelligentInvestor.Intermediary.Abstractions.Extensions;
 using IntelligentInvestor.Intermediary.Extensions;
 using IntelligentInvestor.ModelPortfolio.Extensions;
 using IntelligentInvestor.Spider.Mock;
@@ -24,10 +25,10 @@ internal static class Program
     public static NLogger Logger { get; private set; }
 
     [STAThread]
-    static void Main()
+    private static void Main()
     {
         Logger = NLog.LogManager.LoadConfiguration("NLog.config").GetCurrentClassLogger();
-        
+
         ApplicationConfiguration.Initialize();
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         WinApplication.ThreadException += Application_ThreadException;
@@ -45,7 +46,7 @@ internal static class Program
         Logger.Debug("Application message loop collected.");
     }
 
-    static async IAsyncEnumerable<string> InitializeProgramHost()
+    private static async IAsyncEnumerable<string> InitializeProgramHost()
     {
         Logger.Debug("Initialize program host ...");
         yield return "Initialize program host ...";
@@ -55,7 +56,9 @@ internal static class Program
             .Concat(Host.InitializeStockSpider())
             .Concat(Host.InitializeIntermediary())
             .Concat(Host.BuilderServiceProvider()))
+        {
             yield return message;
+        }
 
         await foreach (var message in Host.InitializeDatabase())
             yield return message;
@@ -64,15 +67,15 @@ internal static class Program
         yield return "Initialize successfully.";
     }
 
-    static IEnumerable<string> InitializeConfigurationManager(this ProgramHost host)
+    private static IEnumerable<string> InitializeConfigurationManager(this ProgramHost host)
     {
         Logger.Debug("Initialize configuration manager ...");
         yield return "Initialize configuration manager ...";
-        host.Configuration.AddJsonFile("AppSettings.json", true, true);
-        host.Services.AddSingleton(host.Configuration);
+        _ = host.Configuration.AddJsonFile("AppSettings.json", true, true);
+        _ = host.Services.AddSingleton(host.Configuration);
     }
 
-    static IEnumerable<string> InitializeServiceProvider(this ProgramHost host)
+    private static IEnumerable<string> InitializeServiceProvider(this ProgramHost host)
     {
         Logger.Debug("Initialize service provider ...");
         yield return "Initialize service provider ...";
@@ -83,10 +86,10 @@ internal static class Program
             .AddIntelligentInvestorDBContext(host.Configuration.GetConnectionString("IIDB"))
             .AddIntelligentInvestorInfrastructure();
 
-        services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
+        _ = services.AddLogging(builder => builder.ClearProviders().AddNLog(new NLogProviderOptions()).SetMinimumLevel(LogLevel.Trace));
     }
 
-    static async IAsyncEnumerable<string> InitializeDatabase(this ProgramHost host)
+    private static async IAsyncEnumerable<string> InitializeDatabase(this ProgramHost host)
     {
         Logger.Debug("Initialize database ...");
         yield return "Initialize database ...";
@@ -98,7 +101,7 @@ internal static class Program
         try
         {
             Logger.Debug($"Ensure database created...");
-            await dbContext.Database.EnsureCreatedAsync();
+            _ = await dbContext.Database.EnsureCreatedAsync();
             Logger.Debug($"Check database pending migrations...");
             var pendingMigrations = await dbContext.Database.GetPendingMigrationsAsync();
             if (pendingMigrations.Any())
@@ -114,22 +117,22 @@ internal static class Program
         }
     }
 
-    static IEnumerable<string> InitializeStockSpider(this ProgramHost host)
+    private static IEnumerable<string> InitializeStockSpider(this ProgramHost host)
     {
         Logger.Debug("Initialize stock spider ...");
         yield return "Initialize stock spider ...";
         var spiderOptions = Host.Configuration.GetSection("Spider");
-        var services = host.Services
+        _ = host.Services
             .AddMockSpider()
             .AddSinaSpider(spiderOptions.GetSection("Sina").Get<SpiderOption>());
-            //.AddUDataSpider(spiderOptions.GetSection("UData").Get<SpiderOption>());
+        //.AddUDataSpider(spiderOptions.GetSection("UData").Get<SpiderOption>());
     }
 
-    static IEnumerable<string> InitializeIntermediary(this ProgramHost host)
+    private static IEnumerable<string> InitializeIntermediary(this ProgramHost host)
     {
         Logger.Debug("Initialize intermediary ...");
         yield return "Initialize intermediary ...";
-        host.Services
+        _ = host.Services
             .AddIntermediaryEvent<StockEvent>()
             .AddIntermediaryEvent<ThemeEvent>();
     }
@@ -142,7 +145,7 @@ internal static class Program
     private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
     {
         Logger.Error(e.Exception, "Applicarion error.");
-        MessageBox.Show(
+        _ = MessageBox.Show(
             $"Application error: \n{e.Exception.Message}",
             "Application Error",
             MessageBoxButtons.OK,
@@ -152,7 +155,7 @@ internal static class Program
     private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
         Logger.Error(e.ExceptionObject as Exception, $"Domain error.");
-        MessageBox.Show(
+        _ = MessageBox.Show(
             $"Domain error: \n{(e.ExceptionObject as Exception)?.Message}",
             "Domain Error",
             MessageBoxButtons.OK,

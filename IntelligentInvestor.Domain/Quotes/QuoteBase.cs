@@ -17,5 +17,8 @@ public abstract class QuoteBase : StockBase
 
     public virtual Stock Stock { get; set; }
 
-    public override string ToString() => $"{this.StockMarket}-{this.StockCode} ({this.Stock?.StockName}), AT {this.QuoteTime}";
+    public override string ToString()
+    {
+        return $"{this.StockMarket}-{this.StockCode} ({this.Stock?.StockName}), AT {this.QuoteTime}";
+    }
 }

@@ -48,7 +48,7 @@ public class UDataQuoteSpider : IQuoteSpider
         if (fromDate.HasValue) queryString += $"&begin_date={fromDate!:yyyy-MM-dd}";
         if (toDate.HasValue) queryString += $"&end_date={toDate!:yyyy-MM-dd}";
 
-        var response = await httpClient.GetFromJsonAsync<UDataResponse<UDataQuote>>($"udata/business/v1/app_services/market_info/{frequency}?{queryString}");
+        var response = await this.httpClient.GetFromJsonAsync<UDataResponse<UDataQuote>>($"udata/business/v1/app_services/market_info/{frequency}?{queryString}");
         if (!"0".Equals(response.ErrorCode)) throw new InvalidOperationException(response.ErrorInfo);
         var result = response.Datas.Select(x => new Quote()
         {

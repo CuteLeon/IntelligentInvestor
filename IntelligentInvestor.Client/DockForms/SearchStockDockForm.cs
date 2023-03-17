@@ -5,7 +5,7 @@ using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Intermediary.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Application;
 using IntelligentInvestor.Spider.Quotes;
 using IntelligentInvestor.Spider.Stocks;
 using Microsoft.Extensions.DependencyInjection;
@@ -71,7 +71,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
 
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -109,13 +109,13 @@ public partial class SearchStockDockForm : SingleToolDockForm
     private void AddSelectedStockToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
+        _ = this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Select));
     }
 
     private void RemoveSelectedStockToolButton_Click(object sender, EventArgs e)
     {
         if (this.currentStock == null) return;
-        this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
+        _ = this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
     }
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
@@ -168,7 +168,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
         {
             try
             {
-                await this.stockRepository.AddAsync(this.currentStock);
+                _ = await this.stockRepository.AddAsync(this.currentStock);
             }
             catch (Exception ex)
             {
@@ -186,10 +186,10 @@ public partial class SearchStockDockForm : SingleToolDockForm
             var stock = this.stockRepository.GetStock(this.currentStock.StockMarket, this.currentStock.StockCode);
             if (stock != null)
             {
-                await this.stockRepository.RemoveAsync(stock);
+                _ = await this.stockRepository.RemoveAsync(stock);
             }
 
-            if (currentStock.IsSelected)
+            if (this.currentStock.IsSelected)
                 await this.intermediaryPublisher.PublishEvent(new StockEvent(this.currentStock, StockEventTypes.Unselect));
         }
         catch (Exception ex)
@@ -223,7 +223,7 @@ public partial class SearchStockDockForm : SingleToolDockForm
             return;
         }
 
-        string keyword = this.StockComboBox.Text.Trim();
+        var keyword = this.StockComboBox.Text.Trim();
 
         this.StockComboBox.Items.Clear();
         if (string.IsNullOrWhiteSpace(keyword))

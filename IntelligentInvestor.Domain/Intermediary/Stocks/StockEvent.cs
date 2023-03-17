@@ -1,5 +1,5 @@
 ﻿using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Intermediary.Domain;
+using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
 namespace IntelligentInvestor.Domain.Intermediary.Stocks;
 

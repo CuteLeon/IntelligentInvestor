@@ -1,6 +1,7 @@
 ﻿using IntelligentInvestor.Application.Repositorys.Abstractions;
+using IntelligentInvestor.Domain.Options;
 
-namespace IntelligentInvestor.Domain.Options;
+namespace IntelligentInvestor.Application.Repositorys.Options;
 
 public interface IGenericOptionRepository : IRepositoryBase<GenericOption>
 {

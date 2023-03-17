@@ -91,7 +91,7 @@ public partial class QuoteRepositoryDocumentForm : DocumentDockForm
 
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -110,7 +110,7 @@ public partial class QuoteRepositoryDocumentForm : DocumentDockForm
 
         ToolStripControlHost startDatePickerHost = new(this.QuoteStartDatePicker);
         ToolStripControlHost endDatePickerHost = new(this.QuoteEndDatePicker);
-        int insertIndex = this.QuoteRepositoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
+        var insertIndex = this.QuoteRepositoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
         this.QuoteRepositoryToolStrip.Items.Insert(insertIndex, startDatePickerHost);
         insertIndex = this.QuoteRepositoryToolStrip.Items.IndexOf(this.EndTimeToolLabel) + 1;
         this.QuoteRepositoryToolStrip.Items.Insert(insertIndex, endDatePickerHost);

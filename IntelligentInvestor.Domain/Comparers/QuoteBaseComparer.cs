@@ -11,17 +11,13 @@ public class QuoteBaseComparer<TStockTimelyBase> : StockBaseComparer<TStockTimel
         if (x != null && y == null) return 1;
         if (x == null && y != null) return -1;
 
-        int result = base.Compare(x!, y!);
-        if (result != 0) return result;
-
-        return x!.QuoteTime > y!.QuoteTime ? 1 : -1;
+        var result = base.Compare(x!, y!);
+        return result != 0 ? result : x!.QuoteTime > y!.QuoteTime ? 1 : -1;
     }
 
     public override bool Equals(TStockTimelyBase x, TStockTimelyBase y)
     {
-        bool result = base.Equals(x, y);
-        if (!result) return result;
-
-        return x!.QuoteTime == y!.QuoteTime;
+        var result = base.Equals(x, y);
+        return !result ? result : x!.QuoteTime == y!.QuoteTime;
     }
 }

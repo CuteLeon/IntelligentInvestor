@@ -1,5 +1,5 @@
-﻿using IntelligentInvestor.Intermediary.Application;
-using IntelligentInvestor.Intermediary.Domain;
+﻿using IntelligentInvestor.Intermediary.Abstractions.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
 namespace IntelligentInvestor.Intermediary.Infrastructure;
 

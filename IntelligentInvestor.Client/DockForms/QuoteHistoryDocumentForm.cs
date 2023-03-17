@@ -96,7 +96,7 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
 
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -115,7 +115,7 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
 
         ToolStripControlHost startDatePickerHost = new(this.QuoteStartDatePicker);
         ToolStripControlHost endDatePickerHost = new(this.QuoteEndDatePicker);
-        int insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
+        var insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.StartTimeToolLabel) + 1;
         this.QuoteHistoryToolStrip.Items.Insert(insertIndex, startDatePickerHost);
         insertIndex = this.QuoteHistoryToolStrip.Items.IndexOf(this.EndTimeToolLabel) + 1;
         this.QuoteHistoryToolStrip.Items.Insert(insertIndex, endDatePickerHost);
@@ -175,35 +175,31 @@ public partial class QuoteHistoryDocumentForm : DocumentDockForm
                 return;
             }
 
-            string fileName = dialog.FileName;
-            using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
-            {
-                using (StreamWriter streamWriter = new StreamWriter(fileStream))
+            var fileName = dialog.FileName;
+            using var fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            using var streamWriter = new StreamWriter(fileStream);
+            var line = "Code\tMarket\tName\tOpenPrice\tClosePrice\tHighestPrice\tLowestPrice\tVolumn\tQuoteTime\tNextOpenPrice";
+            streamWriter.WriteLine(line);
+
+            var quotes = this.QuoteHistoryBindingSource.Cast<Quote>()
+                .OrderByDescending(quote => quote.QuoteTime)
+                .ToList();
+
+            var firstQuote = quotes.First();
+            line = $"{firstQuote.StockCode}\t{firstQuote.StockMarket}\t{this.stock.StockName}\t{firstQuote.OpenningPrice}\t{firstQuote.ClosingPrice}\t{firstQuote.HighestPrice}\t{firstQuote.LowestPrice}\t{firstQuote.Volume}\t{firstQuote.QuoteTime}\t{string.Empty}";
+            streamWriter.WriteLine(line);
+
+            _ = quotes.Skip(1)
+                .Select((quote, index) =>
                 {
-                    string line = "Code\tMarket\tName\tOpenPrice\tClosePrice\tHighestPrice\tLowestPrice\tVolumn\tQuoteTime\tNextOpenPrice";
+                    line = $"{quote.StockCode}\t{quote.StockMarket}\t{this.stock.StockName}\t{quote.OpenningPrice}\t{quote.ClosingPrice}\t{quote.HighestPrice}\t{quote.LowestPrice}\t{quote.Volume}\t{quote.QuoteTime}\t{quotes[index].OpenningPrice}";
                     streamWriter.WriteLine(line);
-
-                    var quotes = this.QuoteHistoryBindingSource.Cast<Quote>()
-                        .OrderByDescending(quote => quote.QuoteTime)
-                        .ToList();
-
-                    var firstQuote = quotes.First();
-                    line = $"{firstQuote.StockCode}\t{firstQuote.StockMarket}\t{stock.StockName}\t{firstQuote.OpenningPrice}\t{firstQuote.ClosingPrice}\t{firstQuote.HighestPrice}\t{firstQuote.LowestPrice}\t{firstQuote.Volume}\t{firstQuote.QuoteTime}\t{string.Empty}";
-                    streamWriter.WriteLine(line);
-
-                    quotes.Skip(1)
-                        .Select((quote, index) =>
-                        {
-                            line = $"{quote.StockCode}\t{quote.StockMarket}\t{stock.StockName}\t{quote.OpenningPrice}\t{quote.ClosingPrice}\t{quote.HighestPrice}\t{quote.LowestPrice}\t{quote.Volume}\t{quote.QuoteTime}\t{quotes[index].OpenningPrice}";
-                            streamWriter.WriteLine(line);
-                            return line;
-                        })
-                        .Count();
-                }
-            }
+                    return line;
+                })
+                .Count();
         }
 
-        MessageBox.Show(this, $"{this.Stock.StockName}-{this.Stock.StockCode} quotes exported successfully!", "Export successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        _ = MessageBox.Show(this, $"{this.Stock.StockName}-{this.Stock.StockCode} quotes exported successfully!", "Export successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void MLTransformButton_Click(object sender, EventArgs e)

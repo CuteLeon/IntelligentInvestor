@@ -28,6 +28,6 @@ public class MockChartSpider : IChartSpider
 
     public async Task<Image> GetChartAsync(StockMarkets stockMarket, string stockCode, QuoteFrequencys quoteFrequency)
     {
-        return this.chartsFaker.PickRandom(bitmaps);
+        return this.chartsFaker.PickRandom(this.bitmaps);
     }
 }

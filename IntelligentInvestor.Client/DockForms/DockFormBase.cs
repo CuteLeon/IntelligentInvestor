@@ -78,7 +78,7 @@ public partial class DockFormBase : DockContent, IThemeAppliable
 
     protected override string GetPersistString()
     {
-        string persistValue = this.PersistValue;
+        var persistValue = this.PersistValue;
         return $"{base.GetPersistString()}{(string.IsNullOrEmpty(persistValue) ? string.Empty : $"@{persistValue}")}";
     }
 }

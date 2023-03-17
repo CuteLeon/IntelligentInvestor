@@ -1,6 +1,6 @@
-﻿using IntelligentInvestor.Intermediary.Domain;
+﻿using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
-namespace IntelligentInvestor.Intermediary.Application;
+namespace IntelligentInvestor.Intermediary.Abstractions.Application;
 
 public interface IIntermediaryCommandHandler<TCommand> : IIntermediaryRequestHandler<TCommand, ValueTuple>
     where TCommand : IIntermediaryCommand

@@ -7,20 +7,25 @@ public class StockBaseComparer<TStockBase> : IEqualityComparer<TStockBase>, ICom
 {
     public virtual int Compare(TStockBase x, TStockBase y)
     {
-        if (ReferenceEquals(x, y)) return 0;
-        if (x != null && y == null) return 1;
-        if (x == null && y != null) return -1;
-
-        if (x!.StockMarket != y!.StockMarket)
-            return x.StockMarket > y.StockMarket ? 1 : -1;
-
-        return string.Compare(x!.StockCode, y!.StockCode, StringComparison.OrdinalIgnoreCase);
+        return ReferenceEquals(x, y)
+            ? 0
+            : x != null && y == null
+            ? 1
+            : x == null && y != null
+            ? -1
+            : x!.StockMarket != y!.StockMarket
+            ? x.StockMarket > y.StockMarket ? 1 : -1
+            : string.Compare(x!.StockCode, y!.StockCode, StringComparison.OrdinalIgnoreCase);
     }
 
     public virtual bool Equals(TStockBase x, TStockBase y)
-        => ReferenceEquals(x, y) || (x?.StockMarket == y?.StockMarket &&
-        string.Equals(x?.StockCode, y?.StockCode, StringComparison.OrdinalIgnoreCase));
+    {
+        return ReferenceEquals(x, y) || (x?.StockMarket == y?.StockMarket &&
+            string.Equals(x?.StockCode, y?.StockCode, StringComparison.OrdinalIgnoreCase));
+    }
 
     public virtual int GetHashCode(TStockBase obj)
-        => obj.GetHashCode();
+    {
+        return obj.GetHashCode();
+    }
 }

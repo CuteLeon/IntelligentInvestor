@@ -25,7 +25,7 @@ public class UDataHotStockSpider : IHotStockSpider
 
     public async Task<IEnumerable<Stock>> GetHotStocksAsync()
     {
-        var response = await httpClient.GetFromJsonAsync<UDataResponse<UDataHotStock>>("udata/business/v1/app_services/market_info/lh_daily?fields=secu_abbr,secu_code");
+        var response = await this.httpClient.GetFromJsonAsync<UDataResponse<UDataHotStock>>("udata/business/v1/app_services/market_info/lh_daily?fields=secu_abbr,secu_code");
         if (!"0".Equals(response.ErrorCode)) throw new InvalidOperationException(response.ErrorInfo);
         var stocks = response.Datas
             .Where(x => !string.IsNullOrWhiteSpace(x.StockName))

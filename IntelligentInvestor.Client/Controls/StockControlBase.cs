@@ -3,76 +3,75 @@ using IntelligentInvestor.Client.Extensions;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Stocks;
 
-namespace IntelligentInvestor.Client.Controls
+namespace IntelligentInvestor.Client.Controls;
+
+public class StockControlBase : UserControl
 {
-    public class StockControlBase : UserControl
+    public StockControlBase() : base()
     {
-        public StockControlBase() : base()
+    }
+
+    protected readonly StockBaseComparer<Stock> StockComparer = new();
+
+    private Color labelForecolor;
+
+    [Browsable(true)]
+    public virtual Color LabelForecolor
+    {
+        get => this.labelForecolor;
+        set
         {
+            this.labelForecolor = value;
+
+            _ = this.InvokeIfRequired<ValueType, Action<Color>>(this.SetLabelForecolor, value);
         }
+    }
 
-        protected readonly StockBaseComparer<Stock> StockComparer = new();
+    private Color valueForecolor;
 
-        private Color labelForecolor;
-
-        [Browsable(true)]
-        public virtual Color LabelForecolor
+    [Browsable(true)]
+    public virtual Color ValueForecolor
+    {
+        get => this.valueForecolor;
+        set
         {
-            get => this.labelForecolor;
-            set
-            {
-                this.labelForecolor = value;
+            this.valueForecolor = value;
 
-                this.InvokeIfRequired<ValueType, Action<Color>>(this.SetLabelForecolor, value);
+            _ = this.InvokeIfRequired<ValueType, Action<Color>>(this.SetValueForecolor, value);
+        }
+    }
+
+    private Stock stock;
+
+    [Browsable(false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public virtual Stock Stock
+    {
+        get => this.stock;
+        set
+        {
+            if (!this.StockComparer.Equals(this.stock, value))
+            {
+                this.stock = value;
+
+                _ = this.InvokeIfRequired<ValueType, Action<Stock>>(this.StockToFace, value);
             }
         }
+    }
 
-        private Color valueForecolor;
+    public virtual void SetLabelForecolor(Color obj)
+    {
+    }
 
-        [Browsable(true)]
-        public virtual Color ValueForecolor
-        {
-            get => this.valueForecolor;
-            set
-            {
-                this.valueForecolor = value;
+    public virtual void SetValueForecolor(Color obj)
+    {
+    }
 
-                this.InvokeIfRequired<ValueType, Action<Color>>(this.SetValueForecolor, value);
-            }
-        }
+    public virtual void StockToFace(Stock obj)
+    {
+    }
 
-        private Stock stock;
-
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public virtual Stock Stock
-        {
-            get => this.stock;
-            set
-            {
-                if (!this.StockComparer.Equals(this.stock, value))
-                {
-                    this.stock = value;
-
-                    this.InvokeIfRequired<ValueType, Action<Stock>>(this.StockToFace, value);
-                }
-            }
-        }
-
-        public virtual void SetLabelForecolor(Color obj)
-        {
-        }
-
-        public virtual void SetValueForecolor(Color obj)
-        {
-        }
-
-        public virtual void StockToFace(Stock obj)
-        {
-        }
-
-        public virtual void EntityToFace(StockBase? entity)
-        {
-        }
+    public virtual void EntityToFace(StockBase? entity)
+    {
     }
 }

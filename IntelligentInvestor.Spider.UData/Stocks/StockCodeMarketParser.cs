@@ -6,7 +6,7 @@ namespace IntelligentInvestor.Spider.UData.Stocks;
 [Obsolete("Token expired")]
 public class StockCodeMarketParser
 {
-    private readonly Regex stockCodeMarketRegex = new Regex(
+    private readonly Regex stockCodeMarketRegex = new(
         "(?<Code>\\d+)(\\.(?<Market>[a-zA-Z]+))?",
         RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
 

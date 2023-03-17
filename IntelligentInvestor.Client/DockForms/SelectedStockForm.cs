@@ -3,7 +3,7 @@ using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Comparers;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Intermediary.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Application;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -12,7 +12,7 @@ namespace IntelligentInvestor.Client.DockForms;
 
 public partial class SelectedStockForm : SingleToolDockForm
 {
-    private readonly StockBaseComparer<Stock> stockComparer = new StockBaseComparer<Stock>();
+    private readonly StockBaseComparer<Stock> stockComparer = new();
     private readonly IServiceProvider serviceProvider;
     private readonly IIntermediaryEventHandler<StockEvent> stockEventHandler;
     private readonly IIntermediaryPublisher intermediaryPublisher;
@@ -41,7 +41,7 @@ public partial class SelectedStockForm : SingleToolDockForm
         this.StockMarketGridViewColumn.DataPropertyName = nameof(StockBase.StockMarket);
         this.StockNameGridViewColumn.DataPropertyName = nameof(Stock.StockName);
 
-        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised += this.StockEventHandler_EventRaised;
     }
 
     private Stock currentStock;
@@ -71,14 +71,14 @@ public partial class SelectedStockForm : SingleToolDockForm
 
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
                     this.logger.LogError(ex, $"Failed to add or update stock {value.GetFullCode}.");
                 }
             }
-            this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
+            _ = this.intermediaryPublisher.PublishEvent(new StockEvent(value, StockEventTypes.ChangeCurrent));
         }
     }
 
@@ -147,12 +147,12 @@ public partial class SelectedStockForm : SingleToolDockForm
 
     private void RefreshToolButton_Click(object sender, EventArgs e)
     {
-        this.RefreshDataSource();
+        _ = this.RefreshDataSource();
     }
 
     private void RefreshMenuItem_Click(object sender, EventArgs e)
     {
-        this.RefreshDataSource();
+        _ = this.RefreshDataSource();
     }
 
     private void RemoveToolButton_Click(object sender, EventArgs e)
@@ -167,7 +167,7 @@ public partial class SelectedStockForm : SingleToolDockForm
 
     private async void SearchToolTextBox_TextChanged(object sender, EventArgs e)
     {
-        string keyWord = this.SearchToolTextBox.Text;
+        var keyWord = this.SearchToolTextBox.Text;
 
         if (string.IsNullOrWhiteSpace(keyWord))
         {
@@ -217,7 +217,7 @@ public partial class SelectedStockForm : SingleToolDockForm
         this.logger.LogDebug($"Unselect stock {stock.GetFullCode()} ...");
         try
         {
-            await stockRepository.AddOrUpdateStockAsync(stock);
+            _ = await this.stockRepository.AddOrUpdateStockAsync(stock);
         }
         catch (Exception ex)
         {
@@ -239,7 +239,7 @@ public partial class SelectedStockForm : SingleToolDockForm
         this.logger.LogDebug($"Select stock {stock.GetFullCode()} ...");
         try
         {
-            await this.stockRepository.AddOrUpdateStockAsync(stock);
+            _ = await this.stockRepository.AddOrUpdateStockAsync(stock);
         }
         catch (Exception ex)
         {
@@ -248,16 +248,18 @@ public partial class SelectedStockForm : SingleToolDockForm
 
         if (!this.CheckDataSourceContains(stock))
         {
-            this.SelectedStockStockBindingSource.Add(stock);
+            _ = this.SelectedStockStockBindingSource.Add(stock);
         }
     }
 
     private bool CheckDataSourceContains(Stock stock)
-        => this.SelectedStockStockBindingSource.Cast<Stock>()?.Contains(stock, this.stockComparer) ?? false;
+    {
+        return this.SelectedStockStockBindingSource.Cast<Stock>()?.Contains(stock, this.stockComparer) ?? false;
+    }
 
     private int? GetIndexInDataSource(Stock stock)
     {
-        int index = 0;
+        var index = 0;
         foreach (var current in this.SelectedStockStockBindingSource.Cast<Stock>())
         {
             if (this.stockComparer.Equals(stock, current)) return index;
@@ -268,7 +270,7 @@ public partial class SelectedStockForm : SingleToolDockForm
 
     private void ShowSearchStockDockForm()
     {
-        SearchStockDockForm dockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
+        var dockForm = this.serviceProvider.GetRequiredService<SearchStockDockForm>();
         if (dockForm == null)
         {
             return;
@@ -279,6 +281,6 @@ public partial class SelectedStockForm : SingleToolDockForm
 
     private void SelectedStockStockForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-        this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised -= this.StockEventHandler_EventRaised;
     }
 }

@@ -7,16 +7,18 @@ namespace IntelligentInvestor.Client.Extensions;
 public static class IntelligentInvestorClientExtension
 {
     public static IServiceCollection AddIntelligentInvestorClient(this IServiceCollection services)
-        => services
-            .AddSingleton<IUIThemeHandler, UIThemeHandler>()
-            .AddSingleton<MainForm>()
-            .AddSingleton<TradeHistoryForm>()
-            .AddSingleton<MarketIndexForm>()
-            .AddSingleton<TradeQuoteForm>()
-            .AddSingleton<HotStockDockForm>()
-            .AddSingleton<SearchStockDockForm>()
-            .AddSingleton<SelectedStockForm>()
-            .AddTransient<ChartDocumentForm>()
-            .AddTransient<QuoteHistoryDocumentForm>()
-            .AddTransient<QuoteRepositoryDocumentForm>();
+    {
+        return services
+                .AddSingleton<IUIThemeHandler, UIThemeHandler>()
+                .AddSingleton<MainForm>()
+                .AddSingleton<TradeHistoryForm>()
+                .AddSingleton<MarketIndexForm>()
+                .AddSingleton<TradeQuoteForm>()
+                .AddSingleton<HotStockDockForm>()
+                .AddSingleton<SearchStockDockForm>()
+                .AddSingleton<SelectedStockForm>()
+                .AddTransient<ChartDocumentForm>()
+                .AddTransient<QuoteHistoryDocumentForm>()
+                .AddTransient<QuoteRepositoryDocumentForm>();
+    }
 }

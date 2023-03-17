@@ -5,7 +5,7 @@ using IntelligentInvestor.Client.Themes;
 using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
-using IntelligentInvestor.Intermediary.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Application;
 using IntelligentInvestor.Spider.Quotes;
 using Microsoft.Extensions.Logging;
 
@@ -41,7 +41,7 @@ public partial class MarketIndexForm : SingleToolDockForm
         this.quoteSpider = quoteSpider;
 
         this.MainMarketIndexControl.ThemeHandler = themeHandler;
-        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised += this.StockEventHandler_EventRaised;
     }
 
     private Stock currentStock;
@@ -74,7 +74,7 @@ public partial class MarketIndexForm : SingleToolDockForm
                 }));
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -146,7 +146,6 @@ public partial class MarketIndexForm : SingleToolDockForm
         this.AutoRefresh = false;
     }
 
-
     public async Task RefreshMarketIndex()
     {
         try
@@ -157,7 +156,7 @@ public partial class MarketIndexForm : SingleToolDockForm
 
             if (quote != null)
             {
-                await this.quoteRepository.AddAsync(quote);
+                _ = await this.quoteRepository.AddAsync(quote);
             }
         }
         catch (Exception ex)
@@ -193,6 +192,6 @@ public partial class MarketIndexForm : SingleToolDockForm
     private void MarketIndexForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
     {
         this.AutoRefreshTimer.Stop();
-        this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised -= this.StockEventHandler_EventRaised;
     }
 }

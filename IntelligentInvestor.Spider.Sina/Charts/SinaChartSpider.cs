@@ -4,7 +4,7 @@ using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Spider.Charts;
 using Microsoft.Extensions.Logging;
 
-namespace IntelligentInvestor.Spider.Mock.Charts;
+namespace IntelligentInvestor.Spider.Sina.Charts;
 
 public class SinaChartSpider : IChartSpider
 {
@@ -39,7 +39,7 @@ public class SinaChartSpider : IChartSpider
         var address = $"http://image.sinajs.cn/newchart/{frequency}/n/{market}{stockCode}.gif";
         var result = await this.httpClient.GetStreamAsync(address);
 
-        Image image = Image.FromStream(result);
+        var image = Image.FromStream(result);
         return image;
     }
 }

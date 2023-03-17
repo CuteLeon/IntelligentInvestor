@@ -1,6 +1,6 @@
-﻿using IntelligentInvestor.Intermediary.Domain;
+﻿using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
-namespace IntelligentInvestor.Intermediary.Application;
+namespace IntelligentInvestor.Intermediary.Abstractions.Application;
 
 public interface IIntermediaryEventHandler<TEvent> : INotificationHandler<TEvent>
     where TEvent : IIntermediaryEvent

@@ -18,32 +18,19 @@ public static class ControlInvokeExtension
         }
 
         var args = @delegate.Method.GetParameters();
-        int maxLength = args.Length;
-        int minLength = args.Count(p => !p.IsOptional);
-        if (@params.Length < minLength || @params.Length > maxLength)
-        {
-            throw new ArgumentException($"Parameters count ({@params.Length}) doesn't between range of Delegate required ({minLength}~{maxLength}).");
-        }
-
-        if (control == null || !control.InvokeRequired)
-        {
-            return (TReturn)@delegate.DynamicInvoke(@params);
-        }
-        else
-        {
-            return (TReturn)control?.Invoke(new Func<object>(() => @delegate.DynamicInvoke(@params)));
-        }
+        var maxLength = args.Length;
+        var minLength = args.Count(p => !p.IsOptional);
+        return @params.Length < minLength || @params.Length > maxLength
+            ? throw new ArgumentException($"Parameters count ({@params.Length}) doesn't between range of Delegate required ({minLength}~{maxLength}).")
+            : control == null || !control.InvokeRequired
+            ? (TReturn)@delegate.DynamicInvoke(@params)
+            : (TReturn)control?.Invoke(new Func<object>(() => @delegate.DynamicInvoke(@params)));
     }
 
     public static object InvokeIfRequired(this Control control, Delegate @delegate, params object[] @params)
     {
-        if (control == null || !control.InvokeRequired)
-        {
-            return @delegate.DynamicInvoke(@params);
-        }
-        else
-        {
-            return control?.Invoke(new Func<object>(() => @delegate.DynamicInvoke(@params)));
-        }
+        return control == null || !control.InvokeRequired
+            ? @delegate.DynamicInvoke(@params)
+            : (control?.Invoke(new Func<object>(() => @delegate.DynamicInvoke(@params))));
     }
 }

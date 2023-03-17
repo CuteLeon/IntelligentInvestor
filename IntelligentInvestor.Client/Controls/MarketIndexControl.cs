@@ -67,14 +67,14 @@ public partial class MarketIndexControl : StockControlBase
         }
         else
         {
-            Color quoteForecolor = this.ThemeHandler?.GetQuoteForecolor(quote.FluctuatingRange) ?? Color.Black;
+            var quoteForecolor = this.ThemeHandler?.GetQuoteForecolor(quote.FluctuatingRange) ?? Color.Black;
             this.CurrentPriceValueLabel.ForeColor = quoteForecolor;
             this.FluctuatingRangeValueLabel.ForeColor = quoteForecolor;
             this.FluctuatingRateValueLabel.ForeColor = quoteForecolor;
 
             this.CurrentPriceValueLabel.Text = quote.CurrentPrice.ToString("N4");
             this.FluctuatingRangeValueLabel.Text = quote.FluctuatingRange.ToString("N4");
-            this.FluctuatingRateValueLabel.Text = $"{quote.FluctuatingRate.ToString("N4")} %";
+            this.FluctuatingRateValueLabel.Text = $"{quote.FluctuatingRate:N4} %";
             this.CountValueLabel.Text = quote.Volume.ToString("N0");
             this.AmountValueLabel.Text = quote.Amount.ToString("N0");
             this.QuoteTimeValueLabel.Text = quote.QuoteTime.ToString("HH:mm:ss");

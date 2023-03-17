@@ -28,7 +28,7 @@ public class SinaStockSpider : IStockSpider
         if (string.IsNullOrWhiteSpace(keyword))
             throw new ArgumentException(null, nameof(keyword));
 
-        string request = $"https://suggest3.sinajs.cn/suggest/key={keyword}";
+        var request = $"https://suggest3.sinajs.cn/suggest/key={keyword}";
         var result = await this.httpClient.GetStringAsync(request);
         var matches = this.searchStockRegex.Matches(result);
         var stocks = matches.Cast<Match>()

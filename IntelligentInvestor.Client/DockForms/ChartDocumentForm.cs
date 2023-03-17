@@ -81,7 +81,7 @@ public partial class ChartDocumentForm : DocumentDockForm
 
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -103,7 +103,7 @@ public partial class ChartDocumentForm : DocumentDockForm
 
         try
         {
-            Image chartImage = await this.chartSpider.GetChartAsync(
+            var chartImage = await this.chartSpider.GetChartAsync(
                 this.stock.StockMarket,
                 this.stock.StockCode,
                 frequency);

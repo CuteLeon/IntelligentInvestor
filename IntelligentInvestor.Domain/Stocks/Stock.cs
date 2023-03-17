@@ -1,6 +1,4 @@
 ﻿using IntelligentInvestor.Domain.Companys;
-using IntelligentInvestor.Domain.Quotes;
-using IntelligentInvestor.Domain.Trades;
 
 namespace IntelligentInvestor.Domain.Stocks;
 
@@ -23,21 +21,21 @@ public class Stock : StockBase
 
     public virtual Company Company { get; set; }
 
-    public override string ToString() => $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
+    public override string ToString()
+    {
+        return $"{this.StockName} ({this.StockMarket}-{this.StockCode})";
+    }
 
     public string GetFullCode()
-        => $"{this.StockMarket}{FullCodeSpliter}{this.StockCode}{FullCodeSpliter}{this.StockName}";
+    {
+        return $"{this.StockMarket}{FullCodeSpliter}{this.StockCode}{FullCodeSpliter}{this.StockName}";
+    }
 
     public static (StockMarkets StockMarket, string StockCode, string StockName) GetMarketCode(string fullCode)
     {
         var values = fullCode.Split(new[] { FullCodeSpliter }, 3);
-        if (values.Length == 3)
-        {
-            return (Enum.TryParse(values[0], out StockMarkets stockMarket) ? stockMarket : StockMarkets.NotSpecified, values[1], values[2]);
-        }
-        else
-        {
-            return (StockMarkets.NotSpecified, string.Empty, string.Empty);
-        }
+        return values.Length == 3
+            ? ((StockMarkets StockMarket, string StockCode, string StockName))(Enum.TryParse(values[0], out StockMarkets stockMarket) ? stockMarket : StockMarkets.NotSpecified, values[1], values[2])
+            : ((StockMarkets StockMarket, string StockCode, string StockName))(StockMarkets.NotSpecified, string.Empty, string.Empty);
     }
 }

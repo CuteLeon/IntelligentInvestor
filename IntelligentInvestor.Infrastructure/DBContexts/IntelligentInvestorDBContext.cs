@@ -33,15 +33,15 @@ public class IntelligentInvestorDBContext : DbContext
     {
         base.OnModelCreating(builder);
 
-        builder.Entity<Stock>().HasKey(x => new { x.StockMarket, x.StockCode });
-        builder.Entity<Quote>().HasKey(x => new { x.StockMarket, x.StockCode, x.Frequency, x.QuoteTime });
-        builder.Entity<Company>().HasKey(x => new { x.StockMarket, x.StockCode });
-        builder.Entity<TradeStrand>().HasKey(x => new { x.StockMarket, x.StockCode, x.QuoteTime });
-        builder.Entity<GenericOption>().HasKey(x => new { x.OptionName, x.OwnerLevel, x.Category });
+        _ = builder.Entity<Stock>().HasKey(x => new { x.StockMarket, x.StockCode });
+        _ = builder.Entity<Quote>().HasKey(x => new { x.StockMarket, x.StockCode, x.Frequency, x.QuoteTime });
+        _ = builder.Entity<Company>().HasKey(x => new { x.StockMarket, x.StockCode });
+        _ = builder.Entity<TradeStrand>().HasKey(x => new { x.StockMarket, x.StockCode, x.QuoteTime });
+        _ = builder.Entity<GenericOption>().HasKey(x => new { x.OptionName, x.OwnerLevel, x.Category });
 
-        builder.Entity<Stock>().HasOne(x => x.Company).WithOne(x => x.Stock).HasForeignKey<Company>(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey<Stock>(x => new { x.StockMarket, x.StockCode }).IsRequired();
-        builder.Entity<Quote>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
-        builder.Entity<TradeStrand>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
+        _ = builder.Entity<Stock>().HasOne(x => x.Company).WithOne(x => x.Stock).HasForeignKey<Company>(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey<Stock>(x => new { x.StockMarket, x.StockCode }).IsRequired();
+        _ = builder.Entity<Quote>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
+        _ = builder.Entity<TradeStrand>().HasOne(x => x.Stock).WithMany().HasForeignKey(x => new { x.StockMarket, x.StockCode }).HasPrincipalKey(x => new { x.StockMarket, x.StockCode }).IsRequired();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

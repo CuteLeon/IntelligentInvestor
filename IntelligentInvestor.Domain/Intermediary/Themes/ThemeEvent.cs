@@ -1,5 +1,5 @@
 ﻿using IntelligentInvestor.Domain.Themes;
-using IntelligentInvestor.Intermediary.Domain;
+using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
 namespace IntelligentInvestor.Domain.Intermediary.Themes;
 

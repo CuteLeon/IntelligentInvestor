@@ -26,24 +26,26 @@ public class StockRepository : RepositoryBase<Stock>, IStockRepository
     }
 
     public Stock? GetStock(StockMarkets stockMarket, string stockCode)
-        => this.DbContext.Find<Stock>(stockMarket, stockCode);
+    {
+        return this.DbContext.Find<Stock>(stockMarket, stockCode);
+    }
 
     public async Task<Stock?> GetStockAsync(StockMarkets stockMarket, string stockCode)
-        => await this.DbContext.FindAsync<Stock>(stockMarket, stockCode);
+    {
+        return await this.DbContext.FindAsync<Stock>(stockMarket, stockCode);
+    }
 
     public Stock AddOrUpdateStock(Stock stock)
     {
-        if (this.Set().Any(x => x.StockMarket == stock.StockMarket && x.StockCode == stock.StockCode))
-            return this.Update(stock);
-        else
-            return this.Add(stock);
+        return this.Set().Any(x => x.StockMarket == stock.StockMarket && x.StockCode == stock.StockCode)
+            ? this.Update(stock)
+            : this.Add(stock);
     }
 
     public async Task<Stock> AddOrUpdateStockAsync(Stock stock)
     {
-        if (await this.Set().AnyAsync(x => x.StockMarket == stock.StockMarket && x.StockCode == stock.StockCode))
-            return await this.UpdateAsync(stock);
-        else
-            return await this.AddAsync(stock);
+        return await this.Set().AnyAsync(x => x.StockMarket == stock.StockMarket && x.StockCode == stock.StockCode)
+            ? await this.UpdateAsync(stock)
+            : await this.AddAsync(stock);
     }
 }

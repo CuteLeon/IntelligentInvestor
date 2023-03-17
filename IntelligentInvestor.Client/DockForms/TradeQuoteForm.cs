@@ -7,7 +7,7 @@ using IntelligentInvestor.Domain.Intermediary.Stocks;
 using IntelligentInvestor.Domain.Quotes;
 using IntelligentInvestor.Domain.Stocks;
 using IntelligentInvestor.Domain.Trades;
-using IntelligentInvestor.Intermediary.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Application;
 using IntelligentInvestor.Spider.Quotes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -50,7 +50,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
 
         this.MainStockQuoteControl.ThemeHandler = themeHandler;
         this.MainFiveGearControl.ThemeHandler = themeHandler;
-        this.stockEventHandler.EventRaised += StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised += this.StockEventHandler_EventRaised;
     }
 
     private Stock? currentStock;
@@ -85,7 +85,7 @@ public partial class TradeQuoteForm : SingleToolDockForm
                 }));
                 try
                 {
-                    this.stockRepository.AddOrUpdateStock(value);
+                    _ = this.stockRepository.AddOrUpdateStock(value);
                 }
                 catch (Exception ex)
                 {
@@ -177,8 +177,8 @@ public partial class TradeQuoteForm : SingleToolDockForm
             this.CurrentQuote = quote;
             this.CurrentTradeStrand = tradeStrand;
 
-            if (quote != null) await this.quoteRepository.AddAsync(quote);
-            if (tradeStrand != null) await this.tradeStrandRepository.AddAsync(tradeStrand);
+            if (quote != null) _ = await this.quoteRepository.AddAsync(quote);
+            if (tradeStrand != null) _ = await this.tradeStrandRepository.AddAsync(tradeStrand);
         }
         catch (Exception ex)
         {
@@ -250,6 +250,6 @@ public partial class TradeQuoteForm : SingleToolDockForm
     private void TradeQuoteForm_FormClosed(object sender, FormClosedEventArgs e)
     {
         this.AutoRefreshTimer.Stop();
-        this.stockEventHandler.EventRaised -= StockEventHandler_EventRaised;
+        this.stockEventHandler.EventRaised -= this.StockEventHandler_EventRaised;
     }
 }

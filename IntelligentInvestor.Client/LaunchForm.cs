@@ -18,7 +18,7 @@ public partial class LaunchForm : Form
         var result = false;
         WinApplication.DoEvents();
 
-        await Task.WhenAll(
+        _ = await Task.WhenAll(
             Task.Delay(3000),
             Task.Run(async () =>
             {
@@ -41,7 +41,9 @@ public partial class LaunchForm : Form
                 TaskContinuationOptions.ExecuteSynchronously);
     }
 
-    private void ShowMessage(string message) => this.Invoke(() =>
+    private void ShowMessage(string message)
+    {
+        this.Invoke(() =>
     {
         this.Invoke(() =>
         {
@@ -49,4 +51,5 @@ public partial class LaunchForm : Form
             WinApplication.DoEvents();
         });
     });
+    }
 }

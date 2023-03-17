@@ -1,7 +1,7 @@
-﻿using IntelligentInvestor.Intermediary.Application;
-using IntelligentInvestor.Intermediary.Domain;
+﻿using IntelligentInvestor.Intermediary.Abstractions.Application;
+using IntelligentInvestor.Intermediary.Abstractions.Domain;
 
-namespace IntelligentInvestor.Intermediary.Extensions;
+namespace IntelligentInvestor.Intermediary.Abstractions.Extensions;
 
 public static class IntelligentInvestorIntermediaryHandlerExtension
 {
@@ -16,7 +16,7 @@ public static class IntelligentInvestorIntermediaryHandlerExtension
             typeof(TNotificationHandlerService),
             sp => sp.GetRequiredService<INotificationHandler<TNotification>>(),
             lifetime));
-        services.AddIntermediaryNotificationHandler<TNotificationHandlerImplement, TNotification>(lifetime);
+        _ = services.AddIntermediaryNotificationHandler<TNotificationHandlerImplement, TNotification>(lifetime);
         return services;
     }
 
@@ -31,7 +31,7 @@ public static class IntelligentInvestorIntermediaryHandlerExtension
             typeof(TCommandHandlerService),
             sp => sp.GetRequiredService<IRequestHandler<TCommand, ValueTuple>>(),
             lifetime));
-        services.AddIntermediaryCommandHandler<TCommandHandlerImplement, TCommand>(lifetime);
+        _ = services.AddIntermediaryCommandHandler<TCommandHandlerImplement, TCommand>(lifetime);
         return services.AddIntermediaryRequestHandler<TCommandHandlerService, TCommandHandlerImplement, TCommand, ValueTuple>(lifetime);
     }
 
@@ -46,7 +46,7 @@ public static class IntelligentInvestorIntermediaryHandlerExtension
             typeof(TRequestHandlerService),
             sp => sp.GetRequiredService<IRequestHandler<TRequest, TResponse>>(),
             lifetime));
-        services.AddIntermediaryRequestHandler<TRequestHandlerImplement, TRequest, TResponse>(lifetime);
+        _ = services.AddIntermediaryRequestHandler<TRequestHandlerImplement, TRequest, TResponse>(lifetime);
         return services;
     }
 
@@ -114,30 +114,36 @@ public static class IntelligentInvestorIntermediaryHandlerExtension
         TNotificationHandler singletonInstance)
         where TNotificationHandler : class, IIntermediaryNotificationHandler<TNotification>
         where TNotification : IIntermediaryNotification
-        => services
-            .AddSingleton<TNotificationHandler>(singletonInstance)
-            .AddSingleton<INotificationHandler<TNotification>>(singletonInstance)
-            .AddSingleton<IIntermediaryNotificationHandler<TNotification>>(singletonInstance);
+    {
+        return services
+                .AddSingleton(singletonInstance)
+                .AddSingleton<INotificationHandler<TNotification>>(singletonInstance)
+                .AddSingleton<IIntermediaryNotificationHandler<TNotification>>(singletonInstance);
+    }
 
     public static IServiceCollection AddIntermediaryCommandHandlerSingleton<TCommandHandler, TCommand>(
         this IServiceCollection services,
         TCommandHandler singletonInstance)
         where TCommandHandler : class, IIntermediaryCommandHandler<TCommand>
         where TCommand : IIntermediaryCommand
-        => services
-            .AddSingleton<TCommandHandler>(singletonInstance)
-            .AddIntermediaryRequestHandlerSingleton<TCommandHandler, TCommand, ValueTuple>(singletonInstance)
-            .AddSingleton<IIntermediaryCommandHandler<TCommand>>(singletonInstance);
+    {
+        return services
+                .AddSingleton(singletonInstance)
+                .AddIntermediaryRequestHandlerSingleton<TCommandHandler, TCommand, ValueTuple>(singletonInstance)
+                .AddSingleton<IIntermediaryCommandHandler<TCommand>>(singletonInstance);
+    }
 
     public static IServiceCollection AddIntermediaryRequestHandlerSingleton<TRequestHandler, TRequest, TResponse>(
         this IServiceCollection services,
         TRequestHandler singletonInstance)
         where TRequestHandler : class, IIntermediaryRequestHandler<TRequest, TResponse>
         where TRequest : IIntermediaryRequest<TResponse>
-        => services
-            .AddSingleton<TRequestHandler>(singletonInstance)
-            .AddSingleton<IRequestHandler<TRequest, TResponse>>(singletonInstance)
-            .AddSingleton<IIntermediaryRequestHandler<TRequest, TResponse>>(singletonInstance);
+    {
+        return services
+                .AddSingleton(singletonInstance)
+                .AddSingleton<IRequestHandler<TRequest, TResponse>>(singletonInstance)
+                .AddSingleton<IIntermediaryRequestHandler<TRequest, TResponse>>(singletonInstance);
+    }
 
     public static IServiceCollection AddIntermediaryEvent<TEvent>(
         this IServiceCollection services)
